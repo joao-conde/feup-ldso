@@ -1,0 +1,66 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Loopback server for UPorto cultural exposition app",
+  "keywords": [
+    "loopback-application",
+    "loopback"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=8.9"
+  },
+  "scripts": {
+    "build:all-dist": "npm run build:dist8 && npm run build:dist10",
+    "build:apidocs": "lb-apidocs",
+    "build": "lb-tsc",
+    "build:dist8": "lb-tsc es2017",
+    "build:dist10": "lb-tsc es2018",
+    "build:watch": "lb-tsc --watch",
+    "clean": "lb-clean dist*",
+    "dev": "npm run build && npm run start",
+    "lint": "npm run prettier:check && npm run tslint",
+    "lint:fix": "npm run tslint:fix && npm run prettier:fix",
+    "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
+    "prettier:check": "npm run prettier:cli -- -l",
+    "prettier:fix": "npm run prettier:cli -- --write",
+    "tslint": "lb-tslint",
+    "tslint:fix": "npm run tslint -- --fix",
+    "pretest": "npm run clean && npm run build",
+    "test": "lb-mocha --allow-console-logs \"DIST/test\"",
+    "posttest": "npm run lint",
+    "test:dev": "lb-mocha --allow-console-logs DIST/test/**/*.js && npm run posttest",
+    "prestart": "npm run build",
+    "start": "node .",
+    "prepublishOnly": "npm run test"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "",
+  "license": "",
+  "files": [
+    "README.md",
+    "index.js",
+    "index.d.ts",
+    "dist*/src",
+    "dist*/index*",
+    "src"
+  ],
+  "dependencies": {
+    "@loopback/boot": "^0.14.3",
+    "@loopback/context": "^0.12.13",
+    "@loopback/core": "^0.11.14",
+    "@loopback/dist-util": "^0.3.7",
+    "@loopback/openapi-v3": "^0.15.2",
+    "@loopback/repository": "^0.19.0",
+    "@loopback/rest": "^0.25.2",
+    "@loopback/service-proxy": "^0.8.8",
+    "loopback-connector-mongodb": "^3.8.0"
+  },
+  "devDependencies": {
+    "@loopback/build": "^0.7.4",
+    "@loopback/testlab": "^0.14.1",
+    "@types/node": "^10.11.2"
+  }
+}
