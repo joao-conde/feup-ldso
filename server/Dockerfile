@@ -1,4 +1,4 @@
-FROM node:alpine as build-stage
+FROM node:8.12.0-alpine as build-stage
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN yarn
