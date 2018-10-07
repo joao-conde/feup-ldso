@@ -17,3 +17,33 @@ Although there are somewhat similar apps (_e.g._ [Study UK Exhibitions](https://
 -   João Paulo Madureira Damas
 -   Luís Noites Martins
 -   Mariana Lopes da Silva
+
+### Mobile App Development Environment Setup
+
+Inside `mobile` directory:
+
+- Run docker
+
+```
+docker-compose up --build
+```
+
+- Wait for QR code to show up and scan with mobile phone using the [Expo](https://expo.io) app
+
+  If you can't access the url provided by Expo, try uncommenting the following line on the `Dockerfile` with your [host machine's local IP address](https://www.whatismybrowser.com/detect/what-is-my-local-ip-address).
+
+```
+ENV REACT_NATIVE_PACKAGER_HOSTNAME=<your-local-ip-address>
+
+# Example
+ENV REACT_NATIVE_PACKAGER_HOSTNAME=192.168.1.123
+```
+
+## Running on a Emulator
+
+If you prefer/need to run the app on an emulator, the easiest (and heaviest) way is to install one through [Android Studio](https://developer.android.com/studio/run/emulator). 
+
+- Install Android Studio and [setup a virtual device](https://docs.expo.io/versions/latest/workflow/android-studio-emulator.html)
+- Install a sample Expo project on your host machine (not on Docker). For example, ```create-react-native-app```
+- Run the sample app on your emulator with ```npm run android```. This will install the Expo client on your fresh virtual device
+- You should now be able to run any Expo app accessible by your virtual device by copying the app's url to the Search tab
