@@ -1,6 +1,19 @@
 version: '3.4'
- 
+
 services:
+  web-app:
+    image: web-app
+    command: yarn start
+    build:
+      context: ./web-app
+      target: build-stage
+    volumes:
+      - ./web-app/:/user/src/app
+      - /user/src/app/node_modules
+    container_name: web-app
+    ports:
+      - '3000:3000'
+
   server:
     image: server
     command: yarn dev
