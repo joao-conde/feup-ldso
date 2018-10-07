@@ -18,14 +18,14 @@ Although there are somewhat similar apps (_e.g._ [Study UK Exhibitions](https://
 -   Luís Noites Martins
 -   Mariana Lopes da Silva
 
-### Mobile App Development Environment Setup
+## _Mobile App_ Development Environment Setup
 
-Inside `mobile` directory:
+On the root directory:
 
 - Run docker
 
 ```
-docker-compose up --build
+docker-compose up --build mobile
 ```
 
 - Wait for QR code to show up and scan with mobile phone using the [Expo](https://expo.io) app
@@ -39,7 +39,7 @@ ENV REACT_NATIVE_PACKAGER_HOSTNAME=<your-local-ip-address>
 ENV REACT_NATIVE_PACKAGER_HOSTNAME=192.168.1.123
 ```
 
-## Running on a Emulator
+### Running on a Emulator
 
 If you prefer/need to run the app on an emulator, the easiest (and heaviest) way is to install one through [Android Studio](https://developer.android.com/studio/run/emulator). 
 
@@ -47,3 +47,16 @@ If you prefer/need to run the app on an emulator, the easiest (and heaviest) way
 - Install a sample Expo project on your host machine (not on Docker). For example, ```create-react-native-app```
 - Run the sample app on your emulator with ```npm run android```. This will install the Expo client on your fresh virtual device
 - You should now be able to run any Expo app accessible by your virtual device by copying the app's url to the Search tab
+
+
+## _Web App_ Development Environment Setup
+On the root directory, run docker:
+```
+docker-compose up --build web-app
+```
+
+## _Backend/Server_ Development Environment Setup
+On the root directory, run docker:
+```
+docker-compose up --build server
+```
