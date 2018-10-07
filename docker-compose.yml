@@ -1,6 +1,21 @@
 version: '3.4'
 
 services:
+  mobile:
+    image: mobile
+    command: yarn start 
+    build:
+        context: ./mobile
+        target: build-stage
+    volumes:
+        - ./mobile/:/usr/src/app
+        - /usr/src/app/node_modules
+    container_name: mobile
+    ports:
+         - '19000:19000'
+         - '19001:19001'
+         - '19002:19002'
+         
   web-app:
     image: web-app
     command: yarn start
