@@ -20,6 +20,9 @@ cache:
   - server/node_modules/
   - web-app/node_modules/
 
+stages:
+  - test
+
 test_mobile:
   script:
    - yarn test
