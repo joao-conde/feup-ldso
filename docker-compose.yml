@@ -27,7 +27,7 @@ services:
       - /user/src/app/node_modules
     container_name: web-app
     ports:
-      - '3000:3000'
+      - '4200:4200'
 
   server:
     image: server
