@@ -20,3 +20,7 @@ describe('App snapshot', () => {
     expect(tree).toMatchSnapshot();
   });
 });
+
+describe('Sample test', () => {
+  return true;
+})
