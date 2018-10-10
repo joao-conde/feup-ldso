@@ -25,4 +25,4 @@ stages:
 
 test_mobile:
   script:
-   - yarn test
+   - yarn test-ci
