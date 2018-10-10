@@ -48,7 +48,6 @@ If you prefer/need to run the app on an emulator, the easiest (and heaviest) way
 - Run the sample app on your emulator with ```npm run android```. This will install the Expo client on your fresh virtual device
 - You should now be able to run any Expo app accessible by your virtual device by copying the app's url to the Search tab
 
-
 ## _Web App_ Development Environment Setup
 On the root directory, run docker:
 ```
@@ -60,3 +59,12 @@ On the root directory, run docker:
 ```
 docker-compose up --build server
 ```
+
+## Temporary simulation _Backend API_ 
+Useful temporary server simulating a backend API, to allow API calls in the frontend.
+To run the server do:
+* `cd fake-api`
+* `npm install -g json-server`
+* `json-server --watch db.json.`
+
+The json server will start at port localhost:3005.
