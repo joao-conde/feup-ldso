@@ -12,6 +12,8 @@ import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
+import { FAKE_API_ENDPOINT } from 'react-native-dotenv';
+
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -44,6 +46,8 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.getStartedText}>
               Change this text and your app will automatically reload.
             </Text>
+
+            <Text>{ FAKE_API_ENDPOINT }</Text>
           </View>
 
           <View style={styles.helpContainer}>
