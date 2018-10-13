@@ -6,9 +6,11 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import ViewProjectsScreen from '../screens/ViewProjectsScreen';
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+  // Home: HomeScreen,
+  Home: ViewProjectsScreen,
 });
 
 HomeStack.navigationOptions = {
@@ -53,8 +55,24 @@ SettingsStack.navigationOptions = {
   ),
 };
 
+
+const ViewProjectsStack = createStackNavigator({
+  ViewProjects: ViewProjectsScreen,
+});
+
+ViewProjectsStack.navigationOptions = {
+  tabBarLabel: 'View Projects',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
+    />
+  ),
+};
+
 export default createBottomTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,
+  ViewProjectsStack,
 });
