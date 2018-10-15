@@ -9,7 +9,6 @@ services:
 
 before_script:
   - cd mobile
-  - printenv >> .env
   - yarn
 # Add the other dependency instalations later
 
@@ -26,4 +25,4 @@ stages:
 
 test_mobile:
   script:
-    - yarn test-ci
+   - yarn test
