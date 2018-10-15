@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Text, Body, H1 } from "native-base";
 import { WebBrowser } from 'expo';
 
@@ -21,7 +21,7 @@ export default class HomeScreen extends React.Component {
   }
 
   componentDidMount(){
-    return fetch(FAKE_API_ENDPOINT + ':3005/' + this.props.navigation.getParam('name', 'feup'))
+    return fetch(FAKE_API_ENDPOINT + ':3005/' + this.props.navigation.getParam('name', 'feup').toLowerCase())
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
@@ -35,6 +35,7 @@ export default class HomeScreen extends React.Component {
 
 
   render() {
+    const faculty = this.props.navigation.getParam('name', 'feup').toUpperCase();
     if(this.state.isLoading){
       return(
         <Container style={styles.container}>
@@ -50,10 +51,12 @@ export default class HomeScreen extends React.Component {
       <Container style={styles.container}>
         <Content contentContainerStyle={styles.content}>
           <H1 style={styles.h1} uppercase={true}> 
-              {this.props.navigation.getParam('name', 'feup').toUpperCase()}
+              {faculty}
           </H1>
-          
-          <Image style={styles.image} source={require('../assets/images/icon.png')}/> 
+
+          <View>
+            <Image style={styles.image} source={logos[faculty].uri }/> 
+          </View>
  
           <Text style={styles.text}>
             {this.state.info}
@@ -79,8 +82,8 @@ const styles = StyleSheet.create({
     padding: 30
   },
   image:{
-    margin: 20,
-    alignItems: 'center'
+    resizeMode: 'contain',
+    maxWidth: 250,
   },
   text:{
     textAlign: 'justify',
