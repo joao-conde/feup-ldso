@@ -29,8 +29,8 @@ export default class MenuScreen extends React.Component {
           })}
           renderItem={({ item, index, separator }) =>
             (
-              <FacultyButton name={item.key} onPress={() => this.props.navigation.navigate('Home', {
-                name: item.key
+              <FacultyButton name={item.key} onPress={() => this.props.navigation.navigate('Faculty', {
+                faculty: item.key.toLowerCase()
               }
               )} />
             )

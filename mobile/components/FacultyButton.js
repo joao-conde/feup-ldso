@@ -2,8 +2,7 @@ import React from 'react';
 
 import {
     Image,
-    TouchableOpacity,
-    Text
+    TouchableOpacity
 } from 'react-native';
 
 import { logos } from '../constants/Logos';
