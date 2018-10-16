@@ -15,12 +15,10 @@ export default class SideBar extends React.Component {
     return fetch(FAKE_API_ENDPOINT + ':3005/feup')
       .then((response) => response.json())
       .then((responseJson) => {
-
         this.setState({
           isLoading: false,
           dataSource: responseJson["social-projects"],
-        }, () => {});
-
+        });
       })
       .catch((error) =>{
         console.error(error);
