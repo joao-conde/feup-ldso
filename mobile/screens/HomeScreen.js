@@ -9,7 +9,7 @@ export default class HomeScreen extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { 
+    this.state = {
       isLoading: true
     }
   }
@@ -45,11 +45,11 @@ export default class HomeScreen extends React.Component {
     return (
       <Container style={styles.container}>
         <Content contentContainerStyle={styles.content}>
-          <H1 style={styles.h1} uppercase={true}> 
+          <H1 style={styles.h1} uppercase={true}>
             {faculty.toUpperCase()}
           </H1>
           <View>
-            <Image style={styles.image} source={logos[faculty.toUpperCase()].uri }/> 
+            <Image style={styles.image} source={logos[faculty.toUpperCase()].uri }/>
           </View>
           <Text style={styles.text}>
             {this.state.info}
@@ -76,9 +76,9 @@ export default class HomeScreen extends React.Component {
             </Card>
             {/*Future Prospects link*/}
             <Card style={styles.icon} transparent>
-              <Button style={styles.linkBtn} rounded /*onPress={() => this.props.navigation.navigate('FutureProspects', {
-                    faculty: this.state.faculty
-                  })}*/>
+              <Button style={styles.linkBtn} rounded onPress={() => this.props.navigation.navigate('FutureProspects', {
+                    faculty: faculty
+                  })}>
                 <Icon type="FontAwesome" name="paper-plane" />
               </Button>
               <Text style={styles.labelText}>Future Prospects</Text>
@@ -101,7 +101,7 @@ export default class HomeScreen extends React.Component {
 }
 
 
-const styles = StyleSheet.create({ 
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
@@ -145,4 +145,4 @@ const styles = StyleSheet.create({
   labelText: {
     fontSize: 10
   }
-}); 
+});
