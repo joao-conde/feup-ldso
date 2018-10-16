@@ -1,6 +1,6 @@
 # Sprint 1
 In this first sprint, the goal was to get all the necessary tools to start working ready and to start working on the mobile app, most specifically on a base structure for all the pages, with information dynamically retrieved from a fake API (as working on the back end was not planned) with proper navigation between them. Despite a more than desired delay on the initial setup, the conceived increment was done: the mobile app has a base structure for all screens and is navigable.
-In more technical terms, the start of a CI system was achieved, as well as virtualization of the development environment.
+In more technical terms, the start of a CI system was achieved, as well as containerization of the development environment.
 
 Closed issues:
 [#2](https://gitlab.com/ldso18-19/t3g1/issues/2)
