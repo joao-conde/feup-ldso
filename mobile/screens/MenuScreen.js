@@ -17,9 +17,8 @@ export default class MenuScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-
-        <Text style={styles.header }>ImpactUP</Text>
-
+        <Text style={styles.header}>ImpactUP</Text>
+        
         <FlatList
           noColumns={3}
           data={Object.keys(logos).map(elem => {
@@ -27,20 +26,16 @@ export default class MenuScreen extends React.Component {
             obj.key = elem;
             return obj;
           })}
-          renderItem={({ item, index, separator }) =>
-            (
-              <FacultyButton name={item.key} onPress={() => this.props.navigation.navigate('Faculty', {
-                faculty: item.key.toLowerCase()
-              }
-              )} />
-            )
-          }
-        />
+          renderItem={({ item }) => (
+            <FacultyButton name={item.key} onPress={() => this.props.navigation.navigate('Faculty', {
+              faculty: item.key.toLowerCase()
+            })} />
+          )} />
       </View>
     );
   }
+  
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -49,9 +44,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   header: {
     fontSize: 55,
     margin: 20
   }
-
 });

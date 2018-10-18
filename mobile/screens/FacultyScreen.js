@@ -5,13 +5,13 @@ import { Container, Content, Card, Text, Body, H1, Button, Icon, View } from "na
 import { logos } from '../constants/Logos';
 import { FAKE_API_ENDPOINT } from 'react-native-dotenv';
 
-export default class HomeScreen extends React.Component {
+export default class FacultyScreen extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       isLoading: true
-    }
+    };
   }
 
   componentDidMount() {
@@ -20,9 +20,10 @@ export default class HomeScreen extends React.Component {
       .then((responseJson) => {
         this.setState({
           isLoading: false,
-          info: responseJson['short-description']});
+          info: responseJson['short-description']
+        });
       })
-      .catch((error) =>{
+      .catch((error) => {
         console.error(error);
       });
   }
@@ -32,7 +33,7 @@ export default class HomeScreen extends React.Component {
     const faculty = this.props.navigation.getParam('faculty');
 
     if (this.state.isLoading) {
-      return(
+      return (
         <Container style={styles.container}>
           <Content contentContainerStyle={styles.content}>
             <Text style={styles.text}>
@@ -49,7 +50,7 @@ export default class HomeScreen extends React.Component {
             {faculty.toUpperCase()}
           </H1>
           <View>
-            <Image style={styles.image} source={logos[faculty.toUpperCase()].uri }/>
+            <Image style={styles.image} source={logos[faculty.toUpperCase()].uri} />
           </View>
           <Text style={styles.text}>
             {this.state.info}
@@ -59,8 +60,8 @@ export default class HomeScreen extends React.Component {
             {/*Videos link*/}
             <Card style={styles.icon} transparent>
               <Button style={styles.linkBtn} rounded onPress={() => this.props.navigation.navigate('Videos', {
-                    faculty: faculty
-                  })}>
+                faculty: faculty
+              })}>
                 <Icon type="FontAwesome" name="film" />
               </Button>
               <Text style={styles.labelText}>Videos</Text>
@@ -68,8 +69,8 @@ export default class HomeScreen extends React.Component {
             {/*Social Impact Projects link*/}
             <Card style={styles.icon} transparent>
               <Button style={styles.linkBtn} rounded onPress={() => this.props.navigation.navigate('SocialProjects', {
-                    faculty: faculty
-                  })}>
+                faculty: faculty
+              })}>
                 <Icon type="FontAwesome" name="globe" />
               </Button>
               <Text style={styles.labelText}>Social Impact</Text>
@@ -77,8 +78,8 @@ export default class HomeScreen extends React.Component {
             {/*Future Prospects link*/}
             <Card style={styles.icon} transparent>
               <Button style={styles.linkBtn} rounded onPress={() => this.props.navigation.navigate('FutureProspects', {
-                    faculty: faculty
-                  })}>
+                faculty: faculty
+              })}>
                 <Icon type="FontAwesome" name="paper-plane" />
               </Button>
               <Text style={styles.labelText}>Future Prospects</Text>
@@ -86,8 +87,8 @@ export default class HomeScreen extends React.Component {
             {/*Localization link*/}
             <Card style={styles.icon} transparent>
               <Button style={styles.linkBtn} rounded onPress={() => this.props.navigation.navigate('Localization', {
-                    faculty: faculty
-                  })}>
+                faculty: faculty
+              })}>
                 <Icon type="FontAwesome" name="map-marker" />
               </Button>
               <Text style={styles.labelText}>Localization</Text>
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
   h1: {
     padding: 30
   },
-  image:{
+  image: {
     resizeMode: 'contain',
     maxWidth: 250,
   },
@@ -135,7 +136,7 @@ const styles = StyleSheet.create({
   icon: {
     margin: 100,
     flexDirection: 'column',
-    alignItems:'center'
+    alignItems: 'center'
   },
 
   linkBtn: {

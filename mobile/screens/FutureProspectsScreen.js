@@ -5,47 +5,44 @@ import { Container, Content, View, Text, H1 } from 'native-base';
 import { FAKE_API_ENDPOINT } from 'react-native-dotenv';
 
 export default class FutureProspectsScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Future Prospects',
-  };
 
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       isLoading: true,
       banner: require('../assets/images/banners/feup-banner.png')
     };
   }
 
-  componentDidMount(){
-    return fetch(FAKE_API_ENDPOINT + ':3005/feup')
-    .then((response) => response.json())
-    .then((responseJson) => {
-      this.setState({
-        isLoading: false,
-        dataSource: responseJson['future-prospects']['content'],
+  componentDidMount() {
+    return fetch(FAKE_API_ENDPOINT + ':3005/' + this.props.navigation.getParam('faculty'))
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson['future-prospects']['content'],
+        });
+      })
+      .catch((error) => {
+        console.error(error);
       });
-    })
-    .catch((error) =>{
-      console.error(error);
-    });
   }
 
   render() {
     const faculty = this.props.navigation.getParam('faculty').toUpperCase();
 
     return (
-      <Container style={ styles.container }>
-        <Content contentContainerStyle= { styles.content } >
-          <H1>What is { faculty } planning?</H1>
+      <Container style={styles.container}>
+        <Content contentContainerStyle={styles.content} >
+          <H1>What is {faculty} planning?</H1>
 
-          <Image 
-            source={ this.state.banner } 
-            style={ styles.images }
+          <Image
+            source={this.state.banner}
+            style={styles.images}
           />
 
-          <Text style={ styles.text }>
-            { this.state.dataSource }
+          <Text style={styles.text}>
+            {this.state.dataSource}
           </Text>
         </Content>
       </Container>
