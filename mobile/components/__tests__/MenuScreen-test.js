@@ -1,10 +1,10 @@
 import 'react-native';
 import React from 'react';
-import { MonoText } from '../StyledText';
+import MenuScreen from '../../screens/MenuScreen';
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-  const tree = renderer.create(<MonoText>Snapshot test!</MonoText>).toJSON();
+  const tree = renderer.create(<MenuScreen />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

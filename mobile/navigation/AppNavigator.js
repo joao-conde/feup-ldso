@@ -1,17 +1,17 @@
 import { createStackNavigator } from 'react-navigation';
 
 import MenuScreen from '../screens/MenuScreen';
-import HomeScreen from '../screens/HomeScreen';
+import FacultyScreen from '../screens/FacultyScreen';
 import VideosScreen from '../screens/VideosScreen';
-import ViewProjectsScreen from '../screens/ViewProjectsScreen';
+import SocialProjectsScreen from '../screens/SocialProjectsScreen';
 import FutureProspectsScreen from '../screens/FutureProspectsScreen';
 import LocalizationScreen from '../screens/LocalizationScreen';
 
 export default createStackNavigator({
   Menu: MenuScreen,
-  Faculty: HomeScreen,
+  Faculty: FacultyScreen,
   Videos: VideosScreen,
-  SocialProjects: ViewProjectsScreen,
+  SocialProjects: SocialProjectsScreen,
   FutureProspects: FutureProspectsScreen,
   Localization: LocalizationScreen
 }, {

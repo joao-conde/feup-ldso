@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Content } from 'native-base';
-import { FlatList, StyleSheet, Image} from 'react-native';
+import { FlatList, StyleSheet, Image } from 'react-native';
 
 import { FAKE_API_ENDPOINT } from 'react-native-dotenv';
 
@@ -11,7 +11,7 @@ export default class SideBar extends React.Component {
     this.state = { isLoading: true };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     return fetch(FAKE_API_ENDPOINT + ':3005/feup')
       .then((response) => response.json())
       .then((responseJson) => {
@@ -20,7 +20,7 @@ export default class SideBar extends React.Component {
           dataSource: responseJson["social-projects"],
         });
       })
-      .catch((error) =>{
+      .catch((error) => {
         console.error(error);
       });
   }
@@ -34,15 +34,15 @@ export default class SideBar extends React.Component {
         </Text>
 
         <FlatList
-            data={this.state.dataSource}
-            renderItem={({item}) =>
-              <Content contentContainerStyle={styles.content}>
-              <Image style={styles.image} source={require('../assets/images/robot-prod.png')}/>
+          data={this.state.dataSource}
+          renderItem={({ item }) =>
+            <Content contentContainerStyle={styles.content}>
+              <Image style={styles.image} source={require('../assets/images/robot-prod.png')} />
               <Text style={styles.text}> {item.title} </Text>
-              </Content>
+            </Content>
           }
           keyExtractor={(item, index) => 'feup' + 'sidebar' + item.id}
-          />
+        />
 
       </View>
     );
@@ -62,6 +62,6 @@ const styles = StyleSheet.create({
   image: {
     width: 50,
     height: 50,
-    alignItems:'center'
+    alignItems: 'center'
   }
 });
