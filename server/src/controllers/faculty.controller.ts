@@ -54,7 +54,7 @@ export class FacultyController {
     return await this.facultyRepository.find(filter);
   }
 
-  @get('/faculties/{id}/{language}', {
+  @get('/faculties/{language}/{id}', {
     responses: {
       '200': {
         description: 'Faculty model instance',
@@ -62,11 +62,11 @@ export class FacultyController {
       },
     },
   })
-  async findById(@param.path.string('id') id: string, @param.path.string('language') language: string): Promise<Faculty> {
+  async findById(@param.path.string('language') language: string, @param.path.string('id') id: string): Promise<Faculty> {
     return await this.facultyRepository.findOne({where: {name: id, language: language}}) || new Faculty();
   }
 
-  @get('/faculties/{id}/intro/{language}', {
+  @get('/faculties/{language}/{id}/intro', {
     responses: {
       '200': {
         description: 'Faculty model instance',
@@ -74,7 +74,7 @@ export class FacultyController {
       },
     },
   })
-  async findIntroById(@param.path.string('id') id: string, @param.path.string('language') language: string): Promise<Faculty> {
+  async findIntroById(@param.path.string('language') language: string, @param.path.string('id') id: string): Promise<Faculty> {
     return await this.facultyRepository.findOne({where: {name: id, language: language}, fields: {short_description: true}}) || new Faculty();
   }
 }
