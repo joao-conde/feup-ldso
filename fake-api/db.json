@@ -1,6 +1,6 @@
 {
     "feup": {
-        "short-description": "Nulla nec euismod nibh. Morbi condimentum, ante sit amet faucibus fringilla, lorem lacus rhoncus lacus, eu volutpat sem eros nec justo. Fusce gravida auctor elit vitae accumsan. Aliquam posuere mi magna, nec consectetur augue consequat quis.",
+        "shortDescription": "Nulla nec euismod nibh. Morbi condimentum, ante sit amet faucibus fringilla, lorem lacus rhoncus lacus, eu volutpat sem eros nec justo. Fusce gravida auctor elit vitae accumsan. Aliquam posuere mi magna, nec consectetur augue consequat quis.",
         "videos": [
             {
                 "id": 1,
@@ -34,7 +34,7 @@
         }
     },
     "fmup": {
-        "short-description": "Sed tempor dolor bibendum pretium euismod. Etiam eros mi, feugiat aliquet mattis non, elementum nec sem. Aliquam eget erat porta, porta risus nec, placerat orci. Integer nec enim tempor orci mollis luctus non at nisi.",
+        "shortDescription": "Sed tempor dolor bibendum pretium euismod. Etiam eros mi, feugiat aliquet mattis non, elementum nec sem. Aliquam eget erat porta, porta risus nec, placerat orci. Integer nec enim tempor orci mollis luctus non at nisi.",
         "videos": [
             {
                 "id": 1,

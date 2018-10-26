@@ -1,38 +1,23 @@
 import React from 'react';
 import { StyleSheet, Image } from 'react-native';
 import { Container, Content, Card, Text, Body, H1, Button, Icon, View } from "native-base";
-
+import { connect } from 'react-redux';
+import { getIntroduction, setFaculty } from '../reducers/modules/facultyReducer';
 import { logos } from '../constants/Logos';
-import { FAKE_API_ENDPOINT } from 'react-native-dotenv';
 
-export default class FacultyScreen extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: true
-    };
-  }
+class FacultyScreen extends React.Component {
 
   componentDidMount() {
-    return fetch(FAKE_API_ENDPOINT + ':3005/' + this.props.navigation.getParam('faculty'))
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({
-          isLoading: false,
-          info: responseJson['short-description']
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
-
-
-  render() {
     const faculty = this.props.navigation.getParam('faculty');
 
-    if (this.state.isLoading) {
+    this.props.setFaculty(faculty);
+    this.props.getIntroduction(faculty);
+  }
+
+  render() {
+    const { name, loading, intro } = this.props;
+
+    if (loading) {
       return (
         <Container style={styles.container}>
           <Content contentContainerStyle={styles.content}>
@@ -47,20 +32,20 @@ export default class FacultyScreen extends React.Component {
       <Container style={styles.container}>
         <Content contentContainerStyle={styles.content}>
           <H1 style={styles.h1} uppercase={true}>
-            {faculty.toUpperCase()}
+            {name}
           </H1>
           <View>
-            <Image style={styles.image} source={logos[faculty.toUpperCase()].uri} />
+            {/* <Image style={styles.image} source={logos[name.toUpperCase()].uri} /> */}
           </View>
           <Text style={styles.text}>
-            {this.state.info}
+            {intro}
           </Text>
 
           <Body style={styles.links}>
             {/*Videos link*/}
             <Card style={styles.icon} transparent>
               <Button style={styles.linkBtn} rounded onPress={() => this.props.navigation.navigate('Videos', {
-                faculty: faculty
+                name: name
               })}>
                 <Icon type="FontAwesome" name="film" />
               </Button>
@@ -69,7 +54,7 @@ export default class FacultyScreen extends React.Component {
             {/*Social Impact Projects link*/}
             <Card style={styles.icon} transparent>
               <Button style={styles.linkBtn} rounded onPress={() => this.props.navigation.navigate('SocialProjects', {
-                faculty: faculty
+                name: name
               })}>
                 <Icon type="FontAwesome" name="globe" />
               </Button>
@@ -78,7 +63,7 @@ export default class FacultyScreen extends React.Component {
             {/*Future Prospects link*/}
             <Card style={styles.icon} transparent>
               <Button style={styles.linkBtn} rounded onPress={() => this.props.navigation.navigate('FutureProspects', {
-                faculty: faculty
+                name: name
               })}>
                 <Icon type="FontAwesome" name="paper-plane" />
               </Button>
@@ -87,7 +72,7 @@ export default class FacultyScreen extends React.Component {
             {/*Localization link*/}
             <Card style={styles.icon} transparent>
               <Button style={styles.linkBtn} rounded onPress={() => this.props.navigation.navigate('Localization', {
-                faculty: faculty
+                name: name
               })}>
                 <Icon type="FontAwesome" name="map-marker" />
               </Button>
@@ -147,3 +132,16 @@ const styles = StyleSheet.create({
     fontSize: 10
   }
 });
+
+const mapStateToProps = ({ faculty }) => ({
+  name: faculty.name,
+  loading: faculty.loading,
+  intro: faculty.intro
+});
+
+const mapDispatchToProps = {
+  setFaculty,
+  getIntroduction
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FacultyScreen);

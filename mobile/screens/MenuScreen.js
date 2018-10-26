@@ -5,14 +5,20 @@ import {
   FlatList,
   Text
 } from 'react-native';
+import { connect } from 'react-redux';
 
+import { clearFaculty } from '../reducers/modules/facultyReducer';
 import { FacultyButton } from '../components/FacultyButton';
 import { logos } from '../constants/Logos';
 
-export default class MenuScreen extends React.Component {
+class MenuScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+
+  componentDidMount() {
+    this.props.navigation.addListener('willFocus', _ => this.props.clearFaculty());
+  }
 
   render() {
     return (
@@ -50,3 +56,9 @@ const styles = StyleSheet.create({
     margin: 20
   }
 });
+
+const mapDispatchToProps = {
+  clearFaculty
+};
+
+export default connect(null, mapDispatchToProps)(MenuScreen);
