@@ -1,40 +1,36 @@
 import React from 'react';
 import { StyleSheet, Image } from 'react-native';
 import { Container, Content, View, Text, H1 } from 'native-base';
+import { connect } from 'react-redux';
+import { getFutureProspects } from '../reducers/modules/facultyReducer';
 
-import { FAKE_API_ENDPOINT } from 'react-native-dotenv';
-
-export default class FutureProspectsScreen extends React.Component {
+class FutureProspectsScreen extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: true,
       banner: require('../assets/images/banners/feup-banner.png')
     };
   }
 
   componentDidMount() {
-    return fetch(FAKE_API_ENDPOINT + ':3005/' + this.props.navigation.getParam('faculty'))
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({
-          isLoading: false,
-          dataSource: responseJson['future-prospects']['content'],
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    this.props.getFutureProspects(this.props.name);
   }
 
   render() {
-    const faculty = this.props.navigation.getParam('faculty').toUpperCase();
+    const { name, loading, prospects } = this.props;
 
+    if (loading) {
+      return (
+        <View>
+          <Text>Loading...</Text>
+        </View>
+      );
+    }
     return (
       <Container style={styles.container}>
         <Content contentContainerStyle={styles.content} >
-          <H1>What is {faculty} planning?</H1>
+          <H1>What is {name} planning?</H1>
 
           <Image
             source={this.state.banner}
@@ -42,7 +38,7 @@ export default class FutureProspectsScreen extends React.Component {
           />
 
           <Text style={styles.text}>
-            {this.state.dataSource}
+            {prospects}
           </Text>
         </Content>
       </Container>
@@ -71,4 +67,16 @@ const styles = StyleSheet.create({
     maxWidth: 500,
     textAlign: 'justify'
   }
-})
+});
+
+const mapStateToProps = ({ faculty }) => ({
+  name: faculty.name,
+  loading: faculty.loading,
+  prospects: faculty.futureProspects
+});
+
+const mapDispatchToProps = {
+  getFutureProspects
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FutureProspectsScreen);
