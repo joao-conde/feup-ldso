@@ -28,7 +28,8 @@
     "react-navigation": "^2.16.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.1",
-    "redux-axios-middleware": "^4.0.0"
+    "redux-axios-middleware": "^4.0.0",
+    "rn-nested-stylesheet": "^1.0.2"
   },
   "devDependencies": {
     "jest-expo": "30.0.0",
