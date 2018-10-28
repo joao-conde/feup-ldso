@@ -60,4 +60,4 @@ services:
       - mongo
     volumes:
       - ./server/resources:/home
-    command: mongoimport --host mongo --db up --collection Faculty --file /home/faculties_seed.json --jsonArray --drop
+    command: bash -c "mongoimport --host mongo --db up --collection Faculty --file /home/faculties_seed.json --jsonArray --drop && mongoimport --host mongo --db up --collection SocialProject --file /home/projects_seed.json --jsonArray --drop"
