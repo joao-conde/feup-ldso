@@ -28,8 +28,7 @@
     "test:dev": "lb-mocha --allow-console-logs dist/test/**/*.js && npm run posttest",
     "prestart": "npm run build",
     "start": "node .",
-    "prepublishOnly": "npm run test",
-    "dev": "npm run build && npm run start"
+    "prepublishOnly": "npm run test"
   },
   "repository": {
     "type": "git"
