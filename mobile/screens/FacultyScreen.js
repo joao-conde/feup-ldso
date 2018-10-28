@@ -4,6 +4,8 @@ import { Container, Content, Card, Text, Body, H1, Button, Icon, View } from "na
 import { connect } from 'react-redux';
 import { getIntroduction, setFaculty } from '../reducers/modules/facultyReducer';
 import { logos } from '../constants/Logos';
+import { StatisticsNumbers } from '../components/FacultyScreen/StatisticsNumbers';
+import { IconButton } from '../components/FacultyScreen/IconButton';
 
 class FacultyScreen extends React.Component {
 
@@ -31,55 +33,27 @@ class FacultyScreen extends React.Component {
     return (
       <Container style={styles.container}>
         <Content contentContainerStyle={styles.content}>
-          <H1 style={styles.h1} uppercase={true}>
-            {name}
-          </H1>
-          <View>
-            {/* <Image style={styles.image} source={logos[name.toUpperCase()].uri} /> */}
-          </View>
-          <Text style={styles.text}>
-            {intro}
-          </Text>
-
-          <Body style={styles.links}>
-            {/*Videos link*/}
-            <Card style={styles.icon} transparent>
-              <Button style={styles.linkBtn} rounded onPress={() => this.props.navigation.navigate('Videos', {
-                name: name
-              })}>
-                <Icon type="FontAwesome" name="film" />
-              </Button>
-              <Text style={styles.labelText}>Videos</Text>
-            </Card>
-            {/*Social Impact Projects link*/}
-            <Card style={styles.icon} transparent>
-              <Button style={styles.linkBtn} rounded onPress={() => this.props.navigation.navigate('SocialProjects', {
-                name: name
-              })}>
-                <Icon type="FontAwesome" name="globe" />
-              </Button>
-              <Text style={styles.labelText}>Social Impact</Text>
-            </Card>
-            {/*Future Prospects link*/}
-            <Card style={styles.icon} transparent>
-              <Button style={styles.linkBtn} rounded onPress={() => this.props.navigation.navigate('FutureProspects', {
-                name: name
-              })}>
-                <Icon type="FontAwesome" name="paper-plane" />
-              </Button>
-              <Text style={styles.labelText}>Future Prospects</Text>
-            </Card>
-            {/*Localization link*/}
-            <Card style={styles.icon} transparent>
-              <Button style={styles.linkBtn} rounded onPress={() => this.props.navigation.navigate('Localization', {
-                name: name
-              })}>
-                <Icon type="FontAwesome" name="map-marker" />
-              </Button>
-              <Text style={styles.labelText}>Localization</Text>
-            </Card>
-          </Body>
-
+            <View style={styles.menu}>
+              <View style={styles.links}>
+                <View style={styles.linksRow}>
+                  <IconButton></IconButton>
+                  <IconButton></IconButton>
+                </View>
+                <View style={styles.linksRow}>
+                  <IconButton></IconButton>
+                  <IconButton></IconButton>
+                </View>
+              </View>
+              <View style={styles.image}>
+                <Text>Almost there</Text>
+              </View>
+            </View>
+            <View style={styles.statistics}>
+              <StatisticsNumbers></StatisticsNumbers>
+              <StatisticsNumbers></StatisticsNumbers>
+              <StatisticsNumbers></StatisticsNumbers>
+              <StatisticsNumbers></StatisticsNumbers>
+            </View>
         </Content>
       </Container>
     );
@@ -90,20 +64,33 @@ class FacultyScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    flexDirection: 'column',
+    margin:0
   },
 
   content: {
+    flex: 1,
+    flexDirection: 'column',
     padding: 10,
-    alignItems: 'center'
+    margin: 0
+  },
+
+  statistics: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+
+  menu: {
+    flex:2,
+    flexDirection: 'row',
   },
 
   h1: {
     padding: 30
   },
   image: {
-    resizeMode: 'contain',
-    maxWidth: 250,
+    flex: 3,
   },
 
   text: {
@@ -112,25 +99,19 @@ const styles = StyleSheet.create({
   },
 
   links: {
-    flex: 1,
-    flexDirection: 'row',
+    flex: 2,
+    flexDirection: 'column',
     justifyContent: 'space-between',
     paddingTop: 10
   },
 
-  icon: {
-    margin: 100,
-    flexDirection: 'column',
-    alignItems: 'center'
-  },
-
-  linkBtn: {
-    flex: 1
-  },
-
-  labelText: {
-    fontSize: 10
+  linksRow: {
+    flex:1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'stretch'
   }
+
 });
 
 const mapStateToProps = ({ faculty }) => ({
