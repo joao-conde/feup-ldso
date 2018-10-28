@@ -3,15 +3,14 @@
 const TOGGLE_LANGUAGE = 'mobile/language/TOGGLE_LANGUAGE';
 
 const initialState = {
-  language: 'en'
+  selection: 'en'
 };
 
-// TODO: think how to force requests to api's -> mby force the component to remount
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case TOGGLE_LANGUAGE:
       return {
-        name: state.language == 'en'? 'pt' : 'en'
+        selection: state.selection == 'en'? 'pt' : 'en'
       };
     default:
       return state;
