@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
     Image,
@@ -16,6 +17,11 @@ class FacultyButton extends React.Component {
         );
     }
 }
+
+FacultyButton.propTypes = {
+    onPress: PropTypes.func,
+    name: PropTypes.string.isRequired
+};
 
 export { FacultyButton };
 
@@ -35,4 +41,4 @@ const styles = {
         maxWidth: 250,
         margin: 15
     }
-}
+};

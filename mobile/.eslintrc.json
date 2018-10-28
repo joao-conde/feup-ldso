@@ -1,0 +1,58 @@
+{
+    "env": {
+        "jest": true,
+        "node": true,
+        "react-native/react-native": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "react-native"
+    ],
+
+    "settings": {
+        "react": {
+          "version": "16.3.1"
+        }
+    },
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-console": 1,
+        "react/jsx-no-bind": ["error", {
+            "allowArrowFunctions": true,
+            "allowBind": false,
+            "ignoreRefs": true
+        }],
+        "react/no-did-update-set-state": "error",
+        "react/no-unknown-property": "error",
+        "react/no-unused-prop-types": "error",
+        "react/prop-types": "error",
+        "react-native/no-inline-styles": 2
+    }
+}

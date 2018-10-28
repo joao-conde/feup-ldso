@@ -3,26 +3,26 @@
 const TOGGLE_LOCK = 'mobile/lock/TOGGLE_LOCK';
 
 const initialState = {
-  locked: false
+    locked: false
 };
 
 // Draft reducer for lock logic - TODO
 export default function reducer(state = initialState, action) {
-  switch (action.type) {
+    switch (action.type) {
     case TOGGLE_LOCK:
-      return {
+        return {
         // TODO será mais complexo do que isto, pois depende do boolean recebido pelo pedido a API (true se autenticar, falso otherwise)
-        locked: !state.locked
-      };
+            locked: !state.locked
+        };
     default:
-      return state;
-  }
+        return state;
+    }
 }
 
 // Post request - user e password passados no objeto. Password já hashed. cofnrme resposta fazer
 export function toggleScreen() {
-  return {
-    type: TOGGLE_LOCK
+    return {
+        type: TOGGLE_LOCK
     
-  };
+    };
 }
