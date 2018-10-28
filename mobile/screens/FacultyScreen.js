@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Image } from 'react-native';
-import { Container, Content, Card, Text, Body, H1, Button, Icon, View } from "native-base";
+import { Container, Content, Text, View } from "native-base";
 import { connect } from 'react-redux';
 import { getIntroduction, setFaculty } from '../reducers/modules/facultyReducer';
 import { logos } from '../constants/Logos';
@@ -51,8 +51,8 @@ class FacultyScreen extends React.Component {
                   <IconButton></IconButton>
                 </View>
               </View>
-              <View style={styles.image}>
-                <Text>Almost there</Text>
+              <View style={styles.imageView}>
+                <Image style={styles.image} source={{uri: 'https://static.globalnoticias.pt/jn/image.aspx?brand=JN&type=generate&guid=151d9c4c-8a02-466b-95fe-1ae900791412&w=744&h=495&t=20180406133500'}}/>
               </View>
             </View>
             <View style={styles.statistics}>
@@ -96,7 +96,16 @@ const styles = StyleSheet.create({
   h1: {
     padding: 30
   },
+
   image: {
+    flex: 1,
+    margin: 20,
+    resizeMode: 'contain',
+    alignSelf: 'stretch'
+
+  },
+
+  imageView: {
     flex: 3,
   },
 
