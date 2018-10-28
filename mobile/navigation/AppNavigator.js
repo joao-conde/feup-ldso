@@ -10,35 +10,35 @@ import LocalizationScreen from '../screens/LocalizationScreen';
 import LanguageBtn from '../components/LanguageBtn';
 
 export default createStackNavigator({
-  Menu: {
-    screen: MenuScreen
-  },
-  Faculty: {
-    screen: FacultyScreen,
-    navigationOptions: _ => languageBtn
-  },
-  Videos: {
-    screen: VideosScreen,
-    navigationOptions: _ => languageBtn
-  },
-  SocialProjects: {
-    screen: SocialProjectsScreen,
-    navigationOptions: _ => languageBtn
-  },
-  FutureProspects: {
-    screen: FutureProspectsScreen,
-    navigationOptions: _ => languageBtn
-  },
-  Localization: {
-    screen: LocalizationScreen,
-    navigationOptions: _ => languageBtn
-  }
+    Menu: {
+        screen: MenuScreen
+    },
+    Faculty: {
+        screen: FacultyScreen,
+        navigationOptions: () => languageBtn
+    },
+    Videos: {
+        screen: VideosScreen,
+        navigationOptions: () => languageBtn
+    },
+    SocialProjects: {
+        screen: SocialProjectsScreen,
+        navigationOptions: () => languageBtn
+    },
+    FutureProspects: {
+        screen: FutureProspectsScreen,
+        navigationOptions: () => languageBtn
+    },
+    Localization: {
+        screen: LocalizationScreen,
+        navigationOptions: () => languageBtn
+    }
 }, {
-  initialRouteName: 'Menu'
+    initialRouteName: 'Menu'
 });
 
 var languageBtn = ({
-  headerRight: (
-    <LanguageBtn/>
-  )
+    headerRight: (
+        <LanguageBtn/>
+    )
 });

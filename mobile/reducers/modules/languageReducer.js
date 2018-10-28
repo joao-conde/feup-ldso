@@ -3,22 +3,22 @@
 const TOGGLE_LANGUAGE = 'mobile/language/TOGGLE_LANGUAGE';
 
 const initialState = {
-  selection: 'en'
+    selection: 'en'
 };
 
 export default function reducer(state = initialState, action) {
-  switch (action.type) {
+    switch (action.type) {
     case TOGGLE_LANGUAGE:
-      return {
-        selection: state.selection == 'en'? 'pt' : 'en'
-      };
+        return {
+            selection: state.selection == 'en'? 'pt' : 'en'
+        };
     default:
-      return state;
-  }
+        return state;
+    }
 }
 
 export function toggleLanguage() {
-  return {
-    type: TOGGLE_LANGUAGE
-  };
+    return {
+        type: TOGGLE_LANGUAGE
+    };
 }
