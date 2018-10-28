@@ -54,17 +54,17 @@ export default function reducer(state = initialState, action) {
     case GET_INTRO_SUCCESS:
       return { ...state,
         loading: false,
-        intro: action.payload.data.shortDescription
+        intro: action.payload.data[state.name].shortDescription
       };
     case GET_SOCIAL_PROJECTS_SUCCESS:
       return { ...state,
         loading: false,
-        socialProjects: action.payload.data
+        socialProjects: action.payload.data[state.name]
       };
     case GET_FUTURE_PROSPECTS_SUCCESS:
       return { ...state,
         loading: false,
-        futureProspects: action.payload.data['future-prospects']['content']
+        futureProspects: action.payload.data[state.name]['future-prospects']['content']
       };
     case GET_LOCALIZATION_SUCCESS:
       return { ...state,
@@ -105,34 +105,34 @@ export function clearFaculty() {
   };
 }
 
-export function getIntroduction(faculty) {
+export function getIntroduction(language, faculty) {
   return {
     type: GET_INTRO,
     payload: {
       request: {
-        url: `/${faculty}`
+        url: `/${language}` 
       }
     }
   };
 }
 
-export function getSocialProjects(faculty) {
+export function getSocialProjects(language, faculty) {
   return {
     type: GET_SOCIAL_PROJECTS,
     payload: {
       request: {
-        url: `/${faculty}`
+        url: `/${language}`
       }
     }
   };
 }
 
-export function getFutureProspects(faculty) {
+export function getFutureProspects(language, faculty) {
   return {
     type: GET_FUTURE_PROSPECTS,
     payload: {
       request: {
-        url: `/${faculty}`
+        url: `/${language}`
       }
     }
   };
