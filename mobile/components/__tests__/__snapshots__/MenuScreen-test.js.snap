@@ -1,0 +1,559 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders as expected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MenuScreen
+    clearFaculty={[Function]}
+    navigation={
+      ShallowWrapper {
+        Symbol(enzyme.__root__): [Circular],
+        Symbol(enzyme.__unrendered__): <NavigationContainer />,
+        Symbol(enzyme.__renderer__): Object {
+          "batchedUpdates": [Function],
+          "getNode": [Function],
+          "render": [Function],
+          "simulateError": [Function],
+          "simulateEvent": [Function],
+          "unmount": [Function],
+        },
+        Symbol(enzyme.__node__): Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "navigation": Object {
+              "actions": Object {
+                "dismiss": [Function],
+                "pop": [Function],
+                "popToTop": [Function],
+                "push": [Function],
+                "replace": [Function],
+                "reset": [Function],
+              },
+              "addListener": [Function],
+              "dangerouslyGetParent": [Function],
+              "dismiss": [Function],
+              "dispatch": [Function],
+              "getChildNavigation": [Function],
+              "getScreenProps": [Function],
+              "goBack": [Function],
+              "isFocused": [Function],
+              "navigate": [Function],
+              "pop": [Function],
+              "popToTop": [Function],
+              "push": [Function],
+              "replace": [Function],
+              "reset": [Function],
+              "router": Object {
+                "childRouters": Object {
+                  "Faculty": null,
+                  "FutureProspects": null,
+                  "Localization": null,
+                  "Menu": null,
+                  "SocialProjects": null,
+                  "Videos": null,
+                },
+                "getActionCreators": [Function],
+                "getActionForPathAndParams": [Function],
+                "getComponentForRouteName": [Function],
+                "getComponentForState": [Function],
+                "getPathAndParamsForState": [Function],
+                "getScreenOptions": [Function],
+                "getStateForAction": [Function],
+              },
+              "setParams": [Function],
+              "state": Object {
+                "index": 0,
+                "isTransitioning": false,
+                "key": "StackRouterRoot",
+                "routes": Array [
+                  Object {
+                    "key": "id-1540648962175-1",
+                    "routeName": "Menu",
+                  },
+                ],
+              },
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Symbol(enzyme.__nodes__): Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "navigation": Object {
+                "actions": Object {
+                  "dismiss": [Function],
+                  "pop": [Function],
+                  "popToTop": [Function],
+                  "push": [Function],
+                  "replace": [Function],
+                  "reset": [Function],
+                },
+                "addListener": [Function],
+                "dangerouslyGetParent": [Function],
+                "dismiss": [Function],
+                "dispatch": [Function],
+                "getChildNavigation": [Function],
+                "getScreenProps": [Function],
+                "goBack": [Function],
+                "isFocused": [Function],
+                "navigate": [Function],
+                "pop": [Function],
+                "popToTop": [Function],
+                "push": [Function],
+                "replace": [Function],
+                "reset": [Function],
+                "router": Object {
+                  "childRouters": Object {
+                    "Faculty": null,
+                    "FutureProspects": null,
+                    "Localization": null,
+                    "Menu": null,
+                    "SocialProjects": null,
+                    "Videos": null,
+                  },
+                  "getActionCreators": [Function],
+                  "getActionForPathAndParams": [Function],
+                  "getComponentForRouteName": [Function],
+                  "getComponentForState": [Function],
+                  "getPathAndParamsForState": [Function],
+                  "getScreenOptions": [Function],
+                  "getStateForAction": [Function],
+                },
+                "setParams": [Function],
+                "state": Object {
+                  "index": 0,
+                  "isTransitioning": false,
+                  "key": "StackRouterRoot",
+                  "routes": Array [
+                    Object {
+                      "key": "id-1540648962175-1",
+                      "routeName": "Menu",
+                    },
+                  ],
+                },
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        Symbol(enzyme.__options__): Object {
+          "adapter": ReactSixteenAdapter {
+            "options": Object {
+              "enableComponentDidUpdateOnSetState": true,
+              "lifecycles": Object {
+                "componentDidUpdate": Object {
+                  "onSetState": true,
+                },
+                "getDerivedStateFromProps": true,
+                "getSnapshotBeforeUpdate": true,
+                "setState": Object {
+                  "skipsComponentDidUpdateOnNullish": true,
+                },
+              },
+            },
+          },
+        },
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 55,
+              "margin": 20,
+            }
+          }
+        >
+          ImpactUP
+        </Text>,
+        <FlatList
+          data={
+            Array [
+              Object {
+                "key": "FADEUP",
+              },
+              Object {
+                "key": "FAUP",
+              },
+              Object {
+                "key": "FBAUP",
+              },
+              Object {
+                "key": "FCNAUP",
+              },
+              Object {
+                "key": "FCUP",
+              },
+              Object {
+                "key": "FDUP",
+              },
+              Object {
+                "key": "FEP",
+              },
+              Object {
+                "key": "FEUP",
+              },
+              Object {
+                "key": "FFUP",
+              },
+              Object {
+                "key": "FLUP",
+              },
+              Object {
+                "key": "FMDUP",
+              },
+              Object {
+                "key": "FMUP",
+              },
+              Object {
+                "key": "FPCEUP",
+              },
+              Object {
+                "key": "ICBAS",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          noColumns={3}
+          numColumns={1}
+          onEndReachedThreshold={2}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          updateCellsBatchingPeriod={50}
+          windowSize={21}
+        />,
+      ],
+      "style": Object {
+        "alignItems": "center",
+        "backgroundColor": "#fff",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "accessible": true,
+          "allowFontScaling": true,
+          "children": "ImpactUP",
+          "ellipsizeMode": "tail",
+          "style": Object {
+            "fontSize": 55,
+            "margin": 20,
+          },
+        },
+        "ref": null,
+        "rendered": "ImpactUP",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "data": Array [
+            Object {
+              "key": "FADEUP",
+            },
+            Object {
+              "key": "FAUP",
+            },
+            Object {
+              "key": "FBAUP",
+            },
+            Object {
+              "key": "FCNAUP",
+            },
+            Object {
+              "key": "FCUP",
+            },
+            Object {
+              "key": "FDUP",
+            },
+            Object {
+              "key": "FEP",
+            },
+            Object {
+              "key": "FEUP",
+            },
+            Object {
+              "key": "FFUP",
+            },
+            Object {
+              "key": "FLUP",
+            },
+            Object {
+              "key": "FMDUP",
+            },
+            Object {
+              "key": "FMUP",
+            },
+            Object {
+              "key": "FPCEUP",
+            },
+            Object {
+              "key": "ICBAS",
+            },
+          ],
+          "disableVirtualization": false,
+          "horizontal": false,
+          "initialNumToRender": 10,
+          "keyExtractor": [Function],
+          "maxToRenderPerBatch": 10,
+          "noColumns": 3,
+          "numColumns": 1,
+          "onEndReachedThreshold": 2,
+          "renderItem": [Function],
+          "scrollEventThrottle": 50,
+          "updateCellsBatchingPeriod": 50,
+          "windowSize": 21,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 55,
+                "margin": 20,
+              }
+            }
+          >
+            ImpactUP
+          </Text>,
+          <FlatList
+            data={
+              Array [
+                Object {
+                  "key": "FADEUP",
+                },
+                Object {
+                  "key": "FAUP",
+                },
+                Object {
+                  "key": "FBAUP",
+                },
+                Object {
+                  "key": "FCNAUP",
+                },
+                Object {
+                  "key": "FCUP",
+                },
+                Object {
+                  "key": "FDUP",
+                },
+                Object {
+                  "key": "FEP",
+                },
+                Object {
+                  "key": "FEUP",
+                },
+                Object {
+                  "key": "FFUP",
+                },
+                Object {
+                  "key": "FLUP",
+                },
+                Object {
+                  "key": "FMDUP",
+                },
+                Object {
+                  "key": "FMUP",
+                },
+                Object {
+                  "key": "FPCEUP",
+                },
+                Object {
+                  "key": "ICBAS",
+                },
+              ]
+            }
+            disableVirtualization={false}
+            horizontal={false}
+            initialNumToRender={10}
+            keyExtractor={[Function]}
+            maxToRenderPerBatch={10}
+            noColumns={3}
+            numColumns={1}
+            onEndReachedThreshold={2}
+            renderItem={[Function]}
+            scrollEventThrottle={50}
+            updateCellsBatchingPeriod={50}
+            windowSize={21}
+          />,
+        ],
+        "style": Object {
+          "alignItems": "center",
+          "backgroundColor": "#fff",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "accessible": true,
+            "allowFontScaling": true,
+            "children": "ImpactUP",
+            "ellipsizeMode": "tail",
+            "style": Object {
+              "fontSize": 55,
+              "margin": 20,
+            },
+          },
+          "ref": null,
+          "rendered": "ImpactUP",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "data": Array [
+              Object {
+                "key": "FADEUP",
+              },
+              Object {
+                "key": "FAUP",
+              },
+              Object {
+                "key": "FBAUP",
+              },
+              Object {
+                "key": "FCNAUP",
+              },
+              Object {
+                "key": "FCUP",
+              },
+              Object {
+                "key": "FDUP",
+              },
+              Object {
+                "key": "FEP",
+              },
+              Object {
+                "key": "FEUP",
+              },
+              Object {
+                "key": "FFUP",
+              },
+              Object {
+                "key": "FLUP",
+              },
+              Object {
+                "key": "FMDUP",
+              },
+              Object {
+                "key": "FMUP",
+              },
+              Object {
+                "key": "FPCEUP",
+              },
+              Object {
+                "key": "ICBAS",
+              },
+            ],
+            "disableVirtualization": false,
+            "horizontal": false,
+            "initialNumToRender": 10,
+            "keyExtractor": [Function],
+            "maxToRenderPerBatch": 10,
+            "noColumns": 3,
+            "numColumns": 1,
+            "onEndReachedThreshold": 2,
+            "renderItem": [Function],
+            "scrollEventThrottle": 50,
+            "updateCellsBatchingPeriod": 50,
+            "windowSize": 21,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+    },
+    "disableLifecycleMethods": true,
+  },
+}
+`;
