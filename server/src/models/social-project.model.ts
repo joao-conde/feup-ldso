@@ -4,10 +4,10 @@ import {Faculty} from './faculty.model';
 @model()
 export class SocialProject extends Entity {
   @property({
-    type: 'number',
+    type: 'string',
     id: true,
   })
-  id?: number;
+  id?: string;
 
   @property({
     type: 'string',
