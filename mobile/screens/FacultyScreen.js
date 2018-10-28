@@ -13,18 +13,25 @@ class FacultyScreen extends React.Component {
     const faculty = this.props.navigation.getParam('faculty');
 
     this.props.setFaculty(faculty);
-    this.props.getIntroduction(faculty);
+    this.props.getIntroduction(this.props.language, faculty);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { language, name } = this.props;
+
+    if (prevProps.language != language)
+      this.props.getIntroduction(language, name);
   }
 
   render() {
-    const { name, loading, intro } = this.props;
+    const { name, loading, intro, language } = this.props;
 
     if (loading) {
       return (
         <Container style={styles.container}>
           <Content contentContainerStyle={styles.content}>
             <Text style={styles.text}>
-              Wait a little bit... Loading information..
+              { language == 'en'? 'Loading...' : 'Carregando...' }
             </Text>
           </Content>
         </Container>
@@ -114,10 +121,11 @@ const styles = StyleSheet.create({
 
 });
 
-const mapStateToProps = ({ faculty }) => ({
+const mapStateToProps = ({ faculty, language }) => ({
   name: faculty.name,
   loading: faculty.loading,
-  intro: faculty.intro
+  intro: faculty.intro,
+  language: language.selection
 });
 
 const mapDispatchToProps = {

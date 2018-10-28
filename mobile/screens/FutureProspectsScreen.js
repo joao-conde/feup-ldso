@@ -14,23 +14,32 @@ class FutureProspectsScreen extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getFutureProspects(this.props.name);
+    const { language, name } = this.props;
+    
+    this.props.getFutureProspects(language, name);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { language, name } = this.props;
+
+    if (prevProps.language != language)
+      this.props.getFutureProspects(language, name);
   }
 
   render() {
-    const { name, loading, prospects } = this.props;
+    const { name, loading, prospects, language } = this.props;
 
     if (loading) {
       return (
         <View>
-          <Text>Loading...</Text>
+          <Text>{ language == 'en'? 'Loading...' : 'Carregando...' }</Text>
         </View>
       );
     }
     return (
       <Container style={styles.container}>
         <Content contentContainerStyle={styles.content} >
-          <H1>What is {name} planning?</H1>
+          <H1>{ language == 'en'? 'What is ' + name + ' planning?' : 'O que está a ' + name + ' a planear?'}</H1>
 
           <Image
             source={this.state.banner}
@@ -69,10 +78,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = ({ faculty }) => ({
+const mapStateToProps = ({ faculty, language }) => ({
   name: faculty.name,
   loading: faculty.loading,
-  prospects: faculty.futureProspects
+  prospects: faculty.futureProspects,
+  language: language.selection
 });
 
 const mapDispatchToProps = {

@@ -33,7 +33,11 @@
     "rn-nested-stylesheet": "^1.0.2"
   },
   "devDependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "jest-expo": "30.0.0",
-    "react-native-dotenv": "^0.2.0"
+    "react-native-dotenv": "^0.2.0",
+    "redux-mock-store": "^1.5.3",
+    "react-dom": "^16.6.0"
   }
 }

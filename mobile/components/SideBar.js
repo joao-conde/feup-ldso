@@ -12,12 +12,12 @@ export default class SideBar extends React.Component {
   }
 
   componentDidMount() {
-    return fetch(FAKE_API_ENDPOINT + ':3005/feup')
+    return fetch(FAKE_API_ENDPOINT + ':3005/en')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
           isLoading: false,
-          dataSource: responseJson["social-projects"],
+          dataSource: responseJson["feup"]["social-projects"],
         });
       })
       .catch((error) => {
@@ -48,7 +48,6 @@ export default class SideBar extends React.Component {
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   content: {
