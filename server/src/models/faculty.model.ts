@@ -1,33 +1,31 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {SocialProject} from './social-project.model';
 
 @model()
 export class Faculty extends Entity {
   @property({
-    type: 'string',
+    type: 'number',
     id: true,
+    required: true,
   })
-  id?: string;
+  id: number;
 
   @property({
     type: 'string',
+    required: true,
   })
-  name?: string;
+  name: string;
 
   @property({
     type: 'string',
+    required: true,
   })
-  language?: string;
+  language: string;
 
   @property({
     type: 'string',
   })
   short_description?: string;
-
-  @property({
-    type: 'array',
-    itemType: 'object',
-  })
-  social_projects?: object[];
 
   @property({
     type: 'array',
@@ -39,6 +37,9 @@ export class Faculty extends Entity {
     type: 'object',
   })
   future_prospects?: object;
+
+  @hasMany(() => SocialProject)
+  socialProjects: SocialProject[];
 
   constructor(data?: Partial<Faculty>) {
     super(data);

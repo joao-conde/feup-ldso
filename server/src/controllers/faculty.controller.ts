@@ -20,61 +20,45 @@ import {FacultyRepository} from '../repositories';
 
 export class FacultyController {
   constructor(
-    @repository(FacultyRepository)
-    public facultyRepository : FacultyRepository,
+    @repository(FacultyRepository) public facultyRepository: FacultyRepository,
   ) {}
 
-  @post('/faculties', {
+  @get('/faculties/count', {
     responses: {
       '200': {
-        description: 'Faculty model instance',
+        description: 'Faculty model count',
+        content: {'application/json': {schema: CountSchema}},
+      },
+    },
+  })
+  async count(
+    @param.query.object('where', getWhereSchemaFor(Faculty)) where?: Where,
+  ): Promise<Count> {
+    return await this.facultyRepository.count(where);
+  }
+
+  @get('/faculties/{language}/{name}/intro', {
+    responses: {
+      '200': {
+        description: 'Faculty introduction',
         content: {'application/json': {'x-ts-type': Faculty}},
       },
     },
   })
-  async create(@requestBody() faculty: Faculty): Promise<Faculty> {
-    return await this.facultyRepository.create(faculty);
-  }
-
-  @get('/faculties', {
-    responses: {
-      '200': {
-        description: 'Array of Faculty model instances',
-        content: {
-          'application/json': {
-            schema: {type: 'array', items: {'x-ts-type': Faculty}},
-          },
-        },
-      },
-    },
-  })
-  async find(
-    @param.query.object('filter', getFilterSchemaFor(Faculty)) filter?: Filter,
-  ): Promise<Faculty[]> {
-    return await this.facultyRepository.find(filter);
-  }
-
-  @get('/faculties/{language}/{id}', {
-    responses: {
-      '200': {
-        description: 'Faculty model instance',
-        content: {'application/json': {'x-ts-type': Faculty}},
-      },
-    },
-  })
-  async findById(@param.path.string('language') language: string, @param.path.string('id') id: string): Promise<Faculty> {
-    return await this.facultyRepository.findOne({where: {name: id, language: language}}) || new Faculty();
-  }
-
-  @get('/faculties/{language}/{id}/intro', {
-    responses: {
-      '200': {
-        description: 'Faculty model instance',
-        content: {'application/json': {'x-ts-type': Faculty}},
-      },
-    },
-  })
-  async findIntroById(@param.path.string('language') language: string, @param.path.string('id') id: string): Promise<Faculty> {
-    return await this.facultyRepository.findOne({where: {name: id, language: language}, fields: {short_description: true}}) || new Faculty();
+  async findFacultyIntro(
+    @param.path.string('language') language: string, 
+    @param.path.string('name') name: string):
+  Promise<Faculty> {
+    let id = 0;
+      await this.facultyRepository
+        .findOne({
+          where: {name: name, language: language},
+          fields: {id: true},
+        })
+        .then(function(result) {
+          if (result != null) id = result.id;
+        })
+        .catch(function(err) {});
+      return await this.facultyRepository.findById(id, {fields: {short_description: true}});
   }
 }
