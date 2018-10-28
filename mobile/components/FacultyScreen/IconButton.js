@@ -3,23 +3,30 @@ import {View, Card, Icon, Button, Text} from 'native-base';
 import specificStyles from '../../constants/SpecificStyles';
 
 class IconButton extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
     render() {
+        const {icon, label, action} = this.props;
+
         return (
             <Card style={styles.card} transparent>
                 <View style={styles.btnView}>
-                    <Button style={[styles.linkBtn, specificStyles.mainMenuBtn.feup]} /*onPress={() => this.props.navigation.navigate('Videos', {name: name})}*/>
-                        <Icon style={[styles.icon,specificStyles.mainMenuIcon.feup]} type="FontAwesome" name="film" />
+                    <Button style={[styles.linkBtn, specificStyles.mainMenuBtn.feup]} onPress={action()}>
+                        <Icon style={[styles.icon,specificStyles.mainMenuIcon.feup]} type="FontAwesome" name={icon} />
                     </Button>
                 </View>
                 <View style={styles.subtitle}>
-                    <Text style={styles.labelText}>Videos</Text>
+                    <Text style={styles.labelText}>{label}</Text>
                 </View>
             </Card>
         );
     }
 }
 
-export { IconButton };
+export default IconButton;
 
 const styles = {
 

@@ -4,8 +4,8 @@ import { Container, Content, Text, View } from "native-base";
 import { connect } from 'react-redux';
 import { getIntroduction, setFaculty } from '../reducers/modules/facultyReducer';
 import { logos } from '../constants/Logos';
-import { StatisticsNumbers } from '../components/FacultyScreen/StatisticsNumbers';
-import { IconButton } from '../components/FacultyScreen/IconButton';
+import Statistics from '../components/FacultyScreen/Statistics';
+import IconButton from '../components/FacultyScreen/IconButton';
 
 class FacultyScreen extends React.Component {
 
@@ -21,6 +21,10 @@ class FacultyScreen extends React.Component {
 
     if (prevProps.language != language)
       this.props.getIntroduction(language, name);
+  }
+
+  navigateFunction(label, name) {
+    return () => this.props.navigation.navigate(label, {name: name});
   }
 
   render() {
@@ -43,12 +47,12 @@ class FacultyScreen extends React.Component {
             <View style={styles.menu}>
               <View style={styles.links}>
                 <View style={styles.linksRow}>
-                  <IconButton></IconButton>
-                  <IconButton></IconButton>
+                  <IconButton icon="film" label="Videos" action={this.navigateFunction.bind(this, "Videos", name)}></IconButton>
+                  <IconButton icon="globe" label="Social Projects" action={this.navigateFunction.bind(this, "SocialProjects", name)}></IconButton>
                 </View>
                 <View style={styles.linksRow}>
-                  <IconButton></IconButton>
-                  <IconButton></IconButton>
+                  <IconButton icon="paper-plane" label="Future" action={this.navigateFunction.bind(this, "FutureProspects", name)}></IconButton>
+                  <IconButton icon="map-marker" label="Localization" action={this.navigateFunction.bind(this, "Localization", name)}></IconButton>
                 </View>
               </View>
               <View style={styles.imageView}>
@@ -56,10 +60,10 @@ class FacultyScreen extends React.Component {
               </View>
             </View>
             <View style={styles.statistics}>
-              <StatisticsNumbers></StatisticsNumbers>
-              <StatisticsNumbers></StatisticsNumbers>
-              <StatisticsNumbers></StatisticsNumbers>
-              <StatisticsNumbers></StatisticsNumbers>
+              <Statistics course={[ "13", "Faculdades" ]} students={["2221", "Estudantes"]}></Statistics>
+              <Statistics course={[ "28", "Mestrados" ]} students={["961", "Estudantes"]}></Statistics>
+              <Statistics course={[ "8", "Doutoramentos" ]} students={["280", "Estudantes"]}></Statistics>
+              <Statistics course={[ "125", "Cursos de Formação" ]} students={["1111", "Formandos"]}></Statistics>
             </View>
         </Content>
       </Container>
@@ -72,20 +76,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    margin:0
+    padding:0
   },
 
   content: {
     flex: 1,
     flexDirection: 'column',
     padding: 10,
-    margin: 0
+    padding:0
   },
 
   statistics: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    backgroundColor: '#1c1c1c'
   },
 
   menu: {
@@ -100,6 +105,7 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     margin: 20,
+    marginBottom: 37,
     resizeMode: 'contain',
     alignSelf: 'stretch'
 

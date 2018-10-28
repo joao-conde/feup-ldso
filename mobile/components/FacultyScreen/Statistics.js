@@ -4,33 +4,40 @@ import {Text, Title} from 'native-base';
 import Dash from 'react-native-dash';
 
 class StatisticsNumbers extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
     render() {
+        const {course, students} = this.props;
+
         return (
             <View style={styles.main}>
                 <View style={styles.section}>
-                    <Text style={styles.numbers}>13</Text>
-                    <Text style={styles.text}>Licenciaturas</Text>
+                    <Text style={styles.numbers}>{course[0]}</Text>
+                    <Text style={styles.text}>{course[1]}</Text>
                 </View>
                 <View style={styles.section}>
                     <Dash dashColor='white' dashGap={5} style={styles.dash} />
                 </View>
                 <View style={styles.section}>
-                    <Text style={styles.numbers}>2221</Text>
-                    <Text style={styles.text}>Estudantes</Text>
+                    <Text style={styles.numbers}>{students[0]}</Text>
+                    <Text style={styles.text}>{students[1]}</Text>
                 </View>
             </View>
         );
     };
 }
 
-export { StatisticsNumbers };
+export default StatisticsNumbers ;
 
 const styles = {
     main: {
         padding:20,
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: 'black'
+        backgroundColor: '#1c1c1c'
     },
 
     section: {
@@ -48,12 +55,13 @@ const styles = {
 
     numbers: {
         fontFamily: 'Quicksand_regular',
-        fontSize: 25,
+        fontSize: 30,
         color: 'white',
         paddingBottom: 5
     },
 
     text: {
-        color: 'white'
+        color: 'white',
+        fontSize: 22
     }
 }
