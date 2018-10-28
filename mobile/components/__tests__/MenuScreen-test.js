@@ -1,11 +1,46 @@
 import 'react-native';
 import React from 'react';
 import MenuScreen from '../../screens/MenuScreen';
-import renderer from 'react-test-renderer';
+import Enzyme, { mount, shallow } from 'enzyme';
+import configureStore from 'redux-mock-store';
+import Adapter from 'enzyme-adapter-react-16';
+import AppNavigator from '../../navigation/AppNavigator';
+import { View, FlatList } from 'react-native';
 
-it('renders correctly', () => {
-  // const tree = renderer.create(<MenuScreen />).toJSON();
+Enzyme.configure({ adapter: new Adapter() });
 
-  // expect(tree).toMatchSnapshot();
-  // Setting of tests should be done in the respective branch
+const middlewares = []; // you can mock any middlewares here if necessary
+const mockStore = configureStore(middlewares);
+
+const initialState = { };
+
+function setup() {
+  const navigation = shallow(<AppNavigator />);
+
+  const props = {
+    navigation: navigation
+  };
+
+  const menuWrapper = shallow(<MenuScreen {...props} />,
+    {
+      context: { store: mockStore(initialState) },
+      disableLifecycleMethods: true
+    });
+
+  return {
+    props,
+    menuWrapper
+  }
+};
+
+it('renders logo list', () => {
+  const { menuWrapper } = setup();
+
+  expect(menuWrapper.dive().find(FlatList).exists()).toEqual(true);
+});
+
+it('renders as expected', () => {
+  const { menuWrapper } = setup();
+
+  expect(menuWrapper.dive()).toMatchSnapshot();
 });
