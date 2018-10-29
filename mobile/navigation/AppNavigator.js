@@ -8,37 +8,45 @@ import SocialProjectsScreen from '../screens/SocialProjectsScreen';
 import FutureProspectsScreen from '../screens/FutureProspectsScreen';
 import LocalizationScreen from '../screens/LocalizationScreen';
 import LanguageBtn from '../components/LanguageBtn';
+import { facultyStyles, invertedMode } from '../constants/SpecificStyles';
+import HeaderTitle from './components/HeaderTitle';
 
-export default createStackNavigator({
-    Menu: {
-        screen: MenuScreen
+export default createStackNavigator(
+    {
+        Menu: {
+            screen: MenuScreen
+        },
+        Faculty: {
+            screen: FacultyScreen
+        },
+        Videos: {
+            screen: VideosScreen
+        },
+        SocialProjects: {
+            screen: SocialProjectsScreen
+        },
+        FutureProspects: {
+            screen: FutureProspectsScreen
+        },
+        Localization: {
+            screen: LocalizationScreen
+        }
     },
-    Faculty: {
-        screen: FacultyScreen,
-        navigationOptions: () => languageBtn
-    },
-    Videos: {
-        screen: VideosScreen,
-        navigationOptions: () => languageBtn
-    },
-    SocialProjects: {
-        screen: SocialProjectsScreen,
-        navigationOptions: () => languageBtn
-    },
-    FutureProspects: {
-        screen: FutureProspectsScreen,
-        navigationOptions: () => languageBtn
-    },
-    Localization: {
-        screen: LocalizationScreen,
-        navigationOptions: () => languageBtn
+    {
+        initialRouteName: 'Menu',
+        navigationOptions: ({ navigation }) => {
+            const faculty = navigation.getParam('faculty');
+            const inverted = invertedMode[faculty] || false;
+
+            return ({
+                headerRight: (
+                    <LanguageBtn invertedMode={ invertedMode[faculty] }/>
+                ),
+                headerTitle: <HeaderTitle faculty={ faculty } invertedMode={ inverted }/>,
+                headerStyle: faculty == undefined ? {} : facultyStyles[faculty].header,
+                headerTitleStyle: faculty == undefined ? {} : facultyStyles[faculty].headerTitle,
+                headerTintColor: inverted ? 'white' : 'black'
+            });
+        }
     }
-}, {
-    initialRouteName: 'Menu'
-});
-
-var languageBtn = ({
-    headerRight: (
-        <LanguageBtn/>
-    )
-});
+);
