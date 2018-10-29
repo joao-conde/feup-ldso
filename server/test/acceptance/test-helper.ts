@@ -1,4 +1,4 @@
-import {ServerApp} from '../..';
+import {ServerApplication} from '../..';
 import {
   createRestAppClient,
   givenHttpServerConfig,
@@ -6,7 +6,7 @@ import {
 } from '@loopback/testlab';
 
 export async function setupApplication(): Promise<AppWithClient> {
-  const app = new ServerApp({
+  const app = new ServerApplication({
     rest: givenHttpServerConfig(),
   });
 
@@ -19,6 +19,6 @@ export async function setupApplication(): Promise<AppWithClient> {
 }
 
 export interface AppWithClient {
-  app: ServerApp;
+  app: ServerApplication;
   client: Client;
 }
