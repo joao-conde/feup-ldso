@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import { Button, Text } from 'native-base';
 import { connect } from 'react-redux';
@@ -6,11 +7,11 @@ import { toggleLanguage } from '../reducers/modules/languageReducer';
 
 class LanguageBtn extends React.Component {
     render() {
-        const { language } = this.props;
+        const { language, invertedMode } = this.props;
 
         return (
-            <Button transparent dark onPress={() => this.props.toggleLanguage()}>
-                <Text>{language}</Text>
+            <Button transparent light={invertedMode} dark={!invertedMode} onPress={ () => this.props.toggleLanguage()}>
+                <Text style={styles.button}>{language}</Text>
             </Button>
         );
     }
@@ -18,7 +19,8 @@ class LanguageBtn extends React.Component {
 
 LanguageBtn.propTypes = {
     language: PropTypes.string,
-    toggleLanguage: PropTypes.func
+    toggleLanguage: PropTypes.func,
+    invertedMode: PropTypes.bool
 };
 
 const mapStateToProps = ({ language }) => ({
@@ -28,5 +30,11 @@ const mapStateToProps = ({ language }) => ({
 const mapDispatchToProps = {
     toggleLanguage
 };
+
+const styles = StyleSheet.create({
+    button: {
+        fontWeight: 'bold',
+    },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(LanguageBtn);
