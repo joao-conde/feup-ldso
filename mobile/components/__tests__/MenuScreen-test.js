@@ -1,11 +1,11 @@
 import 'react-native';
 import React from 'react';
 import MenuScreen from '../../screens/MenuScreen';
-import Enzyme, { mount, shallow } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import Adapter from 'enzyme-adapter-react-16';
 import AppNavigator from '../../navigation/AppNavigator';
-import { View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -15,32 +15,32 @@ const mockStore = configureStore(middlewares);
 const initialState = { };
 
 function setup() {
-  const navigation = shallow(<AppNavigator />);
+    const navigation = shallow(<AppNavigator />);
 
-  const props = {
-    navigation: navigation
-  };
+    const props = {
+        navigation: navigation
+    };
 
-  const menuWrapper = shallow(<MenuScreen {...props} />,
-    {
-      context: { store: mockStore(initialState) },
-      disableLifecycleMethods: true
-    });
+    const menuWrapper = shallow(<MenuScreen {...props} />,
+        {
+            context: { store: mockStore(initialState) },
+            disableLifecycleMethods: true
+        });
 
-  return {
-    props,
-    menuWrapper
-  }
-};
+    return {
+        props,
+        menuWrapper
+    };
+}
 
 it('renders logo list', () => {
-  const { menuWrapper } = setup();
+    const { menuWrapper } = setup();
 
-  expect(menuWrapper.dive().find(FlatList).exists()).toEqual(true);
+    expect(menuWrapper.dive().find(FlatList).exists()).toEqual(true);
 });
 
 it('renders as expected', () => {
-  const { menuWrapper } = setup();
+    const { menuWrapper } = setup();
 
-  expect(menuWrapper.dive()).toMatchSnapshot();
+    expect(menuWrapper.dive()).toMatchSnapshot();
 });

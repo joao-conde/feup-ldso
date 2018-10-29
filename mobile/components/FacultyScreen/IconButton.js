@@ -10,7 +10,10 @@ class IconButton extends React.Component {
     }
 
     render() {
-        const {name,icon, label, action} = this.props;
+        const {name, icon, label, action} = this.props;
+
+        if(name == undefined || name == '')
+            return null;
 
         return (
             <Card style={styles.card} transparent>

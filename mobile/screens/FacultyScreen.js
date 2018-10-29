@@ -47,12 +47,12 @@ class FacultyScreen extends React.Component {
                     <View style={styles.menu}>
                         <View style={styles.links}>
                             <View style={styles.linksRow}>
-                                <IconButton name={name} icon="film" label="Videos" action={this.navigateFunction.bind(this, 'Videos', name)}></IconButton>
-                                <IconButton name={name} icon="globe" label="Social Projects" action={this.navigateFunction.bind(this, 'SocialProjects', name)}></IconButton>
+                                <IconButton name={name} icon="film" label="Videos" action={() => this.navigateFunction('Videos', name)}></IconButton>
+                                <IconButton name={name} icon="globe" label="Social Projects" action={() => this.navigateFunction('SocialProjects', name)}></IconButton>
                             </View>
                             <View style={styles.linksRow}>
-                                <IconButton name={name} icon="paper-plane" label="Future" action={this.navigateFunction.bind(this, 'FutureProspects', name)}></IconButton>
-                                <IconButton name={name} icon="map-marker" label="Localization" action={this.navigateFunction.bind(this, 'Localization', name)}></IconButton>
+                                <IconButton name={name} icon="paper-plane" label="Future" action={() => this.navigateFunction('FutureProspects', name)}></IconButton>
+                                <IconButton name={name} icon="map-marker" label="Localization" action={() => this.navigateFunction('Localization', name)}></IconButton>
                             </View>
                         </View>
                         <View style={styles.imageView}>
