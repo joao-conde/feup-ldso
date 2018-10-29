@@ -24,138 +24,138 @@ const GET_VIDEOS_SUCCESS = 'mobile/faculty/GET_VIDEOS_SUCCESS';
 const GET_VIDEOS_FAIL = 'mobile/faculty/GET_VIDEOS_FAIL';
 
 const initialState = {
-  loading: false,
-  name: '',
-  intro: '',
-  socialProjects: [],
-  futureProspects: '',
-  localization: {},
-  videos: []
+    loading: false,
+    name: '',
+    intro: '',
+    socialProjects: [],
+    futureProspects: '',
+    localization: {},
+    videos: []
 };
 
 export default function reducer(state = initialState, action) {
-  switch (action.type) {
+    switch (action.type) {
     case SET_FACULTY:
-      return { ...state,
-        name: action.name
-      };
+        return { ...state,
+            name: action.name
+        };
     case CLEAR_FACULTY:
-      return initialState;
+        return initialState;
 
     case GET_INTRO:
     case GET_SOCIAL_PROJECTS:
     case GET_FUTURE_PROSPECTS:
     case GET_LOCALIZATION:
     case GET_VIDEOS:
-      return { ...state,
-        loading: true
-      };
+        return { ...state,
+            loading: true
+        };
 
     case GET_INTRO_SUCCESS:
-      return { ...state,
-        loading: false,
-        intro: action.payload.data[state.name].shortDescription
-      };
+        return { ...state,
+            loading: false,
+            intro: action.payload.data[state.name].shortDescription
+        };
     case GET_SOCIAL_PROJECTS_SUCCESS:
-      return { ...state,
-        loading: false,
-        socialProjects: action.payload.data[state.name]
-      };
+        return { ...state,
+            loading: false,
+            socialProjects: action.payload.data[state.name]
+        };
     case GET_FUTURE_PROSPECTS_SUCCESS:
-      return { ...state,
-        loading: false,
-        futureProspects: action.payload.data[state.name]['future-prospects']['content']
-      };
+        return { ...state,
+            loading: false,
+            futureProspects: action.payload.data[state.name]['future-prospects']['content']
+        };
     case GET_LOCALIZATION_SUCCESS:
-      return { ...state,
-        loading: false,
-        localization: action.payload.data
-      };
+        return { ...state,
+            loading: false,
+            localization: action.payload.data
+        };
     case GET_VIDEOS_SUCCESS:
-      return { ...state,
-        loading: false,
-        videos: action.payload.data
-      };
+        return { ...state,
+            loading: false,
+            videos: action.payload.data
+        };
 
     case GET_INTRO_FAIL:
     case GET_SOCIAL_PROJECTS_FAIL:
     case GET_FUTURE_PROSPECTS_FAIL:
     case GET_LOCALIZATION_FAIL:
     case GET_VIDEOS_FAIL:
-      return {
-        ...state,
-        loading: false,
-        error: 'Error while fetching faculty data'
-      };
+        return {
+            ...state,
+            loading: false,
+            error: 'Error while fetching faculty data'
+        };
     default:
-      return state;
-  }
+        return state;
+    }
 }
 
 export function setFaculty(name) {
-  return {
-    type: SET_FACULTY,
-    name: name
-  };
+    return {
+        type: SET_FACULTY,
+        name: name
+    };
 }
 
 export function clearFaculty() {
-  return {
-    type: CLEAR_FACULTY
-  };
+    return {
+        type: CLEAR_FACULTY
+    };
 }
 
-export function getIntroduction(language, faculty) {
-  return {
-    type: GET_INTRO,
-    payload: {
-      request: {
-        url: `/${language}` 
-      }
-    }
-  };
+export function getIntroduction(language) {
+    return {
+        type: GET_INTRO,
+        payload: {
+            request: {
+                url: `/${language}` 
+            }
+        }
+    };
 }
 
-export function getSocialProjects(language, faculty) {
-  return {
-    type: GET_SOCIAL_PROJECTS,
-    payload: {
-      request: {
-        url: `/${language}`
-      }
-    }
-  };
+export function getSocialProjects(language) {
+    return {
+        type: GET_SOCIAL_PROJECTS,
+        payload: {
+            request: {
+                url: `/${language}`
+            }
+        }
+    };
 }
 
-export function getFutureProspects(language, faculty) {
-  return {
-    type: GET_FUTURE_PROSPECTS,
-    payload: {
-      request: {
-        url: `/${language}`
-      }
-    }
-  };
+export function getFutureProspects(language) {
+    return {
+        type: GET_FUTURE_PROSPECTS,
+        payload: {
+            request: {
+                url: `/${language}`
+            }
+        }
+    };
 }
 
 export function getLocalization(faculty) {
-  return {
-    type: GET_LOCALIZATION,
-    payload: {
-      request: {
-        url: `/${faculty}`
-      }
-    }
-  };
+    return {
+        type: GET_LOCALIZATION,
+        payload: {
+            request: {
+                url: `/${faculty}`
+            }
+        }
+    };
 }
 
 export function getVideos(faculty) {
-  return {
-    type: GET_VIDEOS,
-    payload: {
-      request: {
-        url: `/${faculty}`
-      }
-    }
-  };
+    return {
+        type: GET_VIDEOS,
+        payload: {
+            request: {
+                url: `/${faculty}`
+            }
+        }
+    };
 }

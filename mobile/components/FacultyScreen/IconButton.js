@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Card, Icon, Button, Text} from 'native-base';
-import specificStyles from '../../constants/SpecificStyles';
+import PropTypes from 'prop-types';
+import facultyStyles from '../../constants/SpecificStyles';
 
 class IconButton extends React.Component {
 
@@ -9,13 +10,13 @@ class IconButton extends React.Component {
     }
 
     render() {
-        const {icon, label, action} = this.props;
+        const {name,icon, label, action} = this.props;
 
         return (
             <Card style={styles.card} transparent>
                 <View style={styles.btnView}>
-                    <Button style={[styles.linkBtn, specificStyles.mainMenuBtn.feup]} onPress={action()}>
-                        <Icon style={[styles.icon,specificStyles.mainMenuIcon.feup]} type="FontAwesome" name={icon} />
+                    <Button style={[styles.linkBtn, facultyStyles[name].mainMenuBtn]} onPress={action()}>
+                        <Icon style={[styles.icon,facultyStyles[name].mainMenuIcon]} type="FontAwesome" name={icon} />
                     </Button>
                 </View>
                 <View style={styles.subtitle}>
@@ -26,13 +27,20 @@ class IconButton extends React.Component {
     }
 }
 
+IconButton.propTypes = {
+    name: PropTypes.string,
+    icon: PropTypes.string,
+    label: PropTypes.string,
+    action: PropTypes.func
+};
+
 export default IconButton;
 
 const styles = {
 
     card: {
         padding: 30,
-       alignItems: 'center'
+        alignItems: 'center'
     },
 
     btnView: {
@@ -70,4 +78,4 @@ const styles = {
         }]
   
     }
-}
+};

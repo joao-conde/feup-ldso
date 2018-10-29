@@ -1,6 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
-import {Text, Title} from 'native-base';
+import {Text } from 'native-base';
+import PropTypes from 'prop-types';
 import Dash from 'react-native-dash';
 
 class StatisticsNumbers extends React.Component {
@@ -27,8 +28,13 @@ class StatisticsNumbers extends React.Component {
                 </View>
             </View>
         );
-    };
+    }
 }
+
+StatisticsNumbers.propTypes = {
+    course: PropTypes.array,
+    students: PropTypes.array,
+};
 
 export default StatisticsNumbers ;
 
@@ -64,4 +70,4 @@ const styles = {
         color: 'white',
         fontSize: 22
     }
-}
+};
