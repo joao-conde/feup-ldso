@@ -9,6 +9,7 @@ import {
   import {
     get,
     patch,
+    post,
     param,
     requestBody,
     getWhereSchemaFor,
@@ -80,5 +81,38 @@ import {
         .socialProjects(id)
         .patch(socialProject, where);
     }
+
+    @post('/faculties/{language}/{name}/social-projects', {
+      responses: {
+        '200': {
+          description: 'Faculty.SocialProject instance',
+          content: {'application/json': {'x-ts-type': SocialProject}},
+        },
+      },
+    })
+    async createSocialProject(
+      @param.path.string('language') language: string,
+      @param.path.string('name') name: string,
+      @requestBody() socialProject: SocialProject): Promise<SocialProject> {
+      let id = 0;
+      await this.facultyRepo
+        .findOne({
+          where: {name: name, language: language},
+          fields: {id: true},
+        })
+        .then(function(result) {
+          if (result != null) id = result.id;
+        })
+        .catch(function(err) {});
+
+      //socialProject.facultyId = id;
+      let newProject = new SocialProject();
+      newProject.content = socialProject.content;
+      newProject.title = socialProject.title;
+      newProject.facultyId = id;
+
+      return await this.facultyRepo.socialProjects(id).create(socialProject);
+    }
+
   }
   

@@ -1,0 +1,72 @@
+body {
+  background-color: #ebeff1;
+  padding: 20px;
+  margin: 0;
+  font-family: 'Titillium Web', sans-serif
+
+}
+h1, h2, p, ul, li {
+  font-family: sans-serif;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+ul.header li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+}
+
+ul.header {
+  background-color:black;
+  padding: 0;
+
+}
+ul.header li a {
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 1.9%;
+  display: inline-block;
+}
+.content {
+  background-color: #FFF;
+  padding: 20px;
+  -webkit-box-shadow: 2px 4px 8px 0px rgba(45, 46, 67, 0.85);
+  -moz-box-shadow:    2px 4px 8px 0px rgba(45, 46, 67, 0.85);
+  box-shadow:         2px 4px 8px 0px rgba(45, 46, 67, 0.85);
+}
+h1 {
+  color: #29303D;
+}
+.content h2 {
+  padding: 0;
+  margin: 0;
+}
+.content li {
+  margin-bottom: 10px;
+}
+
+.active {
+  background-color:#b8babb;
+}
+
+button.faculty_proj{
+  padding:10px;
+  margin:20px;
+  background-color: #b8babb;
+  border-color: transparent;
+  border-radius: 50%;
+  display:grid;
+  width:120px;
+  height:120px;
+}
+
+img.plus{
+  width: 60px;
+  height: 60px;
+  margin-left: 50px;
+}
