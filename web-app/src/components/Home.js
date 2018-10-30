@@ -4,7 +4,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h1>Redirect to App login or another admin  page</h1>
+        <h1>Redirect to App login or another admin page</h1>
       </div>
     )
   }

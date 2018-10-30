@@ -7,6 +7,7 @@ import {
   } from '@loopback/repository';
   import {FacultyRepository} from '../repositories';
   import {
+    del,
     get,
     patch,
     post,
@@ -112,6 +113,33 @@ import {
       newProject.facultyId = id;
 
       return await this.facultyRepo.socialProjects(id).create(socialProject);
+    }
+
+    @del('/faculties/{language}/{name}/social-projects', {
+      responses: {
+        '204': {
+          description: 'Faculty.SocialProject DELETE success',
+        },
+      },
+    })
+    async deleteSocialProject(
+      @param.path.string('language') language: string,
+      @param.path.string('name') name: string,
+      @param.query.object('where', getWhereSchemaFor(SocialProject))
+      where?: Where,): Promise<void> {
+
+      let id = 0;
+      await this.facultyRepo
+        .findOne({
+          where: {name: name, language: language},
+          fields: {id: true},
+        })
+        .then(function(result) {
+          if (result != null) id = result.id;
+        })
+        .catch(function(err) {});
+        
+      await this.facultyRepo.socialProjects(id).delete(where);
     }
 
   }

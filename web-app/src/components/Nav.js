@@ -12,7 +12,6 @@ class Nav extends Component {
       <BrowserRouter>
         <div>
           <h1>ImpactUP</h1>
-          {/* <li><NavLink exact to="/">Home</NavLink> </li> */}
           <ul className="header">
             {
                 FacultyAPI.all().map(p => (
