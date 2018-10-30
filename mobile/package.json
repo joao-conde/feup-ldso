@@ -12,7 +12,8 @@
     "lint": "yarn run lint:js",
     "lint-fix": "yarn run lint-fix:js",
     "lint:js": "eslint .",
-    "lint-fix:js": "eslint . --fix"
+    "lint-fix:js": "eslint . --fix",
+    "build": "expo build:android"
   },
   "jest": {
     "preset": "jest-expo",
@@ -53,7 +54,9 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-standard": "^4.0.0",
+    "expo-cli": "^2.2.4",
     "jest-expo": "30.0.0",
+    "npx": "^10.2.0",
     "react-dom": "^16.6.0",
     "react-native-dotenv": "^0.2.0",
     "redux-mock-store": "^1.5.3"

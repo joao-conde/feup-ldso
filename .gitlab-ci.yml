@@ -1,6 +1,6 @@
 # Official framework image. Look for the different tagged releases at:
 # https://hub.docker.com/r/library/node/tags/
-image: node:latest
+image: node:alpine
 
 variables:
   api: "http://localhost:3005"
@@ -14,7 +14,9 @@ services:
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
 cache:
+  key: ${CI_COMMIT_REF_SLUG}
   paths:
+  - .jest
   - mobile/node_modules/
   - server/node_modules/
   - web-app/node_modules/
@@ -23,7 +25,29 @@ stages:
   - lint
   - build
   - test
+  - deploy
   - cleanup
+
+lint_mobile:
+  stage: lint
+  before_script:
+    - cd mobile
+    - yarn
+  script:
+    - yarn run lint
+
+deploy_mobile:
+  stage: deploy
+  before_script:
+    - cd mobile
+    - printenv >> .env
+    - yarn
+  script:
+    - apk add --no-cache bash
+    - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
+    - npx expo publish --non-interactive
+  only:
+    - master develop
 
 test_mobile:
   stage: test
@@ -33,11 +57,4 @@ test_mobile:
   - yarn
   script:
     - yarn test-ci
-
-lint_mobile:
-  stage: lint
-  script:
-    - cd mobile
-    - yarn install
-    - yarn run lint
 
