@@ -47,7 +47,8 @@ deploy_mobile:
     - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
     - npx expo publish --non-interactive
   only:
-    - master develop
+    - master
+    - develop
 
 test_mobile:
   stage: test
