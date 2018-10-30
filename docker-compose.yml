@@ -31,7 +31,6 @@ services:
 
   server:
     image: server
-    command: yarn dev
     build:
       context: ./server
       target: build-stage
