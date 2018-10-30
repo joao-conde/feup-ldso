@@ -60,7 +60,7 @@ On the root directory, run docker:
 docker-compose up --build server
 ```
 
-## Temporary simulation _Backend API_ 
+## Temporary simulation _Backend API_ (To be completely replaced by end of Sprint 3)
 Useful temporary server simulating a backend API, to allow API calls in the frontend.
 
 To run the server do:
