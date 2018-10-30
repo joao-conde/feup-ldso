@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "mobile",
-    "description": "A very interesting project.",
-    "slug": "mobile",
+    "name": "ImpactUP",
+    "description": "Showcase of U. Porto's faculties.",
+    "slug": "impact-up",
     "privacy": "public",
     "sdkVersion": "30.0.0",
     "platforms": ["ios", "android"],
@@ -10,18 +10,21 @@
     "orientation": "default",
     "icon": "./assets/images/icon.png",
     "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+        "image": "./assets/images/splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+        "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+        "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+        "supportsTablet": true
+    },
+    "android": {
+        "package": "com.feup.impactup"
     }
   }
 }
