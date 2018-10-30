@@ -71,4 +71,6 @@ To run the server do:
 
 The json server will start at port _host_:3005.
 
-__Note:__ Do not forget to also change variable in the _.env_ file (`FAKE_API_ENDPOINT`) to match the host defined in the _json-server.json_ file.
+__Note:__ Do not forget to also change variable in the _.env_ file (`api`) to match the host and port defined in the _json-server.json_ file.
+
+Example of _.env_ file content: `api=http://<host>:3005`.

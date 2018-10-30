@@ -1,5 +1,7 @@
-FROM node:8.12.0-alpine as build-stage
+FROM node:10.12.0-alpine as build-stage
 WORKDIR /usr/src/app
-COPY package*.json ./
-RUN yarn
 COPY . .
+RUN yarn
+RUN yarn build
+EXPOSE 3000
+ENTRYPOINT ["yarn", "start"]

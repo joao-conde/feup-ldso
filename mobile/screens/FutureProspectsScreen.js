@@ -1,77 +1,100 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, Image } from 'react-native';
 import { Container, Content, View, Text, H1 } from 'native-base';
+import { connect } from 'react-redux';
+import { getFutureProspects } from '../reducers/modules/facultyReducer';
 
-import { FAKE_API_ENDPOINT } from 'react-native-dotenv';
+class FutureProspectsScreen extends React.Component {
 
-export default class FutureProspectsScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Future Prospects',
-  };
+    constructor(props) {
+        super(props);
+        this.state = {
+            banner: require('../assets/images/banners/feup-banner.png')
+        };
+    }
 
-  constructor(props) {
-    super(props);
-    this.state = { 
-      isLoading: true,
-      banner: require('../assets/images/banners/feup-banner.png')
-    };
-  }
+    componentDidMount() {
+        const { language, name } = this.props;
+    
+        this.props.getFutureProspects(language, name);
+    }
 
-  componentDidMount(){
-    return fetch(FAKE_API_ENDPOINT + ':3005/feup')
-    .then((response) => response.json())
-    .then((responseJson) => {
-      this.setState({
-        isLoading: false,
-        dataSource: responseJson['future-prospects']['content'],
-      });
-    })
-    .catch((error) =>{
-      console.error(error);
-    });
-  }
+    componentDidUpdate(prevProps) {
+        const { language, name } = this.props;
 
-  render() {
-    const faculty = this.props.navigation.getParam('faculty').toUpperCase();
+        if (prevProps.language != language)
+            this.props.getFutureProspects(language, name);
+    }
 
-    return (
-      <Container style={ styles.container }>
-        <Content contentContainerStyle= { styles.content } >
-          <H1>What is { faculty } planning?</H1>
+    render() {
+        const { name, loading, prospects, language } = this.props;
 
-          <Image 
-            source={ this.state.banner } 
-            style={ styles.images }
-          />
+        if (loading) {
+            return (
+                <View>
+                    <Text>{ language == 'en'? 'Loading...' : 'Carregando...' }</Text>
+                </View>
+            );
+        }
+        return (
+            <Container style={styles.container}>
+                <Content contentContainerStyle={styles.content} >
+                    <H1>{ language == 'en'? 'What is ' + name + ' planning?' : 'O que está a ' + name + ' a planear?'}</H1>
 
-          <Text style={ styles.text }>
-            { this.state.dataSource }
-          </Text>
-        </Content>
-      </Container>
-    );
-  }
+                    <Image
+                        source={this.state.banner}
+                        style={styles.images}
+                    />
+
+                    <Text style={styles.text}>
+                        {prospects}
+                    </Text>
+                </Content>
+            </Container>
+        );
+    }
 
 }
 
+FutureProspectsScreen.propTypes = {
+    name: PropTypes.string,
+    loading: PropTypes.bool,
+    prospects: PropTypes.string,
+    language: PropTypes.string,
+    getFutureProspects: PropTypes.func
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  content: {
-    paddingTop: 50,
-    alignItems: 'center'
-  },
-  images: {
-    marginTop: 30,
-  },
-  text: {
-    paddingTop: 30,
-    paddingBottom: 30,
-    paddingRight: 10,
-    paddingLeft: 10,
-    maxWidth: 500,
-    textAlign: 'justify'
-  }
-})
+    container: {
+        flex: 1,
+    },
+    content: {
+        paddingTop: 50,
+        alignItems: 'center'
+    },
+    images: {
+        marginTop: 30,
+    },
+    text: {
+        paddingTop: 30,
+        paddingBottom: 30,
+        paddingRight: 10,
+        paddingLeft: 10,
+        maxWidth: 500,
+        textAlign: 'justify'
+    }
+});
+
+const mapStateToProps = ({ faculty, language }) => ({
+    name: faculty.name,
+    loading: faculty.loading,
+    prospects: faculty.futureProspects,
+    language: language.selection
+});
+
+const mapDispatchToProps = {
+    getFutureProspects
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FutureProspectsScreen);

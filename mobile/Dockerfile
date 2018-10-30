@@ -1,4 +1,4 @@
-FROM node:9.3.0-alpine as build-stage
+FROM node:8.10.0-alpine as build-stage
 WORKDIR /usr/src/app
 
 # Uncomment line below with your host local ip address

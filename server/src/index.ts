@@ -1,10 +1,10 @@
-import {ServerApp} from './application';
+import {ServerApplication} from './application';
 import {ApplicationConfig} from '@loopback/core';
 
-export {ServerApp};
+export {ServerApplication};
 
 export async function main(options: ApplicationConfig = {}) {
-  const app = new ServerApp(options);
+  const app = new ServerApplication(options);
   await app.boot();
   await app.start();
 
