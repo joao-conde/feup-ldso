@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {  Route,NavLink } from "react-router-dom";
+import Editor from "./Editor";
 
 // The Faculty looks up the Faculty using the number parsed from
 // the URL's pathname. If no Faculty is found with the given
@@ -65,14 +67,19 @@ class Sidebar extends Component {
      return <div>Loading...</div>;
    } else {
      return (
-       <div >
-       {/* <a href="#"><img src={require('../assets/plus-circle.png')} className="plus"/></a> */}
+       <div>
+       <div>
          {
            projects.map(proj => (
            <button key={proj.id} className="faculty_proj">
-             {proj.title}
+              {proj.id}
+             <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase() + `/${proj.id}`}>{proj.title}</NavLink>
            </button>
          ))}
+       </div>
+       <div>
+         <Route path={'/faculties/:faculty/:project'} component={Editor}/>
+       </div>
        </div>
      );
    }
