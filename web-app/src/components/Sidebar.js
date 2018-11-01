@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import {  Route,NavLink } from "react-router-dom";
 import Editor from "./Editor";
 
-// The Faculty looks up the Faculty using the number parsed from
-// the URL's pathname. If no Faculty is found with the given
-// number, then a "Faculty not found" message is displayed.
 class Sidebar extends Component {
   constructor(props) {
    super(props);
@@ -38,7 +35,7 @@ class Sidebar extends Component {
  }
 
  componentDidUpdate(prevProps) {
-  const route = process.env.REACT_APP_ENDPOINT + "faculties/en/" + this.props.match.params.faculty.toLowerCase() + "/social-projects"; 
+  const route = process.env.REACT_APP_ENDPOINT + "faculties/en/" + this.props.match.params.faculty.toLowerCase() + "/social-projects";
   if (prevProps.match.params.faculty !== this.props.match.params.faculty){
    fetch(route)
      .then(res => res.json())

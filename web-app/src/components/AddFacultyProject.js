@@ -6,7 +6,6 @@ class AddFacultyProject extends Component{
     constructor(props) {
         super(props);
 
-        //key is DOM element name
         this.state = {
           title: "",
           content: ""
@@ -24,7 +23,7 @@ class AddFacultyProject extends Component{
 
     handleSubmit(event){
       event.preventDefault();
-      const route = process.env.REACT_APP_ENDPOINT + "faculties/en/" + this.props.match.params.faculty.toLowerCase() + "/social-projects"; 
+      const route = process.env.REACT_APP_ENDPOINT + "faculties/en/" + this.props.match.params.faculty.toLowerCase() + "/social-projects";
       fetch(route, {
         method: 'POST',
         headers: {
@@ -52,7 +51,7 @@ class AddFacultyProject extends Component{
             <label>
               Project Description
               <br/>
-              <textarea 
+              <textarea
                 name="content"
                 placeholder="Project Description"
                 value={this.state.content}
