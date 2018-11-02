@@ -90,9 +90,9 @@ class FacultyScreen extends React.Component {
                 </Content>
                 <Content contentContainerStyle={styles.content}>
                     <View style={styles.statsIcons}>
-                        <StatsIcons icon="graduation-cap" iconsNmb={50} percentage={90} text="Docentes e investigadores"></StatsIcons>
+                        <StatsIcons icon="graduation-cap" iconsNmb={50} percentage={50} text="Docentes e investigadores"></StatsIcons>
                         <StatsIcons icon="user" iconsNmb={80} percentage={90} text="Estudantes estrangeiros"></StatsIcons>
-                        <StatsIcons icon="circle" iconsNmb={60} percentage={90} text="Programas de formação conferente de grau envolvendo UO's"></StatsIcons>
+                        <StatsIcons icon="circle" iconsNmb={70} percentage={90} text="Programas de formação conferente de grau envolvendo UO's"></StatsIcons>
                     </View>
                     <View style={styles.hexagonsView}>
                         

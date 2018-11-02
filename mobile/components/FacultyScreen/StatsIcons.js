@@ -12,24 +12,35 @@ class StatisticsNumbers extends React.Component {
     render() {
         const {icon, iconsNmb,  percentage, text} = this.props;
         
+        var backgroundIcons = [];
         var icons = [];
+        let colored = 0;
 
         for(let i = 0; i < iconsNmb; i++) {
-            icons.push(
-                <Icon key={i} style={styles.icon} type="FontAwesome" name={icon}/>
+            backgroundIcons.push(
+                <Icon key={i} style={styles.backgroundIcon} type="FontAwesome" name={icon}/>
             );
+            if(colored < (iconsNmb*percentage/100)) {
+                icons.push(
+                    <Icon key={i} style={styles.icon} type="FontAwesome" name={icon}/>
+                );
+                colored++;
+            }
         }    
 
         return (
             <View style={styles.main}>
                 <View style={[styles.section, styles.justify]}>
+                    {backgroundIcons}
+                </View>
+                <View style={[styles.section, styles.justify]}>
                     {icons}
                 </View>
-                <View style={styles.section}>
+                <View style={[styles.section, styles.percentageContent]}>
                     <Text style={styles.percentage}>{percentage} %</Text>
                 </View>
                 <View style={styles.section}>
-                    <Text style={styles.description}>{text}</Text>
+                    <Text adjustsFontSizeToFit style={styles.description}>{text}</Text>
                 </View>
             </View>
         );
@@ -63,25 +74,39 @@ const styles = {
 
     justify: {
         justifyContent: 'flex-start',
-        paddingBottom: 25
+        position: 'absolute',
+    },
+
+    backgroundIcon: {
+        fontSize: 20,
+        padding: '1%',
+        color: '#727272'
     },
 
     icon: {
         fontSize: 20,
-        padding: 2
+        padding: '1%',
+        color: '#1c1c1c'
     },
 
     percentage: {
         fontFamily: 'Quicksand_regular',
+
         fontSize: 40,
         color: 'black',
     },
 
+    percentageContent: {
+        paddingTop: '30%',
+        marginBottom: '5%',
+    },
+
+    
     description: {
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
         fontFamily: 'Quicksand_regular',
-        fontSize: 25,
+        fontSize: 20,
         textAlign: 'center'
 
     }
