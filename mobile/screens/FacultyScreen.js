@@ -15,8 +15,8 @@ class FacultyScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          screenHeight: Dimensions.get('window').height-80,      
-          screenWidth: Dimensions.get('window').width,
+            screenHeight: Dimensions.get('window').height-80,      
+            screenWidth: Dimensions.get('window').width,
         };
     }
 
@@ -58,7 +58,7 @@ class FacultyScreen extends React.Component {
             );
         }
         return (
-            <ScrollView style={styles.container} ref={(scroller) => {this.scroller = scroller}}>
+            <ScrollView style={styles.container} ref={(scroller) => {this.scroller = scroller;}}>
                 <Content contentContainerStyle={styles.content}>
                     <View style={styles.menu}>
                         <View style={styles.links}>
