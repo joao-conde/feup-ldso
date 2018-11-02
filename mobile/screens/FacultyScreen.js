@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { getIntroduction, setFaculty } from '../reducers/modules/facultyReducer';
 import Statistics from '../components/FacultyScreen/StatsNumbers';
 import IconButton from '../components/FacultyScreen/IconButton';
+import StatsIcons from '../components/FacultyScreen/StatsIcons';
 
 
 let scrollYPos = 0;
@@ -89,8 +90,12 @@ class FacultyScreen extends React.Component {
                 </Content>
                 <Content contentContainerStyle={styles.content}>
                     <View style={styles.statsIcons}>
+                        <StatsIcons icon="graduation-cap" iconsNmb={50} percentage={90} text="Docentes e investigadores"></StatsIcons>
+                        <StatsIcons icon="user" iconsNmb={80} percentage={90} text="Estudantes estrangeiros"></StatsIcons>
+                        <StatsIcons icon="circle" iconsNmb={60} percentage={90} text="Programas de formação conferente de grau envolvendo UO's"></StatsIcons>
                     </View>
                     <View style={styles.hexagonsView}>
+                        
                     </View>
                 </Content>
             </ScrollView>
@@ -186,13 +191,16 @@ const styles = StyleSheet.create({
 
     statsIcons: {
         flex:9,
-        flexDirection: 'column',
-        backgroundColor: 'white'
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        backgroundColor: 'white',
+        padding: 25
     },
 
     hexagonsView: {
         flex:11,
-        flexDirection: 'column',
         backgroundColor: '#1c1c1c',
         alignItems: 'center'
     }
