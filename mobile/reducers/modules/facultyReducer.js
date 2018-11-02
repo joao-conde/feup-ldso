@@ -3,9 +3,9 @@
 const SET_FACULTY = 'mobile/faculty/SET_FACULTY';
 const CLEAR_FACULTY = 'mobile/faculty/CLEAR_FACULTY';
 // Get Faculty Introduction
-const GET_INTRO = 'mobile/faculty/GET_INTRO';
-const GET_INTRO_SUCCESS = 'mobile/faculty/GET_INTRO_SUCCESS';
-const GET_INTRO_FAIL = 'mobile/faculty/GET_INTRO_FAIL';
+const GET_STATS = 'mobile/faculty/GET_STATS';
+const GET_STATS_SUCCESS = 'mobile/faculty/GET_STATS_SUCCESS';
+const GET_STATS_FAIL = 'mobile/faculty/GET_STATS_FAIL';
 // Get Faculty Social Projects
 const GET_SOCIAL_PROJECTS = 'mobile/faculty/GET_SOCIAL_PROJECTS';
 const GET_SOCIAL_PROJECTS_SUCCESS = 'mobile/faculty/GET_SOCIAL_PROJECTS_SUCCESS';
@@ -26,7 +26,7 @@ const GET_VIDEOS_FAIL = 'mobile/faculty/GET_VIDEOS_FAIL';
 const initialState = {
     loading: false,
     name: '',
-    intro: '',
+    stats: {},
     socialProjects: [],
     futureProspects: '',
     localization: {},
@@ -42,7 +42,7 @@ export default function reducer(state = initialState, action) {
     case CLEAR_FACULTY:
         return initialState;
 
-    case GET_INTRO:
+    case GET_STATS:
     case GET_SOCIAL_PROJECTS:
     case GET_FUTURE_PROSPECTS:
     case GET_LOCALIZATION:
@@ -51,10 +51,10 @@ export default function reducer(state = initialState, action) {
             loading: true
         };
 
-    case GET_INTRO_SUCCESS:
+    case GET_STATS_SUCCESS:
         return { ...state,
             loading: false,
-            intro: action.payload.data[state.name].shortDescription
+            stats: action.payload.data[0]
         };
     case GET_SOCIAL_PROJECTS_SUCCESS:
         return { ...state,
@@ -77,7 +77,7 @@ export default function reducer(state = initialState, action) {
             videos: action.payload.data
         };
 
-    case GET_INTRO_FAIL:
+    case GET_STATS_FAIL:
     case GET_SOCIAL_PROJECTS_FAIL:
     case GET_FUTURE_PROSPECTS_FAIL:
     case GET_LOCALIZATION_FAIL:
@@ -105,12 +105,12 @@ export function clearFaculty() {
     };
 }
 
-export function getIntroduction(language) {
+export function getStats(language, faculty) {
     return {
-        type: GET_INTRO,
+        type: GET_STATS,
         payload: {
             request: {
-                url: `/${language}` 
+                url: `/faculties/${language}/${faculty}/statistics` 
             }
         }
     };

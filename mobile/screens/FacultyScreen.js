@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet } from 'react-native';
-import { Container, Content, Card, Text, Body, H1, Button, Icon, View } from 'native-base';
+import { StyleSheet, FlatList } from 'react-native';
+import { Container, Content, Card, Text, Body, H1, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
-import { getIntroduction, setFaculty } from '../reducers/modules/facultyReducer';
-//import { logos } from '../constants/Logos';
+import { getStats, setFaculty } from '../reducers/modules/facultyReducer';
 
 
 class FacultyScreen extends React.Component {
@@ -13,25 +12,25 @@ class FacultyScreen extends React.Component {
         const faculty = this.props.navigation.getParam('faculty');
 
         this.props.setFaculty(faculty);
-        this.props.getIntroduction(this.props.language, faculty);
+        this.props.getStats(this.props.language, faculty);
     }
 
     componentDidUpdate(prevProps) {
         const { language, name } = this.props;
 
         if (prevProps.language != language)
-            this.props.getIntroduction(language, name);
+            this.props.getStats(language, name);
     }
 
     render() {
-        const { name, loading, intro, language } = this.props;
+        const { name, loading, stats, language } = this.props;
 
         if (loading) {
             return (
                 <Container style={styles.container}>
                     <Content contentContainerStyle={styles.content}>
                         <Text style={styles.text}>
-                            { language == 'en'? 'Loading...' : 'Carregando...' }
+                            {language == 'en' ? 'Loading...' : 'Carregando...'}
                         </Text>
                     </Content>
                 </Container>
@@ -43,12 +42,17 @@ class FacultyScreen extends React.Component {
                     <H1 style={styles.h1} uppercase={true}>
                         {name}
                     </H1>
-                    <View>
-                        {/* <Image style={styles.image} source={logos[name.toUpperCase()].uri} /> */}
-                    </View>
-                    <Text style={styles.text}>
-                        {intro}
-                    </Text>
+                    <FlatList
+                        noColumns={3}
+                        data={Object.keys(stats).map(key => {
+                            let obj = {};
+                            obj.key = key;
+                            obj.value = stats[key];
+                            return obj;
+                        })}
+                        renderItem={({ item }) => (
+                            <Text>{item.key} --- {item.value}</Text>
+                        )} />
 
                     <Body style={styles.links}>
                         {/*Videos link*/}
@@ -58,7 +62,7 @@ class FacultyScreen extends React.Component {
                             })}>
                                 <Icon type="FontAwesome" name="film" />
                             </Button>
-                            <Text style={styles.labelText}>{language == 'en'? 'Videos' : 'Vídeos'}</Text>
+                            <Text style={styles.labelText}>{language == 'en' ? 'Videos' : 'Vídeos'}</Text>
                         </Card>
                         {/*Social Impact Projects link*/}
                         <Card style={styles.icon} transparent>
@@ -67,7 +71,7 @@ class FacultyScreen extends React.Component {
                             })}>
                                 <Icon type="FontAwesome" name="globe" />
                             </Button>
-                            <Text style={styles.labelText}>{language == 'en'? 'Social Impact' : 'Impacto Social'}</Text>
+                            <Text style={styles.labelText}>{language == 'en' ? 'Social Impact' : 'Impacto Social'}</Text>
                         </Card>
                         {/*Future Prospects link*/}
                         <Card style={styles.icon} transparent>
@@ -76,7 +80,7 @@ class FacultyScreen extends React.Component {
                             })}>
                                 <Icon type="FontAwesome" name="paper-plane" />
                             </Button>
-                            <Text style={styles.labelText}>{language == 'en'? 'Planning the Future' : 'Planeando o Futuro'}</Text>
+                            <Text style={styles.labelText}>{language == 'en' ? 'Planning the Future' : 'Planeando o Futuro'}</Text>
                         </Card>
                         {/*Localization link*/}
                         <Card style={styles.icon} transparent>
@@ -85,7 +89,7 @@ class FacultyScreen extends React.Component {
                             })}>
                                 <Icon type="FontAwesome" name="map-marker" />
                             </Button>
-                            <Text style={styles.labelText}>{language == 'en'? 'Localization' : 'Localização'}</Text>
+                            <Text style={styles.labelText}>{language == 'en' ? 'Localization' : 'Localização'}</Text>
                         </Card>
                     </Body>
 
@@ -95,17 +99,15 @@ class FacultyScreen extends React.Component {
     }
 }
 
-
 FacultyScreen.propTypes = {
     name: PropTypes.string,
     loading: PropTypes.bool,
-    intro: PropTypes.string,
+    stats: PropTypes.object,
     language: PropTypes.string,
     navigation: PropTypes.object,
     setFaculty: PropTypes.func,
-    getIntroduction: PropTypes.func
+    getStats: PropTypes.func
 };
-
 
 const styles = StyleSheet.create({
     container: {
@@ -156,13 +158,13 @@ const styles = StyleSheet.create({
 const mapStateToProps = ({ faculty, language }) => ({
     name: faculty.name,
     loading: faculty.loading,
-    intro: faculty.intro,
+    stats: faculty.stats,
     language: language.selection
 });
 
 const mapDispatchToProps = {
     setFaculty,
-    getIntroduction
+    getStats
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FacultyScreen);
