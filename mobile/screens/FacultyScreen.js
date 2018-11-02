@@ -1,13 +1,29 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
-import { Container, Content, Text, View } from 'native-base';
+import { StyleSheet, Image, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
+import { Container, Content, Text, View, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getIntroduction, setFaculty } from '../reducers/modules/facultyReducer';
-import Statistics from '../components/FacultyScreen/Statistics';
+import Statistics from '../components/FacultyScreen/StatsNumbers';
 import IconButton from '../components/FacultyScreen/IconButton';
 
+
+let scrollYPos = 0;
+
 class FacultyScreen extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          screenHeight: Dimensions.get('window').height-80,      
+          screenWidth: Dimensions.get('window').width,
+        };
+    }
+
+    scrollToSecondPage = () => {
+        scrollYPos = this.state.screenHeight * 1;
+        this.scroller.scrollTo({x: 0, y: scrollYPos});
+    };
 
     componentDidMount() {
         const faculty = this.props.navigation.getParam('faculty');
@@ -42,7 +58,7 @@ class FacultyScreen extends React.Component {
             );
         }
         return (
-            <Container style={styles.container}>
+            <ScrollView style={styles.container} ref={(scroller) => {this.scroller = scroller}}>
                 <Content contentContainerStyle={styles.content}>
                     <View style={styles.menu}>
                         <View style={styles.links}>
@@ -59,14 +75,25 @@ class FacultyScreen extends React.Component {
                             <Image style={styles.image} source={{uri: 'https://static.globalnoticias.pt/jn/image.aspx?brand=JN&type=generate&guid=151d9c4c-8a02-466b-95fe-1ae900791412&w=744&h=495&t=20180406133500'}}/>
                         </View>
                     </View>
-                    <View style={styles.statistics}>
-                        <Statistics course={[ '13', 'Faculdades' ]} students={['2221', 'Estudantes']}></Statistics>
-                        <Statistics course={[ '28', 'Mestrados' ]} students={['961', 'Estudantes']}></Statistics>
-                        <Statistics course={[ '8', 'Doutoramentos' ]} students={['280', 'Estudantes']}></Statistics>
-                        <Statistics course={[ '125', 'Cursos de Formação' ]} students={['1111', 'Formandos']}></Statistics>
+                    <View style={styles.firstPageBottom}>
+                        <View style={styles.statistics}>
+                            <Statistics course={[ '13', 'Faculdades' ]} students={['2221', 'Estudantes']}></Statistics>
+                            <Statistics course={[ '28', 'Mestrados' ]} students={['961', 'Estudantes']}></Statistics>
+                            <Statistics course={[ '8', 'Doutoramentos' ]} students={['280', 'Estudantes']}></Statistics>
+                            <Statistics course={[ '125', 'Cursos de Formação' ]} students={['1111', 'Formandos']}></Statistics>
+                        </View>
+                        <TouchableOpacity style={styles.goDownArrow} onPress={this.scrollToSecondPage}>
+                            <Icon style={styles.goDownArrowIcon} type="FontAwesome" name="chevron-down" />
+                        </TouchableOpacity>
                     </View>
                 </Content>
-            </Container>
+                <Content contentContainerStyle={styles.content}>
+                    <View style={styles.statsIcons}>
+                    </View>
+                    <View style={styles.hexagonsView}>
+                    </View>
+                </Content>
+            </ScrollView>
         );
     }
 }
@@ -82,27 +109,43 @@ FacultyScreen.propTypes = {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex:1,
         flexDirection: 'column',
-        padding:0
+        backgroundColor: 'white',
+        
     },
 
     content: {
-        flex: 1,
         flexDirection: 'column',
+        height: Dimensions.get('window').height-80,
+        justifyContent: 'center',
         padding:0
-    },
-
-    statistics: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        backgroundColor: '#1c1c1c'
     },
 
     menu: {
         flex:2,
         flexDirection: 'row',
+    },
+
+    firstPageBottom: {
+        flex:1,
+        flexDirection: 'column',
+        backgroundColor: '#1c1c1c'
+    },
+
+    statistics: {
+        flex: 5,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+
+    goDownArrow: {
+        flex:1,
+        alignItems: 'center'
+    },
+
+    goDownArrowIcon: {
+        color: 'white'
     },
 
     h1: {
@@ -139,6 +182,19 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'stretch'
+    },
+
+    statsIcons: {
+        flex:9,
+        flexDirection: 'column',
+        backgroundColor: 'white'
+    },
+
+    hexagonsView: {
+        flex:11,
+        flexDirection: 'column',
+        backgroundColor: '#1c1c1c',
+        alignItems: 'center'
     }
 
 });
