@@ -1,33 +1,38 @@
-import React, {Component} from "react";
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
-class Editor extends Component{
+class Editor extends Component {
 
-  constructor(props){
-    super(props);
+    constructor(props){
+        super(props);
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-  handleSubmit(event){
-    event.preventDefault();
+    handleSubmit(event){
+        event.preventDefault();
     
-    const route = process.env.REACT_APP_ENDPOINT + "faculties/en/" + this.props.match.params.faculty.toLowerCase() + "/social-projects?where[id]=" + this.props.match.params.project; 
-    console.log( route);
-    fetch(route, {
-      method: 'DELETE',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
-    })
-    .then(response => console.log(response))
-  }
+        const route = process.env.REACT_APP_ENDPOINT + 'faculties/en/' + this.props.match.params.faculty.toLowerCase() + '/social-projects?where[id]=' + this.props.match.params.project; 
+        console.log( route);
+        fetch(route, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(response => console.log(response));
+    }
 
-  render(){
-    return(
-      <button onClick={this.handleSubmit}>Delete</button>
-    );
-  }
+    render(){
+        return(
+            <button onClick={this.handleSubmit}>Delete</button>
+        );
+    }
 }
+
+Editor.propTypes = {
+    match: PropTypes.object.isRequired
+};
 
 export default Editor;
