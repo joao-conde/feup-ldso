@@ -1,33 +1,98 @@
 import React, {Component} from "react";
+import { Button } from 'reactstrap';
 
 class Editor extends Component{
 
-  constructor(props){
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+        this.state = {
+          error: null,
+          isLoaded: false,
+          projects: []
+         };
 
-  handleSubmit(event){
-    event.preventDefault();
-    
-    const route = process.env.REACT_APP_ENDPOINT + "faculties/en/" + this.props.match.params.faculty.toLowerCase() + "/social-projects?where[id]=" + this.props.match.params.project; 
-    console.log( route);
-    fetch(route, {
-      method: 'DELETE',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
-    })
-    .then(response => console.log(response))
-  }
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-  render(){
-    return(
-      <button onClick={this.handleSubmit}>Delete</button>
-    );
-  }
-}
+    componentDidMount() {
+      const route = process.env.REACT_APP_ENDPOINT + "faculties/en/" + this.props.match.params.faculty.toLowerCase() + "/social-projects";
+      fetch(route)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              isLoaded: true,
+              projects: result,
+            });
+          },
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        )
+    }
 
-export default Editor;
+    handleInputChange(event) {
+        this.setState({
+          [event.target.name]: event.target.value
+        });
+    }
+
+    handleSubmit(event){
+      event.preventDefault();
+      const route = process.env.REACT_APP_ENDPOINT + "faculties/en/" + this.props.match.params.faculty.toLowerCase() + "/social-projects?where[id]=" + this.props.match.params.project;
+      fetch(route, {
+        method: 'PATCH',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(this.state),
+      })
+      .then(response => response.json())
+    }
+
+    render() {
+      const { error, isLoaded, projects } = this.state;
+
+      return (
+        <div>
+        {
+          projects.map(proj => {
+            if(this.props.match.params.project == proj.id)
+                return <form key={proj.id}>
+                  <label>
+                    Project Title
+                    <br/>
+                    <input
+                      name="title"
+                      placeholder={proj.title}
+                      value={this.state.title}
+                      onChange={this.handleInputChange}/>
+                  </label>
+                  <br/>
+                  <label>
+                    Project Description
+                    <br/>
+                    <textarea
+                      name="content"
+                      placeholder={proj.content}
+                      value={this.state.content}
+                      onChange={this.handleInputChange}/>
+                  </label>
+                  <br/>
+                  <label>
+                    <Button color="secondary" onClick={this.handleSubmit}>Edit</Button>
+                  </label>
+                </form>
+                }
+                )}
+                </div>
+              );}
+            }
+
+  export default Editor;
