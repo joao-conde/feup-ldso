@@ -13,6 +13,7 @@ import {
     post,
     param,
     requestBody,
+    getFilterSchemaFor,
     getWhereSchemaFor,
   } from '@loopback/rest';
   import {SocialProject, Faculty} from '../models';
@@ -37,7 +38,7 @@ import {
     async findFacultyProjects(
       @param.path.string('name') name: string,
       @param.path.string('language') language: string,
-      @param.query.string('filter') filter?: Filter,
+      @param.query.object('filter', getFilterSchemaFor(SocialProject)) filter?: Filter,
     ): Promise<SocialProject[]> {
       let id = 0;
       await this.facultyRepo
