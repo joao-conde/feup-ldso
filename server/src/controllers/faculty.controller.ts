@@ -36,29 +36,4 @@ export class FacultyController {
   ): Promise<Count> {
     return await this.facultyRepository.count(where);
   }
-
-  @get('/faculties/{language}/{name}/intro', {
-    responses: {
-      '200': {
-        description: 'Faculty introduction',
-        content: {'application/json': {'x-ts-type': Faculty}},
-      },
-    },
-  })
-  async findFacultyIntro(
-    @param.path.string('language') language: string, 
-    @param.path.string('name') name: string):
-  Promise<Faculty> {
-    let id = 0;
-      await this.facultyRepository
-        .findOne({
-          where: {name: name, language: language},
-          fields: {id: true},
-        })
-        .then(function(result) {
-          if (result != null) id = result.id;
-        })
-        .catch(function(err) {});
-      return await this.facultyRepository.findById(id, {fields: {short_description: true}});
-  }
 }
