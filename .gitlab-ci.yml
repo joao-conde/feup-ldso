@@ -36,6 +36,14 @@ lint_mobile:
   script:
     - yarn run lint
 
+lint_web:
+  stage: lint
+  before_script:
+    - cd web-app
+    - yarn
+  script:
+    - yarn run lint
+
 deploy_mobile:
   stage: deploy
   before_script:
