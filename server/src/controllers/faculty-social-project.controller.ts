@@ -15,7 +15,6 @@ import {
     requestBody,
     getFilterSchemaFor,
     getWhereSchemaFor,
-    getFilterSchemaFor,
   } from '@loopback/rest';
   import {SocialProject, Faculty} from '../models';
 

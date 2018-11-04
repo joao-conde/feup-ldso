@@ -84,6 +84,7 @@ class Sidebar extends Component {
      );
    }
  }
+}
 
 
 Sidebar.propTypes = {
