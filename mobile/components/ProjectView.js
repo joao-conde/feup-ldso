@@ -1,33 +1,29 @@
 import React from 'react';
-import { StyleSheet, Image, View, FlatList, ActivityIndicator, Text } from 'react-native';
+import PropTypes from 'prop-types';
+import { StyleSheet, Image, View, ActivityIndicator, Text } from 'react-native';
 import { H1, Content } from 'native-base';
+import { connect } from 'react-redux';
+import { getSocialProjectDetails } from '../reducers/modules/facultyReducer';
 
-import { FAKE_API_ENDPOINT } from 'react-native-dotenv';
-
-export class ProjectView extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = { isLoading: true };
-    }
+class ProjectView extends React.Component {
 
     componentDidMount() {
-        return fetch(FAKE_API_ENDPOINT + ':3005/en')
-            .then((response) => response.json())
-            .then((responseJson) => {
-                this.setState({
-                    isLoading: false,
-                    dataSource: responseJson['feup']['social-projects'],
-                });
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        const { language, name, id } = this.props;
+
+        this.props.getSocialProjectDetails(language, name, id);
     }
 
+    componentDidUpdate(prevProps) {
+        const { language, name, id } = this.props;
+
+        if (prevProps.language != language)
+            this.props.getSocialProjectDetails(language, name, id);
+    }
 
     render() {
-        if (this.state.isLoading) {
+        const { loading, project } = this.props;
+
+        if (loading) {
             return (
                 <View style={styles.isLoading}>
                     <ActivityIndicator />
@@ -36,20 +32,23 @@ export class ProjectView extends React.Component {
         }
 
         return (
-            <FlatList
-                data={this.state.dataSource}
-                renderItem={({ item }) =>
-                    <Content contentContainerStyle={styles.content}>
-                        <H1>{item.title}</H1>
-                        <Image style={styles.image} source={require('../assets/images/icon.png')} />
-                        <Text style={styles.text}> {item.content} </Text>
-                    </Content>
-                }
-                keyExtractor={(item) => 'feup' + 'proj' + item.id}
-            />
+            <Content contentContainerStyle={styles.content}>
+                <H1>{project.title}</H1>
+                <Image style={styles.image} source={require('../assets/images/icon.png')} />
+                <Text style={styles.text}> {project.content} </Text>
+            </Content>
         );
     }
 }
+
+ProjectView.propTypes = {
+    id: PropTypes.string,
+    name: PropTypes.string,
+    loading: PropTypes.bool,
+    project: PropTypes.object,
+    language: PropTypes.string,
+    getSocialProjectDetails: PropTypes.func
+};
 
 const styles = StyleSheet.create({
     isLoading: {
@@ -77,3 +76,16 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     }
 });
+
+const mapStateToProps = ({ faculty, language }) => ({
+    name: faculty.name,
+    loading: faculty.loading,
+    project: faculty.currSocialProject,
+    language: language.selection
+});
+
+const mapDispatchToProps = {
+    getSocialProjectDetails
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectView);

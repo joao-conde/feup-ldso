@@ -59,18 +59,3 @@ On the root directory, run docker:
 ```
 docker-compose up --build server
 ```
-
-## Temporary simulation _Backend API_ 
-Useful temporary server simulating a backend API, to allow API calls in the frontend.
-
-To run the server do:
-* `cd fake-api`
-* Edit the _json-server.json_ file and make sure the parameter `host` is set to your IP. You can check your IP in the command line with `ifconfig`.
-* `npm install -g json-server`
-* `json-server --watch db.json.`
-
-The json server will start at port _host_:3005.
-
-__Note:__ Do not forget to also change variable in the _.env_ file (`api`) to match the host and port defined in the _json-server.json_ file.
-
-Example of _.env_ file content: `api=http://<host>:3005`.

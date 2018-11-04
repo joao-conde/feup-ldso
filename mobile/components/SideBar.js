@@ -1,53 +1,57 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, Content } from 'native-base';
-import { FlatList, StyleSheet, Image } from 'react-native';
+import { FlatList, StyleSheet, Image, ActivityIndicator } from 'react-native';
+import { connect } from 'react-redux';
+import { getSocialProjects } from '../reducers/modules/facultyReducer';
 
-import { FAKE_API_ENDPOINT } from 'react-native-dotenv';
-
-export default class SideBar extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = { isLoading: true };
-    }
+class SideBar extends React.Component {
 
     componentDidMount() {
-        return fetch(FAKE_API_ENDPOINT + ':3005/en')
-            .then((response) => response.json())
-            .then((responseJson) => {
-                this.setState({
-                    isLoading: false,
-                    dataSource: responseJson['feup']['social-projects'],
-                });
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        const { language, name } = this.props;
+
+        this.props.getSocialProjects(language, name);
     }
 
     render() {
+        const { loading, projects } = this.props;
+
+        if (loading) {
+            return (
+                <View>
+                    <ActivityIndicator />
+                </View>
+            );
+        }
 
         return (
             <View>
                 <Text>
-          Projects
+                    Projects
                 </Text>
 
                 <FlatList
-                    data={this.state.dataSource}
+                    data={projects}
                     renderItem={({ item }) =>
                         <Content contentContainerStyle={styles.content}>
                             <Image style={styles.image} source={require('../assets/images/robot-prod.png')} />
                             <Text style={styles.text}> {item.title} </Text>
                         </Content>
                     }
-                    keyExtractor={(item) => 'feup' + 'sidebar' + item.id}
+                    keyExtractor={(item) => item.id}
                 />
-
             </View>
         );
     }
 }
+
+SideBar.propTypes = {
+    name: PropTypes.string,
+    loading: PropTypes.bool,
+    projects: PropTypes.array,
+    language: PropTypes.string,
+    getSocialProjects: PropTypes.func
+};
 
 const styles = StyleSheet.create({
     content: {
@@ -64,3 +68,16 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     }
 });
+
+const mapStateToProps = ({ faculty, language }) => ({
+    name: faculty.name,
+    loading: faculty.loading,
+    projects: faculty.socialProjects,
+    language: language.selection
+});
+
+const mapDispatchToProps = {
+    getSocialProjects
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SideBar);
