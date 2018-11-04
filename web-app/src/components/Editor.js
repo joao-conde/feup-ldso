@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import { Button } from 'reactstrap';
+import PropTypes from 'prop-types';
 
-class Editor extends Component{
+class Editor extends Component {
 
     constructor(props) {
         super(props);
@@ -94,5 +95,9 @@ class Editor extends Component{
                 </div>
               );}
             }
+
+            Editor.propTypes = {
+                match: PropTypes.object.isRequired
+            };
 
   export default Editor;

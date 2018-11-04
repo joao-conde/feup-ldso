@@ -1,14 +1,15 @@
-import React, {Component} from "react";
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
 
-class AddFacultyProject extends Component{
+class AddFacultyProject extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-          title: "",
-          content: ""
+            title: '',
+            content: ''
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -17,7 +18,7 @@ class AddFacultyProject extends Component{
 
     handleInputChange(event) {
         this.setState({
-          [event.target.name]: event.target.value
+            [event.target.name]: event.target.value
         });
     }
 
@@ -33,22 +34,23 @@ class AddFacultyProject extends Component{
         body: JSON.stringify(this.state),
       })
       .then(response => response.json())
+
     }
 
     render() {
         return (
-          <form>
-            <label>
+            <form>
+                <label>
               Project Title
-              <br/>
-              <input
-                name="title"
-                placeholder="Title"
-                value={this.state.title}
-                onChange={this.handleInputChange}/>
-            </label>
-            <br/>
-            <label>
+                    <br/>
+                    <input
+                        name="title"
+                        placeholder="Title"
+                        value={this.state.title}
+                        onChange={this.handleInputChange}/>
+                </label>
+                <br/>
+                <label>
               Project Description
               <br/>
               <textarea
@@ -63,8 +65,12 @@ class AddFacultyProject extends Component{
             </label>
           </form>
         );
-      }
+    }
 
 }
+
+AddFacultyProject.propTypes = {
+    match: PropTypes.object.isRequired
+};
 
 export default AddFacultyProject;

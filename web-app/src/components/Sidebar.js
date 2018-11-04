@@ -1,39 +1,41 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {  Route,NavLink } from "react-router-dom";
 import Delete from "./Delete";
 import Editor from "./Editor";
 
+
 class Sidebar extends Component {
-  constructor(props) {
-   super(props);
+    constructor(props) {
+        super(props);
 
-   this.state = {
-     error: null,
-     isLoaded: false,
-     projects: []
-    };
+        this.state = {
+            error: null,
+            isLoaded: false,
+            projects: []
+        };
 
-  }
+    }
 
- componentDidMount() {
-   const route = process.env.REACT_APP_ENDPOINT + "faculties/en/" + this.props.match.params.faculty.toLowerCase() + "/social-projects";
-   fetch(route)
-     .then(res => res.json())
-     .then(
-       (result) => {
-         this.setState({
-           isLoaded: true,
-           projects: result,
-         });
-       },
-       (error) => {
-         this.setState({
-           isLoaded: true,
-           error
-         });
-       }
-     )
- }
+    componentDidMount() {
+        const route = process.env.REACT_APP_ENDPOINT + 'faculties/en/' + this.props.match.params.faculty.toLowerCase() + '/social-projects';
+        fetch(route)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        isLoaded: true,
+                        projects: result,
+                    });
+                },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            );
+    }
 
  componentDidUpdate(prevProps) {
   const route = process.env.REACT_APP_ENDPOINT + "faculties/en/" + this.props.match.params.faculty.toLowerCase() + "/social-projects";
@@ -82,6 +84,10 @@ class Sidebar extends Component {
      );
    }
  }
-}
 
-export default Sidebar
+
+Sidebar.propTypes = {
+    match: PropTypes.object.isRequired
+};
+
+export default Sidebar;
