@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {  Route,NavLink } from "react-router-dom";
-import Delete from "./Delete";
-import Editor from "./Editor";
-
 
 class Sidebar extends Component {
     constructor(props) {
@@ -68,18 +65,12 @@ class Sidebar extends Component {
    } else {
      return (
        <div>
-       <div>
          {
            projects.map(proj => (
            <button key={proj.id} className="faculty_proj">
              <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase() + `/${proj.id}`}>{proj.title}</NavLink>
            </button>
          ))}
-       </div>
-       <div>
-            <Route path={'/faculties/:faculty/:project'} component={Editor} />
-            <Route path={'/faculties/:faculty/:project'} component={Delete} />
-       </div>
        </div>
      );
    }

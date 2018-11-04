@@ -10,22 +10,22 @@ class Editor extends Component {
         this.state = {
           error: null,
           isLoaded: false,
-          projects: []
+          project: []
          };
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount() {
-      const route = process.env.REACT_APP_ENDPOINT + "faculties/en/" + this.props.match.params.faculty.toLowerCase() + "/social-projects";
+  componentDidMount() {
+    const route = process.env.REACT_APP_ENDPOINT + "faculties/en/" + this.props.match.params.faculty.toLowerCase() + "/social-projects?filter[where][id]=" + this.props.match.params.project;
       fetch(route)
         .then(res => res.json())
         .then(
           (result) => {
             this.setState({
               isLoaded: true,
-              projects: result,
+              project: result,
             });
           },
           (error) => {
@@ -42,6 +42,7 @@ class Editor extends Component {
           [event.target.name]: event.target.value
         });
     }
+//o url com filtro fica .../social-projects?filter[where][id]=<id_here>
 
     handleSubmit(event){
       event.preventDefault();
@@ -58,43 +59,41 @@ class Editor extends Component {
     }
 
     render() {
-      const { error, isLoaded, projects } = this.state;
+      const { error, isLoaded, project } = this.state;
 
-      return (
-        <div>
-        {
-          projects.map(proj => {
-            if(this.props.match.params.project == proj.id)
-                return <form key={proj.id}>
-                  <label>
-                    Project Title
-                    <br/>
-                    <input
-                      name="title"
-                      placeholder={proj.title}
-                      value={this.state.title}
-                      onChange={this.handleInputChange}/>
-                  </label>
-                  <br/>
-                  <label>
-                    Project Description
-                    <br/>
-                    <textarea
-                      name="content"
-                      placeholder={proj.content}
-                      value={this.state.content}
-                      onChange={this.handleInputChange}/>
-                  </label>
-                  <br/>
-                  <label>
-                    <Button color="secondary" onClick={this.handleSubmit}>Edit</Button>
-                  </label>
-                </form>
-                }
-                )}
-                </div>
-              );}
-            }
+  return (
+  <div>
+  {
+    project.map(proj => (
+     <form key={proj.id}>
+        <label>
+          Project Title
+          <br/>
+          <input
+            name="title"
+            placeholder={proj.title}
+            value={this.state.title}
+            onChange={this.handleInputChange}/>
+        </label>
+        <br/>
+        <label>
+          Project Description
+          <br/>
+          <textarea
+            name="content"
+            placeholder={proj.content}
+            value={this.state.content}
+            onChange={this.handleInputChange}/>
+        </label>
+        <br/>
+        <label>
+          <Button color="secondary" onClick={this.handleSubmit}>Edit</Button>
+        </label>
+      </form>      
+    ))}
+      </div>
+    );}
+  }
 
             Editor.propTypes = {
                 match: PropTypes.object.isRequired
