@@ -7,13 +7,6 @@ import { getFutureProspects } from '../reducers/modules/facultyReducer';
 
 class FutureProspectsScreen extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            banner: require('../assets/images/banners/feup-banner.png')
-        };
-    }
-
     componentDidMount() {
         const { language, name } = this.props;
     
@@ -43,12 +36,12 @@ class FutureProspectsScreen extends React.Component {
                     <H1>{ language == 'en'? 'What is ' + name + ' planning?' : 'O que está a ' + name + ' a planear?'}</H1>
 
                     <Image
-                        source={this.state.banner}
+                        source={{uri: prospects.banner}}
                         style={styles.images}
                     />
 
                     <Text style={styles.text}>
-                        {prospects}
+                        {prospects.content}
                     </Text>
                 </Content>
             </Container>
@@ -60,7 +53,7 @@ class FutureProspectsScreen extends React.Component {
 FutureProspectsScreen.propTypes = {
     name: PropTypes.string,
     loading: PropTypes.bool,
-    prospects: PropTypes.string,
+    prospects: PropTypes.object,
     language: PropTypes.string,
     getFutureProspects: PropTypes.func
 };
@@ -75,6 +68,8 @@ const styles = StyleSheet.create({
     },
     images: {
         marginTop: 30,
+        width: 300,
+        height: 200
     },
     text: {
         paddingTop: 30,

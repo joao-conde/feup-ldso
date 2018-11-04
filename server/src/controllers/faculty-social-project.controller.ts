@@ -14,6 +14,7 @@ import {
     param,
     requestBody,
     getWhereSchemaFor,
+    getFilterSchemaFor,
   } from '@loopback/rest';
   import {SocialProject, Faculty} from '../models';
   
@@ -37,7 +38,8 @@ import {
     async findFacultyProjects(
       @param.path.string('name') name: string,
       @param.path.string('language') language: string,
-      @param.query.string('filter') filter?: Filter,
+      @param.query.object('filter', getFilterSchemaFor(SocialProject))
+      filter?: Filter,
     ): Promise<SocialProject[]> {
       let id = 0;
       await this.facultyRepo
@@ -81,6 +83,35 @@ import {
       return await this.facultyRepo
         .socialProjects(id)
         .patch(socialProject, where);
+    }
+
+    @get('/faculties/{language}/{name}/social-projects-short', {
+      responses: {
+        '200': {
+          description: 'Array of Social Projects from a Faculty',
+          content: {
+            'application/json': {
+              schema: {type: 'array', items: {'x-ts-type': SocialProject}},
+            },
+          },
+        },
+      },
+    })
+    async findFacultyProjectsShort(
+      @param.path.string('name') name: string,
+      @param.path.string('language') language: string
+    ): Promise<SocialProject[]> {
+      let id = 0;
+      await this.facultyRepo
+        .findOne({
+          where: {name: name, language: language},
+          fields: {id: true},
+        })
+        .then(function(result) {
+          if (result != null) id = result.id;
+        })
+        .catch(function(err) {});
+      return await this.facultyRepo.socialProjects(id).find({fields: {id: true, title: true, short_description: true, images: true}});
     }
 
     @post('/faculties/{language}/{name}/social-projects', {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Drawer from 'react-native-drawer';
 import { StyleSheet } from 'react-native';
-import { ProjectView } from '../components/ProjectView';
+// import ProjectView from '../components/ProjectView';
 import SideBar from '../components/SideBar';
 
 export default class SocialProjectsScreen extends React.Component {
@@ -41,7 +41,8 @@ export default class SocialProjectsScreen extends React.Component {
               panOpenMask={0.2}
               negotiatePan
           >
-              <ProjectView />
+              {//<ProjectView id={'5bddbf4ef5593c1c3e6b2035'}/>
+              }
           </Drawer>
       );
   }

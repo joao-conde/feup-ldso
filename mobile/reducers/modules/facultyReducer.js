@@ -10,6 +10,10 @@ const GET_STATS_FAIL = 'mobile/faculty/GET_STATS_FAIL';
 const GET_SOCIAL_PROJECTS = 'mobile/faculty/GET_SOCIAL_PROJECTS';
 const GET_SOCIAL_PROJECTS_SUCCESS = 'mobile/faculty/GET_SOCIAL_PROJECTS_SUCCESS';
 const GET_SOCIAL_PROJECTS_FAIL = 'mobile/faculty/GET_SOCIAL_PROJECTS_FAIL';
+// Get Faculty Social Project by ID
+const GET_SOCIAL_PROJECT_BY_ID = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID';
+const GET_SOCIAL_PROJECT_BY_ID_SUCCESS = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID_SUCCESS';
+const GET_SOCIAL_PROJECT_BY_ID_FAIL = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID_FAIL';
 // Get Faculty Future Prospects
 const GET_FUTURE_PROSPECTS = 'mobile/faculty/GET_FUTURE_PROSPECTS';
 const GET_FUTURE_PROSPECTS_SUCCESS = 'mobile/faculty/GET_FUTURE_PROSPECTS_SUCCESS';
@@ -28,7 +32,8 @@ const initialState = {
     name: '',
     stats: {},
     socialProjects: [],
-    futureProspects: '',
+    currSocialProject: {},
+    futureProspects: {},
     localization: {},
     videos: []
 };
@@ -44,6 +49,7 @@ export default function reducer(state = initialState, action) {
 
     case GET_STATS:
     case GET_SOCIAL_PROJECTS:
+    case GET_SOCIAL_PROJECT_BY_ID:
     case GET_FUTURE_PROSPECTS:
     case GET_LOCALIZATION:
     case GET_VIDEOS:
@@ -59,12 +65,17 @@ export default function reducer(state = initialState, action) {
     case GET_SOCIAL_PROJECTS_SUCCESS:
         return { ...state,
             loading: false,
-            socialProjects: action.payload.data[state.name]
+            socialProjects: action.payload.data
+        };
+    case GET_SOCIAL_PROJECT_BY_ID_SUCCESS:
+        return { ...state,
+            loading: false,
+            currSocialProject: action.payload.data[0]
         };
     case GET_FUTURE_PROSPECTS_SUCCESS:
         return { ...state,
             loading: false,
-            futureProspects: action.payload.data[state.name]['future-prospects']['content']
+            futureProspects: action.payload.data.future_prospects
         };
     case GET_LOCALIZATION_SUCCESS:
         return { ...state,
@@ -74,11 +85,12 @@ export default function reducer(state = initialState, action) {
     case GET_VIDEOS_SUCCESS:
         return { ...state,
             loading: false,
-            videos: action.payload.data
+            videos: action.payload.data.videos
         };
 
     case GET_STATS_FAIL:
     case GET_SOCIAL_PROJECTS_FAIL:
+    case GET_SOCIAL_PROJECT_BY_ID_FAIL:
     case GET_FUTURE_PROSPECTS_FAIL:
     case GET_LOCALIZATION_FAIL:
     case GET_VIDEOS_FAIL:
@@ -116,23 +128,34 @@ export function getStats(language, faculty) {
     };
 }
 
-export function getSocialProjects(language) {
+export function getSocialProjects(language, faculty) {
     return {
         type: GET_SOCIAL_PROJECTS,
         payload: {
             request: {
-                url: `/${language}`
+                url: `/faculties/${language}/${faculty}/social-projects-short`
             }
         }
     };
 }
 
-export function getFutureProspects(language) {
+export function getSocialProjectDetails(language, faculty, id)  {
+    return {
+        type: GET_SOCIAL_PROJECT_BY_ID,
+        payload: {
+            request: {
+                url: `/faculties/${language}/${faculty}/social-projects?filter[where][id]=${id}`
+            }
+        }
+    };
+}
+
+export function getFutureProspects(language, faculty) {
     return {
         type: GET_FUTURE_PROSPECTS,
         payload: {
             request: {
-                url: `/${language}`
+                url: `/faculties/${language}/${faculty}/future`
             }
         }
     };
@@ -154,7 +177,7 @@ export function getVideos(faculty) {
         type: GET_VIDEOS,
         payload: {
             request: {
-                url: `/${faculty}`
+                url: `/faculties/en/${faculty}/videos`
             }
         }
     };
