@@ -1,6 +1,6 @@
 import {Entity, model, property, hasMany} from '@loopback/repository';
 import {SocialProject} from './social-project.model';
-import { Statistics } from './statistics.model';
+import {Statistics} from './statistics.model';
 
 @model()
 export class Faculty extends Entity {
