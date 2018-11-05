@@ -1,6 +1,5 @@
 import {
   DefaultCrudRepository,
-  juggler,
   HasManyRepositoryFactory,
   repository,
 } from '@loopback/repository';
@@ -29,7 +28,7 @@ export class FacultyRepository extends DefaultCrudRepository<
     @repository.getter(SocialProjectRepository)
     protected socialProjectRepositoryGetter: Getter<SocialProjectRepository>,
     @repository.getter(StatisticsRepository)
-    protected statisticsRepositoryGetter: Getter<StatisticsRepository>
+    protected statisticsRepositoryGetter: Getter<StatisticsRepository>,
   ) {
     super(Faculty, dataSource);
     this.socialProjects = this._createHasManyRepositoryFactoryFor(

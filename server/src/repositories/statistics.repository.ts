@@ -1,4 +1,8 @@
-import {DefaultCrudRepository, juggler, BelongsToAccessor, repository} from '@loopback/repository';
+import {
+  DefaultCrudRepository,
+  BelongsToAccessor,
+  repository,
+} from '@loopback/repository';
 import {Statistics, Faculty} from '../models';
 import {MongoDataSource} from '../datasources';
 import {inject, Getter} from '@loopback/core';
@@ -16,7 +20,7 @@ export class StatisticsRepository extends DefaultCrudRepository<
   constructor(
     @inject('datasources.mongo') dataSource: MongoDataSource,
     @repository.getter('FacultyRepository')
-    protected facultyRepositoryGetter: Getter<FacultyRepository>
+    protected facultyRepositoryGetter: Getter<FacultyRepository>,
   ) {
     super(Statistics, dataSource);
     this.faculty = this._createBelongsToAccessorFor(
