@@ -4,9 +4,9 @@ import Home from './Home';
 import FacultyAPI from '../FacultyAPI';
 import Sidebar from './Sidebar';
 import AddFacultyProject from './AddFacultyProject';
-import FacultyProject from "./FacultyProject";
-import Delete from "./Delete";
-import Editor from "./Editor";
+import FacultyProject from './FacultyProject';
+import Delete from './Delete';
+import Editor from './Editor';
 
 class Nav extends Component {
     render() {
@@ -32,7 +32,7 @@ class Nav extends Component {
                             <Route path={'/faculties/:faculty/:project'} component={Delete} />
                         </div>
                         <div>
-                          <Route path='/faculties/:faculty' component={AddFacultyProject}/>
+                            <Route path='/faculties/:faculty' component={AddFacultyProject}/>
                         </div>
                     </div>
                 </div>

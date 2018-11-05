@@ -23,17 +23,17 @@ class AddFacultyProject extends Component {
     }
 
     handleSubmit(event){
-      event.preventDefault();
-      const route = process.env.REACT_APP_ENDPOINT + "faculties/en/" + this.props.match.params.faculty.toLowerCase() + "/social-projects";
-      fetch(route, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(this.state),
-      })
-      .then(response => response.json())
+        event.preventDefault();
+        const route = process.env.REACT_APP_ENDPOINT + 'faculties/en/' + this.props.match.params.faculty.toLowerCase() + '/social-projects';
+        fetch(route, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(this.state),
+        })
+            .then(response => response.json());
 
     }
 
@@ -52,18 +52,18 @@ class AddFacultyProject extends Component {
                 <br/>
                 <label>
               Project Description
-              <br/>
-              <textarea
-                name="content"
-                placeholder="Project Description"
-                value={this.state.content}
-                onChange={this.handleInputChange}/>
-            </label>
-            <br/>
-            <label>
-              <Button color="secondary" onClick={this.handleSubmit}>Add</Button>
-            </label>
-          </form>
+                    <br/>
+                    <textarea
+                        name="content"
+                        placeholder="Project Description"
+                        value={this.state.content}
+                        onChange={this.handleInputChange}/>
+                </label>
+                <br/>
+                <label>
+                    <Button color="secondary" onClick={this.handleSubmit}>Add</Button>
+                </label>
+            </form>
         );
     }
 
