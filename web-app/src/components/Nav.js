@@ -4,7 +4,6 @@ import Home from './Home';
 import FacultyAPI from '../FacultyAPI';
 import Sidebar from './Sidebar';
 import AddFacultyProject from './AddFacultyProject';
-import FacultyProject from './FacultyProject';
 import Delete from './Delete';
 import Editor from './Editor';
 
@@ -27,7 +26,6 @@ class Nav extends Component {
                         <Route exact path="/" component={Home} />
                         <Route path='/faculties/:faculty' component={Sidebar}/>
                         <div>
-                            <Route path={'/faculties/:faculty/:project'} component={FacultyProject} />
                             <Route path={'/faculties/:faculty/:project'} component={Editor} />
                             <Route path={'/faculties/:faculty/:project'} component={Delete} />
                         </div>
