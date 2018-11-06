@@ -35,12 +35,14 @@ class Editor extends Component {
                     });
                 }
             );
+
     }
 
     handleInputChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         });
+
     }
     //o url com filtro fica .../social-projects?filter[where][id]=<id_here>
 
@@ -56,6 +58,8 @@ class Editor extends Component {
             body: JSON.stringify(this.state),
         })
             .then(response => response.json());
+
+        this.props.onChildSetRefresh();
     }
 
     render() {

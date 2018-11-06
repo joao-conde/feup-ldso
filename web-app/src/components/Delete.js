@@ -21,6 +21,9 @@ class Delete extends Component{
                 'Content-Type': 'application/json',
             }
         });
+
+        this.props.onChildSetRefresh();
+
     }
 
     render(){

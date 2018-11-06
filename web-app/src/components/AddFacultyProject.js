@@ -35,6 +35,8 @@ class AddFacultyProject extends Component {
         })
             .then(response => response.json());
 
+            this.props.onChildSetRefresh();
+
     }
 
     render() {
