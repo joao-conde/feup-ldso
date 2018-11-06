@@ -2,6 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import {Text, Icon} from 'native-base';
 import PropTypes from 'prop-types';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 class StatisticsNumbers extends React.Component {
 
@@ -33,14 +34,14 @@ class StatisticsNumbers extends React.Component {
                 <View style={[styles.section, styles.justify]}>
                     {backgroundIcons}
                 </View>
-                <View style={[styles.section, styles.justify]}>
+                <View style={[styles.section, styles.justify, styles.overlap]}>
                     {icons}
                 </View>
                 <View style={[styles.section, styles.percentageContent]}>
                     <Text style={styles.percentage}>{percentage} %</Text>
                 </View>
                 <View style={styles.section}>
-                    <Text adjustsFontSizeToFit style={styles.description}>{text}</Text>
+                    <Text style={styles.description}>{text}</Text>
                 </View>
             </View>
         );
@@ -60,8 +61,8 @@ const styles = {
     main: {
         flex: 1,
         flexDirection: 'column',
-        padding: 20,
-        paddingBottom: 2,
+        padding: wp('1%'),
+        paddingBottom: hp('0.5%'),
     },
 
     section: {
@@ -73,32 +74,34 @@ const styles = {
     },
 
     justify: {
-        justifyContent: 'flex-start',
-        position: 'absolute',
+        justifyContent: 'flex-start'
+    },
+
+    overlap: {
+        top:-hp('1.5%')
     },
 
     backgroundIcon: {
-        fontSize: 20,
-        padding: '1%',
+        fontSize: hp('3%'),
+        padding: hp('0.4%'),
         color: '#727272'
     },
 
     icon: {
-        fontSize: 20,
-        padding: '1%',
+        fontSize: hp('3%'),
+        padding: hp('0.4%'),
         color: '#1c1c1c'
     },
 
     percentage: {
         fontFamily: 'Quicksand_regular',
-
-        fontSize: 40,
+        fontSize: hp('5%'),
         color: 'black',
     },
 
     percentageContent: {
-        paddingTop: '30%',
-        marginBottom: '5%',
+        paddingTop: hp('23.5%'),
+        marginBottom: hp('5%'),
     },
 
     
@@ -106,7 +109,7 @@ const styles = {
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
         fontFamily: 'Quicksand_regular',
-        fontSize: 20,
+        fontSize: wp('1.6%'),
         textAlign: 'center'
 
     }

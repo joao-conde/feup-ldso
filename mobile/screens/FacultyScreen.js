@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, Image, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
+import React, {Component} from 'react';
+import { StyleSheet, Image, Dimensions, ScrollView, TouchableOpacity} from 'react-native';
 import { Container, Content, Text, View, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -7,11 +7,12 @@ import { getIntroduction, setFaculty } from '../reducers/modules/facultyReducer'
 import Statistics from '../components/FacultyScreen/StatsNumbers';
 import IconButton from '../components/FacultyScreen/IconButton';
 import StatsIcons from '../components/FacultyScreen/StatsIcons';
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 let scrollYPos = 0;
 
-class FacultyScreen extends React.Component {
+class FacultyScreen extends Component {
 
     constructor(props) {
         super(props);
@@ -95,7 +96,6 @@ class FacultyScreen extends React.Component {
                         <StatsIcons icon="circle" iconsNmb={70} percentage={90} text="Programas de formação conferente de grau envolvendo UO's"></StatsIcons>
                     </View>
                     <View style={styles.hexagonsView}>
-                        
                     </View>
                 </Content>
             </ScrollView>
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
 
     content: {
         flexDirection: 'column',
-        height: Dimensions.get('window').height-80,
+        height: Dimensions.get('window').height-hp('10.6%'),
         justifyContent: 'center',
         padding:0
     },
@@ -153,14 +153,10 @@ const styles = StyleSheet.create({
         color: 'white'
     },
 
-    h1: {
-        padding: 30
-    },
-
     image: {
         flex: 1,
-        margin: 20,
-        marginBottom: 37,
+        margin: hp('5%'),
+        marginBottom: hp('7%'),
         resizeMode: 'contain',
         alignSelf: 'stretch'
 
@@ -172,14 +168,14 @@ const styles = StyleSheet.create({
 
     text: {
         textAlign: 'justify',
-        padding: 10
+        padding: hp('4%')
     },
 
     links: {
         flex: 2,
         flexDirection: 'column',
         justifyContent: 'space-between',
-        paddingTop: 10
+        paddingTop: hp('1%')
     },
 
     linksRow: {
@@ -196,7 +192,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-evenly',
         backgroundColor: 'white',
-        padding: 25
+        padding: hp('3%')
     },
 
     hexagonsView: {

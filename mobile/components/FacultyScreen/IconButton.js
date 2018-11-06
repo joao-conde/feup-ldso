@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Card, Icon, Button, Text} from 'native-base';
 import PropTypes from 'prop-types';
 import facultyStyles from '../../constants/SpecificStyles';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 class IconButton extends React.Component {
 
@@ -60,7 +61,7 @@ const styles = {
 
 
     labelText: {
-        fontSize: 22
+        fontSize: hp('2.5%')
     },
 
     icon: {
@@ -70,8 +71,8 @@ const styles = {
     },
 
     linkBtn: {
-        width: 90,
-        height: 90,
+        height: hp('13%'),
+        width: hp('13%'),
         justifyContent: 'center',
         borderWidth: 1.2,
         borderRadius: 6,
