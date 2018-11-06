@@ -35,7 +35,7 @@ class AddFacultyProject extends Component {
         })
             .then(response => response.json());
 
-            this.props.onChildSetRefresh();
+        this.props.onChildSetRefresh();
 
     }
 
@@ -72,7 +72,8 @@ class AddFacultyProject extends Component {
 }
 
 AddFacultyProject.propTypes = {
-    match: PropTypes.object.isRequired
+    match: PropTypes.object.isRequired,
+    onChildSetRefresh: PropTypes.object.isRequired
 };
 
 export default AddFacultyProject;

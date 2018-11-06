@@ -34,7 +34,8 @@ class Delete extends Component{
 }
 
 Delete.propTypes = {
-    match: PropTypes.object.isRequired
+    match: PropTypes.object.isRequired,
+    onChildSetRefresh: PropTypes.object.isRequired
 };
 
 

@@ -102,7 +102,8 @@ class Editor extends Component {
 }
 
 Editor.propTypes = {
-    match: PropTypes.object.isRequired
+    match: PropTypes.object.isRequired,
+    onChildSetRefresh: PropTypes.object.isRequired
 };
 
 export default Editor;

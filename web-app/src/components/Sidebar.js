@@ -37,7 +37,7 @@ class Sidebar extends Component {
     }
 
     componentDidUpdate(prevProps) {
-      console.log(this.props.onGetRefresh() + " onGetRefresh");
+        console.log(this.props.onGetRefresh() + ' onGetRefresh');
         const route = process.env.REACT_APP_ENDPOINT + 'faculties/en/' + this.props.match.params.faculty.toLowerCase() + '/social-projects';
         if ((prevProps.match.params.faculty !== this.props.match.params.faculty) || this.props.onGetRefresh()){
             fetch(route)
@@ -57,7 +57,7 @@ class Sidebar extends Component {
                     }
                 );
 
-                this.props.onChildUnsetRefresh();
+            this.props.onChildUnsetRefresh();
         }
     }
 
@@ -89,7 +89,9 @@ class Sidebar extends Component {
 
 
 Sidebar.propTypes = {
-    match: PropTypes.object.isRequired
+    match: PropTypes.object.isRequired,
+    onChildUnsetRefresh: PropTypes.object.isRequired,
+    onGetRefresh: PropTypes.object.isRequired
 };
 
 export default Sidebar;
