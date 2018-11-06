@@ -73,6 +73,7 @@ class Editor extends Component {
                                     name="title"
                                     placeholder={proj.title}
                                     value={this.state.title}
+                                    defaultValue={proj.title}
                                     onChange={this.handleInputChange}/>
                             </label>
                             <br/>
@@ -83,6 +84,7 @@ class Editor extends Component {
                                     name="content"
                                     placeholder={proj.content}
                                     value={this.state.content}
+                                    defaultValue={proj.content}
                                     onChange={this.handleInputChange}/>
                             </label>
                             <br/>
