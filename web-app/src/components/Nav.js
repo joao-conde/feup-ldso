@@ -32,7 +32,7 @@ class Nav extends Component {
                             <Route path={'/faculties/:faculty/:project'} component={Delete} />
                         </div>
                         <div>
-                            <Route path='/faculties/:faculty' component={AddFacultyProject}/>
+                            <Route exact path='/faculties/:faculty' component={AddFacultyProject}/>
                         </div>
                     </div>
                 </div>

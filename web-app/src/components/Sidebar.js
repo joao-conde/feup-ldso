@@ -64,6 +64,10 @@ class Sidebar extends Component {
             return <div>Loading...</div>;
         } else {
             return (
+              <div>
+                  <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase()}>
+                    <img src={require('../assets/plus-circle.png')} width="100" height="100"/>
+                  </NavLink>
                 <div>
                     {
                         projects.map(proj => (
@@ -71,6 +75,7 @@ class Sidebar extends Component {
                                 <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase() + `/${proj.id}`}>{proj.title}</NavLink>
                             </button>
                         ))}
+                </div>
                 </div>
             );
         }
