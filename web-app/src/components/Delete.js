@@ -20,8 +20,7 @@ class Delete extends Component{
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             }
-        })
-            .then(response => console.log(response));
+        });
     }
 
     render(){

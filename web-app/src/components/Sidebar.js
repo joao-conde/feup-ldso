@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Sidebar extends Component {
     constructor(props) {
@@ -64,18 +65,18 @@ class Sidebar extends Component {
             return <div>Loading...</div>;
         } else {
             return (
-              <div>
-                  <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase()}>
-                    <img src={require('../assets/plus-circle.png')} width="100" height="100"/>
-                  </NavLink>
                 <div>
-                    {
-                        projects.map(proj => (
-                            <button key={proj.id} className="faculty_proj">
-                                <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase() + `/${proj.id}`}>{proj.title}</NavLink>
-                            </button>
-                        ))}
-                </div>
+                    <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase()}>
+                        <FontAwesomeIcon icon="plus-circle" className="plus_button" />
+                    </NavLink>
+                    <div>
+                        {
+                            projects.map(proj => (
+                                <button key={proj.id} className="faculty_proj">
+                                    <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase() + `/${proj.id}`}>{proj.title}</NavLink>
+                                </button>
+                            ))}
+                    </div>
                 </div>
             );
         }
