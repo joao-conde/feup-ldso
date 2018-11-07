@@ -34,6 +34,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "babel-eslint": "8",
+    "eslint": "4.x",
     "eslint-plugin-react": "^7.11.1"
   }
 }

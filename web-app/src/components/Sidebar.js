@@ -37,7 +37,6 @@ class Sidebar extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        console.log(this.props.onGetRefresh() + ' onGetRefresh');
         const route = process.env.REACT_APP_ENDPOINT + 'faculties/en/' + this.props.match.params.faculty.toLowerCase() + '/social-projects';
         if ((prevProps.match.params.faculty !== this.props.match.params.faculty) || this.props.onGetRefresh()){
             fetch(route)
