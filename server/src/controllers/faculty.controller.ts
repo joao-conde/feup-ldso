@@ -1,20 +1,5 @@
-import {
-  Count,
-  CountSchema,
-  Filter,
-  repository,
-  Where,
-} from '@loopback/repository';
-import {
-  post,
-  param,
-  get,
-  getFilterSchemaFor,
-  getWhereSchemaFor,
-  patch,
-  del,
-  requestBody,
-} from '@loopback/rest';
+import {Count, CountSchema, repository, Where} from '@loopback/repository';
+import {param, get, getWhereSchemaFor} from '@loopback/rest';
 import {Faculty} from '../models';
 import {FacultyRepository} from '../repositories';
 
@@ -46,20 +31,22 @@ export class FacultyController {
     },
   })
   async findFacultyFutureProspects(
-    @param.path.string('language') language: string, 
-    @param.path.string('name') name: string):
-  Promise<Faculty> {
+    @param.path.string('language') language: string,
+    @param.path.string('name') name: string,
+  ): Promise<Faculty> {
     let id = 0;
-      await this.facultyRepository
-        .findOne({
-          where: {name: name, language: language},
-          fields: {id: true},
-        })
-        .then(function(result) {
-          if (result != null) id = result.id;
-        })
-        .catch(function(err) {});
-      return await this.facultyRepository.findById(id, {fields: {future_prospects: true}});
+    await this.facultyRepository
+      .findOne({
+        where: {name: name, language: language},
+        fields: {id: true},
+      })
+      .then(function(result) {
+        if (result != null) id = result.id;
+      })
+      .catch(function(err) {});
+    return await this.facultyRepository.findById(id, {
+      fields: {future_prospects: true},
+    });
   }
 
   @get('/faculties/{language}/{name}/videos', {
@@ -71,19 +58,19 @@ export class FacultyController {
     },
   })
   async findFacultyVideos(
-    @param.path.string('language') language: string, 
-    @param.path.string('name') name: string):
-  Promise<Faculty> {
+    @param.path.string('language') language: string,
+    @param.path.string('name') name: string,
+  ): Promise<Faculty> {
     let id = 0;
-      await this.facultyRepository
-        .findOne({
-          where: {name: name, language: language},
-          fields: {id: true},
-        })
-        .then(function(result) {
-          if (result != null) id = result.id;
-        })
-        .catch(function(err) {});
-      return await this.facultyRepository.findById(id, {fields: {videos: true}});
+    await this.facultyRepository
+      .findOne({
+        where: {name: name, language: language},
+        fields: {id: true},
+      })
+      .then(function(result) {
+        if (result != null) id = result.id;
+      })
+      .catch(function(err) {});
+    return await this.facultyRepository.findById(id, {fields: {videos: true}});
   }
 }

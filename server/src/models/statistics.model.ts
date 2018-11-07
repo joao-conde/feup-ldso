@@ -1,5 +1,5 @@
 import {Entity, model, property, belongsTo} from '@loopback/repository';
-import { Faculty } from './faculty.model';
+import {Faculty} from './faculty.model';
 
 @model()
 export class Statistics extends Entity {
