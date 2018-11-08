@@ -89,8 +89,8 @@ class Sidebar extends Component {
 
 Sidebar.propTypes = {
     match: PropTypes.object.isRequired,
-    onChildUnsetRefresh: PropTypes.object.isRequired,
-    onGetRefresh: PropTypes.object.isRequired
+    onChildUnsetRefresh: PropTypes.func.isRequired,
+    onGetRefresh: PropTypes.func.isRequired
 };
 
 export default Sidebar;

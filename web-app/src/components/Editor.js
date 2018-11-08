@@ -44,7 +44,6 @@ class Editor extends Component {
         });
 
     }
-    //o url com filtro fica .../social-projects?filter[where][id]=<id_here>
 
     handleSubmit(event){
         event.preventDefault();
@@ -103,7 +102,7 @@ class Editor extends Component {
 
 Editor.propTypes = {
     match: PropTypes.object.isRequired,
-    onChildSetRefresh: PropTypes.object.isRequired
+    onChildSetRefresh: PropTypes.func.isRequired
 };
 
 export default Editor;
