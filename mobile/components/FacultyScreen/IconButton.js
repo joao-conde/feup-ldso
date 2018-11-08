@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Card, Icon, Button, Text} from 'native-base';
 import PropTypes from 'prop-types';
 import facultyStyles from '../../constants/SpecificStyles';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 class IconButton extends React.Component {
 
