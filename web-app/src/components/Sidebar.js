@@ -70,7 +70,7 @@ class Sidebar extends Component {
             return (
                 <div>
                     <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase()}>
-                      <Button color="secondary">Add Project</Button>
+                        <Button color="secondary">Add Project</Button>
                     </NavLink>
                     <ListGroup>
                         {

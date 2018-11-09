@@ -69,18 +69,18 @@ class Editor extends Component {
                 {
                     project.map(proj => (
                         <Form key={proj.id}>
-                          <FormGroup>
-                            <Label for="projectTitle">Project Title</Label>
-                            <Input
-                                name="title"
-                                placeholder={proj.title}
-                                value={this.state.title}
-                                defaultValue={proj.title}
-                                onChange={this.handleInputChange}/>
+                            <FormGroup>
+                                <Label for="projectTitle">Project Title</Label>
+                                <Input
+                                    name="title"
+                                    placeholder={proj.title}
+                                    value={this.state.title}
+                                    defaultValue={proj.title}
+                                    onChange={this.handleInputChange}/>
                             </FormGroup>
                             <FormGroup>
-                              <Label for="projectDescription">Project Description</Label>
-                              <Input
+                                <Label for="projectDescription">Project Description</Label>
+                                <Input
                                     type="textarea"
                                     name="content"
                                     placeholder={proj.content}
@@ -88,7 +88,7 @@ class Editor extends Component {
                                     defaultValue={proj.content}
                                     onChange={this.handleInputChange}/>
                             </FormGroup>
-                                <Button color="secondary" onClick={this.handleSubmit}>Edit</Button>
+                            <Button color="secondary" onClick={this.handleSubmit}>Edit</Button>
                         </Form>
                     ))}
             </div>

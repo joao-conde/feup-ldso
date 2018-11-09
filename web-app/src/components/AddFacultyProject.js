@@ -40,27 +40,27 @@ class AddFacultyProject extends Component {
     }
 
     render() {
-      return(
-          <Form>
-            <FormGroup>
-              <Label for="projectTitle">Project Title</Label>
-              <Input
-                  name="title"
-                  placeholder="Title"
-                  value={this.state.title}
-                  onChange={this.handleInputChange}/>
-            </FormGroup>
-            <FormGroup>
-              <Label for="projectDescription">Project Description</Label>
-              <Input
-                  type="textarea"
-                  name="content"
-                  placeholder="Project Description"
-                  value={this.state.content}
-                  onChange={this.handleInputChange}/>
-            </FormGroup>
-            <Button color="secondary" onClick={this.handleSubmit}>Add</Button>
-          </Form>
+        return(
+            <Form>
+                <FormGroup>
+                    <Label for="projectTitle">Project Title</Label>
+                    <Input
+                        name="title"
+                        placeholder="Title"
+                        value={this.state.title}
+                        onChange={this.handleInputChange}/>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="projectDescription">Project Description</Label>
+                    <Input
+                        type="textarea"
+                        name="content"
+                        placeholder="Project Description"
+                        value={this.state.content}
+                        onChange={this.handleInputChange}/>
+                </FormGroup>
+                <Button color="secondary" onClick={this.handleSubmit}>Add</Button>
+            </Form>
         );
     }
 
