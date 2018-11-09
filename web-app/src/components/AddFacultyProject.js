@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class AddFacultyProject extends Component {
 
@@ -40,32 +40,27 @@ class AddFacultyProject extends Component {
     }
 
     render() {
-        return (
-            <form>
-                <label>
-              Project Title
-                    <br/>
-                    <input
-                        name="title"
-                        placeholder="Title"
-                        value={this.state.title}
-                        onChange={this.handleInputChange}/>
-                </label>
-                <br/>
-                <label>
-              Project Description
-                    <br/>
-                    <textarea
-                        name="content"
-                        placeholder="Project Description"
-                        value={this.state.content}
-                        onChange={this.handleInputChange}/>
-                </label>
-                <br/>
-                <label>
-                    <Button color="secondary" onClick={this.handleSubmit}>Add</Button>
-                </label>
-            </form>
+      return(
+          <Form>
+            <FormGroup>
+              <Label for="projectTitle">Project Title</Label>
+              <Input
+                  name="title"
+                  placeholder="Title"
+                  value={this.state.title}
+                  onChange={this.handleInputChange}/>
+            </FormGroup>
+            <FormGroup>
+              <Label for="projectDescription">Project Description</Label>
+              <Input
+                  type="textarea"
+                  name="content"
+                  placeholder="Project Description"
+                  value={this.state.content}
+                  onChange={this.handleInputChange}/>
+            </FormGroup>
+            <Button color="secondary" onClick={this.handleSubmit}>Add</Button>
+          </Form>
         );
     }
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button, ListGroupItem, ListGroup } from 'reactstrap';
 
 class Sidebar extends Component {
     constructor(props) {
@@ -70,16 +70,16 @@ class Sidebar extends Component {
             return (
                 <div>
                     <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase()}>
-                        <FontAwesomeIcon icon="plus-circle" className="plus_button" />
+                      <Button color="secondary">Add Project</Button>
                     </NavLink>
-                    <div>
+                    <ListGroup>
                         {
                             projects.map(proj => (
-                                <button key={proj.id} className="faculty_proj">
+                                <ListGroupItem key={proj.id} className="faculty_proj">
                                     <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase() + `/${proj.id}`}>{proj.title}</NavLink>
-                                </button>
+                                </ListGroupItem>
                             ))}
-                    </div>
+                    </ListGroup>
                 </div>
             );
         }

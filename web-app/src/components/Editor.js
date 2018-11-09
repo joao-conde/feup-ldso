@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Button } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 class Editor extends Component {
@@ -68,33 +68,28 @@ class Editor extends Component {
             <div>
                 {
                     project.map(proj => (
-                        <form key={proj.id}>
-                            <label>
-          Project Title
-                                <br/>
-                                <input
-                                    name="title"
-                                    placeholder={proj.title}
-                                    value={this.state.title}
-                                    defaultValue={proj.title}
-                                    onChange={this.handleInputChange}/>
-                            </label>
-                            <br/>
-                            <label>
-          Project Description
-                                <br/>
-                                <textarea
+                        <Form key={proj.id}>
+                          <FormGroup>
+                            <Label for="projectTitle">Project Title</Label>
+                            <Input
+                                name="title"
+                                placeholder={proj.title}
+                                value={this.state.title}
+                                defaultValue={proj.title}
+                                onChange={this.handleInputChange}/>
+                            </FormGroup>
+                            <FormGroup>
+                              <Label for="projectDescription">Project Description</Label>
+                              <Input
+                                    type="textarea"
                                     name="content"
                                     placeholder={proj.content}
                                     value={this.state.content}
                                     defaultValue={proj.content}
                                     onChange={this.handleInputChange}/>
-                            </label>
-                            <br/>
-                            <label>
+                            </FormGroup>
                                 <Button color="secondary" onClick={this.handleSubmit}>Edit</Button>
-                            </label>
-                        </form>
+                        </Form>
                     ))}
             </div>
         );}
