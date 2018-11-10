@@ -9,7 +9,7 @@ import { getStats, setFaculty } from '../reducers/modules/facultyReducer';
 class FacultyScreen extends React.Component {
 
     componentDidMount() {
-        const faculty = this.props.navigation.getParam('faculty');
+        const faculty = this.props.navigation.getParam('name');
 
         this.props.setFaculty(faculty);
         this.props.getStats(this.props.language, faculty);

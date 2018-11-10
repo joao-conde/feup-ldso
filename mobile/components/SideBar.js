@@ -1,22 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, Content } from 'native-base';
-import { FlatList, StyleSheet, Image, ActivityIndicator } from 'react-native';
+import { View } from 'native-base';
+import { FlatList, StyleSheet, Image, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import { getSocialProjects } from '../reducers/modules/facultyReducer';
+import { setCurrentSocialProjectId } from '../reducers/modules/facultyReducer';
+import { facultyStyles } from '../constants/SpecificStyles';
 
 class SideBar extends React.Component {
 
-    componentDidMount() {
-        const { language, name } = this.props;
-
-        this.props.getSocialProjects(language, name);
-    }
-
     render() {
-        const { loading, projects } = this.props;
+        const { projects, faculty } = this.props;
 
-        if (loading) {
+        if (projects.length == 0) {
             return (
                 <View>
                     <ActivityIndicator />
@@ -26,17 +21,13 @@ class SideBar extends React.Component {
 
         return (
             <View>
-                <Text>
-                    Projects
-                </Text>
-
                 <FlatList
+                    style={styles.list}
                     data={projects}
-                    renderItem={({ item }) =>
-                        <Content contentContainerStyle={styles.content}>
-                            <Image style={styles.image} source={require('../assets/images/robot-prod.png')} />
-                            <Text style={styles.text}> {item.title} </Text>
-                        </Content>
+                    renderItem={({ item, index }) =>
+                        <TouchableOpacity onPress={() => this.props.onProjectSelect(index)} style={styles.button}>
+                            <Image style={[styles.icon, facultyStyles[faculty].icon]} source={{uri: item.images[0]}} />
+                        </TouchableOpacity>
                     }
                     keyExtractor={(item) => item.id}
                 />
@@ -46,38 +37,41 @@ class SideBar extends React.Component {
 }
 
 SideBar.propTypes = {
-    name: PropTypes.string,
-    loading: PropTypes.bool,
     projects: PropTypes.array,
-    language: PropTypes.string,
-    getSocialProjects: PropTypes.func
+    faculty: PropTypes.string,
+    onProjectSelect: PropTypes.func
 };
 
 const styles = StyleSheet.create({
-    content: {
-        alignItems: 'flex-start'
+    list: {
+        marginTop: 5,
+    },
+
+    button: {
+        margin: 10,
     },
 
     title: {
         alignItems: 'flex-start'
     },
 
-    image: {
-        width: 50,
-        height: 50,
-        alignItems: 'center'
+    icon: {
+        borderWidth: 3,
+        width: 75,
+        height: 75,
+        alignItems: 'center',
+        borderRadius: 16
     }
 });
 
 const mapStateToProps = ({ faculty, language }) => ({
-    name: faculty.name,
+    faculty: faculty.name,
     loading: faculty.loading,
-    projects: faculty.socialProjects,
     language: language.selection
 });
 
 const mapDispatchToProps = {
-    getSocialProjects
+    setCurrentSocialProjectId
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideBar);

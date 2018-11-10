@@ -32,7 +32,7 @@ const initialState = {
     name: '',
     stats: {},
     socialProjects: [],
-    currSocialProject: {},
+    currSocialProjectId: -1,
     futureProspects: {},
     localization: {},
     videos: []

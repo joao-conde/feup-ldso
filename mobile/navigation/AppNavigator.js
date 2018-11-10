@@ -35,7 +35,7 @@ export default createStackNavigator(
     {
         initialRouteName: 'Menu',
         navigationOptions: ({ navigation }) => {
-            const faculty = navigation.getParam('faculty');
+            const faculty = navigation.getParam('name');
             const inverted = invertedMode[faculty] || false;
 
             return ({

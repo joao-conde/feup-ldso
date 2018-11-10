@@ -35,7 +35,7 @@ class MenuScreen extends React.Component {
                   })}
                   renderItem={({ item }) => (
                       <FacultyButton name={item.key} onPress={() => this.props.navigation.navigate('Faculty', {
-                          faculty: item.key.toLowerCase()
+                          name: item.key.toLowerCase()
                       })} />
                   )} />
           </View>
