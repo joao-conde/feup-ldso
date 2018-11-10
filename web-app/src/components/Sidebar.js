@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {  Route,NavLink } from 'react-router-dom';
-import Editor from './Editor';
+import { NavLink } from 'react-router-dom';
+import { Button, ListGroupItem, ListGroup } from 'reactstrap';
 
-// The Faculty looks up the Faculty using the number parsed from
-// the URL's pathname. If no Faculty is found with the given
-// number, then a "Faculty not found" message is displayed.
 class Sidebar extends Component {
     constructor(props) {
         super(props);
@@ -36,11 +33,12 @@ class Sidebar extends Component {
                     });
                 }
             );
+
     }
 
     componentDidUpdate(prevProps) {
-        const route = process.env.REACT_APP_ENDPOINT + 'faculties/en/' + this.props.match.params.faculty.toLowerCase() + '/social-projects'; 
-        if (prevProps.match.params.faculty !== this.props.match.params.faculty){
+        const route = process.env.REACT_APP_ENDPOINT + 'faculties/en/' + this.props.match.params.faculty.toLowerCase() + '/social-projects';
+        if ((prevProps.match.params.faculty !== this.props.match.params.faculty) || this.props.onGetRefresh()){
             fetch(route)
                 .then(res => res.json())
                 .then(
@@ -57,6 +55,8 @@ class Sidebar extends Component {
                         });
                     }
                 );
+
+            this.props.onChildUnsetRefresh();
         }
     }
 
@@ -69,26 +69,28 @@ class Sidebar extends Component {
         } else {
             return (
                 <div>
-                    <div>
+                    <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase()}>
+                        <Button color="secondary">Add Project</Button>
+                    </NavLink>
+                    <ListGroup>
                         {
                             projects.map(proj => (
-                                <button key={proj.id} className="faculty_proj">
-                                    {proj.id}
+                                <ListGroupItem key={proj.id} className="faculty_proj">
                                     <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase() + `/${proj.id}`}>{proj.title}</NavLink>
-                                </button>
+                                </ListGroupItem>
                             ))}
-                    </div>
-                    <div>
-                        <Route path={'/faculties/:faculty/:project'} component={Editor}/>
-                    </div>
+                    </ListGroup>
                 </div>
             );
         }
     }
 }
 
+
 Sidebar.propTypes = {
-    match: PropTypes.object.isRequired
+    match: PropTypes.object.isRequired,
+    onChildUnsetRefresh: PropTypes.func.isRequired,
+    onGetRefresh: PropTypes.func.isRequired
 };
 
 export default Sidebar;

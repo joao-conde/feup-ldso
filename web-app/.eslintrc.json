@@ -16,6 +16,10 @@
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
+   "parser": "babel-eslint",
+        "rules": {
+          "strict": 0
+    },
     "plugins": [
         "react"
     ],
@@ -41,7 +45,14 @@
             "error",
             "always"
         ],
+        "no-confusing-arrow": [
+          "error",
+          {"allowParens": true}
+        ],
         "no-console": 1,
+	      "react/jsx-no-bind": ["error", {
+            "allowArrowFunctions": true
+        }],
         "react/no-did-update-set-state": "error",
         "react/no-unknown-property": "error",
         "react/no-unused-prop-types": "error",
