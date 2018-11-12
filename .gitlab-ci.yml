@@ -36,6 +36,22 @@ lint_mobile:
   script:
     - yarn run lint
 
+lint_web:
+  stage: lint
+  before_script:
+    - cd web-app
+    - yarn
+  script:
+    - yarn run lint
+
+lint_server:
+  stage: lint
+  before_script:
+    - cd server
+    - npm install
+  script:
+    - npm run lint
+
 deploy_mobile:
   stage: deploy
   before_script:
@@ -47,7 +63,8 @@ deploy_mobile:
     - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
     - npx expo publish --non-interactive
   only:
-    - master develop
+    - master
+    - develop
 
 test_mobile:
   stage: test

@@ -1,66 +1,77 @@
 import React from 'react';
-import { View, Text, Content } from 'native-base';
-import { FlatList, StyleSheet, Image } from 'react-native';
+import PropTypes from 'prop-types';
+import { View } from 'native-base';
+import { FlatList, StyleSheet, Image, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
+import { setCurrentSocialProjectId } from '../reducers/modules/facultyReducer';
+import { facultyStyles } from '../constants/SpecificStyles';
 
-import { FAKE_API_ENDPOINT } from 'react-native-dotenv';
-
-export default class SideBar extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = { isLoading: true };
-    }
-
-    componentDidMount() {
-        return fetch(FAKE_API_ENDPOINT + ':3005/en')
-            .then((response) => response.json())
-            .then((responseJson) => {
-                this.setState({
-                    isLoading: false,
-                    dataSource: responseJson['feup']['social-projects'],
-                });
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }
+class SideBar extends React.Component {
 
     render() {
+        const { projects, faculty } = this.props;
+
+        if (projects.length == 0) {
+            return (
+                <View>
+                    <ActivityIndicator />
+                </View>
+            );
+        }
 
         return (
             <View>
-                <Text>
-          Projects
-                </Text>
-
                 <FlatList
-                    data={this.state.dataSource}
-                    renderItem={({ item }) =>
-                        <Content contentContainerStyle={styles.content}>
-                            <Image style={styles.image} source={require('../assets/images/robot-prod.png')} />
-                            <Text style={styles.text}> {item.title} </Text>
-                        </Content>
+                    style={styles.list}
+                    data={projects}
+                    renderItem={({ item, index }) =>
+                        <TouchableOpacity onPress={() => this.props.onProjectSelect(index)} style={styles.button}>
+                            <Image style={[styles.icon, facultyStyles[faculty].icon]} source={{uri: item.images[0]}} />
+                        </TouchableOpacity>
                     }
-                    keyExtractor={(item) => 'feup' + 'sidebar' + item.id}
+                    keyExtractor={(item) => item.id}
                 />
-
             </View>
         );
     }
 }
 
+SideBar.propTypes = {
+    projects: PropTypes.array,
+    faculty: PropTypes.string,
+    onProjectSelect: PropTypes.func
+};
+
 const styles = StyleSheet.create({
-    content: {
-        alignItems: 'flex-start'
+    list: {
+        marginTop: 5,
+    },
+
+    button: {
+        margin: 10,
     },
 
     title: {
         alignItems: 'flex-start'
     },
 
-    image: {
-        width: 50,
-        height: 50,
-        alignItems: 'center'
+    icon: {
+        borderWidth: 3,
+        width: 75,
+        height: 75,
+        alignItems: 'center',
+        borderRadius: 16
     }
 });
+
+const mapStateToProps = ({ faculty, language }) => ({
+    faculty: faculty.name,
+    loading: faculty.loading,
+    language: language.selection
+});
+
+const mapDispatchToProps = {
+    setCurrentSocialProjectId
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SideBar);

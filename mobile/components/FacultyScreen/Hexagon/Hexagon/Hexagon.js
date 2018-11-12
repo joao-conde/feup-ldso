@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {View} from 'native-base';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Hex from '../models/Hex';
@@ -116,24 +117,24 @@ class Hexagon extends Component {
         fillId = null
       
     return (
-      <G
-        className={classNames('hexagon-group', className)}
-        transform={`translate(${pixel.x}, ${pixel.y})`}
-        draggable="true"
-        onMouseEnter={e => this.onMouseEnter(e)}
-        onMouseOver={e => this.onMouseOver(e)}
-        onMouseLeave={e => this.onMouseLeave(e)}
-        onClick={e => this.onClick(e)}
-        onDragStart={e => this.onDragStart(e)}
-        onDragEnd={e => this.onDragEnd(e)}
-        onDragOver={e => this.onDragOver(e)}
-        onDrop={e => this.onDrop(e)}
-      >
+        <G
+          className={classNames('hexagon-group', className)}
+          transform={`translate(${pixel.x}, ${pixel.y})`}
+          draggable="true"
+          onMouseEnter={e => this.onMouseEnter(e)}
+          onMouseOver={e => this.onMouseOver(e)}
+          onMouseLeave={e => this.onMouseLeave(e)}
+          onClick={e => this.onClick(e)}
+          onDragStart={e => this.onDragStart(e)}
+          onDragEnd={e => this.onDragEnd(e)}
+          onDragOver={e => this.onDragOver(e)}
+          onDrop={e => this.onDrop(e)}
+        >
         <G className="hexagon">
-          <Polygon points={points} fill={fillId} style={cellStyle} />
-          {this.props.children}
+            <Polygon points={points} fill={fillId} style={cellStyle} />
+            {this.props.children}
+          </G>
         </G>
-      </G>
     );
   }
 }

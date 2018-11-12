@@ -1,0 +1,61 @@
+{
+    "env": {
+        "jest": true,
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+   "parser": "babel-eslint",
+        "rules": {
+          "strict": 0
+    },
+    "plugins": [
+        "react"
+    ],
+    "settings": {
+        "react": {
+          "version": "16.5.2"
+        }
+    },
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-confusing-arrow": [
+          "error",
+          {"allowParens": true}
+        ],
+        "no-console": 1,
+	      "react/jsx-no-bind": ["error", {
+            "allowArrowFunctions": true
+        }],
+        "react/no-did-update-set-state": "error",
+        "react/no-unknown-property": "error",
+        "react/no-unused-prop-types": "error",
+        "react/prop-types": "error"
+    }
+}

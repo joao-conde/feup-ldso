@@ -18,27 +18,26 @@ class StatisticsNumbers extends React.Component {
         let colored = 0;
 
         for(let i = 0; i < iconsNmb; i++) {
-            backgroundIcons.push(
-                <Icon key={i} style={styles.backgroundIcon} type="FontAwesome" name={icon}/>
-            );
+
             if(colored < (iconsNmb*percentage/100)) {
                 icons.push(
                     <Icon key={i} style={styles.icon} type="FontAwesome" name={icon}/>
                 );
                 colored++;
+            } else {
+                icons.push(
+                <Icon key={i} style={styles.backgroundIcon} type="FontAwesome" name={icon}/>
+                );
             }
         }    
 
         return (
             <View style={styles.main}>
                 <View style={[styles.section, styles.justify]}>
-                    {backgroundIcons}
-                </View>
-                <View style={[styles.section, styles.justify, styles.overlap]}>
                     {icons}
                 </View>
                 <View style={[styles.section, styles.percentageContent]}>
-                    <Text style={styles.percentage}>{percentage} %</Text>
+                    <Text style={styles.percentage}>{percentage}%</Text>
                 </View>
                 <View style={styles.section}>
                     <Text style={styles.description}>{text}</Text>
@@ -63,6 +62,8 @@ const styles = {
         flexDirection: 'column',
         padding: wp('1%'),
         paddingBottom: hp('0.5%'),
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     section: {
@@ -74,22 +75,18 @@ const styles = {
     },
 
     justify: {
-        justifyContent: 'flex-start'
-    },
-
-    overlap: {
-        top:-hp('1.5%')
+        justifyContent: 'center'
     },
 
     backgroundIcon: {
-        fontSize: hp('3%'),
-        padding: hp('0.4%'),
-        color: '#727272'
+        fontSize: hp('9%'),
+        padding: hp('0.5%'),
+        color: '#cccccc'
     },
 
     icon: {
-        fontSize: hp('3%'),
-        padding: hp('0.4%'),
+        fontSize: hp('9%'),
+        padding: hp('0.5%'),
         color: '#1c1c1c'
     },
 
@@ -106,8 +103,8 @@ const styles = {
 
     
     description: {
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
+        justifyContent: 'center',
+        alignItems: 'center',
         fontFamily: 'Quicksand_regular',
         fontSize: wp('1.6%'),
         textAlign: 'center'

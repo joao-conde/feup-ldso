@@ -24,7 +24,7 @@ class HexText extends Component {
     const { children, x, y, className, fontSize } = this.props;
     const fontSizeValue = (fontSize) ? fontSize : 5;
     return (
-      <Text x={x || 0} y={y ? y : '0.3em'} className={className} textAnchor="middle" fontSize={fontSizeValue}>{children}</Text>
+        <Text x={x || 0} y={y ? y : '0.3'} className={className}  textAnchor="middle" fontSize={fontSizeValue} style={{fontFamily: 'OpenSans_regular'}}>{children}</Text>
     );
   }
 }

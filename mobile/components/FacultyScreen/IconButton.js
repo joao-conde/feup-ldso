@@ -3,6 +3,7 @@ import {View, Card, Icon, Button, Text} from 'native-base';
 import PropTypes from 'prop-types';
 import facultyStyles from '../../constants/SpecificStyles';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {BoxShadow} from 'react-native-shadow';
 
 class IconButton extends React.Component {
 
@@ -19,11 +20,11 @@ class IconButton extends React.Component {
         return (
             <Card style={styles.card} transparent>
                 <View style={styles.btnView}>
-                    <Button style={[styles.linkBtn, facultyStyles[name].mainMenuBtn]} onPress={action()}>
-                        <Icon style={[styles.icon,facultyStyles[name].mainMenuIcon]} type="FontAwesome" name={icon} />
-                    </Button>
+                        <Button style={[styles.linkBtn, facultyStyles[name].mainMenuBtn]} onPress={action()}>
+                            <Icon style={styles.icon} type="FontAwesome" name={icon} />
+                        </Button>
                 </View>
-                <View style={styles.subtitle}>
+                <View style={[styles.subtitle]}>
                     <Text style={styles.labelText}>{label}</Text>
                 </View>
             </Card>
@@ -43,20 +44,17 @@ export default IconButton;
 const styles = {
 
     card: {
-        padding: 30,
+        flex:1,
+        justifyContent: 'space-around',
         alignItems: 'center'
     },
 
     btnView: {
-        flex:1,
         flexDirection: 'column',
     },
 
     subtitle: {
-        flex:1,
-        flexDirection: 'column',
-        alignItems: 'center',
-        marginTop:83,
+        alignItems: 'center'
     },
 
 
@@ -65,21 +63,24 @@ const styles = {
     },
 
     icon: {
+        fontSize: hp('6%'),
         transform: [{
             rotate: '315deg'
-        }]
+        }],
+        color: 'white'
     },
 
     linkBtn: {
-        height: hp('13%'),
-        width: hp('13%'),
+        height: hp('14%'),
+        width: hp('14%'),
         justifyContent: 'center',
         borderWidth: 1.2,
         borderRadius: 6,
         backgroundColor: 'white',
         transform: [{
             rotate: '45deg'
-        }]
+        }],
+        elevation: 23
   
     }
 };

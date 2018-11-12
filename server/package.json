@@ -34,7 +34,7 @@
     "type": "git"
   },
   "author": "",
-  "license": "",
+  "license": "UNLICENSED",
   "files": [
     "README.md",
     "index.js",

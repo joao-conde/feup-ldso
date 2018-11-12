@@ -68,6 +68,7 @@ const styles = {
 
     text: {
         color: 'white',
-        fontSize: 22
+        fontFamily: 'Quicksand_bold',
+        fontSize: 25
     }
 };

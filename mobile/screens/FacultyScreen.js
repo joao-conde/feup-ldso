@@ -3,7 +3,7 @@ import { StyleSheet, Image, Dimensions, ScrollView, TouchableOpacity} from 'reac
 import { Container, Content, Text, View, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getIntroduction, setFaculty } from '../reducers/modules/facultyReducer';
+import { getStats, setFaculty } from '../reducers/modules/facultyReducer';
 import Statistics from '../components/FacultyScreen/StatsNumbers';
 import IconButton from '../components/FacultyScreen/IconButton';
 import StatsIcons from '../components/FacultyScreen/StatsIcons';
@@ -29,17 +29,17 @@ class FacultyScreen extends Component {
     };
 
     componentDidMount() {
-        const faculty = this.props.navigation.getParam('faculty');
+        const faculty = this.props.navigation.getParam('name');
 
         this.props.setFaculty(faculty);
-        this.props.getIntroduction(this.props.language, faculty);
+        this.props.getStats(this.props.language, faculty);
     }
 
     componentDidUpdate(prevProps) {
         const { language, name } = this.props;
 
         if (prevProps.language != language)
-            this.props.getIntroduction(language, name);
+            this.props.getStats(language, name);
     }
 
     navigateFunction(label, name) {
@@ -47,14 +47,14 @@ class FacultyScreen extends Component {
     }
 
     render() {
-        const { name, loading, language } = this.props;
-
+        const { name, loading, stats, language } = this.props;
+        console.log(stats);
         if (loading) {
             return (
                 <Container style={styles.container}>
                     <Content contentContainerStyle={styles.content}>
                         <Text style={styles.text}>
-                            { language == 'en'? 'Loading...' : 'Carregando...' }
+                            {language == 'en' ? 'Loading...' : 'Carregando...'}
                         </Text>
                     </Content>
                 </Container>
@@ -65,13 +65,16 @@ class FacultyScreen extends Component {
                 <Content contentContainerStyle={styles.content}>
                     <View style={styles.menu}>
                         <View style={styles.links}>
-                            <View style={styles.linksRow}>
-                                <IconButton name={name} icon="film" label="Videos" action={() => this.navigateFunction('Videos', name)}></IconButton>
-                                <IconButton name={name} icon="globe" label="Social Projects" action={() => this.navigateFunction('SocialProjects', name)}></IconButton>
+                            <View style={styles.linksCol}>
+                                <IconButton name={name} icon="film" label={language == 'en' ? 'Videos' : 'Vídeos'} action={() => this.navigateFunction('Videos', name)}></IconButton>
+                                <IconButton name={name} icon="globe" label={language == 'en' ? 'Social Projects' : 'Projetos Sociais'} action={() => this.navigateFunction('SocialProjects', name)}></IconButton>
                             </View>
-                            <View style={styles.linksRow}>
-                                <IconButton name={name} icon="paper-plane" label="Future" action={() => this.navigateFunction('FutureProspects', name)}></IconButton>
-                                <IconButton name={name} icon="map-marker" label="Localization" action={() => this.navigateFunction('Localization', name)}></IconButton>
+                            <View style={[styles.linksCol, { paddingTop: '20%', paddingBottom:'30%'}]}>
+                                <IconButton name={name} icon="search" label={language == 'en' ? 'Research' : 'Investigação'} action={() => this.navigateFunction('FutureProspects', name)}></IconButton>
+                            </View>
+                            <View style={styles.linksCol}>
+                                <IconButton name={name} icon="paper-plane" label={language == 'en' ? 'Future' : 'Futuro'} action={() => this.navigateFunction('FutureProspects', name)}></IconButton>
+                                <IconButton name={name} icon="map-marker" label={language == 'en' ? 'Location' : 'Localização'} action={() => this.navigateFunction('Localization', name)}></IconButton>
                             </View>
                         </View>
                         <View style={styles.imageView}>
@@ -80,41 +83,41 @@ class FacultyScreen extends Component {
                     </View>
                     <View style={styles.firstPageBottom}>
                         <View style={styles.statistics}>
-                            <Statistics course={[ '13', 'Faculdades' ]} students={['2221', 'Estudantes']}></Statistics>
-                            <Statistics course={[ '28', 'Mestrados' ]} students={['961', 'Estudantes']}></Statistics>
-                            <Statistics course={[ '8', 'Doutoramentos' ]} students={['280', 'Estudantes']}></Statistics>
-                            <Statistics course={[ '125', 'Cursos de Formação' ]} students={['1111', 'Formandos']}></Statistics>
+                            <Statistics course={[ '13', language == 'en' ? 'Faculties' : 'Faculdades' ]} students={['2221', language == 'en' ? 'Students' : 'Estudantes']}></Statistics>
+                            <Statistics course={[ '28', language == 'en' ? 'Masters' : 'Mestrados' ]} students={['961', language == 'en' ? 'Students' : 'Estudantes']}></Statistics>
+                            <TouchableOpacity style={styles.goDownArrow} onPress={this.scrollToSecondPage}>
+                                <Icon style={styles.goDownArrowIcon} type="FontAwesome" name="chevron-down" />
+                            </TouchableOpacity>
+                            <Statistics course={[ '8', language == 'en' ? 'PhD' : 'Doutoramentos' ]} students={['280', language == 'en' ? 'Students' : 'Estudantes']}></Statistics>
+                            <Statistics course={[ '125', language == 'en' ? 'Training Courses' : 'Cursos de Formação' ]} students={['1111', language == 'en' ? 'Trainees' : 'Formandos']}></Statistics>
                         </View>
-                        <TouchableOpacity style={styles.goDownArrow} onPress={this.scrollToSecondPage}>
-                            <Icon style={styles.goDownArrowIcon} type="FontAwesome" name="chevron-down" />
-                        </TouchableOpacity>
                     </View>
                 </Content>
                 <Content contentContainerStyle={styles.content}>
                     <View style={styles.statsIcons}>
-                        <StatsIcons icon="graduation-cap" iconsNmb={50} percentage={50} text="Docentes e investigadores"></StatsIcons>
-                        <StatsIcons icon="user" iconsNmb={80} percentage={90} text="Estudantes estrangeiros"></StatsIcons>
-                        <StatsIcons icon="circle" iconsNmb={70} percentage={90} text="Programas de formação conferente de grau envolvendo UO's"></StatsIcons>
+                        <StatsIcons icon="flask" iconsNmb={10} percentage={10} text="Docentes e investigadores"></StatsIcons>
+                        <StatsIcons icon="globe" iconsNmb={10} percentage={90} text="Estudantes estrangeiros"></StatsIcons>
+                        <StatsIcons icon="book" iconsNmb={10} percentage={90} text="Programas de formação conferente de grau envolvendo UO's"></StatsIcons>
                     </View>
                     <View style={styles.hexagonsView}>
-                        <HexGrid width={hp('100%')} height={hp('70%')} viewBox="-40 -40 100 100">
-                            <Layout size={{ x: 15, y: 15 }} flat={true} spacing={1.1} origin={{ x: 0, y: 0 }} style={{backgroundColor: 'blue'}}>
+                        <HexGrid width={hp('100%')} height={hp('70%')} viewBox="-32 -42 95 95">
+                            <Layout size={{ x: 15, y: 15 }} flat={true} spacing={1.1} origin={{ x: 0, y: 0 }} >
                                 <Hexagon q={0} r={0} s={0} fill="#fff"/>
-                                    <HexText x="0" y="0" fontSize={wp('0.5%')}>240 protocolos de estagio com empresas</HexText>
+                                    <HexText fontSize={wp('0.2%')}>Estágios</HexText>
                                 <Hexagon q={0} r={-1} s={1} fill="#fff">
-                                    <HexText>0, -1, 1</HexText>
+                                    <HexText fontSize={wp('0.2%')}>Projetos</HexText>
                                 </Hexagon>
                                 <Hexagon q={1} r={-1} s={0} fill="#fff">
-                                    <HexText style={{color: 'white'}}>1, -1, 0</HexText>
+                                    <HexText fontSize={wp('0.2%')}>Ensino</HexText>
                                 </Hexagon>
                                 <Hexagon q={2} r={-2} s={0} fill="#fff">
-                                    <HexText style={{color: 'white'}}>2, -2, 0</HexText>
+                                    <HexText fontSize={wp('0.2%')}>Tradução</HexText>
                                 </Hexagon>
                                 <Hexagon q={-1} r={0} s={1} fill="#fff">
-                                    <HexText>-1, 0, 1</HexText>
+                                    <HexText fontSize={wp('0.2%')}>Campanhas</HexText>
                                 </Hexagon>
                                 <Hexagon q={-2} r={0} s={1} fill="#fff">
-                                    <HexText>-2, 0, 1</HexText>
+                                    <HexText fontSize={wp('0.2%')}>Solidariedade</HexText>
                                 </Hexagon>
                                 <HexPath start={new Hex(0, 0, 0)} end={new Hex(-2, 0, 1)} />
                             </Layout>
@@ -129,10 +132,11 @@ class FacultyScreen extends Component {
 FacultyScreen.propTypes = {
     name: PropTypes.string,
     loading: PropTypes.bool,
+    stats: PropTypes.object,
     language: PropTypes.string,
     navigation: PropTypes.object,
     setFaculty: PropTypes.func,
-    getIntroduction: PropTypes.func
+    getStats: PropTypes.func
 };
 
 const styles = StyleSheet.create({
@@ -168,18 +172,18 @@ const styles = StyleSheet.create({
     },
 
     goDownArrow: {
-        flex:1,
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent:'flex-end'
     },
 
     goDownArrowIcon: {
-        color: 'white'
+        color: 'white',
     },
 
     image: {
         flex: 1,
-        margin: hp('5%'),
-        marginBottom: hp('7%'),
+        margin: hp('2%'),
+        marginRight: hp('3%'),
         resizeMode: 'contain',
         alignSelf: 'stretch'
 
@@ -195,15 +199,15 @@ const styles = StyleSheet.create({
     },
 
     links: {
-        flex: 2,
-        flexDirection: 'column',
+        flex: 3,
+        flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingTop: hp('1%')
+        paddingTop: hp('2%')
     },
 
-    linksRow: {
+    linksCol: {
         flex:1,
-        flexDirection: 'row',
+        flexDirection: 'column',
         justifyContent: 'space-around',
         alignItems: 'stretch'
     },
@@ -212,7 +216,6 @@ const styles = StyleSheet.create({
         flex:9,
         flexDirection: 'row',
         flexWrap: 'nowrap',
-        alignItems: 'center',
         justifyContent: 'space-evenly',
         backgroundColor: 'white',
         padding: hp('3%')
@@ -234,13 +237,13 @@ const styles = StyleSheet.create({
 const mapStateToProps = ({ faculty, language }) => ({
     name: faculty.name,
     loading: faculty.loading,
-    intro: faculty.intro,
+    stats: faculty.stats,
     language: language.selection
 });
 
 const mapDispatchToProps = {
     setFaculty,
-    getIntroduction
+    getStats
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FacultyScreen);

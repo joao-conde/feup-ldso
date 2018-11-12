@@ -3,18 +3,18 @@ import {
   BelongsToAccessor,
   repository,
 } from '@loopback/repository';
-import {SocialProject, Faculty} from '../models';
+import {Statistics, Faculty} from '../models';
 import {MongoDataSource} from '../datasources';
 import {inject, Getter} from '@loopback/core';
 import {FacultyRepository} from './faculty.repository';
 
-export class SocialProjectRepository extends DefaultCrudRepository<
-  SocialProject,
-  typeof SocialProject.prototype.id
+export class StatisticsRepository extends DefaultCrudRepository<
+  Statistics,
+  typeof Statistics.prototype.id
 > {
   public readonly faculty: BelongsToAccessor<
     Faculty,
-    typeof SocialProject.prototype.id
+    typeof Statistics.prototype.id
   >;
 
   constructor(
@@ -22,7 +22,7 @@ export class SocialProjectRepository extends DefaultCrudRepository<
     @repository.getter('FacultyRepository')
     protected facultyRepositoryGetter: Getter<FacultyRepository>,
   ) {
-    super(SocialProject, dataSource);
+    super(Statistics, dataSource);
     this.faculty = this._createBelongsToAccessorFor(
       'facultyId',
       facultyRepositoryGetter,
