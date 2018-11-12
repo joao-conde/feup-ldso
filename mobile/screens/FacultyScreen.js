@@ -7,7 +7,8 @@ import { getIntroduction, setFaculty } from '../reducers/modules/facultyReducer'
 import Statistics from '../components/FacultyScreen/StatsNumbers';
 import IconButton from '../components/FacultyScreen/IconButton';
 import StatsIcons from '../components/FacultyScreen/StatsIcons';
-import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { HexGrid, Layout, Hexagon, HexText, Pattern, HexPath, Hex } from '../components/FacultyScreen/Hexagon/index';
 
 
 let scrollYPos = 0;
@@ -96,6 +97,28 @@ class FacultyScreen extends Component {
                         <StatsIcons icon="circle" iconsNmb={70} percentage={90} text="Programas de formação conferente de grau envolvendo UO's"></StatsIcons>
                     </View>
                     <View style={styles.hexagonsView}>
+                        <HexGrid width={hp('100%')} height={hp('70%')} viewBox="-40 -40 100 100">
+                            <Layout size={{ x: 15, y: 15 }} flat={true} spacing={1.1} origin={{ x: 0, y: 0 }} style={{backgroundColor: 'blue'}}>
+                                <Hexagon q={0} r={0} s={0} fill="#fff"/>
+                                    <HexText x="0" y="0" fontSize={wp('0.5%')}>240 protocolos de estagio com empresas</HexText>
+                                <Hexagon q={0} r={-1} s={1} fill="#fff">
+                                    <HexText>0, -1, 1</HexText>
+                                </Hexagon>
+                                <Hexagon q={1} r={-1} s={0} fill="#fff">
+                                    <HexText style={{color: 'white'}}>1, -1, 0</HexText>
+                                </Hexagon>
+                                <Hexagon q={2} r={-2} s={0} fill="#fff">
+                                    <HexText style={{color: 'white'}}>2, -2, 0</HexText>
+                                </Hexagon>
+                                <Hexagon q={-1} r={0} s={1} fill="#fff">
+                                    <HexText>-1, 0, 1</HexText>
+                                </Hexagon>
+                                <Hexagon q={-2} r={0} s={1} fill="#fff">
+                                    <HexText>-2, 0, 1</HexText>
+                                </Hexagon>
+                                <HexPath start={new Hex(0, 0, 0)} end={new Hex(-2, 0, 1)} />
+                            </Layout>
+                        </HexGrid>
                     </View>
                 </Content>
             </ScrollView>
@@ -198,8 +221,13 @@ const styles = StyleSheet.create({
     hexagonsView: {
         flex:11,
         backgroundColor: '#1c1c1c',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingTop: hp('5%')
+    },
+    hexagon: {
+        color: '#7be3f6'
     }
+    
 
 });
 
