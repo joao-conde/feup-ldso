@@ -8,7 +8,7 @@ import Statistics from '../components/FacultyScreen/StatsNumbers';
 import IconButton from '../components/FacultyScreen/IconButton';
 import StatsIcons from '../components/FacultyScreen/StatsIcons';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import { HexGrid, Layout, Hexagon, HexText, Pattern, HexPath, Hex } from '../components/FacultyScreen/Hexagon/index';
+import { HexGrid, Layout, Hexagon, HexText, HexPath, Hex } from '../components/FacultyScreen/Hexagon/index';
 
 
 let scrollYPos = 0;
@@ -69,7 +69,7 @@ class FacultyScreen extends Component {
                                 <IconButton name={name} icon="film" label={language == 'en' ? 'Videos' : 'Vídeos'} action={() => this.navigateFunction('Videos', name)}></IconButton>
                                 <IconButton name={name} icon="globe" label={language == 'en' ? 'Social Projects' : 'Projetos Sociais'} action={() => this.navigateFunction('SocialProjects', name)}></IconButton>
                             </View>
-                            <View style={[styles.linksCol, { paddingTop: '20%', paddingBottom:'30%'}]}>
+                            <View style={[styles.linksCol, styles.search]}>
                                 <IconButton name={name} icon="search" label={language == 'en' ? 'Research' : 'Investigação'} action={() => this.navigateFunction('FutureProspects', name)}></IconButton>
                             </View>
                             <View style={styles.linksCol}>
@@ -103,7 +103,7 @@ class FacultyScreen extends Component {
                         <HexGrid width={hp('100%')} height={hp('70%')} viewBox="-32 -42 95 95">
                             <Layout size={{ x: 15, y: 15 }} flat={true} spacing={1.1} origin={{ x: 0, y: 0 }} >
                                 <Hexagon q={0} r={0} s={0} fill="#fff"/>
-                                    <HexText fontSize={wp('0.2%')}>Estágios</HexText>
+                                <HexText fontSize={wp('0.2%')}>Estágios</HexText>
                                 <Hexagon q={0} r={-1} s={1} fill="#fff">
                                     <HexText fontSize={wp('0.2%')}>Projetos</HexText>
                                 </Hexagon>
@@ -210,6 +210,11 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'space-around',
         alignItems: 'stretch'
+    },
+
+    search: { 
+        paddingTop: '20%',
+        paddingBottom:'30%'
     },
 
     statsIcons: {

@@ -13,7 +13,6 @@ class StatisticsNumbers extends React.Component {
     render() {
         const {icon, iconsNmb,  percentage, text} = this.props;
         
-        var backgroundIcons = [];
         var icons = [];
         let colored = 0;
 
@@ -26,7 +25,7 @@ class StatisticsNumbers extends React.Component {
                 colored++;
             } else {
                 icons.push(
-                <Icon key={i} style={styles.backgroundIcon} type="FontAwesome" name={icon}/>
+                    <Icon key={i} style={styles.backgroundIcon} type="FontAwesome" name={icon}/>
                 );
             }
         }    

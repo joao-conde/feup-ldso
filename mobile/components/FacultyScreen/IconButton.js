@@ -3,7 +3,6 @@ import {View, Card, Icon, Button, Text} from 'native-base';
 import PropTypes from 'prop-types';
 import facultyStyles from '../../constants/SpecificStyles';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import {BoxShadow} from 'react-native-shadow';
 
 class IconButton extends React.Component {
 
@@ -20,9 +19,9 @@ class IconButton extends React.Component {
         return (
             <Card style={styles.card} transparent>
                 <View style={styles.btnView}>
-                        <Button style={[styles.linkBtn, facultyStyles[name].mainMenuBtn]} onPress={action()}>
-                            <Icon style={styles.icon} type="FontAwesome" name={icon} />
-                        </Button>
+                    <Button style={[styles.linkBtn, facultyStyles[name].mainMenuBtn]} onPress={action()}>
+                        <Icon style={styles.icon} type="FontAwesome" name={icon} />
+                    </Button>
                 </View>
                 <View style={[styles.subtitle]}>
                     <Text style={styles.labelText}>{label}</Text>
