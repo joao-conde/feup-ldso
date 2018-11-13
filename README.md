@@ -48,6 +48,12 @@ On the root directory, run docker:
 ```
 docker-compose up --build web-app
 ```
+## _Web App_ Running the Tests
+Inside web-app folder, run this commands:
+```
+yarn install
+yarn jest
+```
 
 ## _Backend/Server_ Development Environment Setup
 On the root directory, run docker:

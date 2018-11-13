@@ -68,7 +68,7 @@ class AddFacultyProject extends Component {
 
 AddFacultyProject.propTypes = {
     match: PropTypes.object.isRequired,
-    onChildSetRefresh: PropTypes.object.isRequired
+    onChildSetRefresh: PropTypes.func.isRequired
 };
 
 export default AddFacultyProject;

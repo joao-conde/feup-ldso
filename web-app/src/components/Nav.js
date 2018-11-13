@@ -7,6 +7,7 @@ import AddFacultyProject from './AddFacultyProject';
 import Delete from './Delete';
 import Editor from './Editor';
 
+
 class Nav extends Component {
     constructor(props) {
         super(props);
@@ -47,13 +48,20 @@ class Nav extends Component {
                   </ul>
                   <div className = "rowC">
                       <Route exact path="/" component={Home} />
-                      <Route path='/faculties/:faculty' render={(props)=> <Sidebar {...props} onChildSetRefresh={this.handleChildSetRefresh} onGetRefresh={this.handleGetRefresh} onChildUnsetRefresh={this.handleChildUnsetRefresh}/>}/>
+                      <Route path='/faculties/:faculty' render={(props)=> 
+                          <Sidebar {...props} 
+                              onChildSetRefresh={this.handleChildSetRefresh} 
+                              onGetRefresh={this.handleGetRefresh} 
+                              onChildUnsetRefresh={this.handleChildUnsetRefresh}/>}/>
                       <div>
-                          <Route path={'/faculties/:faculty/:project'} render={(props)=> <Editor {...props} onChildSetRefresh={this.handleChildSetRefresh} />}/>
-                          <Route path={'/faculties/:faculty/:project'} render={(props)=> <Delete {...props} onChildSetRefresh={this.handleChildSetRefresh} />}/>
+                          <Route path={'/faculties/:faculty/:project'} render={(props)=> 
+                              <Editor {...props} onChildSetRefresh={this.handleChildSetRefresh} />}/>
+                          <Route path={'/faculties/:faculty/:project'} render={(props)=> 
+                              <Delete {...props} onChildSetRefresh={this.handleChildSetRefresh} />}/>
                       </div>
                       <div>
-                          <Route exact path='/faculties/:faculty' render={(props)=> <AddFacultyProject {...props} onChildSetRefresh={this.handleChildSetRefresh} />}/>
+                          <Route exact path='/faculties/:faculty' render={(props)=> <AddFacultyProject {...props} 
+                              onChildSetRefresh={this.handleChildSetRefresh} />}/>
                       </div>
                   </div>
               </div>

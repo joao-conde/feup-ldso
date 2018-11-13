@@ -42,7 +42,6 @@ class Editor extends Component {
         this.setState({
             [event.target.name]: event.target.value
         });
-
     }
 
     handleSubmit(event){
@@ -88,7 +87,7 @@ class Editor extends Component {
                                     defaultValue={proj.content}
                                     onChange={this.handleInputChange}/>
                             </FormGroup>
-                            <Button color="secondary" onClick={this.handleSubmit}>Edit</Button>
+                            <Button id="submitBtn" color="secondary" onClick={this.handleSubmit}>Edit</Button>
                         </Form>
                     ))}
             </div>
