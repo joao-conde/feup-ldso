@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing if lock reducer changes locked state to false 1`] = `
+Object {
+  "locked": false,
+}
+`;
+
+exports[`Testing if lock reducer changes locked state to true 1`] = `
+Object {
+  "locked": true,
+}
+`;
+
+exports[`Testing lock actions creates a TOGGLE_LOCK Action 1`] = `
+Object {
+  "type": "mobile/lock/TOGGLE_LOCK",
+}
+`;

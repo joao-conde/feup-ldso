@@ -7,8 +7,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "test": "node ./node_modules/jest/bin/jest.js --watchAll",
-    "test-ci": "node ./node_modules/jest/bin/jest.js --updateSnapshot",
+    "test": "node ./node_modules/jest/bin/jest.js",
     "lint": "yarn run lint:js",
     "lint-fix": "yarn run lint-fix:js",
     "lint:js": "eslint .",
@@ -17,8 +16,16 @@
   },
   "jest": {
     "preset": "jest-expo",
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
     "transformIgnorePatterns": [
-      "node_modules/(?!native-base-shoutem-theme|expo-react-native-adapter|react-native|expo|@expo|react-navigation-stack|react-navigation|native-base)"
+      "node_modules/(?!native-base-shoutem-theme|expo-react-native-adapter|react-native|expo|@expo|react-navigation-stack|react-navigation|native-base|babel-runtime|enzyme)"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/native-base-theme/**",
+      "!**/coverage/**"
     ]
   },
   "dependencies": {
@@ -46,6 +53,7 @@
     "@babel/runtime": "7.0.0-beta.55",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
+    "enzyme-to-json": "^3.3.4",
     "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-standard": "^12.0.0",

@@ -20,24 +20,12 @@ Although there are somewhat similar apps (_e.g._ [Study UK Exhibitions](https://
 
 ## _Mobile App_ Development Environment Setup
 
-On the root directory:
+On the `mobile` directory:
 
-- Run docker
-
-```
-docker-compose up --build mobile
-```
-
+- Install dependencies: `yarn`
+- Create a `.env`file with an `api` environment variable with your api's url
+- Run expo `expo start`
 - Wait for QR code to show up and scan with mobile phone using the [Expo](https://expo.io) app
-
-  If you can't access the url provided by Expo, try uncommenting the following line on the `Dockerfile` with your [host machine's local IP address](https://www.whatismybrowser.com/detect/what-is-my-local-ip-address).
-
-```
-ENV REACT_NATIVE_PACKAGER_HOSTNAME=<your-local-ip-address>
-
-# Example
-ENV REACT_NATIVE_PACKAGER_HOSTNAME=192.168.1.123
-```
 
 ### Running on a Emulator
 
@@ -48,6 +36,13 @@ If you prefer/need to run the app on an emulator, the easiest (and heaviest) way
 - Run the sample app on your emulator with ```npm run android```. This will install the Expo client on your fresh virtual device
 - You should now be able to run any Expo app accessible by your virtual device by copying the app's url to the Search tab
 
+### Running tests
+On the `mobile` directory:
+
+- Run test suites - `yarn test`
+- Update snapshots - `yarn test -u`
+- Watch mode (listen to file changes and rerun tests) - `yarn test --watch`
+ 
 ## _Web App_ Development Environment Setup
 On the root directory, run docker:
 ```

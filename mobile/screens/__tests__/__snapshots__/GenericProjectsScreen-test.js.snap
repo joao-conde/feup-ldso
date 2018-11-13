@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders loading screen 1`] = `
+<Component>
+  <ActivityIndicator
+    animating={true}
+    color="#999999"
+    hidesWhenStopped={true}
+    size="small"
+  />
+</Component>
+`;
+
+exports[`renders social projects content 1`] = `
+<Drawer
+  acceptDoubleTap={true}
+  acceptPan={true}
+  acceptPanOnDrawer={true}
+  acceptTap={false}
+  captureGestures={false}
+  closedDrawerOffset={[Function]}
+  content={
+    <Connect(SideBar)
+      closeDrawer={[Function]}
+      onProjectSelect={[Function]}
+      projects={
+        Array [
+          Object {
+            "content": "[EN] Aliquam sit amet varius lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed tortor justo, ornare a vulputate in, mattis id mi. Donec varius, dui venenatis pharetra ultricies, ligula nulla ornare ex, quis mattis libero quam a tellus. Quisque quis est id nulla ornare semper at a nisi. Integer tincidunt egestas ornare. Nullam congue tellus arcu, eu ultricies mi pellentesque eget. Pellentesque massa sapien, suscipit sit amet lacus vel, faucibus faucibus elit. Cras in metus viverra, luctus magna ac, tristique leo. Aenean ultrices dui eget velit cursus, vitae suscipit purus varius. Aliquam erat volutpat. In porta metus et velit aliquet porta.",
+            "facultyId": 1,
+            "images": Array [
+              "https://picsum.photos/200/300/?random",
+              "https://picsum.photos/112/200/?random",
+            ],
+            "short_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam neque. Aliquam erat volutpat. Suspendisse sagittis ultrices augue. Pellentesque ipsum.",
+            "start_date": "2017-01-01",
+            "title": "[EN] Social project at FAUP",
+          },
+          Object {
+            "content": "[EN] Aliquam sit amet varius lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed tortor justo, ornare a vulputate in, mattis id mi. Donec varius, dui venenatis pharetra ultricies, ligula nulla ornare ex, quis mattis libero quam a tellus. Quisque quis est id nulla ornare semper at a nisi. Integer tincidunt egestas ornare. Nullam congue tellus arcu, eu ultricies mi pellentesque eget. Pellentesque massa sapien, suscipit sit amet lacus vel, faucibus faucibus elit. Cras in metus viverra, luctus magna ac, tristique leo. Aenean ultrices dui eget velit cursus, vitae suscipit purus varius. Aliquam erat volutpat. In porta metus et velit aliquet porta.",
+            "facultyId": 1,
+            "images": Array [
+              "https://picsum.photos/200/300/?random",
+              "https://picsum.photos/112/200/?random",
+            ],
+            "short_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam neque. Aliquam erat volutpat. Suspendisse sagittis ultrices augue. Pellentesque ipsum.",
+            "start_date": "2017-01-01",
+            "title": "[EN] Social project at FAUP",
+          },
+        ]
+      }
+      styles={
+        Object {
+          "backgroundColor": "black",
+        }
+      }
+    />
+  }
+  disabled={false}
+  elevation={0}
+  initializeOpen={false}
+  negotiatePan={true}
+  onClose={[Function]}
+  onOpen={[Function]}
+  open={null}
+  openDrawerOffset={[Function]}
+  panCloseMask={null}
+  panOpenMask={0.2}
+  panThreshold={0.08}
+  side="left"
+  styles={
+    Object {
+      "main": Object {
+        "backgroundColor": "white",
+        "shadowColor": "black",
+        "shadowOpacity": 0.3,
+        "shadowRadius": 15,
+      },
+    }
+  }
+  tapToClose={false}
+  tweenDuration={100}
+  tweenEasing="linear"
+  tweenHandler={null}
+  type="static"
+  useInteractionManager={false}
+>
+  <ScrollViewMock
+    onMomentumScrollBegin={null}
+    onScrollEndDrag={[Function]}
+  >
+    <Connect(GenericProject)
+      getOne={[MockFunction]}
+      navActionDown={[Function]}
+      navActionUp={[Function]}
+      project={
+        Object {
+          "content": "[EN] Aliquam sit amet varius lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed tortor justo, ornare a vulputate in, mattis id mi. Donec varius, dui venenatis pharetra ultricies, ligula nulla ornare ex, quis mattis libero quam a tellus. Quisque quis est id nulla ornare semper at a nisi. Integer tincidunt egestas ornare. Nullam congue tellus arcu, eu ultricies mi pellentesque eget. Pellentesque massa sapien, suscipit sit amet lacus vel, faucibus faucibus elit. Cras in metus viverra, luctus magna ac, tristique leo. Aenean ultrices dui eget velit cursus, vitae suscipit purus varius. Aliquam erat volutpat. In porta metus et velit aliquet porta.",
+          "facultyId": 1,
+          "images": Array [
+            "https://picsum.photos/200/300/?random",
+            "https://picsum.photos/112/200/?random",
+          ],
+          "short_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam neque. Aliquam erat volutpat. Suspendisse sagittis ultrices augue. Pellentesque ipsum.",
+          "start_date": "2017-01-01",
+          "title": "[EN] Social project at FAUP",
+        }
+      }
+    />
+  </ScrollViewMock>
+</Drawer>
+`;

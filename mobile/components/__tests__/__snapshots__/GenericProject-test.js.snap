@@ -1,0 +1,271 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders loading screen 1`] = `
+<Component>
+  <ActivityIndicator
+    animating={true}
+    color="#999999"
+    hidesWhenStopped={true}
+    size="small"
+  />
+</Component>
+`;
+
+exports[`renders screen with geric project content 1`] = `
+<Component>
+  <Component
+    style={
+      Object {
+        "height": 1334,
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "flex": 5,
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Component
+        style={
+          Object {
+            "flex": 1,
+            "margin": 10,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "uri": "https://picsum.photos/200/300/?random",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "flex": 1,
+                "height": undefined,
+                "margin": 10,
+                "width": undefined,
+              },
+              Object {
+                "borderRadius": 25,
+                "borderWidth": 5,
+              },
+              Object {
+                "borderColor": "#8c2d19",
+              },
+            ]
+          }
+        />
+      </Component>
+      <Component
+        style={
+          Object {
+            "alignSelf": "center",
+            "flex": 1,
+            "justifyContent": "flex-end",
+            "margin": 10,
+          }
+        }
+      >
+        <Component
+          style={
+            Object {
+              "flex": 2,
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "color": "rgba(0,0,0,0.54)",
+                "fontFamily": "Quicksand_regular",
+                "fontSize": 34,
+                "fontWeight": "400",
+                "letterSpacing": 0.381836,
+                "lineHeight": 40,
+                "marginBottom": 20,
+                "marginTop": "auto",
+              }
+            }
+          >
+            [EN] Social project at FAUP
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "color": "rgba(0,0,0,0.87)",
+                "fontFamily": "OpenSans_regular",
+                "fontSize": 20,
+                "fontWeight": "400",
+                "letterSpacing": -0.32,
+                "lineHeight": 24,
+              }
+            }
+          >
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam neque. Aliquam erat volutpat. Suspendisse sagittis ultrices augue. Pellentesque ipsum.
+          </Text>
+        </Component>
+        <Component
+          style={
+            Object {
+              "flex": 3,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://picsum.photos/112/200/?random",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                  "height": undefined,
+                  "margin": 10,
+                  "marginTop": 25,
+                  "width": undefined,
+                },
+                Object {
+                  "borderRadius": 25,
+                  "borderWidth": 5,
+                },
+                Object {
+                  "borderColor": "#8c2d19",
+                },
+              ]
+            }
+          />
+        </Component>
+      </Component>
+    </Component>
+    <Component
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+        }
+      }
+    >
+      <TouchableOpacity
+        activeOpacity={0.2}
+      >
+        <Styled(Icon)
+          name="caret-down"
+          type="FontAwesome"
+        />
+      </TouchableOpacity>
+    </Component>
+  </Component>
+  <Component
+    style={
+      Object {
+        "height": 1334,
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginTop": 10,
+        }
+      }
+    >
+      <TouchableOpacity
+        activeOpacity={0.2}
+      >
+        <Styled(Icon)
+          name="caret-up"
+          type="FontAwesome"
+        />
+      </TouchableOpacity>
+    </Component>
+    <Component
+      style={
+        Object {
+          "flex": 5,
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Component
+        style={
+          Object {
+            "flex": 1,
+            "marginHorizontal": 15,
+            "marginVertical": 10,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "color": "rgba(0,0,0,0.87)",
+              "fontFamily": "OpenSans_regular",
+              "fontSize": 20,
+              "fontWeight": "400",
+              "letterSpacing": -0.32,
+              "lineHeight": 24,
+            }
+          }
+        >
+          [EN] Aliquam sit amet varius lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed tortor justo, ornare a vulputate in, mattis id mi. Donec varius, dui venenatis pharetra ultricies, ligula nulla ornare ex, quis mattis libero quam a tellus. Quisque quis est id nulla ornare semper at a nisi. Integer tincidunt egestas ornare. Nullam congue tellus arcu, eu ultricies mi pellentesque eget. Pellentesque massa sapien, suscipit sit amet lacus vel, faucibus faucibus elit. Cras in metus viverra, luctus magna ac, tristique leo. Aenean ultrices dui eget velit cursus, vitae suscipit purus varius. Aliquam erat volutpat. In porta metus et velit aliquet porta.
+        </Text>
+      </Component>
+      <Component
+        style={
+          Object {
+            "flex": 1,
+            "justifyContent": "flex-start",
+            "margin": 10,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "uri": "https://picsum.photos/112/200/?random",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "flex": 0.5,
+                "height": undefined,
+                "margin": 10,
+                "width": undefined,
+              },
+              Object {
+                "borderRadius": 25,
+                "borderWidth": 5,
+              },
+              Object {
+                "borderColor": "#8c2d19",
+              },
+            ]
+          }
+        />
+      </Component>
+    </Component>
+  </Component>
+</Component>
+`;
