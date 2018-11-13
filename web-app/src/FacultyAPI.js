@@ -19,10 +19,10 @@ const FacultyAPI = {
         { number: 14, name: 'ICBAS'},
     ],
     all: function() { return this.faculties;},
-    get: function(id) {
+    /*get: function(id) {
         const isFaculty = p => p.name === id;
         return this.faculties.find(isFaculty);
-    }
+    }*/
 };
 
 export default FacultyAPI;
