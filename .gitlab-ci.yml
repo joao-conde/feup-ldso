@@ -77,7 +77,7 @@ test_mobile:
   script:
     - yarn test-ci
 
-server_build:
+build_server:
   image: docker:stable
   stage: build
   allow_failure: true
@@ -85,9 +85,39 @@ server_build:
     - cd server
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - docker build -t $REGISTRY_URL/server/develop .
-    - docker push $REGISTRY_URL/server/develop
+    - docker build -t $REGISTRY_URL/server:$CI_COMMIT_REF_NAME .
+    - docker push $REGISTRY_URL/server:$CI_COMMIT_REF_NAME
+  # only:
+  #   - master
+  #   - develop
 
+build_web:
+  image: docker:stable
+  stage: build
+  allow_failure: true
+  before_script:
+    - cd web-app
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker build -t $REGISTRY_URL/web-app:$CI_COMMIT_REF_NAME .
+    - docker push $REGISTRY_URL/web-app:$CI_COMMIT_REF_NAME
+  # only:
+  #   - master
+  #   - develop
+
+build_mobile:
+  image: docker:stable
+  stage: build
+  allow_failure: true
+  before_script:
+    - cd mobile
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker build -t $REGISTRY_URL/mobile:$CI_COMMIT_REF_NAME .
+    - docker push $REGISTRY_URL/mobile:$CI_COMMIT_REF_NAME
+  only:
+    - master
+    - develop
 
 server_deploy_staging:
   stage: deploy
