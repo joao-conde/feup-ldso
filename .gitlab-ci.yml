@@ -85,8 +85,10 @@ build_server:
     - cd server
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - docker build -t $REGISTRY_URL/server:$CI_COMMIT_REF_NAME .
-    - docker push $REGISTRY_URL/server:$CI_COMMIT_REF_NAME
+    - docker build -t $REGISTRY_URL/server:develop .
+    - docker push $REGISTRY_URL/server:develop
+    # - docker build -t $REGISTRY_URL/server:$CI_COMMIT_REF_NAME .
+    # - docker push $REGISTRY_URL/server:$CI_COMMIT_REF_NAME
   # only:
   #   - master
   #   - develop
@@ -99,8 +101,10 @@ build_web:
     - cd web-app
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - docker build -t $REGISTRY_URL/web-app:$CI_COMMIT_REF_NAME .
-    - docker push $REGISTRY_URL/web-app:$CI_COMMIT_REF_NAME
+    - docker build -t $REGISTRY_URL/web-app:develop .
+    - docker push $REGISTRY_URL/web-app:develop
+    # - docker build -t $REGISTRY_URL/web-app:$CI_COMMIT_REF_NAME .
+    # - docker push $REGISTRY_URL/web-app:$CI_COMMIT_REF_NAME
   # only:
   #   - master
   #   - develop
