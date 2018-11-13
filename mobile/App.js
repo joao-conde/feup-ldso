@@ -60,7 +60,8 @@ export default class App extends React.Component {
               Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
               Ionicons: require('@expo/vector-icons/fonts/Ionicons.ttf'),
               Quicksand_regular: require('./assets/fonts/Quicksand/Quicksand-Regular.ttf'),
-              OpenSans_regular: require('./assets/fonts/Open_Sans/OpenSans-Regular.ttf')
+              OpenSans_regular: require('./assets/fonts/Open_Sans/OpenSans-Regular.ttf'),
+              Quicksand_bold: require('./assets/fonts/Quicksand/Quicksand-Bold.ttf'),
           }),
       ]);
   };

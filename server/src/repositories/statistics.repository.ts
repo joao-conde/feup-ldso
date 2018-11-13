@@ -1,31 +1,13 @@
-import {
-  DefaultCrudRepository,
-  BelongsToAccessor,
-  repository,
-} from '@loopback/repository';
-import {Statistics, Faculty} from '../models';
+import {DefaultCrudRepository} from '@loopback/repository';
+import {Statistics} from '../models';
 import {MongoDataSource} from '../datasources';
-import {inject, Getter} from '@loopback/core';
-import {FacultyRepository} from './faculty.repository';
+import {inject} from '@loopback/core';
 
 export class StatisticsRepository extends DefaultCrudRepository<
   Statistics,
   typeof Statistics.prototype.id
 > {
-  public readonly faculty: BelongsToAccessor<
-    Faculty,
-    typeof Statistics.prototype.id
-  >;
-
-  constructor(
-    @inject('datasources.mongo') dataSource: MongoDataSource,
-    @repository.getter('FacultyRepository')
-    protected facultyRepositoryGetter: Getter<FacultyRepository>,
-  ) {
+  constructor(@inject('datasources.mongo') dataSource: MongoDataSource) {
     super(Statistics, dataSource);
-    this.faculty = this._createBelongsToAccessorFor(
-      'facultyId',
-      facultyRepositoryGetter,
-    );
   }
 }
