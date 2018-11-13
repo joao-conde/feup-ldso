@@ -83,21 +83,21 @@ class FacultyScreen extends Component {
                     </View>
                     <View style={styles.firstPageBottom}>
                         <View style={styles.statistics}>
-                            <Statistics course={[ '13', language == 'en' ? 'Faculties' : 'Faculdades' ]} students={['2221', language == 'en' ? 'Students' : 'Estudantes']}></Statistics>
-                            <Statistics course={[ '28', language == 'en' ? 'Masters' : 'Mestrados' ]} students={['961', language == 'en' ? 'Students' : 'Estudantes']}></Statistics>
+                            <Statistics course={[ stats['nr_bsc'], language == 'en' ? 'Bachelors' : 'Licenciaturas' ]} students={[stats['bsc_students'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>
+                            <Statistics course={[ stats['nr_msc'], language == 'en' ? 'Masters' : 'Mestrados' ]} students={[stats['msc_students'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>
                             <TouchableOpacity style={styles.goDownArrow} onPress={this.scrollToSecondPage}>
                                 <Icon style={styles.goDownArrowIcon} type="FontAwesome" name="chevron-down" />
                             </TouchableOpacity>
-                            <Statistics course={[ '8', language == 'en' ? 'PhD' : 'Doutoramentos' ]} students={['280', language == 'en' ? 'Students' : 'Estudantes']}></Statistics>
-                            <Statistics course={[ '125', language == 'en' ? 'Training Courses' : 'Cursos de Formação' ]} students={['1111', language == 'en' ? 'Trainees' : 'Formandos']}></Statistics>
+                            <Statistics course={[ stats['nr_phd'], language == 'en' ? 'PhD' : 'Doutoramentos' ]} students={[stats['phd_students'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>
+                            <Statistics course={[ stats['nr_training_course'], language == 'en' ? 'Open and continuing training courses' : 'Cursos livres e de formação contínua' ]} students={[stats['training_course_graduate'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>
                         </View>
                     </View>
                 </Content>
                 <Content contentContainerStyle={styles.content}>
                     <View style={styles.statsIcons}>
-                        <StatsIcons icon="flask" iconsNmb={10} percentage={10} text="Docentes e investigadores"></StatsIcons>
-                        <StatsIcons icon="globe" iconsNmb={10} percentage={90} text="Estudantes estrangeiros"></StatsIcons>
-                        <StatsIcons icon="book" iconsNmb={10} percentage={90} text="Programas de formação conferente de grau envolvendo UO's"></StatsIcons>
+                        <StatsIcons icon="flask" iconsNmb={10} percentage={stats['research_perc']*100} text={language == 'en' ? "Teachers and Reseachers" : "Docentes e investigadores"}></StatsIcons>
+                        <StatsIcons icon="globe" iconsNmb={10} percentage={stats['foreign_student_perc']*100} text={language == 'en' ? "Foreign students in mobility program" : "Estudantes internacionais em mobilidade"}></StatsIcons>
+                        <StatsIcons icon="book" iconsNmb={10} percentage={stats['training_programs_perc']*100} text={language == 'en' ? "Foreign students enrolled to obtain a degree" : "Estudantes internacionais inscritos para obtenção de grau"}></StatsIcons>
                     </View>
                     <View style={styles.hexagonsView}>
                         <HexGrid width={hp('100%')} height={hp('70%')} viewBox="-32 -42 95 95">

@@ -42,8 +42,7 @@ const styles = {
     main: {
         padding:20,
         flex: 1,
-        flexDirection: 'column',
-        backgroundColor: '#1c1c1c'
+        flexDirection: 'column'
     },
 
     section: {
@@ -68,6 +67,7 @@ const styles = {
 
     text: {
         color: 'white',
+        textAlign: 'center',
         fontFamily: 'Quicksand_bold',
         fontSize: 25
     }

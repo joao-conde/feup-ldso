@@ -27,11 +27,9 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         icon: {
             borderColor: '#c6db00'
         },
-        mainMenuIcon: {
-            color: '#c6db00'
-        },
         mainMenuBtn: {
-            borderColor: '#c6db00'
+            borderColor: '#c6db00',
+            backgroundColor: '#c6db00',
         },
     },
     faup: {
@@ -41,11 +39,9 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         icon: {
             borderColor: '#b2b3b5'
         },
-        mainMenuIcon: {
-            color: '#b2b3b5'
-        },
         mainMenuBtn: {
-            borderColor: '#b2b3b5'
+            borderColor: '#b2b3b5',
+            backgroundColor: '#b2b3b5',
         },
     },
     fbaup: {
@@ -55,12 +51,11 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         icon: {
             borderColor: '#b2b3b5'
         },
-        mainMenuIcon: {
-            color: '#b2b3b5'
-        },
         mainMenuBtn: {
-            borderColor: '#b2b3b5'
+            borderColor: '#b2b3b5',
+            backgroundColor: '#b2b3b5',
         },
+
     },
     fcnaup: {
         header: {
@@ -68,6 +63,10 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         },
         icon: {
             borderColor: '#ffd600'
+        },
+        mainMenuBtn: {
+            borderColor: '#ffd600',
+            backgroundColor: '#ffd600',
         },
 
     },
@@ -78,11 +77,9 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         icon: {
             borderColor: '#92bfeb'
         },
-        mainMenuIcon: {
-            color: '#92bfeb'
-        },
         mainMenuBtn: {
-            borderColor: '#92bfeb'
+            borderColor: '#92bfeb',
+            backgroundColor: '#92bfeb',
         },
     },
     fdup: {
@@ -92,11 +89,9 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         icon: {
             borderColor: '#f42a41'
         },
-        mainMenuIcon: {
-            color: '#f42a41'
-        },
         mainMenuBtn: {
-            borderColor: '#f42a41'
+            borderColor: '#f42a41',
+            backgroundColor: '#f42a41',
         },
     },
     fep: {
@@ -106,11 +101,9 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         icon: {
             borderColor: '#f42a41'
         },
-        mainMenuIcon: {
-            color: '#f42a41'
-        },
         mainMenuBtn: {
-            borderColor: '#f42a41'
+            borderColor: '#f42a41',
+            backgroundColor: '#f42a41'
         },
     },
     feup: {
@@ -121,8 +114,8 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#8c2d19'
         },
         mainMenuBtn: {
-            backgroundColor: '#8c2d19',
-            borderColor: '#8c2d19'
+            borderColor: '#8c2d19',
+            backgroundColor: '#8c2d19'
         },
     },
     ffup: {
@@ -133,7 +126,8 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#6e20a0'
         },
         mainMenuBtn: {
-            borderColor: '#6e20a0'
+            borderColor: '#6e20a0',
+            backgroundColor: '#6e20a0',
         },
     },
     flup: {
@@ -143,11 +137,9 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         icon: {
             borderColor: '#0019a8'
         },
-        mainMenuIcon: {
-            color: '#0019a8'
-        },
         mainMenuBtn: {
-            borderColor: '#0019a8'
+            borderColor: '#0019a8',
+            backgroundColor: '#0019a8',
         },
     },
     fmdup: {
@@ -157,11 +149,9 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         icon: {
             borderColor: '#ff5c00'
         },
-        mainMenuIcon: {
-            color: '#ff5c00'
-        },
         mainMenuBtn: {
-            borderColor: '#ff5c00'
+            borderColor: '#ff5c00',
+            backgroundColor: '#ff5c00',
         },
     },
     fmup: {
@@ -169,7 +159,8 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             backgroundColor: '#f4ce15',
         },
         icon: {
-            borderColor: '#f4ce15'
+            borderColor: '#f4ce15',
+            backgroundColor: '#f4ce15',
         },
 
     },
@@ -180,11 +171,9 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         icon: {
             borderColor: '#ff5c00'
         },
-        mainMenuIcon: {
-            color: '#ff5c00'
-        },
         mainMenuBtn: {
-            borderColor: '#ff5c00'
+            borderColor: '#ff5c00',
+            backgroundColor: '#ff5c00',
         },
     },
     icbas: {
@@ -194,11 +183,9 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         icon: {
             borderColor: '#ffd600'
         },
-        mainMenuIcon: {
-            color: '#ffd600'
-        },
         mainMenuBtn: {
-            borderColor: '#ffd600'
+            borderColor: '#ffd600',
+            backgroundColor: '#ffd600'
         },
     }
 });
