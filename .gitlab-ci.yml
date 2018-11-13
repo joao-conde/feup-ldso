@@ -75,3 +75,11 @@ test_mobile:
   script:
     - yarn test-ci
 
+test_server:
+  stage: test
+  before_script:
+  - cd server
+  - npm install
+  script:
+    - npm run test
+

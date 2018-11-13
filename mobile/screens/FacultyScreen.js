@@ -73,6 +73,15 @@ class FacultyScreen extends React.Component {
                             </Button>
                             <Text style={styles.labelText}>{language == 'en' ? 'Social Impact' : 'Impacto Social'}</Text>
                         </Card>
+                        {/*Research Centres link*/}
+                        <Card style={styles.icon} transparent>
+                            <Button style={styles.linkBtn} rounded onPress={() => this.props.navigation.navigate('ResearchCentres', {
+                                name: name
+                            })}>
+                                <Icon type="FontAwesome" name="search" />
+                            </Button>
+                            <Text style={styles.labelText}>{language == 'en' ? 'Research Centre' : 'Centros de Investigação'}</Text>
+                        </Card>
                         {/*Future Prospects link*/}
                         <Card style={styles.icon} transparent>
                             <Button style={styles.linkBtn} rounded onPress={() => this.props.navigation.navigate('FutureProspects', {

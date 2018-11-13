@@ -25,7 +25,7 @@ export class FacultyController {
   @get('/faculties/{language}/{name}/future', {
     responses: {
       '200': {
-        description: 'Faculty future prospects',
+        description: 'Faculty introduction',
         content: {'application/json': {'x-ts-type': Faculty}},
       },
     },
@@ -34,17 +34,14 @@ export class FacultyController {
     @param.path.string('language') language: string,
     @param.path.string('name') name: string,
   ): Promise<Faculty> {
-    let id = 0;
-    await this.facultyRepository
-      .findOne({
-        where: {name: name, language: language},
-        fields: {id: true},
-      })
-      .then(function(result) {
-        if (result != null) id = result.id;
-      })
-      .catch(function(err) {});
-    return await this.facultyRepository.findById(id, {
+    let result = await this.facultyRepository.findOne({
+      where: {name: name, language: language},
+      fields: {id: true},
+    });
+
+    if (!result) return new Faculty();
+
+    return await this.facultyRepository.findById(result.id, {
       fields: {future_prospects: true},
     });
   }
@@ -52,7 +49,7 @@ export class FacultyController {
   @get('/faculties/{language}/{name}/videos', {
     responses: {
       '200': {
-        description: 'Faculty videos',
+        description: 'Faculty introduction',
         content: {'application/json': {'x-ts-type': Faculty}},
       },
     },
@@ -61,16 +58,15 @@ export class FacultyController {
     @param.path.string('language') language: string,
     @param.path.string('name') name: string,
   ): Promise<Faculty> {
-    let id = 0;
-    await this.facultyRepository
-      .findOne({
-        where: {name: name, language: language},
-        fields: {id: true},
-      })
-      .then(function(result) {
-        if (result != null) id = result.id;
-      })
-      .catch(function(err) {});
-    return await this.facultyRepository.findById(id, {fields: {videos: true}});
+    let result = await this.facultyRepository.findOne({
+      where: {name: name, language: language},
+      fields: {id: true},
+    });
+
+    if (!result) return new Faculty();
+
+    return await this.facultyRepository.findById(result.id, {
+      fields: {videos: true},
+    });
   }
 }

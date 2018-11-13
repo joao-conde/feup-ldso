@@ -4,22 +4,21 @@ import { material } from 'react-native-typography';
 import { View, Text, StyleSheet, Image, ActivityIndicator, TouchableOpacity, Dimensions } from 'react-native';
 import { Icon } from 'native-base';
 import { connect } from 'react-redux';
-import { getSocialProjectDetails } from '../reducers/modules/facultyReducer';
 import { facultyStyles } from '../constants/SpecificStyles';
 
-class SocialProject extends React.Component {
+class GenericProject extends React.Component {
 
     componentDidMount() {
         const { language, faculty, id } = this.props;
 
-        this.props.getSocialProjectDetails(language, faculty, id);
+        this.props.getOne(language, faculty, id);
     }
 
     componentDidUpdate(prevProps) {
         const { language, faculty, id } = this.props;
 
         if (prevProps.language != language || prevProps.id != id)
-            this.props.getSocialProjectDetails(language, faculty, id);
+            this.props.getOne(language, faculty, id);
     }
 
     render() {
@@ -75,13 +74,13 @@ class SocialProject extends React.Component {
     }
 }
 
-SocialProject.propTypes = {
+GenericProject.propTypes = {
     id: PropTypes.string,
     faculty: PropTypes.string,
     loading: PropTypes.bool,
     project: PropTypes.object,
     language: PropTypes.string,
-    getSocialProjectDetails: PropTypes.func,
+    getOne: PropTypes.func,
     navActionUp: PropTypes.func,
     navActionDown: PropTypes.func
 };
@@ -175,12 +174,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = ({ faculty, language }) => ({
     faculty: faculty.name,
     loading: faculty.loading,
-    project: faculty.currSocialProject,
     language: language.selection
 });
 
-const mapDispatchToProps = {
-    getSocialProjectDetails
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SocialProject);
+export default connect(mapStateToProps, null)(GenericProject);
