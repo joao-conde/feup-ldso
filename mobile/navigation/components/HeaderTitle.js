@@ -29,7 +29,7 @@ HeaderTitle.propTypes = {
 
 const styles = StyleSheet.create({
     image: {
-        width: 120,
+        width: 47,
         height: 30
     },
 });

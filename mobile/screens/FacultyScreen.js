@@ -70,7 +70,7 @@ class FacultyScreen extends Component {
                                 <IconButton name={name} icon="globe" label={language == 'en' ? 'Social Projects' : 'Projetos Sociais'} action={() => this.navigateFunction('SocialProjects', name)}></IconButton>
                             </View>
                             <View style={[styles.linksCol, styles.search]}>
-                                <IconButton name={name} icon="search" label={language == 'en' ? 'Research' : 'Investigação'} action={() => this.navigateFunction('FutureProspects', name)}></IconButton>
+                                <IconButton name={name} icon="search" label={language == 'en' ? 'Research' : 'Investigação'} action={() => this.navigateFunction('ResearchCentres', name)}></IconButton>
                             </View>
                             <View style={styles.linksCol}>
                                 <IconButton name={name} icon="paper-plane" label={language == 'en' ? 'Future' : 'Futuro'} action={() => this.navigateFunction('FutureProspects', name)}></IconButton>

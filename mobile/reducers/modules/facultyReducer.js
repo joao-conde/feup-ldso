@@ -14,6 +14,14 @@ const GET_SOCIAL_PROJECTS_FAIL = 'mobile/faculty/GET_SOCIAL_PROJECTS_FAIL';
 const GET_SOCIAL_PROJECT_BY_ID = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID';
 const GET_SOCIAL_PROJECT_BY_ID_SUCCESS = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID_SUCCESS';
 const GET_SOCIAL_PROJECT_BY_ID_FAIL = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID_FAIL';
+// Get Research Centres
+const GET_RESEARCH_CENTRES = 'mobile/faculty/GET_RESEARCH_CENTRES';
+const GET_RESEARCH_CENTRES_SUCCESS = 'mobile/faculty/GET_RESEARCH_CENTRES_SUCCESS';
+const GET_RESEARCH_CENTRES_FAIL = 'mobile/faculty/GET_RESEARCH_CENTRES_FAIL';
+// Get Research Centre by ID
+const GET_RESEARCH_CENTRE_BY_ID = 'mobile/faculty/GET_RESEARCH_CENTRE_BY_ID';
+const GET_RESEARCH_CENTRE_BY_ID_SUCCESS = 'mobile/faculty/GET_RESEARCH_CENTRE_BY_ID_SUCCESS';
+const GET_RESEARCH_CENTRE_BY_ID_FAIL = 'mobile/faculty/GET_RESEARCH_CENTRE_BY_ID_FAIL';
 // Get Faculty Future Prospects
 const GET_FUTURE_PROSPECTS = 'mobile/faculty/GET_FUTURE_PROSPECTS';
 const GET_FUTURE_PROSPECTS_SUCCESS = 'mobile/faculty/GET_FUTURE_PROSPECTS_SUCCESS';
@@ -32,9 +40,11 @@ const initialState = {
     name: '',
     stats: {},
     socialProjects: [],
-    currSocialProjectId: -1,
+    currSocialProject: null,
+    researchCentres: [],
+    currResearchCentre: null,
     futureProspects: {},
-    localization: {},
+    localization: null,
     videos: []
 };
 
@@ -50,6 +60,8 @@ export default function reducer(state = initialState, action) {
     case GET_STATS:
     case GET_SOCIAL_PROJECTS:
     case GET_SOCIAL_PROJECT_BY_ID:
+    case GET_RESEARCH_CENTRES:
+    case GET_RESEARCH_CENTRE_BY_ID:
     case GET_FUTURE_PROSPECTS:
     case GET_LOCALIZATION:
     case GET_VIDEOS:
@@ -72,6 +84,16 @@ export default function reducer(state = initialState, action) {
             loading: false,
             currSocialProject: action.payload.data[0]
         };
+    case GET_RESEARCH_CENTRES_SUCCESS:
+        return { ...state,
+            loading: false,
+            researchCentres: action.payload.data
+        };
+    case GET_RESEARCH_CENTRE_BY_ID_SUCCESS:
+        return { ...state,
+            loading: false,
+            currResearchCentre: action.payload.data[0]
+        };
     case GET_FUTURE_PROSPECTS_SUCCESS:
         return { ...state,
             loading: false,
@@ -91,6 +113,8 @@ export default function reducer(state = initialState, action) {
     case GET_STATS_FAIL:
     case GET_SOCIAL_PROJECTS_FAIL:
     case GET_SOCIAL_PROJECT_BY_ID_FAIL:
+    case GET_RESEARCH_CENTRES_FAIL:
+    case GET_RESEARCH_CENTRE_BY_ID_FAIL:
     case GET_FUTURE_PROSPECTS_FAIL:
     case GET_LOCALIZATION_FAIL:
     case GET_VIDEOS_FAIL:
@@ -122,7 +146,7 @@ export function getStats(language, faculty) {
         type: GET_STATS,
         payload: {
             request: {
-                url: `/faculties/${language}/${faculty}/statistics` 
+                url: `/faculties/${language}/${faculty}/statistics`
             }
         }
     };
@@ -139,12 +163,34 @@ export function getSocialProjects(language, faculty) {
     };
 }
 
-export function getSocialProjectDetails(language, faculty, id)  {
+export function getSocialProjectDetails(language, faculty, id) {
     return {
         type: GET_SOCIAL_PROJECT_BY_ID,
         payload: {
             request: {
                 url: `/faculties/${language}/${faculty}/social-projects?filter[where][id]=${id}`
+            }
+        }
+    };
+}
+
+export function getResearchCentres(language, faculty) {
+    return {
+        type: GET_RESEARCH_CENTRES,
+        payload: {
+            request: {
+                url: `/faculties/${language}/${faculty}/research-centers-short`
+            }
+        }
+    };
+}
+
+export function getResearchCentreDetails(language, faculty, id) {
+    return {
+        type: GET_RESEARCH_CENTRE_BY_ID,
+        payload: {
+            request: {
+                url: `/faculties/${language}/${faculty}/research-centers?id=${id}`
             }
         }
     };
