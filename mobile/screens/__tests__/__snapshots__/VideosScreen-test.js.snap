@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders loading screen 1`] = `
+<Styled(ViewNB)>
+  <Styled(Text)>
+    Loading...
+  </Styled(Text)>
+</Styled(ViewNB)>
+`;
+
+exports[`renders screen with future prospect content 1`] = `
+<Styled(ViewNB)>
+  <FlatList
+    data={
+      Array [
+        "https://youtube.com/1",
+        "https://youtube.com/2",
+        "https://youtube.com/3",
+      ]
+    }
+    disableVirtualization={false}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    noColumns={3}
+    numColumns={1}
+    onEndReachedThreshold={2}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  />
+</Styled(ViewNB)>
+`;

@@ -1,6 +1,6 @@
 import 'react-native';
 import React from 'react';
-import MenuScreen from '../../screens/MenuScreen';
+import MenuScreen from '../MenuScreen';
 import Enzyme, { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import Adapter from 'enzyme-adapter-react-16';

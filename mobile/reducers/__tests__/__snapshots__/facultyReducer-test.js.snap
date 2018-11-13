@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing faculty actions creates a CLEAR_FACULTY Action 1`] = `
+Object {
+  "type": "mobile/faculty/CLEAR_FACULTY",
+}
+`;
+
+exports[`Testing faculty actions creates a GET_FUTURE_PROSPECTS Action 1`] = `
+Object {
+  "payload": Object {
+    "request": Object {
+      "url": "/faculties/en/feup/future",
+    },
+  },
+  "type": "mobile/faculty/GET_FUTURE_PROSPECTS",
+}
+`;
+
+exports[`Testing faculty actions creates a GET_LOCALIZATION Action 1`] = `
+Object {
+  "payload": Object {
+    "request": Object {
+      "url": "/feup",
+    },
+  },
+  "type": "mobile/faculty/GET_LOCALIZATION",
+}
+`;
+
+exports[`Testing faculty actions creates a GET_SOCIAL_PROJECT_BY_ID Action 1`] = `
+Object {
+  "payload": Object {
+    "request": Object {
+      "url": "/faculties/en/feup/social-projects?filter[where][id]=id",
+    },
+  },
+  "type": "mobile/faculty/GET_SOCIAL_PROJECT_BY_ID",
+}
+`;
+
+exports[`Testing faculty actions creates a GET_SOCIAL_PROJECTS Action 1`] = `
+Object {
+  "payload": Object {
+    "request": Object {
+      "url": "/faculties/en/feup/social-projects-short",
+    },
+  },
+  "type": "mobile/faculty/GET_SOCIAL_PROJECTS",
+}
+`;
+
+exports[`Testing faculty actions creates a GET_STATS Action 1`] = `
+Object {
+  "payload": Object {
+    "request": Object {
+      "url": "/faculties/en/feup/statistics",
+    },
+  },
+  "type": "mobile/faculty/GET_STATS",
+}
+`;
+
+exports[`Testing faculty actions creates a GET_VIDEOS Action 1`] = `
+Object {
+  "payload": Object {
+    "request": Object {
+      "url": "/faculties/en/feup/videos",
+    },
+  },
+  "type": "mobile/faculty/GET_VIDEOS",
+}
+`;
+
+exports[`Testing faculty actions creates a SET_FACULTY Action 1`] = `
+Object {
+  "name": "feup",
+  "type": "mobile/faculty/SET_FACULTY",
+}
+`;
+
+exports[`Testing if faculty reducer changes faculty to feup 1`] = `
+Object {
+  "name": "feup",
+}
+`;
+
+exports[`Testing if faculty reducer clears store state 1`] = `
+Object {
+  "currResearchCentre": null,
+  "currSocialProject": null,
+  "futureProspects": Object {},
+  "loading": false,
+  "localization": null,
+  "name": "",
+  "researchCentres": Array [],
+  "socialProjects": Array [],
+  "stats": Object {},
+  "videos": Array [],
+}
+`;

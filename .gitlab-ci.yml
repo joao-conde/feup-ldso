@@ -73,7 +73,7 @@ test_mobile:
   - printenv >> .env
   - yarn
   script:
-    - yarn test-ci
+    - yarn test
 
 test_server:
   stage: test
