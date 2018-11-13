@@ -1,10 +1,11 @@
 import {repository} from '@loopback/repository';
-import {FacultyRepository} from '../repositories';
+import {StatisticsRepository, FacultyRepository} from '../repositories';
 import {get, param} from '@loopback/rest';
 import {Statistics} from '../models';
 
 export class FacultyStatisticsController {
   constructor(
+    @repository(StatisticsRepository) protected statsRepo: StatisticsRepository,
     @repository(FacultyRepository) protected facultyRepo: FacultyRepository,
   ) {}
 
@@ -25,16 +26,13 @@ export class FacultyStatisticsController {
     @param.path.string('language') language: string,
   ): Promise<Statistics[]> {
     let id = 0;
-    await this.facultyRepo
-      .findOne({
-        where: {name: name, language: language},
-        fields: {id: true},
-      })
-      .then(function(result) {
-        if (result != null) id = result.id;
-      })
-      .catch(function(err) {});
+    let faculty = await this.facultyRepo.findOne({
+      where: {name: name, language: language},
+      fields: {id: true},
+    });
 
-    return await this.facultyRepo.statistics(id).find();
+    if (faculty != null) id = faculty.id;
+
+    return await this.statsRepo.find({where: {facultyId: id}});
   }
 }

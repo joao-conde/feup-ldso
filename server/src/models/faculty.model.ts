@@ -1,6 +1,5 @@
 import {Entity, model, property, hasMany} from '@loopback/repository';
 import {SocialProject} from './social-project.model';
-import {Statistics} from './statistics.model';
 
 @model()
 export class Faculty extends Entity {
@@ -36,9 +35,6 @@ export class Faculty extends Entity {
 
   @hasMany(() => SocialProject)
   socialProjects: SocialProject[];
-
-  @hasMany(() => Statistics)
-  statistics: Statistics[];
 
   constructor(data?: Partial<Faculty>) {
     super(data);
