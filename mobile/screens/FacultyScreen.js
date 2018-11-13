@@ -95,9 +95,9 @@ class FacultyScreen extends Component {
                 </Content>
                 <Content contentContainerStyle={styles.content}>
                     <View style={styles.statsIcons}>
-                        <StatsIcons icon="flask" iconsNmb={10} percentage={stats['research_perc']*100} text={language == 'en' ? "Teachers and Reseachers" : "Docentes e investigadores"}></StatsIcons>
-                        <StatsIcons icon="globe" iconsNmb={10} percentage={stats['foreign_student_perc']*100} text={language == 'en' ? "Foreign students in mobility program" : "Estudantes internacionais em mobilidade"}></StatsIcons>
-                        <StatsIcons icon="book" iconsNmb={10} percentage={stats['training_programs_perc']*100} text={language == 'en' ? "Foreign students enrolled to obtain a degree" : "Estudantes internacionais inscritos para obtenção de grau"}></StatsIcons>
+                        <StatsIcons icon="flask" iconsNmb={10} percentage={stats['research_perc']*100} text={language == 'en' ? 'Teachers and Reseachers' : 'Docentes e investigadores'}></StatsIcons>
+                        <StatsIcons icon="globe" iconsNmb={10} percentage={stats['foreign_student_perc']*100} text={language == 'en' ? 'Foreign students in mobility program' : 'Estudantes internacionais em mobilidade'}></StatsIcons>
+                        <StatsIcons icon="book" iconsNmb={10} percentage={stats['training_programs_perc']*100} text={language == 'en' ? 'Foreign students enrolled to obtain a degree' : 'Estudantes internacionais inscritos para obtenção de grau'}></StatsIcons>
                     </View>
                     <View style={styles.hexagonsView}>
                         <HexGrid width={hp('100%')} height={hp('70%')} viewBox="-32 -42 95 95">
