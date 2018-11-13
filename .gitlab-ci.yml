@@ -119,10 +119,15 @@ build_mobile:
     - master
     - develop
 
-server_deploy_staging:
-  stage: deploy
-  image: node:latest
-    
-  # only:
-  #   - develop
+# server_deploy_staging:
+#   stage: deploy
+#   before_script:
+#     - ssh andre@51.144.252.180 -p $SSH_PRIVATE_KEY
+#   script:
+#     - cd LDSO
+#     - docker-compose up
+#     - ./seed
+#   only:
+#     - master
+#     - develop
  
