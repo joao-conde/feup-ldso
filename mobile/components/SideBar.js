@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { View } from 'native-base';
 import { FlatList, StyleSheet, Image, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import { setCurrentSocialProjectId } from '../reducers/modules/facultyReducer';
 import { facultyStyles } from '../constants/SpecificStyles';
 
 class SideBar extends React.Component {
@@ -70,8 +69,4 @@ const mapStateToProps = ({ faculty, language }) => ({
     language: language.selection
 });
 
-const mapDispatchToProps = {
-    setCurrentSocialProjectId
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SideBar);
+export default connect(mapStateToProps, null)(SideBar);
