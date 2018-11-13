@@ -78,6 +78,7 @@ test_mobile:
     - yarn test
 
 test_server:
+  image: node:alpine
   stage: test
   before_script:
   - cd server
