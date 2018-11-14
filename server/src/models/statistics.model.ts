@@ -70,9 +70,14 @@ export class Statistics extends Entity {
   other_facts?: string[];
 
   @property({
-    type: 'number',
+    type: 'string',
   })
-  facultyId: number;
+  faculty?: string;
+
+  @property({
+    type: 'string',
+  })
+  language?: string;
 
   constructor(data?: Partial<Statistics>) {
     super(data);
