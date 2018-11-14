@@ -86,6 +86,15 @@ test_server:
   script:
     - npm run test
 
+test_web:
+  image: node:alpine
+  stage: test
+  before_script:
+  - cd web-app
+  - yarn
+  script:
+    - yarn run test -u
+
 build_server:
   image: docker:stable
   stage: build
