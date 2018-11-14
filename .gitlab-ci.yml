@@ -52,21 +52,6 @@ lint_server:
   script:
     - npm run lint
 
-deploy_mobile:
-  image: node:alpine
-  stage: deploy
-  before_script:
-    - cd mobile
-    - printenv >> .env
-    - yarn
-  script:
-    - apk add --no-cache bash
-    - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
-    - npx expo publish --non-interactive
-  only:
-    - master
-    - develop
-
 test_mobile:
   image: node:alpine
   stage: test
@@ -137,7 +122,25 @@ build_mobile:
     - master
     - develop
 
-# server_deploy_staging:
+deploy_mobile:
+  image: node:alpine
+  stage: deploy
+  before_script:
+    - cd mobile
+    - printenv >> .env
+    - yarn
+  script:
+    - apk add --no-cache bash
+    - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
+    - npx expo publish --non-interactive
+  # only:
+  #   - master
+  #   - develop
+  environment:
+    name: mobile/$CI_COMMIT_REF_NAME
+    url: https://expo.io/@ldsot3g1/impact-up
+
+# deploy_server:
 #   stage: deploy
 #   before_script:
 #     - ssh andre@51.144.252.180 -p $SSH_PRIVATE_KEY
