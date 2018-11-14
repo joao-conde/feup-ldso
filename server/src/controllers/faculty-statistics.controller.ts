@@ -5,7 +5,7 @@ import {Statistics} from '../models';
 
 export class FacultyStatisticsController {
   constructor(
-    @repository(StatisticsRepository) protected statsRepo: StatisticsRepository
+    @repository(StatisticsRepository) protected statsRepo: StatisticsRepository,
   ) {}
 
   @get('/faculties/{language}/{name}/statistics', {
@@ -24,6 +24,8 @@ export class FacultyStatisticsController {
     @param.path.string('name') name: string,
     @param.path.string('language') language: string,
   ): Promise<Statistics[]> {
-    return await this.statsRepo.find({where: {language: language, faculty: name}});
+    return await this.statsRepo.find({
+      where: {language: language, faculty: name},
+    });
   }
 }
