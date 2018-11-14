@@ -23,11 +23,6 @@ export class Faculty extends Entity {
   language: string;
 
   @property({
-    type: 'string',
-  })
-  short_description?: string;
-
-  @property({
     type: 'array',
     itemType: 'string',
   })

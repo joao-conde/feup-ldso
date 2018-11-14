@@ -20,24 +20,12 @@ Although there are somewhat similar apps (_e.g._ [Study UK Exhibitions](https://
 
 ## _Mobile App_ Development Environment Setup
 
-On the root directory:
+On the `mobile` directory:
 
-- Run docker
-
-```
-docker-compose up --build mobile
-```
-
+- Install dependencies: `yarn`
+- Create a `.env`file with an `api` environment variable with your api's url
+- Run expo `expo start`
 - Wait for QR code to show up and scan with mobile phone using the [Expo](https://expo.io) app
-
-  If you can't access the url provided by Expo, try uncommenting the following line on the `Dockerfile` with your [host machine's local IP address](https://www.whatismybrowser.com/detect/what-is-my-local-ip-address).
-
-```
-ENV REACT_NATIVE_PACKAGER_HOSTNAME=<your-local-ip-address>
-
-# Example
-ENV REACT_NATIVE_PACKAGER_HOSTNAME=192.168.1.123
-```
 
 ### Running on a Emulator
 
@@ -48,10 +36,27 @@ If you prefer/need to run the app on an emulator, the easiest (and heaviest) way
 - Run the sample app on your emulator with ```npm run android```. This will install the Expo client on your fresh virtual device
 - You should now be able to run any Expo app accessible by your virtual device by copying the app's url to the Search tab
 
+### Running tests
+On the `mobile` directory:
+
+- Run test suites - `yarn test`
+- Update snapshots - `yarn test -u`
+- Watch mode (listen to file changes and rerun tests) - `yarn test --watch`
+
+### Deployment
+
+The result of the mobile app deployment can be observed at https://expo.io/@ldsot3g1/impact-up
+ 
 ## _Web App_ Development Environment Setup
 On the root directory, run docker:
 ```
 docker-compose up --build web-app
+```
+### _Web App_ Running the Tests
+Inside web-app folder, run this commands:
+```
+yarn install
+yarn jest
 ```
 
 ## _Backend/Server_ Development Environment Setup
@@ -60,17 +65,9 @@ On the root directory, run docker:
 docker-compose up --build server
 ```
 
-## Temporary simulation _Backend API_ (To be completely replaced by end of Sprint 3)
-Useful temporary server simulating a backend API, to allow API calls in the frontend.
+### Running tests
+On the `server` directory, run `npm run test`.
 
-To run the server do:
-* `cd fake-api`
-* Edit the _json-server.json_ file and make sure the parameter `host` is set to your IP. You can check your IP in the command line with `ifconfig`.
-* `npm install -g json-server`
-* `json-server --watch db.json.`
+### Deployment
 
-The json server will start at port _host_:3005.
-
-__Note:__ Do not forget to also change variable in the _.env_ file (`api`) to match the host and port defined in the _json-server.json_ file.
-
-Example of _.env_ file content: `api=http://<host>:3005`.
+The result of the server deployment can be observed at http://51.144.252.180/api

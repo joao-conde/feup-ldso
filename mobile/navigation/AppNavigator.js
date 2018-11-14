@@ -4,12 +4,13 @@ import { createStackNavigator } from 'react-navigation';
 import MenuScreen from '../screens/MenuScreen';
 import FacultyScreen from '../screens/FacultyScreen';
 import VideosScreen from '../screens/VideosScreen';
-import SocialProjectsScreen from '../screens/SocialProjectsScreen';
 import FutureProspectsScreen from '../screens/FutureProspectsScreen';
 import LocalizationScreen from '../screens/LocalizationScreen';
 import LanguageBtn from '../components/LanguageBtn';
 import { facultyStyles, invertedMode } from '../constants/SpecificStyles';
 import HeaderTitle from './components/HeaderTitle';
+import SocialProjectsScreen from '../screens/SocialProjectsScreen';
+import ResearchCentresScreen from '../screens/ResearchCentresScreen';
 
 export default createStackNavigator(
     {
@@ -25,6 +26,9 @@ export default createStackNavigator(
         SocialProjects: {
             screen: SocialProjectsScreen
         },
+        ResearchCentres: {
+            screen: ResearchCentresScreen
+        },
         FutureProspects: {
             screen: FutureProspectsScreen
         },
@@ -35,7 +39,7 @@ export default createStackNavigator(
     {
         initialRouteName: 'Menu',
         navigationOptions: ({ navigation }) => {
-            const faculty = navigation.getParam('faculty');
+            const faculty = navigation.getParam('name');
             const inverted = invertedMode[faculty] || false;
 
             return ({

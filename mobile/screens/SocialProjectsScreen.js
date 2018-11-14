@@ -1,62 +1,35 @@
 import React from 'react';
-import Drawer from 'react-native-drawer';
-import { StyleSheet } from 'react-native';
-import { ProjectView } from '../components/ProjectView';
-import SideBar from '../components/SideBar';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getSocialProjects, getSocialProjectDetails } from '../reducers/modules/facultyReducer';
+import GenericProjectsScreen from './GenericProjectsScreen';
 
-export default class SocialProjectsScreen extends React.Component {
+class SocialProjectsScreen extends React.Component {
 
-  closeSideBar = () => {
-      this._drawer.close();
-  };
-  openSideBar = () => {
-      this._drawer.open();
-  };
+    render() {
+        const { projects, currProj, getSocialProjects, getSocialProjectDetails } = this.props;
 
-  render() {
-      return (
-          <Drawer
-              ref={(ref) => this._drawer = ref}
-              type="static"
-              content={
-                  <SideBar styles={styles.sidebar} closeDrawer={this.closeSideBar} />
-              }
-              acceptDoubleTap
-              /* Styling has to be done this way because of Drawer and what a styleSheet represents */
-              styles={{main: drawer}}
-              onOpen={() => {
-                  this.setState({ drawerOpen: true });
-              }}
-              onClose={() => {
-                  this.setState({ drawerOpen: false });
-              }}
-              captureGestures={false}
-              tweenDuration={100}
-              panThreshold={0.08}
-              openDrawerOffset={(viewport) => {
-                  let threshold = 400, portraitLimitWidthPortion = 0.5, landscapeLimitWidthPortion = 0.2;
-                  return viewport.width > threshold ? viewport.width * landscapeLimitWidthPortion : viewport.width * portraitLimitWidthPortion;
-              }}
-              closedDrawerOffset={() => 75}
-              panOpenMask={0.2}
-              negotiatePan
-          >
-              <ProjectView />
-          </Drawer>
-      );
-  }
-
+        return (
+            <GenericProjectsScreen projects={projects} single={currProj} getAll={getSocialProjects} getOne={getSocialProjectDetails} />
+        );
+    }
 }
 
-const drawer = {
-    backgroundColor: '#fff',
-    shadowColor: '#000000',
-    shadowOpacity: 0.3,
-    shadowRadius: 15
+SocialProjectsScreen.propTypes = {
+    projects: PropTypes.array,
+    currProj: PropTypes.object,
+    getSocialProjects: PropTypes.func,
+    getSocialProjectDetails: PropTypes.func
 };
 
-const styles = StyleSheet.create({
-    sidebar: {
-        backgroundColor: '#000000'
-    }
+const mapStateToProps = ({ faculty }) => ({
+    projects: faculty.socialProjects,
+    currProj: faculty.currSocialProject,
 });
+
+const mapDispatchToProps = {
+    getSocialProjects,
+    getSocialProjectDetails
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SocialProjectsScreen);

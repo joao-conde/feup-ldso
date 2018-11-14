@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders elements 1`] = `
+<div>
+  Loading...
+</div>
+`;
+
+exports[`renders elements 2`] = `<div />`;
+
+exports[`renders elements 3`] = `
+<button
+  aria-label={null}
+  className="btn btn-secondary"
+  onClick={[Function]}
+  type="button"
+>
+  Delete
+</button>
+`;

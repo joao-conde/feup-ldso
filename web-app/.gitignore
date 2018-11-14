@@ -4,7 +4,8 @@
 /node_modules
 
 # testing
-/coverage
+/coverage/*
+/coverage/lcov-report/prettify.js
 
 # production
 /build

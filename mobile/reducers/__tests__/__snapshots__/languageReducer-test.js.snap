@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing if language reducer changes language to en 1`] = `
+Object {
+  "selection": "en",
+}
+`;
+
+exports[`Testing if language reducer changes language to pt 1`] = `
+Object {
+  "selection": "pt",
+}
+`;
+
+exports[`Testing language actions creates a TOGGLE_LANGUAGE Action 1`] = `
+Object {
+  "type": "mobile/language/TOGGLE_LANGUAGE",
+}
+`;

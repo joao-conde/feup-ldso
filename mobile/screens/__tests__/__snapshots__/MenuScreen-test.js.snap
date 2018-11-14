@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders as expected 1`] = `
+<Component
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 55,
+        "margin": 20,
+      }
+    }
+  >
+    ImpactUP
+  </Text>
+  <FlatList
+    data={
+      Array [
+        Object {
+          "key": "FADEUP",
+        },
+        Object {
+          "key": "FAUP",
+        },
+        Object {
+          "key": "FBAUP",
+        },
+        Object {
+          "key": "FCNAUP",
+        },
+        Object {
+          "key": "FCUP",
+        },
+        Object {
+          "key": "FDUP",
+        },
+        Object {
+          "key": "FEP",
+        },
+        Object {
+          "key": "FEUP",
+        },
+        Object {
+          "key": "FFUP",
+        },
+        Object {
+          "key": "FLUP",
+        },
+        Object {
+          "key": "FMDUP",
+        },
+        Object {
+          "key": "FMUP",
+        },
+        Object {
+          "key": "FPCEUP",
+        },
+        Object {
+          "key": "ICBAS",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    noColumns={3}
+    numColumns={1}
+    onEndReachedThreshold={2}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  />
+</Component>
+`;

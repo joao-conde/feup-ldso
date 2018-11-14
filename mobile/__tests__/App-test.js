@@ -21,6 +21,3 @@ describe('App snapshot', () => {
     });
 });
 
-describe('Sample test', () => {
-    return true;
-});

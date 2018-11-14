@@ -3,13 +3,25 @@
 const SET_FACULTY = 'mobile/faculty/SET_FACULTY';
 const CLEAR_FACULTY = 'mobile/faculty/CLEAR_FACULTY';
 // Get Faculty Introduction
-const GET_INTRO = 'mobile/faculty/GET_INTRO';
-const GET_INTRO_SUCCESS = 'mobile/faculty/GET_INTRO_SUCCESS';
-const GET_INTRO_FAIL = 'mobile/faculty/GET_INTRO_FAIL';
+const GET_STATS = 'mobile/faculty/GET_STATS';
+const GET_STATS_SUCCESS = 'mobile/faculty/GET_STATS_SUCCESS';
+const GET_STATS_FAIL = 'mobile/faculty/GET_STATS_FAIL';
 // Get Faculty Social Projects
 const GET_SOCIAL_PROJECTS = 'mobile/faculty/GET_SOCIAL_PROJECTS';
 const GET_SOCIAL_PROJECTS_SUCCESS = 'mobile/faculty/GET_SOCIAL_PROJECTS_SUCCESS';
 const GET_SOCIAL_PROJECTS_FAIL = 'mobile/faculty/GET_SOCIAL_PROJECTS_FAIL';
+// Get Faculty Social Project by ID
+const GET_SOCIAL_PROJECT_BY_ID = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID';
+const GET_SOCIAL_PROJECT_BY_ID_SUCCESS = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID_SUCCESS';
+const GET_SOCIAL_PROJECT_BY_ID_FAIL = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID_FAIL';
+// Get Research Centres
+const GET_RESEARCH_CENTRES = 'mobile/faculty/GET_RESEARCH_CENTRES';
+const GET_RESEARCH_CENTRES_SUCCESS = 'mobile/faculty/GET_RESEARCH_CENTRES_SUCCESS';
+const GET_RESEARCH_CENTRES_FAIL = 'mobile/faculty/GET_RESEARCH_CENTRES_FAIL';
+// Get Research Centre by ID
+const GET_RESEARCH_CENTRE_BY_ID = 'mobile/faculty/GET_RESEARCH_CENTRE_BY_ID';
+const GET_RESEARCH_CENTRE_BY_ID_SUCCESS = 'mobile/faculty/GET_RESEARCH_CENTRE_BY_ID_SUCCESS';
+const GET_RESEARCH_CENTRE_BY_ID_FAIL = 'mobile/faculty/GET_RESEARCH_CENTRE_BY_ID_FAIL';
 // Get Faculty Future Prospects
 const GET_FUTURE_PROSPECTS = 'mobile/faculty/GET_FUTURE_PROSPECTS';
 const GET_FUTURE_PROSPECTS_SUCCESS = 'mobile/faculty/GET_FUTURE_PROSPECTS_SUCCESS';
@@ -26,10 +38,13 @@ const GET_VIDEOS_FAIL = 'mobile/faculty/GET_VIDEOS_FAIL';
 const initialState = {
     loading: false,
     name: '',
-    intro: '',
+    stats: {},
     socialProjects: [],
-    futureProspects: '',
-    localization: {},
+    currSocialProject: null,
+    researchCentres: [],
+    currResearchCentre: null,
+    futureProspects: {},
+    localization: null,
     videos: []
 };
 
@@ -42,8 +57,11 @@ export default function reducer(state = initialState, action) {
     case CLEAR_FACULTY:
         return initialState;
 
-    case GET_INTRO:
+    case GET_STATS:
     case GET_SOCIAL_PROJECTS:
+    case GET_SOCIAL_PROJECT_BY_ID:
+    case GET_RESEARCH_CENTRES:
+    case GET_RESEARCH_CENTRE_BY_ID:
     case GET_FUTURE_PROSPECTS:
     case GET_LOCALIZATION:
     case GET_VIDEOS:
@@ -51,20 +69,35 @@ export default function reducer(state = initialState, action) {
             loading: true
         };
 
-    case GET_INTRO_SUCCESS:
+    case GET_STATS_SUCCESS:
         return { ...state,
             loading: false,
-            intro: action.payload.data[state.name].shortDescription
+            stats: action.payload.data[0]
         };
     case GET_SOCIAL_PROJECTS_SUCCESS:
         return { ...state,
             loading: false,
-            socialProjects: action.payload.data[state.name]
+            socialProjects: action.payload.data
+        };
+    case GET_SOCIAL_PROJECT_BY_ID_SUCCESS:
+        return { ...state,
+            loading: false,
+            currSocialProject: action.payload.data[0]
+        };
+    case GET_RESEARCH_CENTRES_SUCCESS:
+        return { ...state,
+            loading: false,
+            researchCentres: action.payload.data
+        };
+    case GET_RESEARCH_CENTRE_BY_ID_SUCCESS:
+        return { ...state,
+            loading: false,
+            currResearchCentre: action.payload.data[0]
         };
     case GET_FUTURE_PROSPECTS_SUCCESS:
         return { ...state,
             loading: false,
-            futureProspects: action.payload.data[state.name]['future-prospects']['content']
+            futureProspects: action.payload.data.future_prospects
         };
     case GET_LOCALIZATION_SUCCESS:
         return { ...state,
@@ -74,11 +107,14 @@ export default function reducer(state = initialState, action) {
     case GET_VIDEOS_SUCCESS:
         return { ...state,
             loading: false,
-            videos: action.payload.data
+            videos: action.payload.data.videos
         };
 
-    case GET_INTRO_FAIL:
+    case GET_STATS_FAIL:
     case GET_SOCIAL_PROJECTS_FAIL:
+    case GET_SOCIAL_PROJECT_BY_ID_FAIL:
+    case GET_RESEARCH_CENTRES_FAIL:
+    case GET_RESEARCH_CENTRE_BY_ID_FAIL:
     case GET_FUTURE_PROSPECTS_FAIL:
     case GET_LOCALIZATION_FAIL:
     case GET_VIDEOS_FAIL:
@@ -105,34 +141,67 @@ export function clearFaculty() {
     };
 }
 
-export function getIntroduction(language) {
+export function getStats(language, faculty) {
     return {
-        type: GET_INTRO,
+        type: GET_STATS,
         payload: {
             request: {
-                url: `/${language}` 
+                url: `/faculties/${language}/${faculty}/statistics`
             }
         }
     };
 }
 
-export function getSocialProjects(language) {
+export function getSocialProjects(language, faculty) {
     return {
         type: GET_SOCIAL_PROJECTS,
         payload: {
             request: {
-                url: `/${language}`
+                url: `/faculties/${language}/${faculty}/social-projects-short`
             }
         }
     };
 }
 
-export function getFutureProspects(language) {
+export function getSocialProjectDetails(language, faculty, id) {
+    return {
+        type: GET_SOCIAL_PROJECT_BY_ID,
+        payload: {
+            request: {
+                url: `/faculties/${language}/${faculty}/social-projects?filter[where][id]=${id}`
+            }
+        }
+    };
+}
+
+export function getResearchCentres(language, faculty) {
+    return {
+        type: GET_RESEARCH_CENTRES,
+        payload: {
+            request: {
+                url: `/faculties/${language}/${faculty}/research-centers-short`
+            }
+        }
+    };
+}
+
+export function getResearchCentreDetails(language, faculty, id) {
+    return {
+        type: GET_RESEARCH_CENTRE_BY_ID,
+        payload: {
+            request: {
+                url: `/faculties/${language}/${faculty}/research-centers?id=${id}`
+            }
+        }
+    };
+}
+
+export function getFutureProspects(language, faculty) {
     return {
         type: GET_FUTURE_PROSPECTS,
         payload: {
             request: {
-                url: `/${language}`
+                url: `/faculties/${language}/${faculty}/future`
             }
         }
     };
@@ -154,7 +223,7 @@ export function getVideos(faculty) {
         type: GET_VIDEOS,
         payload: {
             request: {
-                url: `/${faculty}`
+                url: `/faculties/en/${faculty}/videos`
             }
         }
     };

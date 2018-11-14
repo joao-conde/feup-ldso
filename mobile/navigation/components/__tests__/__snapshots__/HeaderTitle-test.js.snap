@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders logo 1`] = `
+<Image
+  source={1}
+  style={
+    Object {
+      "height": 30,
+      "width": 47,
+    }
+  }
+/>
+`;

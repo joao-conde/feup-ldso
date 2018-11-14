@@ -1,18 +1,15 @@
-# Official framework image. Look for the different tagged releases at:
-# https://hub.docker.com/r/library/node/tags/
-image: node:alpine
+image: docker:latest
 
 variables:
   api: "http://localhost:3005"
+  # docker in docker specific
+  DOCKER_DRIVER: overlay2
+  # project vars
+  REGISTRY_URL: "registry.gitlab.com/ldso18-19/t3g1"
 
-# Pick zero or more services to be used on all builds.
-# Only needed when using a docker container to run your tests in.
-# Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-a-service
 services:
+  - docker:dind
 
-
-# This folder is cached between builds
-# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
@@ -23,12 +20,13 @@ cache:
 
 stages:
   - lint
-  - build
   - test
+  - build
   - deploy
   - cleanup
 
 lint_mobile:
+  image: node:alpine
   stage: lint
   before_script:
     - cd mobile
@@ -36,7 +34,96 @@ lint_mobile:
   script:
     - yarn run lint
 
+lint_web:
+  image: node:alpine
+  stage: lint
+  before_script:
+    - cd web-app
+    - yarn
+  script:
+    - yarn run lint
+
+lint_server:
+  image: node:alpine
+  stage: lint
+  before_script:
+    - cd server
+    - npm install
+  script:
+    - npm run lint
+
+test_mobile:
+  image: node:alpine
+  stage: test
+  before_script: # Add the other dependency instalations later
+  - cd mobile
+  - printenv >> .env
+  - yarn
+  script:
+    - yarn test
+
+test_server:
+  image: node:alpine
+  stage: test
+  before_script:
+  - cd server
+  - npm install
+  script:
+    - npm run test
+
+test_web:
+  image: node:alpine
+  stage: test
+  before_script:
+  - cd web-app
+  - yarn
+  script:
+    - yarn jest -u
+
+build_server:
+  image: docker:stable
+  stage: build
+  allow_failure: true
+  before_script:
+    - cd server
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker build -t $REGISTRY_URL/server:$CI_COMMIT_REF_NAME .
+    - docker push $REGISTRY_URL/server:$CI_COMMIT_REF_NAME
+  only:
+    - master
+    - develop
+
+build_web:
+  image: docker:stable
+  stage: build
+  allow_failure: true
+  before_script:
+    - cd web-app
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker build -t $REGISTRY_URL/web-app:$CI_COMMIT_REF_NAME .
+    - docker push $REGISTRY_URL/web-app:$CI_COMMIT_REF_NAME
+  only:
+    - master
+    - develop
+
+build_mobile:
+  image: docker:stable
+  stage: build
+  allow_failure: true
+  before_script:
+    - cd mobile
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker build -t $REGISTRY_URL/mobile:$CI_COMMIT_REF_NAME .
+    - docker push $REGISTRY_URL/mobile:$CI_COMMIT_REF_NAME
+  only:
+    - master
+    - develop
+
 deploy_mobile:
+  image: node:alpine
   stage: deploy
   before_script:
     - cd mobile
@@ -47,14 +134,21 @@ deploy_mobile:
     - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
     - npx expo publish --non-interactive
   only:
-    - master develop
+    - master
+    - develop
+  environment:
+    name: mobile/$CI_COMMIT_REF_NAME
+    url: https://expo.io/@ldsot3g1/impact-up
 
-test_mobile:
-  stage: test
-  before_script: # Add the other dependency instalations later
-  - cd mobile
-  - printenv >> .env
-  - yarn
-  script:
-    - yarn test-ci
-
+# deploy_server:
+#   stage: deploy
+#   before_script:
+#     - ssh andre@51.144.252.180 -p $SSH_PRIVATE_KEY
+#   script:
+#     - cd LDSO
+#     - docker-compose up
+#     - ./seed
+#   only:
+#     - master
+#     - develop
+ 

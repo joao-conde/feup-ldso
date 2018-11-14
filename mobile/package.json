@@ -7,8 +7,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "test": "node ./node_modules/jest/bin/jest.js --watchAll",
-    "test-ci": "node ./node_modules/jest/bin/jest.js --updateSnapshot",
+    "test": "node ./node_modules/jest/bin/jest.js",
     "lint": "yarn run lint:js",
     "lint-fix": "yarn run lint-fix:js",
     "lint:js": "eslint .",
@@ -17,8 +16,16 @@
   },
   "jest": {
     "preset": "jest-expo",
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
     "transformIgnorePatterns": [
-      "node_modules/(?!native-base-shoutem-theme|expo-react-native-adapter|react-native|expo|@expo|react-navigation-stack|react-navigation|native-base)"
+      "node_modules/(?!native-base-shoutem-theme|expo-react-native-adapter|react-native|expo|@expo|react-navigation-stack|react-navigation|native-base|babel-runtime|enzyme)"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/native-base-theme/**",
+      "!**/coverage/**"
     ]
   },
   "dependencies": {
@@ -33,8 +40,11 @@
     "prop-types": "^15.6.2",
     "react": "16.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
+    "react-native-dash": "^0.0.9",
     "react-native-drawer": "^2.5.1",
+    "react-native-responsive-screen": "^1.1.10",
     "react-native-sidebar": "^0.3.0",
+    "react-native-typography": "^1.4.0",
     "react-navigation": "^2.16.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.1",
@@ -43,8 +53,10 @@
   },
   "devDependencies": {
     "@babel/runtime": "7.0.0-beta.55",
+    "classnames": "^2.2.6",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
+    "enzyme-to-json": "^3.3.4",
     "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-standard": "^12.0.0",

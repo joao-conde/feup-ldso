@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with black text 1`] = `
+<Styled(Button)
+  dark={true}
+  light={false}
+  onPress={[Function]}
+  transparent={true}
+>
+  <Styled(Text)
+    style={
+      Object {
+        "fontWeight": "bold",
+      }
+    }
+  >
+    en
+  </Styled(Text)>
+</Styled(Button)>
+`;
+
+exports[`renders with white text 1`] = `
+<Styled(Button)
+  dark={false}
+  light={true}
+  onPress={[Function]}
+  transparent={true}
+>
+  <Styled(Text)
+    style={
+      Object {
+        "fontWeight": "bold",
+      }
+    }
+  >
+    en
+  </Styled(Text)>
+</Styled(Button)>
+`;

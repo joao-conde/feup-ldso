@@ -1,6 +1,5 @@
 import {
   DefaultCrudRepository,
-  juggler,
   HasManyRepositoryFactory,
   repository,
 } from '@loopback/repository';

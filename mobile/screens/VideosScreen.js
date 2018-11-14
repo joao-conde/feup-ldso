@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FlatList } from 'react-native';
 import { View, Text } from 'native-base';
 import { connect } from 'react-redux';
 import { getVideos } from '../reducers/modules/facultyReducer';
@@ -11,22 +12,27 @@ class VideosScreen extends React.Component {
     }
 
     render() {
-        const { name, loading } = this.props;
+        const { videos, loading } = this.props;
 
         if (loading) {
             return (
                 <View>
                     <Text>
-            Loading...
+                        Loading...
                     </Text>
                 </View>
             );
         }
         return (
             <View>
-                <Text>
-          Placeholder for Videos Screen of {name}
-                </Text>
+                <FlatList
+                    noColumns={3}
+                    data={videos}
+                    renderItem={({ item }) => (
+                        <Text>{item}</Text>
+                    )}
+                    keyExtractor={item => item}
+                />
             </View>
         );
     }
@@ -35,7 +41,8 @@ class VideosScreen extends React.Component {
 VideosScreen.propTypes = {
     name: PropTypes.string,
     loading: PropTypes.bool,
-    getVideos: PropTypes.func
+    getVideos: PropTypes.func,
+    videos: PropTypes.array
 };
 
 const mapStateToProps = ({ faculty }) => ({
