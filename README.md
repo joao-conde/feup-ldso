@@ -42,13 +42,17 @@ On the `mobile` directory:
 - Run test suites - `yarn test`
 - Update snapshots - `yarn test -u`
 - Watch mode (listen to file changes and rerun tests) - `yarn test --watch`
+
+### Deployment
+
+The result of the mobile app deployment can be observed at https://expo.io/@ldsot3g1/impact-up
  
 ## _Web App_ Development Environment Setup
 On the root directory, run docker:
 ```
 docker-compose up --build web-app
 ```
-## _Web App_ Running the Tests
+### _Web App_ Running the Tests
 Inside web-app folder, run this commands:
 ```
 yarn install
@@ -60,3 +64,10 @@ On the root directory, run docker:
 ```
 docker-compose up --build server
 ```
+
+### Running tests
+On the `server` directory, run `npm run test`.
+
+### Deployment
+
+The result of the server deployment can be observed at http://51.144.252.180/api
