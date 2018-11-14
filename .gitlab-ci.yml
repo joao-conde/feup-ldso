@@ -133,9 +133,9 @@ deploy_mobile:
     - apk add --no-cache bash
     - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
     - npx expo publish --non-interactive
-  # only:
-  #   - master
-  #   - develop
+  only:
+    - master
+    - develop
   environment:
     name: mobile/$CI_COMMIT_REF_NAME
     url: https://expo.io/@ldsot3g1/impact-up
