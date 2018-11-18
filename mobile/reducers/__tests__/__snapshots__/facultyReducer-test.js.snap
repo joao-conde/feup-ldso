@@ -32,7 +32,7 @@ exports[`Testing faculty actions creates a GET_SOCIAL_PROJECT_BY_ID Action 1`] =
 Object {
   "payload": Object {
     "request": Object {
-      "url": "/faculties/en/feup/social-projects?filter[where][id]=id",
+      "url": "/faculties/en/feup/social-projects?filter?id=id",
     },
   },
   "type": "mobile/faculty/GET_SOCIAL_PROJECT_BY_ID",

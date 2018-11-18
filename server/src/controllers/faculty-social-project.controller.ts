@@ -1,26 +1,12 @@
-import {
-  Count,
-  CountSchema,
-  repository,
-  Filter,
-  Where,
-} from '@loopback/repository';
-import {FacultyRepository} from '../repositories';
-import {
-  del,
-  get,
-  patch,
-  post,
-  param,
-  requestBody,
-  getWhereSchemaFor,
-  getFilterSchemaFor,
-} from '@loopback/rest';
+import {repository} from '@loopback/repository';
+import {SocialProjectRepository} from '../repositories';
+import {del, get, patch, post, param, requestBody} from '@loopback/rest';
 import {SocialProject} from '../models';
 
 export class FacultySocialProjectController {
   constructor(
-    @repository(FacultyRepository) protected facultyRepo: FacultyRepository,
+    @repository(SocialProjectRepository)
+    protected socialRepo: SocialProjectRepository,
   ) {}
 
   @get('/faculties/{language}/{name}/social-projects', {
@@ -38,27 +24,17 @@ export class FacultySocialProjectController {
   async findFacultyProjects(
     @param.path.string('name') name: string,
     @param.path.string('language') language: string,
-    @param.query.object('filter', getFilterSchemaFor(SocialProject))
-    filter?: Filter,
+    @param.query.string('id') id?: string,
   ): Promise<SocialProject[]> {
-    let id = 0;
-    await this.facultyRepo
-      .findOne({
-        where: {name: name, language: language},
-        fields: {id: true},
-      })
-      .then(function(result) {
-        if (result != null) id = result.id;
-      })
-      .catch(function(err) {});
-    return await this.facultyRepo.socialProjects(id).find(filter);
+    return await this.socialRepo.find({
+      where: {language: language, faculty: name, id: id},
+    });
   }
 
   @patch('/faculties/{language}/{name}/social-projects', {
     responses: {
       '200': {
-        description: 'Faculty.SocialProject PATCH success count',
-        content: {'application/json': {schema: CountSchema}},
+        description: 'Faculty.SocialProject PATCH success',
       },
     },
   })
@@ -66,23 +42,9 @@ export class FacultySocialProjectController {
     @param.path.string('language') language: string,
     @param.path.string('name') name: string,
     @requestBody() socialProject: Partial<SocialProject>,
-    @param.query.object('where', getWhereSchemaFor(SocialProject))
-    where?: Where,
-  ): Promise<Count> {
-    let id = 0;
-    await this.facultyRepo
-      .findOne({
-        where: {name: name, language: language},
-        fields: {id: true},
-      })
-      .then(function(result) {
-        if (result != null) id = result.id;
-      })
-      .catch(function(err) {});
-
-    return await this.facultyRepo
-      .socialProjects(id)
-      .patch(socialProject, where);
+    @param.query.string('id') id?: string,
+  ): Promise<void> {
+    await this.socialRepo.updateById(id, socialProject);
   }
 
   @get('/faculties/{language}/{name}/social-projects-short', {
@@ -101,17 +63,8 @@ export class FacultySocialProjectController {
     @param.path.string('name') name: string,
     @param.path.string('language') language: string,
   ): Promise<SocialProject[]> {
-    let id = 0;
-    await this.facultyRepo
-      .findOne({
-        where: {name: name, language: language},
-        fields: {id: true},
-      })
-      .then(function(result) {
-        if (result != null) id = result.id;
-      })
-      .catch(function(err) {});
-    return await this.facultyRepo.socialProjects(id).find({
+    return await this.socialRepo.find({
+      where: {language: language, faculty: name},
       fields: {id: true, title: true, short_description: true, images: true},
     });
   }
@@ -129,24 +82,11 @@ export class FacultySocialProjectController {
     @param.path.string('name') name: string,
     @requestBody() socialProject: SocialProject,
   ): Promise<SocialProject> {
-    let id = 0;
-    await this.facultyRepo
-      .findOne({
-        where: {name: name, language: language},
-        fields: {id: true},
-      })
-      .then(function(result) {
-        if (result != null) id = result.id;
-      })
-      .catch(function(err) {});
+    let newProject = new SocialProject(socialProject);
+    newProject.faculty = name;
+    newProject.language = language;
 
-    //socialProject.facultyId = id;
-    let newProject = new SocialProject();
-    newProject.content = socialProject.content;
-    newProject.title = socialProject.title;
-    newProject.facultyId = id;
-
-    return await this.facultyRepo.socialProjects(id).create(socialProject);
+    return await this.socialRepo.create(newProject);
   }
 
   @del('/faculties/{language}/{name}/social-projects', {
@@ -159,20 +99,8 @@ export class FacultySocialProjectController {
   async deleteSocialProject(
     @param.path.string('language') language: string,
     @param.path.string('name') name: string,
-    @param.query.object('where', getWhereSchemaFor(SocialProject))
-    where?: Where,
+    @param.query.string('id') id?: string,
   ): Promise<void> {
-    let id = 0;
-    await this.facultyRepo
-      .findOne({
-        where: {name: name, language: language},
-        fields: {id: true},
-      })
-      .then(function(result) {
-        if (result != null) id = result.id;
-      })
-      .catch(function(err) {});
-
-    await this.facultyRepo.socialProjects(id).delete(where);
+    await this.socialRepo.deleteById(id);
   }
 }

@@ -13,7 +13,7 @@ class Delete extends Component{
     handleSubmit(event){
         event.preventDefault();
 
-        const route = process.env.REACT_APP_ENDPOINT + 'faculties/en/' + this.props.match.params.faculty.toLowerCase() + '/social-projects?where[id]=' + this.props.match.params.project;
+        const route = process.env.REACT_APP_ENDPOINT + 'faculties/en/' + this.props.match.params.faculty.toLowerCase() + '/social-projects?id=' + this.props.match.params.project;
         fetch(route, {
             method: 'DELETE',
             headers: {

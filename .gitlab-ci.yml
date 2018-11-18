@@ -78,7 +78,7 @@ test_web:
   - cd web-app
   - yarn
   script:
-    - yarn jest -u
+    - yarn jest
 
 build_server:
   image: docker:stable

@@ -168,7 +168,7 @@ export function getSocialProjectDetails(language, faculty, id) {
         type: GET_SOCIAL_PROJECT_BY_ID,
         payload: {
             request: {
-                url: `/faculties/${language}/${faculty}/social-projects?filter[where][id]=${id}`
+                url: `/faculties/${language}/${faculty}/social-projects?filter?id=${id}`
             }
         }
     };
