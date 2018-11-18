@@ -1,5 +1,4 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
-import {SocialProject} from './social-project.model';
+import {Entity, model, property} from '@loopback/repository';
 
 @model()
 export class Faculty extends Entity {
@@ -32,9 +31,6 @@ export class Faculty extends Entity {
     type: 'object',
   })
   future_prospects?: object;
-
-  @hasMany(() => SocialProject)
-  socialProjects: SocialProject[];
 
   constructor(data?: Partial<Faculty>) {
     super(data);

@@ -69,14 +69,14 @@ class Sidebar extends Component {
         } else {
             return (
                 <div>
-                    <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase()}>
+                    <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase() + '/socialProjects'}>
                         <Button color="secondary">Add Project</Button>
                     </NavLink>
                     <ListGroup>
                         {
                             projects.map(proj => (
                                 <ListGroupItem key={proj.id} className="faculty_proj">
-                                    <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase() + `/${proj.id}`}>{proj.title}</NavLink>
+                                    <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase() + `/socialProjects/${proj.id}`}>{proj.title}</NavLink>
                                 </ListGroupItem>
                             ))}
                     </ListGroup>

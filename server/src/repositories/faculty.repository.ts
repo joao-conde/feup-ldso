@@ -1,31 +1,13 @@
-import {
-  DefaultCrudRepository,
-  HasManyRepositoryFactory,
-  repository,
-} from '@loopback/repository';
-import {Faculty, SocialProject} from '../models';
+import {DefaultCrudRepository} from '@loopback/repository';
+import {Faculty} from '../models';
 import {MongoDataSource} from '../datasources';
-import {inject, Getter} from '@loopback/core';
-import {SocialProjectRepository} from './social-project.repository';
+import {inject} from '@loopback/core';
 
 export class FacultyRepository extends DefaultCrudRepository<
   Faculty,
   typeof Faculty.prototype.id
 > {
-  public readonly socialProjects: HasManyRepositoryFactory<
-    SocialProject,
-    typeof Faculty.prototype.id
-  >;
-
-  constructor(
-    @inject('datasources.mongo') dataSource: MongoDataSource,
-    @repository.getter(SocialProjectRepository)
-    protected socialProjectRepositoryGetter: Getter<SocialProjectRepository>,
-  ) {
+  constructor(@inject('datasources.mongo') dataSource: MongoDataSource) {
     super(Faculty, dataSource);
-    this.socialProjects = this._createHasManyRepositoryFactoryFor(
-      'socialProjects',
-      socialProjectRepositoryGetter,
-    );
   }
 }

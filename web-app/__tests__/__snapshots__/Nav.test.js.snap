@@ -18,3 +18,121 @@ exports[`renders elements 3`] = `
   Delete
 </button>
 `;
+
+exports[`renders elements 4`] = `
+<div
+  className="menu"
+>
+  <div
+    className="card"
+  >
+    <img
+      alt="Card image cap"
+      className="card-img-top"
+      src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
+      width="100%"
+    />
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        Manage Social Impact Projects
+      </h5>
+      <p
+        className="card-text"
+      >
+        Some quick example text to build on the card title and make up the bulk the cards content
+      </p>
+      <a
+        aria-current={null}
+        href="/faculties/faup/socialProjects"
+        onClick={[Function]}
+      >
+        <button
+          aria-label={null}
+          className="btn btn-secondary"
+          onClick={[Function]}
+        >
+          Go
+        </button>
+      </a>
+    </div>
+  </div>
+  <div
+    className="card"
+  >
+    <img
+      alt="Card image cap"
+      className="card-img-top"
+      src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
+      width="100%"
+    />
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        Manage Promotional Videos
+      </h5>
+      <p
+        className="card-text"
+      >
+        Some quick example text to build on the card title and make up the bulk the cards content
+      </p>
+      <a
+        aria-current={null}
+        href="/faculties/faup/promotionalVideos"
+        onClick={[Function]}
+      >
+        <button
+          aria-label={null}
+          className="btn btn-secondary"
+          onClick={[Function]}
+        >
+          Go
+        </button>
+      </a>
+    </div>
+  </div>
+  <div
+    className="card"
+  >
+    <img
+      alt="Card image cap"
+      className="card-img-top"
+      src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
+      width="100%"
+    />
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        Manage Future Prospects
+      </h5>
+      <p
+        className="card-text"
+      >
+        Some quick example text to build on the card title and make up the bulk the cards content
+      </p>
+      <a
+        aria-current={null}
+        href="/faculties/faup/futureProspects"
+        onClick={[Function]}
+      >
+        <button
+          aria-label={null}
+          className="btn btn-secondary"
+          onClick={[Function]}
+        >
+          Go
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+`;

@@ -76,3 +76,8 @@ img.plus{
   font-size: 3em;
   background-color: transparent;
 }
+
+.menu{
+  display:flex;
+  flex-direction:row;
+}
