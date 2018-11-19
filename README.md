@@ -43,10 +43,7 @@ On the `mobile` directory:
 - Update snapshots - `yarn test -u`
 - Watch mode (listen to file changes and rerun tests) - `yarn test --watch`
 
-### Deployment
 
-The result of the mobile app deployment can be observed at https://expo.io/@ldsot3g1/impact-up
- 
 ## _Web App_ Development Environment Setup
 On the root directory, run docker:
 ```
@@ -68,6 +65,21 @@ docker-compose up --build server
 ### Running tests
 On the `server` directory, run `npm run test`.
 
-### Deployment
 
-The result of the server deployment can be observed at http://51.144.252.180/api
+## Deployment
+
+#### Production
+This environment is mapped to the repository's _master_ branch.
+
+The result of the *production server* deployment can be observed at http://impactup.westeurope.cloudapp.azure.com/api
+
+The result of the *production web-app* deployment can be observed at http://impactup.westeurope.cloudapp.azure.com/
+
+The result of the *mobile app* deployment can be observed at https://expo.io/@ldsot3g1/impact-up
+
+#### Staging
+This environment is mapped to the repository's _develop_ branch.
+
+The result of the *staging server* deployment can be observed at http://impactup.westeurope.cloudapp.azure.com/dev/api
+
+The result of the *staging web-app* deployment can be observed at http://impactup.westeurope.cloudapp.azure.com/dev/
