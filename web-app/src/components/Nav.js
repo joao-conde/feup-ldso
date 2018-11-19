@@ -6,7 +6,7 @@ import Sidebar from './Sidebar';
 import AddFacultyProject from './AddFacultyProject';
 import Delete from './Delete';
 import Editor from './Editor';
-
+import Menu from './Menu';
 
 class Nav extends Component {
     constructor(props) {
@@ -41,26 +41,27 @@ class Nav extends Component {
                       {
                           FacultyAPI.all().map(p => (
                               <li key={p.name}>
-                                  <NavLink to={`/faculties/${p.name}`}>{p.name}</NavLink>
+                                  <NavLink to={`/faculties/${p.name}/menu`}>{p.name}</NavLink>
                               </li>
                           ))
                       }
                   </ul>
-                  <div className = "rowC">
+                  <div>
                       <Route exact path="/" component={Home} />
-                      <Route path='/faculties/:faculty' render={(props)=> 
-                          <Sidebar {...props} 
-                              onChildSetRefresh={this.handleChildSetRefresh} 
-                              onGetRefresh={this.handleGetRefresh} 
+                      <Route exact path='/faculties/:faculty/menu' component={Menu} />
+                      <Route path='/faculties/:faculty/socialProjects' render={(props)=>
+                          <Sidebar {...props}
+                              onChildSetRefresh={this.handleChildSetRefresh}
+                              onGetRefresh={this.handleGetRefresh}
                               onChildUnsetRefresh={this.handleChildUnsetRefresh}/>}/>
                       <div>
-                          <Route path={'/faculties/:faculty/:project'} render={(props)=> 
+                          <Route path={'/faculties/:faculty/socialProjects/:project'} render={(props)=>
                               <Editor {...props} onChildSetRefresh={this.handleChildSetRefresh} />}/>
-                          <Route path={'/faculties/:faculty/:project'} render={(props)=> 
+                          <Route path={'/faculties/:faculty/socialProjects/:project'} render={(props)=>
                               <Delete {...props} onChildSetRefresh={this.handleChildSetRefresh} />}/>
                       </div>
                       <div>
-                          <Route exact path='/faculties/:faculty' render={(props)=> <AddFacultyProject {...props} 
+                          <Route exact path='/faculties/:faculty/socialProjects' render={(props)=> <AddFacultyProject {...props}
                               onChildSetRefresh={this.handleChildSetRefresh} />}/>
                       </div>
                   </div>

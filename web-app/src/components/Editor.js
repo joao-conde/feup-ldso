@@ -18,7 +18,7 @@ class Editor extends Component {
     }
 
     componentDidMount() {
-        const route = process.env.REACT_APP_ENDPOINT + 'faculties/en/' + this.props.match.params.faculty.toLowerCase() + '/social-projects?filter[where][id]=' + this.props.match.params.project;
+        const route = process.env.REACT_APP_ENDPOINT + 'faculties/en/' + this.props.match.params.faculty.toLowerCase() + '/social-projects?id=' + this.props.match.params.project;
         fetch(route)
             .then(res => res.json())
             .then(
@@ -46,7 +46,7 @@ class Editor extends Component {
 
     handleSubmit(event){
         event.preventDefault();
-        const route = process.env.REACT_APP_ENDPOINT + 'faculties/en/' + this.props.match.params.faculty.toLowerCase() + '/social-projects?where[id]=' + this.props.match.params.project;
+        const route = process.env.REACT_APP_ENDPOINT + 'faculties/en/' + this.props.match.params.faculty.toLowerCase() + '/social-projects?id=' + this.props.match.params.project;
         fetch(route, {
             method: 'PATCH',
             headers: {
@@ -54,8 +54,7 @@ class Editor extends Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(this.state),
-        })
-            .then(response => response.json());
+        });
 
         this.props.onChildSetRefresh();
     }

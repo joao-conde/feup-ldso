@@ -1,5 +1,4 @@
-import {Entity, model, property, belongsTo} from '@loopback/repository';
-import {Faculty} from './faculty.model';
+import {Entity, model, property} from '@loopback/repository';
 
 @model()
 export class SocialProject extends Entity {
@@ -40,8 +39,15 @@ export class SocialProject extends Entity {
   })
   images?: string[];
 
-  @belongsTo(() => Faculty)
-  facultyId: number;
+  @property({
+    type: 'string',
+  })
+  faculty?: string;
+
+  @property({
+    type: 'string',
+  })
+  language?: string;
 
   constructor(data?: Partial<SocialProject>) {
     super(data);

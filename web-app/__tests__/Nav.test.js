@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Sidebar from '../src/components/Sidebar';
 import Delete from '../src/components/Delete';
 import Editor from '../src/components/Editor';
+import Menu from '../src/components/Menu';
 import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
 
@@ -73,4 +74,14 @@ it('renders elements', () => {
     );
     let treeForm = deleteComponent.toJSON();
     expect(treeForm).toMatchSnapshot();
+
+    const menuComponent = rendered.create(
+        <BrowserRouter>
+            <Menu
+                {...props}
+            />
+        </BrowserRouter>
+    );
+    let treeMenu = menuComponent.toJSON();
+    expect(treeMenu).toMatchSnapshot();
 });

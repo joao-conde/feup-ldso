@@ -5,7 +5,7 @@ variables:
   # docker in docker specific
   DOCKER_DRIVER: overlay2
   # project vars
-  REGISTRY_URL: "registry.gitlab.com/ldso18-19/t3g1"
+  REGISTRY_URL: "registry.gitlab.com/feup-tbs/ldso18-19/t3g1"
 
 services:
   - docker:dind
@@ -55,7 +55,7 @@ lint_server:
 test_mobile:
   image: node:alpine
   stage: test
-  before_script: # Add the other dependency instalations later
+  before_script:
   - cd mobile
   - printenv >> .env
   - yarn
@@ -78,12 +78,11 @@ test_web:
   - cd web-app
   - yarn
   script:
-    - yarn jest -u
+    - yarn jest
 
 build_server:
   image: docker:stable
   stage: build
-  allow_failure: true
   before_script:
     - cd server
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
@@ -97,7 +96,6 @@ build_server:
 build_web:
   image: docker:stable
   stage: build
-  allow_failure: true
   before_script:
     - cd web-app
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
@@ -111,7 +109,6 @@ build_web:
 build_mobile:
   image: docker:stable
   stage: build
-  allow_failure: true
   before_script:
     - cd mobile
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
@@ -132,23 +129,22 @@ deploy_mobile:
   script:
     - apk add --no-cache bash
     - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
-    - npx expo publish --non-interactive
+    - npx expo build:android --non-interactive --release-channel "$CI_COMMIT_REF_NAME"    # expo build generates apk on expo's server and deploys to expo's site
   only:
     - master
     - develop
   environment:
     name: mobile/$CI_COMMIT_REF_NAME
-    url: https://expo.io/@ldsot3g1/impact-up
+    url: https://expo.io/@ldsot3g1/impact-up?release-channel=$CI_COMMIT_REF_NAME
 
-# deploy_server:
-#   stage: deploy
-#   before_script:
-#     - ssh andre@51.144.252.180 -p $SSH_PRIVATE_KEY
-#   script:
-#     - cd LDSO
-#     - docker-compose up
-#     - ./seed
-#   only:
-#     - master
-#     - develop
+deploy_all:
+  image: alpine:latest
+  stage: deploy
+  before_script:
+    - apk update && apk add openssh-client sshpass
+  script:
+    - sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no andre@impactup.westeurope.cloudapp.azure.com "sh /home/andre/LDSO/deploy.sh"
+  only:
+    - master
+    - develop
  
