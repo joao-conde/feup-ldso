@@ -137,14 +137,22 @@ deploy_mobile:
     name: mobile/$CI_COMMIT_REF_NAME
     url: https://expo.io/@ldsot3g1/impact-up?release-channel=$CI_COMMIT_REF_NAME
 
-deploy_all:
+deploy_staging:
   image: alpine:latest
   stage: deploy
   before_script:
     - apk update && apk add openssh-client sshpass
   script:
-    - sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no andre@impactup.westeurope.cloudapp.azure.com "sh /home/andre/LDSO/deploy.sh"
+    - sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no andre@impactup.westeurope.cloudapp.azure.com "sh /home/andre/LDSO/deploy-dev.sh"
   only:
-    - master
     - develop
  
+deploy_production:
+  image: alpine:latest
+  stage: deploy
+  before_script:
+    - apk update && apk add openssh-client sshpass
+  script:
+    - sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no andre@impactup.westeurope.cloudapp.azure.com "sh /home/andre/LDSO/deploy-prod.sh"
+  only:
+    - master
