@@ -14,6 +14,7 @@ function setup(loading = false) {
 
     const initialState = { 
         faculty: {
+            name: 'feup',
             loading: loading,
             videos: [
                 'https://youtube.com/1',
@@ -41,16 +42,8 @@ it('renders loading screen', () => {
     expect(wrapper.dive()).toMatchSnapshot();
 });
     
-it('renders screen with future prospect content', () => {
+it('renders screen with video content', () => {
     const wrapper = setup();
-
+    jest.unmock('ScrollView');
     expect(wrapper.dive()).toMatchSnapshot();
-});
-
-it('renders 3 video links', () => {
-    const wrapper = setup();
-
-    const render = wrapper.dive().find('FlatList').first().dive().dive();
-
-    expect(render.find('CellRenderer').length).toBe(3);
 });

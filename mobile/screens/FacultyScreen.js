@@ -48,7 +48,6 @@ class FacultyScreen extends Component {
 
     render() {
         const { name, loading, stats, language } = this.props;
-        console.log(stats);
         if (loading) {
             return (
                 <Container style={styles.container}>
