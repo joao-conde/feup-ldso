@@ -4,9 +4,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/react-notifications/lib/notifications.css';
 import './styles/index.css';
 
-require('dotenv').config();
 
 ReactDOM.render(
     <App />,

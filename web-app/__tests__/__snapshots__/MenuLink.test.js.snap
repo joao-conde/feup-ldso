@@ -1,0 +1,668 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot renders without crashing 1`] = `
+<div>
+  <div
+    className="intro"
+  >
+    <img
+      alt="application logo"
+      src="test-file-stub"
+      width="140"
+    />
+  </div>
+  <div>
+    <div
+      className="navigator"
+    >
+      <h6
+        className="fadeup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fadeup"
+          onClick={[Function]}
+        >
+          FADEUP
+        </a>
+      </h6>
+      <h6
+        className="faup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/faup"
+          onClick={[Function]}
+        >
+          FAUP
+        </a>
+      </h6>
+      <h6
+        className="fbaup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fbaup"
+          onClick={[Function]}
+        >
+          FBAUP
+        </a>
+      </h6>
+      <h6
+        className="fcnaup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fcnaup"
+          onClick={[Function]}
+        >
+          FCNAUP
+        </a>
+      </h6>
+      <h6
+        className="fcup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fcup"
+          onClick={[Function]}
+        >
+          FCUP
+        </a>
+      </h6>
+      <h6
+        className="fdup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fdup"
+          onClick={[Function]}
+        >
+          FDUP
+        </a>
+      </h6>
+      <h6
+        className="fep"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fep"
+          onClick={[Function]}
+        >
+          FEP
+        </a>
+      </h6>
+      <h6
+        className="feup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/feup"
+          onClick={[Function]}
+        >
+          FEUP
+        </a>
+      </h6>
+      <h6
+        className="ffup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/ffup"
+          onClick={[Function]}
+        >
+          FFUP
+        </a>
+      </h6>
+      <h6
+        className="flup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/flup"
+          onClick={[Function]}
+        >
+          FLUP
+        </a>
+      </h6>
+      <h6
+        className="fmdup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fmdup"
+          onClick={[Function]}
+        >
+          FMDUP
+        </a>
+      </h6>
+      <h6
+        className="fmup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fmup"
+          onClick={[Function]}
+        >
+          FMUP
+        </a>
+      </h6>
+      <h6
+        className="fpceup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fpceup"
+          onClick={[Function]}
+        >
+          FPCEUP
+        </a>
+      </h6>
+      <h6
+        className="icbas"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/icbas"
+          onClick={[Function]}
+        >
+          ICBAS
+        </a>
+      </h6>
+    </div>
+    <div
+      className="container null"
+    >
+      <div>
+        <h1>
+          Redirect to App login or another admin page
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div
+    className="notification-container notification-container-empty"
+  >
+    <span />
+  </div>
+</div>
+`;
+
+exports[`renders correct link 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MenuLink
+    link="/faculties/FEUP/projects"
+    title="Social Impact Projects"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": <NavLink
+        activeClassName="active"
+        aria-current="page"
+        to="/faculties/FEUP/projects"
+      >
+        <Card
+          tag="div"
+        >
+          <CardBody
+            tag="div"
+          >
+            <CardTitle
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "justifyContent": "center",
+                  "minHeight": "400px",
+                }
+              }
+              tag="h5"
+            >
+              <p
+                className="center-text"
+                style={
+                  Object {
+                    "fontSize": "2rem",
+                    "fontWeight": 700,
+                  }
+                }
+              >
+                Manage 
+                Social Impact Projects
+              </p>
+            </CardTitle>
+          </CardBody>
+        </Card>
+      </NavLink>,
+      "tag": "div",
+      "widths": Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ],
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "activeClassName": "active",
+        "aria-current": "page",
+        "children": <Card
+          tag="div"
+        >
+          <CardBody
+            tag="div"
+          >
+            <CardTitle
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "justifyContent": "center",
+                  "minHeight": "400px",
+                }
+              }
+              tag="h5"
+            >
+              <p
+                className="center-text"
+                style={
+                  Object {
+                    "fontSize": "2rem",
+                    "fontWeight": 700,
+                  }
+                }
+              >
+                Manage 
+                Social Impact Projects
+              </p>
+            </CardTitle>
+          </CardBody>
+        </Card>,
+        "to": "/faculties/FEUP/projects",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": <CardBody
+            tag="div"
+          >
+            <CardTitle
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "justifyContent": "center",
+                  "minHeight": "400px",
+                }
+              }
+              tag="h5"
+            >
+              <p
+                className="center-text"
+                style={
+                  Object {
+                    "fontSize": "2rem",
+                    "fontWeight": 700,
+                  }
+                }
+              >
+                Manage 
+                Social Impact Projects
+              </p>
+            </CardTitle>
+          </CardBody>,
+          "tag": "div",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <CardTitle
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "justifyContent": "center",
+                  "minHeight": "400px",
+                }
+              }
+              tag="h5"
+            >
+              <p
+                className="center-text"
+                style={
+                  Object {
+                    "fontSize": "2rem",
+                    "fontWeight": 700,
+                  }
+                }
+              >
+                Manage 
+                Social Impact Projects
+              </p>
+            </CardTitle>,
+            "tag": "div",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <p
+                className="center-text"
+                style={
+                  Object {
+                    "fontSize": "2rem",
+                    "fontWeight": 700,
+                  }
+                }
+              >
+                Manage 
+                Social Impact Projects
+              </p>,
+              "style": Object {
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "center",
+                "minHeight": "400px",
+              },
+              "tag": "h5",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Manage ",
+                  "Social Impact Projects",
+                ],
+                "className": "center-text",
+                "style": Object {
+                  "fontSize": "2rem",
+                  "fontWeight": 700,
+                },
+              },
+              "ref": null,
+              "rendered": Array [
+                "Manage ",
+                "Social Impact Projects",
+              ],
+              "type": "p",
+            },
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": <NavLink
+          activeClassName="active"
+          aria-current="page"
+          to="/faculties/FEUP/projects"
+        >
+          <Card
+            tag="div"
+          >
+            <CardBody
+              tag="div"
+            >
+              <CardTitle
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "justifyContent": "center",
+                    "minHeight": "400px",
+                  }
+                }
+                tag="h5"
+              >
+                <p
+                  className="center-text"
+                  style={
+                    Object {
+                      "fontSize": "2rem",
+                      "fontWeight": 700,
+                    }
+                  }
+                >
+                  Manage 
+                  Social Impact Projects
+                </p>
+              </CardTitle>
+            </CardBody>
+          </Card>
+        </NavLink>,
+        "tag": "div",
+        "widths": Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ],
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "aria-current": "page",
+          "children": <Card
+            tag="div"
+          >
+            <CardBody
+              tag="div"
+            >
+              <CardTitle
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "justifyContent": "center",
+                    "minHeight": "400px",
+                  }
+                }
+                tag="h5"
+              >
+                <p
+                  className="center-text"
+                  style={
+                    Object {
+                      "fontSize": "2rem",
+                      "fontWeight": 700,
+                    }
+                  }
+                >
+                  Manage 
+                  Social Impact Projects
+                </p>
+              </CardTitle>
+            </CardBody>
+          </Card>,
+          "to": "/faculties/FEUP/projects",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <CardBody
+              tag="div"
+            >
+              <CardTitle
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "justifyContent": "center",
+                    "minHeight": "400px",
+                  }
+                }
+                tag="h5"
+              >
+                <p
+                  className="center-text"
+                  style={
+                    Object {
+                      "fontSize": "2rem",
+                      "fontWeight": 700,
+                    }
+                  }
+                >
+                  Manage 
+                  Social Impact Projects
+                </p>
+              </CardTitle>
+            </CardBody>,
+            "tag": "div",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <CardTitle
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "justifyContent": "center",
+                    "minHeight": "400px",
+                  }
+                }
+                tag="h5"
+              >
+                <p
+                  className="center-text"
+                  style={
+                    Object {
+                      "fontSize": "2rem",
+                      "fontWeight": 700,
+                    }
+                  }
+                >
+                  Manage 
+                  Social Impact Projects
+                </p>
+              </CardTitle>,
+              "tag": "div",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <p
+                  className="center-text"
+                  style={
+                    Object {
+                      "fontSize": "2rem",
+                      "fontWeight": 700,
+                    }
+                  }
+                >
+                  Manage 
+                  Social Impact Projects
+                </p>,
+                "style": Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "justifyContent": "center",
+                  "minHeight": "400px",
+                },
+                "tag": "h5",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Manage ",
+                    "Social Impact Projects",
+                  ],
+                  "className": "center-text",
+                  "style": Object {
+                    "fontSize": "2rem",
+                    "fontWeight": 700,
+                  },
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Manage ",
+                  "Social Impact Projects",
+                ],
+                "type": "p",
+              },
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

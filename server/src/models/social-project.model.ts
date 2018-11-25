@@ -24,12 +24,12 @@ export class SocialProject extends Entity {
   content?: string;
 
   @property({
-    type: 'date',
+    type: 'string',
   })
   start_date?: string;
 
   @property({
-    type: 'date',
+    type: 'string',
   })
   end_date?: string;
 
