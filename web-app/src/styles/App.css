@@ -1,37 +1,60 @@
-.App {
+.intro {
   text-align: center;
+  padding-bottom: 1em;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.container.fadeup {
+  background: linear-gradient(var(--fadeup-color), var(--primary-color) 8%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container.faup {
+  background: linear-gradient(var(--faup-color), var(--primary-color) 8%);
 }
 
-.App-link {
-  color: #61dafb;
+.container.fbaup {
+  background: linear-gradient(var(--fbaup-color), var(--primary-color) 8%);
 }
 
-.rowC {
-  display:flex; 
-  flex-direction:row;
+.container.fcnaup {
+  background: linear-gradient(var(--fcnaup-color), var(--primary-color) 8%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container.fcup {
+  background: linear-gradient(var(--fcup-color), var(--primary-color) 8%);
+}
+
+.container.fdup {
+  background: linear-gradient(var(--fdup-color), var(--primary-color) 8%);
+}
+
+.container.fep {
+  background: linear-gradient(var(--fep-color), var(--primary-color) 8%);
+}
+
+.container.feup {
+  background: linear-gradient(var(--feup-color), var(--primary-color) 8%);
+}
+
+.container.ffup {
+  background: linear-gradient(var(--ffup-color), var(--primary-color) 8%);
+}
+
+.container.flup {
+  background: linear-gradient(var(--flup-color), var(--primary-color) 8%);
+}
+
+.container.fmdup {
+  background: linear-gradient(var(--fmdup-color), var(--primary-color) 8%);
+}
+
+.container.fmup {
+  background: linear-gradient(var(--fmup-color), var(--primary-color) 8%);
+}
+
+.container.fpceup {
+  background: linear-gradient(var(--fpceup-color), var(--primary-color) 8%);
+}
+
+.container.icbas {
+  background: linear-gradient(var(--icbas-color), var(--primary-color) 8%);
 }

@@ -1,0 +1,881 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot renders without crashing 1`] = `
+<div>
+  <div
+    className="intro"
+  >
+    <img
+      alt="application logo"
+      src="test-file-stub"
+      width="140"
+    />
+  </div>
+  <div>
+    <div
+      className="navigator"
+    >
+      <h6
+        className="fadeup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fadeup"
+          onClick={[Function]}
+        >
+          FADEUP
+        </a>
+      </h6>
+      <h6
+        className="faup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/faup"
+          onClick={[Function]}
+        >
+          FAUP
+        </a>
+      </h6>
+      <h6
+        className="fbaup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fbaup"
+          onClick={[Function]}
+        >
+          FBAUP
+        </a>
+      </h6>
+      <h6
+        className="fcnaup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fcnaup"
+          onClick={[Function]}
+        >
+          FCNAUP
+        </a>
+      </h6>
+      <h6
+        className="fcup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fcup"
+          onClick={[Function]}
+        >
+          FCUP
+        </a>
+      </h6>
+      <h6
+        className="fdup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fdup"
+          onClick={[Function]}
+        >
+          FDUP
+        </a>
+      </h6>
+      <h6
+        className="fep"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fep"
+          onClick={[Function]}
+        >
+          FEP
+        </a>
+      </h6>
+      <h6
+        className="feup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/feup"
+          onClick={[Function]}
+        >
+          FEUP
+        </a>
+      </h6>
+      <h6
+        className="ffup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/ffup"
+          onClick={[Function]}
+        >
+          FFUP
+        </a>
+      </h6>
+      <h6
+        className="flup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/flup"
+          onClick={[Function]}
+        >
+          FLUP
+        </a>
+      </h6>
+      <h6
+        className="fmdup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fmdup"
+          onClick={[Function]}
+        >
+          FMDUP
+        </a>
+      </h6>
+      <h6
+        className="fmup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fmup"
+          onClick={[Function]}
+        >
+          FMUP
+        </a>
+      </h6>
+      <h6
+        className="fpceup"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/fpceup"
+          onClick={[Function]}
+        >
+          FPCEUP
+        </a>
+      </h6>
+      <h6
+        className="icbas"
+      >
+        <a
+          aria-current={null}
+          href="/faculties/icbas"
+          onClick={[Function]}
+        >
+          ICBAS
+        </a>
+      </h6>
+    </div>
+    <div
+      className="container null"
+    >
+      <div>
+        <h1>
+          Redirect to App login or another admin page
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div
+    className="notification-container notification-container-empty"
+  >
+    <span />
+  </div>
+</div>
+`;
+
+exports[`renders empty projects 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Sidebar
+    action={[MockFunction]}
+    faculty="faup"
+    idProjEN={123}
+    loading={false}
+    projectsEN={Array []}
+    projectsPT={Array []}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="sidebar"
+      >
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          className="addBtnLink"
+          to="/faculties/faup/projects/new"
+        >
+          <img
+            alt="Add button"
+            className="addBtn"
+            src="test-file-stub"
+          />
+        </NavLink>
+      </div>,
+      "className": "sidebarParent",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="addBtnLink"
+            to="/faculties/faup/projects/new"
+          >
+            <img
+              alt="Add button"
+              className="addBtn"
+              src="test-file-stub"
+            />
+          </NavLink>,
+          Array [],
+        ],
+        "className": "sidebar",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": <img
+              alt="Add button"
+              className="addBtn"
+              src="test-file-stub"
+            />,
+            "className": "addBtnLink",
+            "to": "/faculties/faup/projects/new",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "Add button",
+              "className": "addBtn",
+              "src": "test-file-stub",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="sidebar"
+        >
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="addBtnLink"
+            to="/faculties/faup/projects/new"
+          >
+            <img
+              alt="Add button"
+              className="addBtn"
+              src="test-file-stub"
+            />
+          </NavLink>
+        </div>,
+        "className": "sidebarParent",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="addBtnLink"
+              to="/faculties/faup/projects/new"
+            >
+              <img
+                alt="Add button"
+                className="addBtn"
+                src="test-file-stub"
+              />
+            </NavLink>,
+            Array [],
+          ],
+          "className": "sidebar",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <img
+                alt="Add button"
+                className="addBtn"
+                src="test-file-stub"
+              />,
+              "className": "addBtnLink",
+              "to": "/faculties/faup/projects/new",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "Add button",
+                "className": "addBtn",
+                "src": "test-file-stub",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+    },
+    "disableLifecycleMethods": true,
+  },
+}
+`;
+
+exports[`renders projects content 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Sidebar
+    action={[MockFunction]}
+    faculty="faup"
+    idProjEN={123}
+    loading={false}
+    projectsEN={
+      Array [
+        Object {
+          "content": "[EN] Aliquam sit amet varius lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed tortor justo, ornare a vulputate in, mattis id mi. Donec varius, dui venenatis pharetra ultricies, ligula nulla ornare ex, quis mattis libero quam a tellus. Quisque quis est id nulla ornare semper at a nisi. Integer tincidunt egestas ornare. Nullam congue tellus arcu, eu ultricies mi pellentesque eget. Pellentesque massa sapien, suscipit sit amet lacus vel, faucibus faucibus elit. Cras in metus viverra, luctus magna ac, tristique leo. Aenean ultrices dui eget velit cursus, vitae suscipit purus varius. Aliquam erat volutpat. In porta metus et velit aliquet porta.",
+          "facultyId": 1,
+          "images": Array [
+            "https://picsum.photos/200/300/?random",
+            "https://picsum.photos/112/200/?random",
+          ],
+          "short_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam neque. Aliquam erat volutpat. Suspendisse sagittis ultrices augue. Pellentesque ipsum.",
+          "start_date": "2017-01-01",
+          "title": "[EN] Social project at FAUP",
+        },
+        Object {
+          "content": "[EN] Aliquam sit amet varius lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed tortor justo, ornare a vulputate in, mattis id mi. Donec varius, dui venenatis pharetra ultricies, ligula nulla ornare ex, quis mattis libero quam a tellus. Quisque quis est id nulla ornare semper at a nisi. Integer tincidunt egestas ornare. Nullam congue tellus arcu, eu ultricies mi pellentesque eget. Pellentesque massa sapien, suscipit sit amet lacus vel, faucibus faucibus elit. Cras in metus viverra, luctus magna ac, tristique leo. Aenean ultrices dui eget velit cursus, vitae suscipit purus varius. Aliquam erat volutpat. In porta metus et velit aliquet porta.",
+          "facultyId": 1,
+          "images": Array [
+            "https://picsum.photos/200/300/?random",
+            "https://picsum.photos/112/200/?random",
+          ],
+          "short_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam neque. Aliquam erat volutpat. Suspendisse sagittis ultrices augue. Pellentesque ipsum.",
+          "start_date": "2017-01-01",
+          "title": "[EN] Social project at FAUP",
+        },
+      ]
+    }
+    projectsPT={
+      Array [
+        Object {
+          "content": "[EN] Aliquam sit amet varius lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed tortor justo, ornare a vulputate in, mattis id mi. Donec varius, dui venenatis pharetra ultricies, ligula nulla ornare ex, quis mattis libero quam a tellus. Quisque quis est id nulla ornare semper at a nisi. Integer tincidunt egestas ornare. Nullam congue tellus arcu, eu ultricies mi pellentesque eget. Pellentesque massa sapien, suscipit sit amet lacus vel, faucibus faucibus elit. Cras in metus viverra, luctus magna ac, tristique leo. Aenean ultrices dui eget velit cursus, vitae suscipit purus varius. Aliquam erat volutpat. In porta metus et velit aliquet porta.",
+          "facultyId": 1,
+          "images": Array [
+            "https://picsum.photos/200/300/?random",
+            "https://picsum.photos/112/200/?random",
+          ],
+          "short_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam neque. Aliquam erat volutpat. Suspendisse sagittis ultrices augue. Pellentesque ipsum.",
+          "start_date": "2017-01-01",
+          "title": "[EN] Social project at FAUP",
+        },
+        Object {
+          "content": "[EN] Aliquam sit amet varius lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed tortor justo, ornare a vulputate in, mattis id mi. Donec varius, dui venenatis pharetra ultricies, ligula nulla ornare ex, quis mattis libero quam a tellus. Quisque quis est id nulla ornare semper at a nisi. Integer tincidunt egestas ornare. Nullam congue tellus arcu, eu ultricies mi pellentesque eget. Pellentesque massa sapien, suscipit sit amet lacus vel, faucibus faucibus elit. Cras in metus viverra, luctus magna ac, tristique leo. Aenean ultrices dui eget velit cursus, vitae suscipit purus varius. Aliquam erat volutpat. In porta metus et velit aliquet porta.",
+          "facultyId": 1,
+          "images": Array [
+            "https://picsum.photos/200/300/?random",
+            "https://picsum.photos/112/200/?random",
+          ],
+          "short_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam neque. Aliquam erat volutpat. Suspendisse sagittis ultrices augue. Pellentesque ipsum.",
+          "start_date": "2017-01-01",
+          "title": "[EN] Social project at FAUP",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="sidebar"
+      >
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          className="addBtnLink"
+          to="/faculties/faup/projects/new"
+        >
+          <img
+            alt="Add button"
+            className="addBtn"
+            src="test-file-stub"
+          />
+        </NavLink>
+        <div
+          className="imgParent"
+        >
+          <img
+            alt="Project icon"
+            className="imgBtn  "
+            onClick={[Function]}
+            src="https://picsum.photos/200/300/?random"
+          />
+        </div>
+        <div
+          className="imgParent"
+        >
+          <img
+            alt="Project icon"
+            className="imgBtn  "
+            onClick={[Function]}
+            src="https://picsum.photos/200/300/?random"
+          />
+        </div>
+      </div>,
+      "className": "sidebarParent",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="addBtnLink"
+            to="/faculties/faup/projects/new"
+          >
+            <img
+              alt="Add button"
+              className="addBtn"
+              src="test-file-stub"
+            />
+          </NavLink>,
+          Array [
+            <div
+              className="imgParent"
+            >
+              <img
+                alt="Project icon"
+                className="imgBtn  "
+                onClick={[Function]}
+                src="https://picsum.photos/200/300/?random"
+              />
+            </div>,
+            <div
+              className="imgParent"
+            >
+              <img
+                alt="Project icon"
+                className="imgBtn  "
+                onClick={[Function]}
+                src="https://picsum.photos/200/300/?random"
+              />
+            </div>,
+          ],
+        ],
+        "className": "sidebar",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": <img
+              alt="Add button"
+              className="addBtn"
+              src="test-file-stub"
+            />,
+            "className": "addBtnLink",
+            "to": "/faculties/faup/projects/new",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "Add button",
+              "className": "addBtn",
+              "src": "test-file-stub",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "host",
+          "props": Object {
+            "children": <img
+              alt="Project icon"
+              className="imgBtn  "
+              onClick={[Function]}
+              src="https://picsum.photos/200/300/?random"
+            />,
+            "className": "imgParent",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "Project icon",
+              "className": "imgBtn  ",
+              "onClick": [Function],
+              "src": "https://picsum.photos/200/300/?random",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "children": <img
+              alt="Project icon"
+              className="imgBtn  "
+              onClick={[Function]}
+              src="https://picsum.photos/200/300/?random"
+            />,
+            "className": "imgParent",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "Project icon",
+              "className": "imgBtn  ",
+              "onClick": [Function],
+              "src": "https://picsum.photos/200/300/?random",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="sidebar"
+        >
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="addBtnLink"
+            to="/faculties/faup/projects/new"
+          >
+            <img
+              alt="Add button"
+              className="addBtn"
+              src="test-file-stub"
+            />
+          </NavLink>
+          <div
+            className="imgParent"
+          >
+            <img
+              alt="Project icon"
+              className="imgBtn  "
+              onClick={[Function]}
+              src="https://picsum.photos/200/300/?random"
+            />
+          </div>
+          <div
+            className="imgParent"
+          >
+            <img
+              alt="Project icon"
+              className="imgBtn  "
+              onClick={[Function]}
+              src="https://picsum.photos/200/300/?random"
+            />
+          </div>
+        </div>,
+        "className": "sidebarParent",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="addBtnLink"
+              to="/faculties/faup/projects/new"
+            >
+              <img
+                alt="Add button"
+                className="addBtn"
+                src="test-file-stub"
+              />
+            </NavLink>,
+            Array [
+              <div
+                className="imgParent"
+              >
+                <img
+                  alt="Project icon"
+                  className="imgBtn  "
+                  onClick={[Function]}
+                  src="https://picsum.photos/200/300/?random"
+                />
+              </div>,
+              <div
+                className="imgParent"
+              >
+                <img
+                  alt="Project icon"
+                  className="imgBtn  "
+                  onClick={[Function]}
+                  src="https://picsum.photos/200/300/?random"
+                />
+              </div>,
+            ],
+          ],
+          "className": "sidebar",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <img
+                alt="Add button"
+                className="addBtn"
+                src="test-file-stub"
+              />,
+              "className": "addBtnLink",
+              "to": "/faculties/faup/projects/new",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "Add button",
+                "className": "addBtn",
+                "src": "test-file-stub",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "0",
+            "nodeType": "host",
+            "props": Object {
+              "children": <img
+                alt="Project icon"
+                className="imgBtn  "
+                onClick={[Function]}
+                src="https://picsum.photos/200/300/?random"
+              />,
+              "className": "imgParent",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "Project icon",
+                "className": "imgBtn  ",
+                "onClick": [Function],
+                "src": "https://picsum.photos/200/300/?random",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": "1",
+            "nodeType": "host",
+            "props": Object {
+              "children": <img
+                alt="Project icon"
+                className="imgBtn  "
+                onClick={[Function]}
+                src="https://picsum.photos/200/300/?random"
+              />,
+              "className": "imgParent",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "Project icon",
+                "className": "imgBtn  ",
+                "onClick": [Function],
+                "src": "https://picsum.photos/200/300/?random",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+    },
+    "disableLifecycleMethods": true,
+  },
+}
+`;
