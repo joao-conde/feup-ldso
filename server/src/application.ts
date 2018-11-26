@@ -15,8 +15,8 @@ export class ServerApplication extends BootMixin(
     this.bind('datasources.config.mongo').to({
       name: 'mongo',
       connector: 'mongodb',
-      host: process.env.DB_HOST,
-      port: process.env.DB_PORT,
+      host: process.env.DB_HOST === undefined ? 'mongo' : process.env.DB_HOST,
+      port: process.env.DB_PORT === undefined ? 27017 : process.env.DB_PORT,
       database: 'up',
     });
     this.bind('datasources.mongo').toClass(MongoDataSource);

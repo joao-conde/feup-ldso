@@ -5,13 +5,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import FacultyMenu from '../screens/FacultyMenu';
 import SocialProjects from '../screens/SocialProjects';
+import ProspectsEditor from '../screens/ProspectsEditor';
 
 import Home from './Home';
 import FacultyAPI from '../FacultyAPI';
 
 import '../styles/MainContainer.css';
-import Videos from '../screens/Videos';
-import Prospects from '../screens/Prospects';
 
 
 class MainContainer extends Component {
@@ -38,8 +37,7 @@ class MainContainer extends Component {
                             <Route exact path="/" component={Home} />
                             <Route exact path='/faculties/:faculty' component={FacultyMenu} />
                             <Route path='/faculties/:faculty/projects' component={SocialProjects} />
-                            <Route path='/faculties/:faculty/videos' component={Videos} />
-                            <Route path='/faculties/:faculty/prospects' component={Prospects} />
+                            <Route path='/faculties/:faculty/prospects' component={ProspectsEditor} />
                             <Route render={() => <Redirect to='/' />} />
                         </Switch>
                     </div>
