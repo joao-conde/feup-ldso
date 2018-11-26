@@ -22,8 +22,8 @@ class FacultyMenu extends Component {
         return (
             <div style={menuStyle}>
                 <MenuLink link={`/faculties/${faculty}/projects`} title="Social Impact Projects"/>
-                <MenuLink link={`/faculties/${faculty}'/videos`} title="Promotional Videos"/>
-                <MenuLink link={`/faculties/${faculty}'/prospects`} title="Future Plans"/>
+                <MenuLink link={`/faculties/${faculty}/videos`} title="Promotional Videos"/>
+                <MenuLink link={`/faculties/${faculty}/prospects`} title="Future Plans"/>
             </div>
         );
     }

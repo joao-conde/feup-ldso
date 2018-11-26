@@ -76,18 +76,18 @@ export class FacultyController {
     });
   }
 
-  @patch('/faculties/{language}/{name}', {
+  @patch('/faculties/{language}/{name}/future-prospects', {
     responses: {
       '200': {
-        description: 'Faculty PATCH success',
+        description: 'Faculty future prospects PATCH success',
       },
     },
   })
-  async patch(
+  async patchFutureProspects(
     @param.path.string('language') language: string,
     @param.path.string('name') name: string,
     @requestBody() faculty: Partial<Faculty>,
-  ): Promise<void> {
+  ): Promise<Faculty> {
     let id = 0;
     let result = await this.facultyRepository.findOne({
       where: {name: name, language: language},
@@ -97,5 +97,34 @@ export class FacultyController {
     if (result != null) id = result.id;
 
     await this.facultyRepository.updateById(id, faculty);
+    return this.facultyRepository.findById(id, {
+      fields: {future_prospects: true},
+    });
+  }
+
+  @patch('/faculties/{language}/{name}/videos', {
+    responses: {
+      '200': {
+        description: 'Faculty videos PATCH success',
+      },
+    },
+  })
+  async patchVideos(
+    @param.path.string('language') language: string,
+    @param.path.string('name') name: string,
+    @requestBody() faculty: Partial<Faculty>,
+  ): Promise<Faculty> {
+    let id = 0;
+    let result = await this.facultyRepository.findOne({
+      where: {name: name, language: language},
+      fields: {id: true},
+    });
+
+    if (result != null) id = result.id;
+
+    await this.facultyRepository.updateById(id, faculty);
+    return this.facultyRepository.findById(id, {
+      fields: {videos: true},
+    });
   }
 }
