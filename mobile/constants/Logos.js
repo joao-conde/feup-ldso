@@ -1,44 +1,44 @@
 const logos = {
-    FADEUP: {
+    fadeup: {
         uri: require('../assets/images/facultyLogos/logoFADEUP.png')
     },
-    FAUP: {
+    faup: {
         uri: require('../assets/images/facultyLogos/logoFAUP.png')
     },
-    FBAUP: {
+    fbaup: {
         uri: require('../assets/images/facultyLogos/logoFBAUP.png')
     },
-    FCNAUP: {
+    fcnaup: {
         uri: require('../assets/images/facultyLogos/logoFCNAUP.png')
     },
-    FCUP: {
+    fcup: {
         uri: require('../assets/images/facultyLogos/logoFCUP.png')
     },
-    FDUP: {
+    fdup: {
         uri: require('../assets/images/facultyLogos/logoFDUP.png')
     },
-    FEP: {
+    fep: {
         uri: require('../assets/images/facultyLogos/logoFEP.png')
     },
-    FEUP: {
+    feup: {
         uri: require('../assets/images/facultyLogos/logoFEUP.png')
     },
-    FFUP: {
+    ffup: {
         uri: require('../assets/images/facultyLogos/logoFFUP.png')
     },
-    FLUP: {
+    flup: {
         uri: require('../assets/images/facultyLogos/logoFLUP.png')
     },
-    FMDUP: {
+    fmdup: {
         uri: require('../assets/images/facultyLogos/logoFMDUP.png')
     },
-    FMUP: {
+    fmup: {
         uri: require('../assets/images/facultyLogos/logoFMUP.png')
     },
-    FPCEUP: {
+    fpceup: {
         uri: require('../assets/images/facultyLogos/logoFPCEUP.png')
     },
-    ICBAS: {
+    icbas: {
         uri: require('../assets/images/facultyLogos/logoICBAS.png')
     }
 };

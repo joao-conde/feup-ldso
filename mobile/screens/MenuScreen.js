@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-    View,
+    View, Image,
     StyleSheet,
     FlatList,
     Text
@@ -11,36 +11,42 @@ import { connect } from 'react-redux';
 import { clearFaculty } from '../reducers/modules/facultyReducer';
 import { FacultyButton } from '../components/FacultyButton';
 import { logos } from '../constants/Logos';
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 class MenuScreen extends React.Component {
-  static navigationOptions = {
-      header: null,
-  };
+    static navigationOptions = {
+        header: null,
+    };
 
-  componentDidMount() {
-      this.props.navigation.addListener('willFocus', () => this.props.clearFaculty());
-  }
+    componentDidMount() {
+        this.props.navigation.addListener('willFocus', () => this.props.clearFaculty());
+    }
 
-  render() {
-      return (
-          <View style={styles.container}>
-              <Text style={styles.header}>ImpactUP</Text>
-        
-              <FlatList
-                  noColumns={3}
-                  data={Object.keys(logos).map(elem => {
-                      let obj = {};
-                      obj.key = elem;
-                      return obj;
-                  })}
-                  renderItem={({ item }) => (
-                      <FacultyButton name={item.key} onPress={() => this.props.navigation.navigate('Faculty', {
-                          name: item.key.toLowerCase()
-                      })} />
-                  )} />
-          </View>
-      );
-  }
+    render() {
+        const logo = require('../assets/images/impactup-white.png');
+        const myLogos = Object.assign({'blankElement' : ''}, logos);
+                
+        return (
+            <View style={styles.container}>
+                <Image source={logo} style={styles.logo}/>
+
+                <FlatList style={styles.list}
+                    numColumns={4}
+                    data={Object.keys(myLogos).map(elem => {
+                        let obj = {};
+                        obj.key = elem;
+                        return obj;
+                    })}
+                    renderItem={({ item }) => (
+
+                        item.key == 'blankElement' ? <Text style={styles.elementZero}></Text> :
+                            <FacultyButton name={item.key} onPress={() => this.props.navigation.navigate('Faculty', {
+                                name: item.key
+                            })} />
+                    )} />
+            </View>
+        );
+    }
   
 }
 
@@ -51,8 +57,9 @@ MenuScreen.propTypes = {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#fff',
+        width: '100%',
+        height: '100%',
+        backgroundColor: '#1c1c1c',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -60,6 +67,33 @@ const styles = StyleSheet.create({
     header: {
         fontSize: 55,
         margin: 20
+    },
+
+    elementZero: {
+        height: hp('18%'),
+        width: hp('18%'),
+        margin: hp('1%'),
+    },
+    
+    logo: {
+        width: hp('25%'),
+        minHeight: hp('15%'),
+        maxHeight: hp('20%'),
+        resizeMode: 'contain',
+        marginTop: hp('3%'),
+        position: 'absolute',
+        right: hp('10%'),
+        top: hp('5%'),
+        
+    },
+
+    list: {
+        width: '70%',
+        transform: [
+            {translateY: hp('25%')},
+            {rotate: '45deg'}
+        ],
+        
     }
 });
 
