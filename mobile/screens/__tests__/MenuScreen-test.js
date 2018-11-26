@@ -6,6 +6,7 @@ import configureStore from 'redux-mock-store';
 import Adapter from 'enzyme-adapter-react-16';
 import AppNavigator from '../../navigation/AppNavigator';
 import { FlatList } from 'react-native';
+import logo from '../../assets/images/impactup-white.png';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -32,6 +33,12 @@ function setup() {
         menuWrapper
     };
 }
+
+it('renders logo image', () => {
+    const { menuWrapper } = setup();
+
+    expect(menuWrapper.dive().childAt(0).prop('source')).toEqual(logo);
+});
 
 it('renders logo list', () => {
     const { menuWrapper } = setup();

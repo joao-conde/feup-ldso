@@ -88,25 +88,28 @@ exports[`App snapshot renders the root without loading screen 1`] = `
             style={
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#fff",
-                "flex": 1,
+                "backgroundColor": "#1c1c1c",
+                "height": "100%",
                 "justifyContent": "center",
+                "width": "100%",
               }
             }
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+            <Image
+              source={1}
               style={
                 Object {
-                  "fontSize": 55,
-                  "margin": 20,
+                  "marginTop": 40,
+                  "maxHeight": 267,
+                  "minHeight": 200,
+                  "position": "absolute",
+                  "resizeMode": "contain",
+                  "right": 133.5,
+                  "top": 66.5,
+                  "width": 333.5,
                 }
               }
-            >
-              ImpactUP
-            </Text>
+            />
           </View>
         </View>
       </View>
