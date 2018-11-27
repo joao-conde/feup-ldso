@@ -1,49 +1,36 @@
 // ACTIONS
 // Get Videos
-export const GET_VIDEOS = 'web/videos/GET_VIDEOS';
-export const GET_VIDEOS_SUCCESS = 'web/videos/GET_VIDEOS_SUCCESS';
-export const GET_VIDEOS_FAIL = 'web/videos/GET_VIDEOS_FAIL';
-// Add Video
-export const ADD_VIDEO = 'web/videos/ADD_VIDEO';
-export const ADD_VIDEO_SUCCESS = 'web/videos/ADD_VIDEO_SUCCESS';
-export const ADD_VIDEO_FAIL = 'web/videos/ADD_VIDEO_FAIL';
-// Delete Video
-export const DELETE_VIDEO = 'web/videos/DELETE_VIDEO';
-export const DELETE_VIDEO_SUCCESS = 'web/videos/DELETE_VIDEO_SUCCESS';
-export const DELETE_VIDEO_FAIL = 'web/videos/DELETE_VIDEO_FAIL';
+export const GET_VIDEOS_EN = 'web/videos/GET_VIDEOS_EN';
+export const GET_VIDEOS_EN_SUCCESS = 'web/videos/GET_VIDEOS_EN_SUCCESS';
+export const GET_VIDEOS_EN_FAIL = 'web/videos/GET_VIDEOS_EN_FAIL';
+export const GET_VIDEOS_PT = 'web/videos/GET_VIDEOS_PT';
+export const GET_VIDEOS_PT_SUCCESS = 'web/videos/GET_VIDEOS_PT_SUCCESS';
+export const GET_VIDEOS_PT_FAIL = 'web/videos/GET_VIDEOS_PT_FAIL';
+// Edit Video
+export const EDIT_VIDEO = 'web/videos/EDIT_VIDEO';
+export const EDIT_VIDEO_SUCCESS = 'web/videos/EDIT_VIDEO_SUCCESS';
+export const EDIT_VIDEO_FAIL = 'web/videos/EDIT_VIDEO_FAIL';
 
-export function getVideos(faculty) {
+export function getVideos(faculty, language) {
     return {
-        type: GET_VIDEOS,
+        type: language === 'en'? GET_VIDEOS_EN : GET_VIDEOS_PT,
         payload: {
             request: {
                 type: 'GET',
-                url: `/faculties/en/${faculty}/videos`
+                url: `/faculties/${language}/${faculty}/videos`
             }
         }
     };
 }
 
-export function addVideo(faculty, video) {
+export function editVideo(faculty, language, videos) {
     return {
-        type: ADD_VIDEO,
+        type: EDIT_VIDEO,
         payload: {
             request: {
-                type: 'POST',
-                url: `/faculties/en/${faculty}/videos`,
-                data: video
-            }
-        }
-    };
-}
-
-export function deleteVideo(faculty, id) {
-    return {
-        type: DELETE_VIDEO,
-        payload: {
-            request: {
-                type: 'DELETE',
-                url: `/faculties/en/${faculty}/videos?filter[where][id]=${id}`
+                type: 'PATCH',
+                url: `/faculties/${language}/${faculty}/videos`,
+                data: videos
             }
         }
     };

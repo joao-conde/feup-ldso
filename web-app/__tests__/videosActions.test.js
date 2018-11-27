@@ -1,12 +1,11 @@
 import {
     //actions
     getVideos,
-    addVideo,
-    deleteVideo,
+    editVideo,
     //types
-    GET_VIDEOS,
-    ADD_VIDEO,
-    DELETE_VIDEO
+    GET_VIDEOS_EN,
+    GET_VIDEOS_PT,
+    EDIT_VIDEO
 } from '../src/actions/videosActions';
 
 
@@ -14,8 +13,8 @@ describe('Video actions', () => {
 
     it('should create an action to get videos', () =>{
 
-        const expectedAction = {
-            type: GET_VIDEOS,
+        const expectedActionEN = {
+            type: GET_VIDEOS_EN,
             payload: {
                 request: {
                     type: 'GET',
@@ -23,41 +22,37 @@ describe('Video actions', () => {
                 }
             }
         };
-        expect(getVideos('feup')).toEqual(expectedAction);
-    });
-	
-    it('should create an action to add a video', () =>{
 
-        const videoToAdd = 'https://www.youtube.com/test';
-
-        const expectedAction = {
-            type: ADD_VIDEO,
+        const expectedActionPT = {
+            type: GET_VIDEOS_PT,
             payload: {
                 request: {
-                    type: 'POST',
+                    type: 'GET',
+                    url: '/faculties/pt/feup/videos'
+                }
+            }
+        };
+
+        expect(getVideos('feup', 'en')).toEqual(expectedActionEN);
+        expect(getVideos('feup', 'pt')).toEqual(expectedActionPT);
+    });
+
+    it('should create an action to edit a video', () =>{
+
+        const videoToEdit = 'https://www.youtube.com/test';
+
+        const expectedAction = {
+            type: EDIT_VIDEO,
+            payload: {
+                request: {
+                    type: 'PATCH',
                     url: '/faculties/en/feup/videos',
-                    data: videoToAdd
+                    data: videoToEdit
                 }
             }
         };
-        expect(addVideo('feup', videoToAdd)).toEqual(expectedAction);
+        expect(editVideo('feup', 'en', videoToEdit)).toEqual(expectedAction);
     });
-	
-    it('should create an action to delete a video', () =>{
-		
-        const videoID = 69;
 
-        const expectedAction = {
-            type: DELETE_VIDEO,
-            payload: {
-                request: {
-                    type: 'DELETE',
-                    url: '/faculties/en/feup/videos?filter[where][id]=' + videoID
-                }
-            }
-        };
-		
-        expect(deleteVideo('feup', videoID)).toEqual(expectedAction);
-    });
 
 });
