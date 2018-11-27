@@ -40,3 +40,19 @@ Closed issues:
 [#62](https://gitlab.com/ldso18-19/t3g1/issues/62)
 [#64](https://gitlab.com/ldso18-19/t3g1/issues/64)
 [#65](https://gitlab.com/ldso18-19/t3g1/issues/65)
+
+# Sprint 4
+# Review
+In the second to last sprint, the goal was to start finalizing the mobile app's design and provide functionalities (edition wise) in the web app. For the first, an in person meeting with the designated designers was done in order to (finally) finalize the mockups for the remaining pages (menu, introduction, future prospects). For the latter, social project edition suffered a small enhanhcement, a menu to select which faculty's information one wants to edit, i.e. future prospects, social projects, videos, alongside the ability to actually edit the latter two.
+In more technical terms, Continuous Deployment (staging and production) setup was enhanced for all of the project's components.
+
+Closed issues:
+[#3](https://gitlab.com/ldso18-19/t3g1/issues/3)
+[#13](https://gitlab.com/ldso18-19/t3g1/issues/13)
+[#35](https://gitlab.com/ldso18-19/t3g1/issues/35)
+[#37](https://gitlab.com/ldso18-19/t3g1/issues/37)
+[#38](https://gitlab.com/ldso18-19/t3g1/issues/38)
+[#46](https://gitlab.com/ldso18-19/t3g1/issues/46)
+[#50](https://gitlab.com/ldso18-19/t3g1/issues/50)
+[#68](https://gitlab.com/ldso18-19/t3g1/issues/68)
+[#69](https://gitlab.com/ldso18-19/t3g1/issues/69)
