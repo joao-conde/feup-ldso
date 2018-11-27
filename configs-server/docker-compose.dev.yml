@@ -26,6 +26,8 @@ services:
       - network-dev
     depends_on:
       - server-develop
+    environment:
+      - REACT_APP_ENDPOINT
 
   server-develop:
     image: registry.gitlab.com/feup-tbs/ldso18-19/t3g1/server:develop
