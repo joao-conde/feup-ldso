@@ -9,7 +9,7 @@ Enzyme.configure({ adapter: new Adapter() });
 it('renders correct logo', () => {
     const mockFunction = jest.fn();
     
-    const wrapper = shallow(<FacultyButton name={'FEUP'} onPress={mockFunction} />);
+    const wrapper = shallow(<FacultyButton name={'feup'} onPress={mockFunction} />);
 
     expect(wrapper).toMatchSnapshot();
 });
@@ -17,7 +17,7 @@ it('renders correct logo', () => {
 it('calls onPress function', () => {
     const mockFunction = jest.fn();
     
-    const wrapper = shallow(<FacultyButton name={'FEUP'} onPress={mockFunction} />);
+    const wrapper = shallow(<FacultyButton name={'feup'} onPress={mockFunction} />);
 
     wrapper.find('TouchableOpacity').props().onPress();
 

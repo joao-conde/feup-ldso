@@ -1,10 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from '../src/App';
+import renderer from 'react-test-renderer';
 
-//tests included here will be run by all child components (every component)
-it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
-    ReactDOM.unmountComponentAtNode(div);
+describe('App snapshot', () => {
+
+    it('renders without crashing', () => {
+        const tree = renderer.create(<App />).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+
 });

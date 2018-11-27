@@ -1,5 +1,11 @@
 import {Count, CountSchema, repository, Where} from '@loopback/repository';
-import {param, get, getWhereSchemaFor} from '@loopback/rest';
+import {
+  param,
+  get,
+  getWhereSchemaFor,
+  patch,
+  requestBody,
+} from '@loopback/rest';
 import {Faculty} from '../models';
 import {FacultyRepository} from '../repositories';
 
@@ -66,6 +72,58 @@ export class FacultyController {
     if (!result) return new Faculty();
 
     return await this.facultyRepository.findById(result.id, {
+      fields: {videos: true},
+    });
+  }
+
+  @patch('/faculties/{language}/{name}/future-prospects', {
+    responses: {
+      '200': {
+        description: 'Faculty future prospects PATCH success',
+      },
+    },
+  })
+  async patchFutureProspects(
+    @param.path.string('language') language: string,
+    @param.path.string('name') name: string,
+    @requestBody() faculty: Partial<Faculty>,
+  ): Promise<Faculty> {
+    let id = 0;
+    let result = await this.facultyRepository.findOne({
+      where: {name: name, language: language},
+      fields: {id: true},
+    });
+
+    if (result != null) id = result.id;
+
+    await this.facultyRepository.updateById(id, faculty);
+    return this.facultyRepository.findById(id, {
+      fields: {future_prospects: true},
+    });
+  }
+
+  @patch('/faculties/{language}/{name}/videos', {
+    responses: {
+      '200': {
+        description: 'Faculty videos PATCH success',
+      },
+    },
+  })
+  async patchVideos(
+    @param.path.string('language') language: string,
+    @param.path.string('name') name: string,
+    @requestBody() faculty: Partial<Faculty>,
+  ): Promise<Faculty> {
+    let id = 0;
+    let result = await this.facultyRepository.findOne({
+      where: {name: name, language: language},
+      fields: {id: true},
+    });
+
+    if (result != null) id = result.id;
+
+    await this.facultyRepository.updateById(id, faculty);
+    return this.facultyRepository.findById(id, {
       fields: {videos: true},
     });
   }

@@ -1,0 +1,18 @@
+.navigator {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.navigator a {
+    border-radius: 3px 3px 0px 0px;
+    padding: 5px 1em;
+    font-weight: bold;
+}
+
+.container {
+    border-radius: 3px;
+    padding: 2em 2em;
+    min-height: 500px;
+    height: 75vh;
+}

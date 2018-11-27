@@ -1,96 +1,62 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { Button, ListGroupItem, ListGroup } from 'reactstrap';
+import plus_circle from '../assets/images/plus_circle.png';
+
+import '../styles/SideBar.css';
 
 class Sidebar extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            error: null,
-            isLoaded: false,
-            projects: []
+            firstRequest: false
         };
-
     }
 
-    componentDidMount() {
-        const route = process.env.REACT_APP_ENDPOINT + 'faculties/en/' + this.props.match.params.faculty.toLowerCase() + '/social-projects';
-        fetch(route)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        projects: result,
-                    });
-                },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            );
+    click(idx) {
+        const { faculty, projectsEN, projectsPT, action } = this.props;
 
-    }
-
-    componentDidUpdate(prevProps) {
-        const route = process.env.REACT_APP_ENDPOINT + 'faculties/en/' + this.props.match.params.faculty.toLowerCase() + '/social-projects';
-        if ((prevProps.match.params.faculty !== this.props.match.params.faculty) || this.props.onGetRefresh()){
-            fetch(route)
-                .then(res => res.json())
-                .then(
-                    (result) => {
-                        this.setState({
-                            isLoaded: true,
-                            projects: result,
-                        });
-                    },
-                    (error) => {
-                        this.setState({
-                            isLoaded: true,
-                            error
-                        });
-                    }
-                );
-
-            this.props.onChildUnsetRefresh();
+        if (projectsEN[idx] != null && projectsPT[idx] != null) {
+            action(faculty, 'en', projectsEN[idx].id);
+            action(faculty, 'pt', projectsPT[idx].id);
         }
     }
 
     render() {
-        const { error, isLoaded, projects } = this.state;
-        if (error) {
-            return <div>Error: {error.message}</div>;
-        } else if (!isLoaded) {
+        const { loading, faculty, projectsEN, idProjEN } = this.props;
+        
+        if (loading) {
             return <div>Loading...</div>;
         } else {
             return (
-                <div>
-                    <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase() + '/socialProjects'}>
-                        <Button color="secondary">Add Project</Button>
-                    </NavLink>
-                    <ListGroup>
+                <div className="sidebarParent">
+                    <div className="sidebar">
+                        <NavLink to={`/faculties/${faculty}/projects/new`} className="addBtnLink">
+                            <img src={plus_circle} alt="Add button" className="addBtn" />
+                        </NavLink>
                         {
-                            projects.map(proj => (
-                                <ListGroupItem key={proj.id} className="faculty_proj">
-                                    <NavLink to={'/faculties/' + this.props.match.params.faculty.toLowerCase() + `/socialProjects/${proj.id}`}>{proj.title}</NavLink>
-                                </ListGroupItem>
-                            ))}
-                    </ListGroup>
+                            projectsEN.map((proj, idx) => (
+                                <div key={idx} className="imgParent">
+                                    <img src={proj.images[0]} alt="Project icon" className={`imgBtn  ${projectsEN[idx].id === idProjEN? faculty : ''}`}
+                                        onClick={() => this.click(idx)} />
+                                </div>
+                            ))
+                        }
+                    </div>
                 </div>
             );
         }
     }
 }
 
-
 Sidebar.propTypes = {
-    match: PropTypes.object.isRequired,
-    onChildUnsetRefresh: PropTypes.func.isRequired,
-    onGetRefresh: PropTypes.func.isRequired
+    loading: PropTypes.bool,
+    faculty: PropTypes.string,
+    projectsEN: PropTypes.array,
+    projectsPT: PropTypes.array,
+    idProjEN: PropTypes.string,
+    action: PropTypes.func
 };
 
 export default Sidebar;

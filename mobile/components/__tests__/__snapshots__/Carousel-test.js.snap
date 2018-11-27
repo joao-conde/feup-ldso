@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering  renders carousel with content received 1`] = `
+<View>
+  <Component
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "height": 1334,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <ScrollViewMock
+      horizontal={true}
+      onScroll={[Function]}
+      pagingEnabled={true}
+      scrollEventThrottle={10}
+      showsHorizontalScrollIndicator={false}
+    >
+      <Component
+        key="0"
+      />
+      <Component
+        key="1"
+      />
+    </ScrollViewMock>
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "position": "absolute",
+          "top": 1167.5,
+          "zIndex": 2,
+        }
+      }
+    >
+      <Component
+        key="bar0"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#d3d3d3",
+              "height": 2,
+              "overflow": "hidden",
+            },
+            Object {
+              "marginLeft": 0,
+              "width": 130,
+            },
+          ]
+        }
+      >
+        <AnimatedComponent
+          style={
+            Array [
+              Object {
+                "height": 2,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+              },
+              Object {
+                "backgroundColor": "#8c2d19",
+              },
+              Object {
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                ],
+                "width": 130,
+              },
+            ]
+          }
+        />
+      </Component>
+      <Component
+        key="bar1"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#d3d3d3",
+              "height": 2,
+              "overflow": "hidden",
+            },
+            Object {
+              "marginLeft": 10,
+              "width": 130,
+            },
+          ]
+        }
+      >
+        <AnimatedComponent
+          style={
+            Array [
+              Object {
+                "height": 2,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+              },
+              Object {
+                "backgroundColor": "#8c2d19",
+              },
+              Object {
+                "transform": Array [
+                  Object {
+                    "translateX": -130,
+                  },
+                ],
+                "width": 130,
+              },
+            ]
+          }
+        />
+      </Component>
+    </Component>
+  </Component>
+  <Component
+    style={
+      Array [
+        Object {
+          "left": 7.5,
+          "position": "absolute",
+          "top": 533.5,
+          "zIndex": 2,
+        },
+      ]
+    }
+  >
+    <TouchableOpacity
+      activeOpacity={0.2}
+      onPress={[Function]}
+    >
+      <Styled(Icon)
+        name="angle-left"
+        style={
+          Array [
+            Object {
+              "fontSize": 52.5,
+            },
+            Object {
+              "color": "#8c2d19",
+            },
+          ]
+        }
+        type="FontAwesome"
+      />
+    </TouchableOpacity>
+  </Component>
+  <Component
+    style={
+      Object {
+        "left": 705,
+        "position": "absolute",
+        "top": 533.5,
+        "zIndex": 2,
+      }
+    }
+  >
+    <TouchableOpacity
+      activeOpacity={0.2}
+      onPress={[Function]}
+    >
+      <Styled(Icon)
+        name="angle-right"
+        style={
+          Array [
+            Object {
+              "fontSize": 52.5,
+            },
+            Object {
+              "color": "#8c2d19",
+            },
+          ]
+        }
+        type="FontAwesome"
+      />
+    </TouchableOpacity>
+  </Component>
+</View>
+`;

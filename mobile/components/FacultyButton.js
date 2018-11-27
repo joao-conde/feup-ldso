@@ -3,16 +3,20 @@ import PropTypes from 'prop-types';
 
 import {
     Image,
+    View,
     TouchableOpacity
 } from 'react-native';
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 import { logos } from '../constants/Logos';
 
 class FacultyButton extends React.Component {
     render() {
         return (
-            <TouchableOpacity style={styles['button']} title="" onPress={this.props.onPress}>
-                <Image style={styles.image} source={logos[this.props.name].uri} />
+            <TouchableOpacity title="" onPress={this.props.onPress}>
+                <View style={styles['button']} >
+                    <Image style={styles.image} source={logos[this.props.name].uri} />
+                </View>
             </TouchableOpacity>
         );
     }
@@ -26,19 +30,24 @@ FacultyButton.propTypes = {
 export { FacultyButton };
 
 const styles = {
+    
     image: {
         flex: 1,
         aspectRatio: 0.9,
-        resizeMode: 'contain'
+        resizeMode: 'contain',
+        transform: [{
+            rotate: '315deg'
+        }],
     },
+
     button: {
-        borderWidth: 1,
-        borderColor: 'rgba(0,0,0,1)',
+        height: hp('18%'),
+        width: hp('18%'),
+        borderWidth: 0,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#fff',
-        borderRadius: 100,
-        maxWidth: 250,
-        margin: 15
+        backgroundColor: 'white',
+        borderRadius: hp('6%'),
+        margin: hp('1%'),
     }
 };

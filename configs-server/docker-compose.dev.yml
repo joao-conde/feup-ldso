@@ -1,0 +1,66 @@
+version: '3.4'
+
+services:
+  nginx-dev:
+    image: nginx:alpine
+    container_name: nginx-dev
+    restart: unless-stopped
+    volumes:
+      - ./nginx-dev.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+     - '8080:8080'
+    networks:
+      - network-dev
+    depends_on:
+      - server-develop
+      - web-app-develop
+     
+  web-app-develop:
+    image: registry.gitlab.com/feup-tbs/ldso18-19/t3g1/web-app:develop
+    container_name: web-app-develop
+    restart: unless-stopped
+    command: yarn start
+    expose:
+      - '3000'
+    networks:
+      - network-dev
+    depends_on:
+      - server-develop
+
+  server-develop:
+    image: registry.gitlab.com/feup-tbs/ldso18-19/t3g1/server:develop
+    container_name: server-develop
+    restart: unless-stopped
+    expose:
+      - '3000'
+    networks:
+      - network-dev
+    depends_on:
+      - mongo-dev
+    environment:
+      - DB_HOST
+      - DB_PORT
+
+  mongo-dev:
+    image: mongo:4.0.1
+    container_name: mongo-dev
+    expose:
+      - "27017"
+    networks:
+      - network-dev
+
+  seed-mongo-dev:
+    image: mongo:4.0.1
+    links:
+      - mongo-dev
+    volumes:
+      - ./resources:/home
+    command: bash -c "mongoimport --host mongo-dev --db up --collection Faculty --file /home/faculties_seed.json --jsonArray --drop && mongoimport --host mongo-dev --db up --collection SocialProject --file /home/projects_seed.json --jsonArray --drop && mongoimport --host mongo-dev --db up --collection Statistics --file /home/statistics_seed.json --jsonArray --drop && mongoimport --host mongo-dev --db up --collection ResearchCenter --file /home/research_centers_seed.json --jsonArray --drop"
+    depends_on:
+      - mongo-dev
+    networks:
+      - network-dev
+
+networks:
+  network-dev:
+  

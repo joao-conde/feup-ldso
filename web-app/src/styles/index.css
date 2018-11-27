@@ -1,11 +1,42 @@
+:root {
+  --background-color: #e1e2e1;
+  --container-color: #f5f5f6;
+  --primary-color: #f5f5f5;
+  --primary-color-light: #ffffff;
+  --primary-color-dark: #c2c2c2;
+  --secondary-color: #757575;
+  --secondary-color-light: #a4a4a4;
+  --secondary-color-dark: #494949;
+
+  /* Faculty colors */
+  --fadeup-color: #c6db00;
+  --faup-color: #ffffff;
+  --fbaup-color: #b2b3b5;
+  --fcnaup-color: #ffd600;
+  --fcup-color: #92bfeb;
+  --fdup-color: #f42a41;
+  --fep-color: #f42a41;
+  --feup-color: #8c2d19;
+  --ffup-color: #6e20a0;
+  --flup-color: #0019a8;
+  --fmdup-color: #ff5c00;
+  --fmup-color: #f4ce15;
+  --fpceup-color: #ff5c00;
+  --icbas-color: #ffd600;
+}
+
 body {
-  background-color: #ebeff1;
+  background-color: var(--background-color);
   padding: 20px;
   margin: 0;
   font-family: 'Titillium Web', sans-serif
-
 }
-h1, h2, p, ul, li {
+
+h1,
+h2,
+p,
+ul,
+li {
   font-family: sans-serif;
   font-family: 'Titillium Web', sans-serif;
 }
@@ -14,70 +45,126 @@ h1 {
   font-weight: 700;
 }
 
-ul.header li {
-  display: inline;
-  list-style-type: none;
-  margin: 0;
-}
-
-ul.header {
-  background-color:black;
-  padding: 0;
-
-}
-ul.header li a {
-  color: #FFF;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 1.9%;
-  display: inline-block;
-}
 .content {
   background-color: #FFF;
   padding: 20px;
   -webkit-box-shadow: 2px 4px 8px 0px rgba(45, 46, 67, 0.85);
-  -moz-box-shadow:    2px 4px 8px 0px rgba(45, 46, 67, 0.85);
-  box-shadow:         2px 4px 8px 0px rgba(45, 46, 67, 0.85);
+  -moz-box-shadow: 2px 4px 8px 0px rgba(45, 46, 67, 0.85);
+  box-shadow: 2px 4px 8px 0px rgba(45, 46, 67, 0.85);
 }
+
+.center-text {
+  text-align: center;
+}
+
 h1 {
   color: #29303D;
 }
+
+a {
+  font-size: inherit !important;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
 .content h2 {
   padding: 0;
   margin: 0;
 }
-.content li {
-  margin-bottom: 10px;
-}
 
-.active {
-  background-color:#b8babb;
-}
-
-button.faculty_proj{
-  padding:10px;
-  margin:20px;
+button.faculty_proj {
+  padding: 10px;
+  margin: 20px;
   background-color: #b8babb;
   border-color: transparent;
   border-radius: 50%;
-  display:grid;
-  width:120px;
-  height:120px;
+  display: grid;
+  width: 120px;
+  height: 120px;
 }
 
-img.plus{
+img.plus {
   width: 60px;
   height: 60px;
   margin-left: 50px;
 }
 
-.plus_button{
+.plus_button {
   margin: 20px;
   font-size: 3em;
   background-color: transparent;
 }
 
-.menu{
-  display:flex;
-  flex-direction:row;
+/* Faculty Dependent Stylings */
+.fadeup a:hover,
+.fadeup a.active {
+  background-color: var(--fadeup-color);
+}
+
+.faup a:hover,
+.faup a.active {
+  background-color: var(--faup-color);
+}
+
+.fbaup a:hover,
+.fbaup a.active {
+  background-color: var(--fbaup-color);
+}
+
+.fcnaup a:hover,
+.fcnaup a.active {
+  background-color: var(--fcnaup-color);
+}
+
+.fcup a:hover,
+.fcup a.active {
+  background-color: var(--fcup-color);
+}
+
+.fdup a:hover,
+.fdup a.active {
+  background-color: var(--fdup-color);
+}
+
+.fep a:hover,
+.fep a.active {
+  background-color: var(--fep-color);
+}
+
+.feup a:hover,
+.feup a.active {
+  background-color: var(--feup-color);
+  color: white !important;
+}
+
+.ffup a:hover,
+.ffup a.active {
+  background-color: var(--ffup-color);
+  color: white !important;
+}
+
+.flup a:hover,
+.flup a.active {
+  background-color: var(--flup-color);
+  color: white !important;
+}
+
+.fmdup a:hover,
+.fmdup a.active {
+  background-color: var(--fmdup-color);
+}
+
+.fmup a:hover,
+.fmup a.active {
+  background-color: var(--fmup-color);
+}
+
+.fpceup a:hover,
+.fpceup a.active {
+  background-color: var(--fpceup-color);
+}
+
+.icbas a:hover,
+.icbas a.active {
+  background-color: var(--icbas-color);
 }

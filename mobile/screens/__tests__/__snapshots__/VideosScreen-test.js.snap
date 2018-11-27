@@ -8,28 +8,117 @@ exports[`renders loading screen 1`] = `
 </Styled(ViewNB)>
 `;
 
-exports[`renders screen with future prospect content 1`] = `
-<Styled(ViewNB)>
-  <FlatList
-    data={
+exports[`renders screen with video content 1`] = `
+<Styled(ViewNB)
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+      "maxHeight": 1334,
+      "width": 750,
+    }
+  }
+>
+  <Carousel
+    name="feup"
+    videos={
       Array [
-        "https://youtube.com/1",
-        "https://youtube.com/2",
-        "https://youtube.com/3",
+        <Styled(ViewNB)
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            }
+          }
+          virtual={undefined}
+        >
+          <WebView
+            domStorageEnabled={true}
+            javaScriptEnabled={true}
+            javaScriptEnabledAndroid={true}
+            onNavigationStateChange={[Function]}
+            scalesPageToFit={true}
+            source={
+              Object {
+                "uri": "https://youtube.com/1?playlist=1&autoplay=1&loop=1&theme=dark&fs=0&rel=0&disablekb=1",
+              }
+            }
+            startInLoadingState={true}
+            style={
+              Object {
+                "elevation": 10,
+                "flex": 1,
+                "width": 750,
+              }
+            }
+          />
+        </Styled(ViewNB)>,
+        <Styled(ViewNB)
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            }
+          }
+          virtual={undefined}
+        >
+          <WebView
+            domStorageEnabled={true}
+            javaScriptEnabled={true}
+            javaScriptEnabledAndroid={true}
+            onNavigationStateChange={[Function]}
+            scalesPageToFit={true}
+            source={
+              Object {
+                "uri": "https://youtube.com/2?playlist=2&autoplay=1&loop=1&theme=dark&fs=0&rel=0&disablekb=1",
+              }
+            }
+            startInLoadingState={true}
+            style={
+              Object {
+                "elevation": 10,
+                "flex": 1,
+                "width": 750,
+              }
+            }
+          />
+        </Styled(ViewNB)>,
+        <Styled(ViewNB)
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            }
+          }
+          virtual={undefined}
+        >
+          <WebView
+            domStorageEnabled={true}
+            javaScriptEnabled={true}
+            javaScriptEnabledAndroid={true}
+            onNavigationStateChange={[Function]}
+            scalesPageToFit={true}
+            source={
+              Object {
+                "uri": "https://youtube.com/3?playlist=3&autoplay=1&loop=1&theme=dark&fs=0&rel=0&disablekb=1",
+              }
+            }
+            startInLoadingState={true}
+            style={
+              Object {
+                "elevation": 10,
+                "flex": 1,
+                "width": 750,
+              }
+            }
+          />
+        </Styled(ViewNB)>,
       ]
     }
-    disableVirtualization={false}
-    horizontal={false}
-    initialNumToRender={10}
-    keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
-    noColumns={3}
-    numColumns={1}
-    onEndReachedThreshold={2}
-    renderItem={[Function]}
-    scrollEventThrottle={50}
-    updateCellsBatchingPeriod={50}
-    windowSize={21}
   />
 </Styled(ViewNB)>
 `;

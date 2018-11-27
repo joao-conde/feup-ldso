@@ -31,6 +31,15 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#c6db00',
             backgroundColor: '#c6db00',
         },
+        carouselBar: {
+            backgroundColor: '#c6db00'
+        },
+        videoArrow: {
+            color: '#c6db00'
+        },
+        bannerBorder: {
+            borderColor: '#c6db00'
+        }
     },
     faup: {
         header: {
@@ -43,6 +52,15 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#b2b3b5',
             backgroundColor: '#b2b3b5',
         },
+        carouselBar: {
+            backgroundColor: '#b2b3b5'
+        },
+        videoArrow: {
+            color: '#b2b3b5'
+        },
+        bannerBorder: {
+            borderColor: '#b2b3b5'
+        }
     },
     fbaup: {
         header: {
@@ -55,7 +73,15 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#b2b3b5',
             backgroundColor: '#b2b3b5',
         },
-
+        carouselBar: {
+            backgroundColor: '#b2b3b5'
+        },
+        videoArrow: {
+            color: '#b2b3b5'
+        },
+        bannerBorder: {
+            borderColor: '#b2b3b5'
+        }
     },
     fcnaup: {
         header: {
@@ -68,7 +94,15 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#ffd600',
             backgroundColor: '#ffd600',
         },
-
+        carouselBar: {
+            backgroundColor: '#ffd600'
+        },
+        videoArrow: {
+            color: '#ffd600'
+        },
+        bannerBorder: {
+            borderColor: '#ffd600'
+        }
     },
     fcup: {
         header: {
@@ -81,6 +115,15 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#92bfeb',
             backgroundColor: '#92bfeb',
         },
+        carouselBar: {
+            backgroundColor: '#92bfeb'
+        },
+        videoArrow: {
+            color: '#92bfeb'
+        },
+        bannerBorder: {
+            borderColor: '#92bfeb'
+        }
     },
     fdup: {
         header: {
@@ -93,6 +136,15 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#f42a41',
             backgroundColor: '#f42a41',
         },
+        carouselBar: {
+            backgroundColor: '#f42a41'
+        },
+        videoArrow: {
+            color: '#f42a41'
+        },
+        bannerBorder: {
+            borderColor: '#f42a41'
+        }
     },
     fep: {
         header: {
@@ -105,6 +157,15 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#f42a41',
             backgroundColor: '#f42a41'
         },
+        carouselBar: {
+            backgroundColor: '#f42a41'
+        },
+        videoArrow: {
+            color: '#f42a41'
+        },
+        bannerBorder: {
+            borderColor: '#f42a41'
+        }
     },
     feup: {
         header: {
@@ -117,6 +178,15 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#8c2d19',
             backgroundColor: '#8c2d19'
         },
+        carouselBar: {
+            backgroundColor: '#8c2d19'
+        },
+        videoArrow: {
+            color: '#8c2d19'
+        },
+        bannerBorder: {
+            borderColor: '#8c2d19'
+        }
     },
     ffup: {
         header: {
@@ -129,6 +199,15 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#6e20a0',
             backgroundColor: '#6e20a0',
         },
+        carouselBar: {
+            backgroundColor: '#6e20a0'
+        },
+        videoArrow: {
+            color: '#6e20a0'
+        },
+        bannerBorder: {
+            borderColor: '#6e20a0'
+        }
     },
     flup: {
         header: {
@@ -141,6 +220,15 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#0019a8',
             backgroundColor: '#0019a8',
         },
+        carouselBar: {
+            backgroundColor: '#0019a8'
+        },
+        videoArrow: {
+            color: '#0019a8'
+        },
+        bannerBorder: {
+            borderColor: '#0019a8'
+        }
     },
     fmdup: {
         header: {
@@ -153,6 +241,15 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#ff5c00',
             backgroundColor: '#ff5c00',
         },
+        carouselBar: {
+            backgroundColor: '#ff5c00'
+        },
+        videoArrow: {
+            color: '#ff5c00'
+        },
+        bannerBorder: {
+            borderColor: '#ff5c00'
+        }
     },
     fmup: {
         header: {
@@ -162,7 +259,19 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#f4ce15',
             backgroundColor: '#f4ce15',
         },
-
+        mainMenuBtn: {
+            borderColor: '#f4ce15',
+            backgroundColor: '#f4ce15',
+        },
+        carouselBar: {
+            backgroundColor: '#f4ce15'
+        },
+        videoArrow: {
+            color: '#f4ce15'
+        },
+        bannerBorder: {
+            borderColor: '#f4ce15'
+        }
     },
     fpceup: {
         header: {
@@ -175,6 +284,15 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#ff5c00',
             backgroundColor: '#ff5c00',
         },
+        carouselBar: {
+            backgroundColor: '#ff5c00'
+        },
+        videoArrow: {
+            color: '#ff5c00'
+        },
+        bannerBorder: {
+            borderColor: '#ff5c00'
+        }
     },
     icbas: {
         header: {
@@ -187,6 +305,15 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#ffd600',
             backgroundColor: '#ffd600'
         },
+        carouselBar: {
+            backgroundColor: '#ffd600'
+        },
+        videoArrow: {
+            color: '#ffd600'
+        },
+        bannerBorder: {
+            borderColor: '#ffd600'
+        }
     }
 });
 

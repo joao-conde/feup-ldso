@@ -70,16 +70,18 @@ On the `server` directory, run `npm run test`.
 
 #### Production
 This environment is mapped to the repository's _master_ branch.
+This environment uses the standard HTTP port: *80*
 
-The result of the *production server* deployment can be observed at http://impactup.westeurope.cloudapp.azure.com/api
+The result of the *production server* deployment can be observed at http://impactup.westeurope.cloudapp.azure.com:80/api
 
-The result of the *production web-app* deployment can be observed at http://impactup.westeurope.cloudapp.azure.com/
+The result of the *production web-app* deployment can be observed at http://impactup.westeurope.cloudapp.azure.com:80/
 
 The result of the *mobile app* deployment can be observed at https://expo.io/@ldsot3g1/impact-up
 
 #### Staging
 This environment is mapped to the repository's _develop_ branch.
+It's on the same _url_ as the production environment, but uses the *8080* port instead of the standard *80* port.
 
-The result of the *staging server* deployment can be observed at http://impactup.westeurope.cloudapp.azure.com/dev/api
+The result of the *staging server* deployment can be observed at http://impactup.westeurope.cloudapp.azure.com:8080/api
 
-The result of the *staging web-app* deployment can be observed at http://impactup.westeurope.cloudapp.azure.com/dev/
+The result of the *staging web-app* deployment can be observed at http://impactup.westeurope.cloudapp.azure.com:8080/
