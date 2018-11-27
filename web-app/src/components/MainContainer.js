@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import FacultyMenu from '../screens/FacultyMenu';
 import SocialProjects from '../screens/SocialProjects';
 import ProspectsEditor from '../screens/ProspectsEditor';
+import Videos from '../screens/Videos';
 
 import Home from './Home';
 import FacultyAPI from '../FacultyAPI';
@@ -38,6 +39,7 @@ class MainContainer extends Component {
                             <Route exact path='/faculties/:faculty' component={FacultyMenu} />
                             <Route path='/faculties/:faculty/projects' component={SocialProjects} />
                             <Route path='/faculties/:faculty/prospects' component={ProspectsEditor} />
+                            <Route path='/faculties/:faculty/videos' component={Videos} />
                             <Route render={() => <Redirect to='/' />} />
                         </Switch>
                     </div>

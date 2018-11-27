@@ -1,52 +1,79 @@
 import {
-    GET_VIDEOS,
-    ADD_VIDEO,
-    DELETE_VIDEO,
-    GET_VIDEOS_SUCCESS,
-    ADD_VIDEO_SUCCESS,
-    DELETE_VIDEO_SUCCESS,
-    GET_VIDEOS_FAIL,
-    ADD_VIDEO_FAIL,
-    DELETE_VIDEO_FAIL
+    GET_VIDEOS_EN,
+    GET_VIDEOS_EN_SUCCESS,
+    GET_VIDEOS_EN_FAIL,
+    GET_VIDEOS_PT,
+    GET_VIDEOS_PT_SUCCESS,
+    GET_VIDEOS_PT_FAIL,
+    EDIT_VIDEO,
+    EDIT_VIDEO_FAIL,
+    EDIT_VIDEO_SUCCESS,
 } from '../../actions/videosActions';
 
 const initialState = {
-    videos: null
+    loading: false,
+    loadingAction: false,
+    videosEN: {},
+    videosPT: {}
 };
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-    case GET_VIDEOS:
-    case ADD_VIDEO:
-    case DELETE_VIDEO:
+    case GET_VIDEOS_EN:
+    case GET_VIDEOS_PT:
         return { ...state,
             loading: true
         };
 
-    case GET_VIDEOS_SUCCESS:
+    case GET_VIDEOS_EN_SUCCESS:
         return { ...state,
             loading: false,
-            videos: action.payload.data
+            videosEN: action.payload.data
         };
-    case ADD_VIDEO_SUCCESS:
+    case GET_VIDEOS_PT_SUCCESS:
         return { ...state,
             loading: false,
-            // Falta adicionar array
-        };
-    case DELETE_VIDEO_SUCCESS:
-        return { ...state,
-            loading: false,
-            // Remover do array
+            videosPT: action.payload.data
         };
 
-    case GET_VIDEOS_FAIL:
-    case ADD_VIDEO_FAIL:
-    case DELETE_VIDEO_FAIL:
+    case GET_VIDEOS_EN_FAIL:
+    case GET_VIDEOS_PT_FAIL:
         return { ...state,
             loading: false,
             error: 'Error while fetching videos data'
         };
+
+    case EDIT_VIDEO:
+        return { ...state,
+            loadingAction: true
+        };
+    case EDIT_VIDEO_SUCCESS: {
+        return editVideo(state, action.payload.data.videos);
+    }
+    case EDIT_VIDEO_FAIL:
+        return { ...state,
+            loadingAction: false,
+            error: 'Error while executing action on videos'
+        };
+
     default:
         return state;
     }
 }
+
+const editVideo = (state, editedVideo) => {
+    if (editedVideo.language === 'en') {
+        return {
+            ...state,
+            loadingAction: false,
+            videosEN: editedVideo.videos
+        };
+    } else {
+        return {
+            ...state,
+            loadingAction: false,
+            videosPT: editedVideo.videos
+        };
+    }
+
+};
