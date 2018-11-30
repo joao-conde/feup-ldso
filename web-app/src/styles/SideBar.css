@@ -101,3 +101,21 @@
 .imgBtn.icbas {
     border: 8px solid var(--feup-color);
 }
+
+/* Search Bar */
+.searchBar {
+    position: relative;
+    margin-top: 0.2em;
+    margin-left: 0.2em;
+}
+
+.searchBar input { 
+    text-indent: 25px;
+    border-radius: 30px !important;
+}
+.searchBar .search-icon { 
+  position: absolute;
+  top: 9px;
+  left: 25px;
+  font-size: 20px;
+}

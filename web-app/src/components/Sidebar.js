@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import SearchBar from './SearchBar';
 import plus_circle from '../assets/images/plus_circle.png';
 
 import '../styles/SideBar.css';
@@ -32,6 +33,7 @@ class Sidebar extends Component {
             return (
                 <div className="sidebarParent">
                     <div className="sidebar">
+                        <SearchBar />
                         <NavLink to={`/faculties/${faculty}/projects/new`} className="addBtnLink">
                             <img src={plus_circle} alt="Add button" className="addBtn" />
                         </NavLink>
