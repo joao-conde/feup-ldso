@@ -9,9 +9,13 @@ class SearchBar extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            firstRequest: false
-        };
+        this.search = this.search.bind(this);
+    }
+
+    search(event) {
+        const { search } = this.props;
+        
+        search(event.target.value);
     }
 
     render() {
@@ -19,7 +23,7 @@ class SearchBar extends Component {
             <Row>
                 <Col className="searchBar" >
                     <FontAwesomeIcon className="search-icon" icon="search" />
-                    <Input placeholder="search" />
+                    <Input placeholder="search" onChange={this.search} />
                 </Col>
             </Row>
         );
@@ -27,6 +31,7 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
+    search: PropTypes.func
 };
 
 export default SearchBar;

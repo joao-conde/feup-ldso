@@ -25,7 +25,7 @@ class Sidebar extends Component {
     }
 
     render() {
-        const { loading, faculty, projectsEN, idProjEN } = this.props;
+        const { loading, faculty, projectsEN, idProjEN, search } = this.props;
         
         if (loading) {
             return <div>Loading...</div>;
@@ -33,7 +33,7 @@ class Sidebar extends Component {
             return (
                 <div className="sidebarParent">
                     <div className="sidebar">
-                        <SearchBar />
+                        <SearchBar search={search}/>
                         <NavLink to={`/faculties/${faculty}/projects/new`} className="addBtnLink">
                             <img src={plus_circle} alt="Add button" className="addBtn" />
                         </NavLink>
@@ -58,7 +58,8 @@ Sidebar.propTypes = {
     projectsEN: PropTypes.array,
     projectsPT: PropTypes.array,
     idProjEN: PropTypes.string,
-    action: PropTypes.func
+    action: PropTypes.func,
+    search: PropTypes.func
 };
 
 export default Sidebar;
