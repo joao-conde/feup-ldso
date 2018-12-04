@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {DebounceInput} from 'react-debounce-input';
 import PropTypes from 'prop-types';
@@ -40,7 +40,8 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-    search: PropTypes.func
+    search: PropTypes.func,
+    query: PropTypes.string
 };
 
 export default SearchBar;
