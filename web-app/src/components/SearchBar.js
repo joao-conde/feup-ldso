@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Input, Row, Col } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {DebounceInput} from 'react-debounce-input';
 import PropTypes from 'prop-types';
 
 import '../styles/SideBar.css';
@@ -23,7 +24,12 @@ class SearchBar extends Component {
             <Row>
                 <Col className="searchBar" >
                     <FontAwesomeIcon className="search-icon" icon="search" />
-                    <Input placeholder="search" onChange={this.search} />
+                    <DebounceInput
+                        className="form-control"
+                        placeholder="search"
+                        minLength={2}
+                        debounceTimeout={1000}
+                        onChange={this.search} />
                 </Col>
             </Row>
         );

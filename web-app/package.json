@@ -18,6 +18,7 @@
     "flexbox-react": "^4.4.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
+    "react-debounce-input": "^3.2.0",
     "react-dom": "^16.5.2",
     "react-notifications": "^1.4.3",
     "react-redux": "^5.1.1",
