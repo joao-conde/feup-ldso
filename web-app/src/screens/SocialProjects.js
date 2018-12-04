@@ -25,7 +25,7 @@ const deepEqual = (a, b) => {
 class SocialProjects extends Component {
     constructor(props) {
         super(props);
-        
+
         this.state = {
             query: ''
         };
@@ -37,13 +37,16 @@ class SocialProjects extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        const { faculty, currProjEN, currProjPT, projectsEN } = this.props;
+        const { faculty, currProjEN, currProjPT, projectsEN, getProjects } = this.props;
+        const { query } = this.state;
 
         if (prevProps.faculty !== faculty)
             this.updateFaculty();
 
-        if (prevState.query !== this.state.query)
-            console.log(`Need to add debouncing. Query: ${this.state.query}`);
+        if (prevState.query !== query) {
+            getProjects(faculty, 'en', query);
+            getProjects(faculty, 'pt', query);
+        }
 
         if (currProjEN != null && currProjPT != null) {
             if (prevProps.currProjEN != null && prevProps.currProjEN.id === currProjEN.id && !deepEqual(prevProps.currProjEN, currProjEN))
@@ -56,10 +59,11 @@ class SocialProjects extends Component {
 
     updateFaculty() {
         const { match, faculty, getProjects, setFaculty } = this.props;
+        const { query } = this.state;
 
         setFaculty(match.params.faculty);
-        getProjects(faculty, 'en');
-        getProjects(faculty, 'pt');
+        getProjects(faculty, 'pt', query);
+        getProjects(faculty, 'en', query);
     }
 
     updateQuery(query) {
@@ -73,7 +77,7 @@ class SocialProjects extends Component {
 
         return (
             <div style={contentStyle}>
-                <Sidebar loading={loading} faculty={faculty} projectsEN={projectsEN} projectsPT={projectsPT} idProjEN={currProjEN != null? currProjEN.id : null} action={getProjectDetails} search={this.updateQuery}/>
+                <Sidebar loading={loading} faculty={faculty} projectsEN={projectsEN} projectsPT={projectsPT} idProjEN={currProjEN != null? currProjEN.id : null} action={getProjectDetails} search={this.updateQuery} query={this.state.query}/>
                 <Route exact path='/faculties/:faculty/projects' render={() => 
                     <GenericProject add={false} loading={loading} loadingAction={loadingAction} faculty={faculty} projEN={currProjEN} projPT={currProjPT} mainAction={editProject} delAction={deleteProject} />
                 } />

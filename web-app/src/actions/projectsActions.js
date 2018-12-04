@@ -25,13 +25,13 @@ export const DELETE_PROJECT_FAIL = 'web/projects/DELETE_PROJECT_FAIL';
 // Reset Current Projects
 export const RESET_PROJECTS = 'web/projects/RESET_PROJECTS';
 
-export function getProjects(faculty, language) {
+export function getProjects(faculty, language, query) {
     return {
         type: language === 'en'? GET_PROJECTS_EN : GET_PROJECTS_PT,
         payload: {
             request: {
                 type: 'GET',
-                url: `/faculties/${language}/${faculty}/social-projects-short`
+                url: `/faculties/${language}/${faculty}/social-projects-short?q=${query}`
             }
         }
     };

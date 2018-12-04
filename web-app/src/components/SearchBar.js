@@ -20,6 +20,8 @@ class SearchBar extends Component {
     }
 
     render() {
+        const { query } = this.props;
+
         return (
             <Row>
                 <Col className="searchBar" >
@@ -27,6 +29,7 @@ class SearchBar extends Component {
                     <DebounceInput
                         className="form-control"
                         placeholder="search"
+                        value={query}
                         minLength={2}
                         debounceTimeout={1000}
                         onChange={this.search} />
