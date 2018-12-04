@@ -137,6 +137,8 @@ const addProjects = (state, newProjects) => {
 };
 
 const deleteProject = (state) => {
+    console.log(process.env.test);
+    if(!process.env.test) NotificationManager.success('Successfully deleted project!');
     let enIdx = state.projectsEN.findIndex((el) => el.id === state.currProjEN.id);
 
     if (enIdx >= 0) {
