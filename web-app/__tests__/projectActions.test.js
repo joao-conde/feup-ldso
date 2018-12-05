@@ -19,7 +19,7 @@ import {
 
 describe('Project actions', () => {
 
-    it('should create an action to get projects', () => {
+    it('should create an action to get projects with no query specified', () => {
 		
         const expectedActionEN = {
             type: GET_PROJECTS_EN,
@@ -43,6 +43,33 @@ describe('Project actions', () => {
 		
         expect(getProjects('feup', 'en')).toEqual(expectedActionEN);
         expect(getProjects('feup', 'pt')).toEqual(expectedActionPT);
+    });
+
+
+    it('should create an action to get projects with a query specified', () => {
+		
+        const expectedActionEN = {
+            type: GET_PROJECTS_EN,
+            payload: {
+                request: {
+                    type: 'GET',
+                    url: '/faculties/en/feup/social-projects-short?q=projectNameEN'
+                }
+            }
+        };
+
+        const expectedActionPT = {
+            type: GET_PROJECTS_PT,
+            payload: {
+                request: {
+                    type: 'GET',
+                    url: '/faculties/pt/feup/social-projects-short?q=projectNamePT'
+                }	
+            }
+        };
+		
+        expect(getProjects('feup', 'en', 'projectNameEN')).toEqual(expectedActionEN);
+        expect(getProjects('feup', 'pt', 'projectNamePT')).toEqual(expectedActionPT);
     });
 
 

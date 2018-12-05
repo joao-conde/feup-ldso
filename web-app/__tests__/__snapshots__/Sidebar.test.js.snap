@@ -215,6 +215,7 @@ ShallowWrapper {
       "children": <div
         className="sidebar"
       >
+        <SearchBar />
         <NavLink
           activeClassName="active"
           aria-current="page"
@@ -237,6 +238,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <SearchBar />,
           <NavLink
             activeClassName="active"
             aria-current="page"
@@ -255,6 +257,18 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "query": undefined,
+            "search": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -300,6 +314,7 @@ ShallowWrapper {
         "children": <div
           className="sidebar"
         >
+          <SearchBar />
           <NavLink
             activeClassName="active"
             aria-current="page"
@@ -322,6 +337,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
+            <SearchBar />,
             <NavLink
               activeClassName="active"
               aria-current="page"
@@ -340,6 +356,18 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "query": undefined,
+              "search": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           Object {
             "instance": null,
             "key": undefined,
@@ -485,6 +513,7 @@ ShallowWrapper {
       "children": <div
         className="sidebar"
       >
+        <SearchBar />
         <NavLink
           activeClassName="active"
           aria-current="page"
@@ -527,6 +556,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <SearchBar />,
           <NavLink
             activeClassName="active"
             aria-current="page"
@@ -566,6 +596,18 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "query": undefined,
+            "search": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -671,6 +713,7 @@ ShallowWrapper {
         "children": <div
           className="sidebar"
         >
+          <SearchBar />
           <NavLink
             activeClassName="active"
             aria-current="page"
@@ -713,6 +756,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
+            <SearchBar />,
             <NavLink
               activeClassName="active"
               aria-current="page"
@@ -752,6 +796,18 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "query": undefined,
+              "search": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           Object {
             "instance": null,
             "key": undefined,

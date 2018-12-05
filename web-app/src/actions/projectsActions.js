@@ -31,7 +31,7 @@ export function getProjects(faculty, language, query) {
         payload: {
             request: {
                 type: 'GET',
-                url: `/faculties/${language}/${faculty}/social-projects-short?q=${query}`
+                url: `/faculties/${language}/${faculty}/social-projects-short` + (query ? `?q=${query}` : '')
             }
         }
     };

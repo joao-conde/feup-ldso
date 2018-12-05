@@ -257,6 +257,8 @@ ShallowWrapper {
           loading={false}
           projectsEN={Array []}
           projectsPT={Array []}
+          query=""
+          search={[Function]}
         />,
         <Route
           exact={true}
@@ -287,6 +289,8 @@ ShallowWrapper {
           "loading": false,
           "projectsEN": Array [],
           "projectsPT": Array [],
+          "query": "",
+          "search": [Function],
         },
         "ref": null,
         "rendered": null,
@@ -334,6 +338,8 @@ ShallowWrapper {
             loading={false}
             projectsEN={Array []}
             projectsPT={Array []}
+            query=""
+            search={[Function]}
           />,
           <Route
             exact={true}
@@ -364,6 +370,8 @@ ShallowWrapper {
             "loading": false,
             "projectsEN": Array [],
             "projectsPT": Array [],
+            "query": "",
+            "search": [Function],
           },
           "ref": null,
           "rendered": null,
