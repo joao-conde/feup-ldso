@@ -81,18 +81,21 @@ describe('Social Projects Screen tests', () => {
         const wrapper = setup(projects);
         expect(wrapper.dive().instance().state.query).toBe('');
         wrapper.dive().instance().updateQuery('projectName');
+        expect(wrapper.dive()).toMatchSnapshot();
     });  
 
     it('calls updateFaculty without crashing', () => {
         const projects = [];
         const wrapper = setup(projects);
         wrapper.dive().instance().updateFaculty();
+        expect(wrapper.dive()).toMatchSnapshot();
     });  
 
     it('calls componentDidMount without crashing', () => {
         const projects = [];
         const wrapper = setup(projects);
         wrapper.dive().instance().componentDidMount();
+        expect(wrapper.dive()).toMatchSnapshot();
     });
 
     it('calls componentDidUpdate without crashing', () => {
@@ -112,5 +115,6 @@ describe('Social Projects Screen tests', () => {
 
         const wrapper = setup(projects);
         wrapper.dive().instance().componentDidUpdate(prevProps, prevState);
+        expect(wrapper.dive()).toMatchSnapshot();
     }); 
 });
