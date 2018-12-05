@@ -188,10 +188,392 @@ exports[`App snapshot renders without crashing 1`] = `
 </div>
 `;
 
-exports[`renders faculty menu screen 1`] = `
+exports[`Faculty Menu screen tests calls componentDidMount without crashing 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Connect(FacultyMenu) />,
+  Symbol(enzyme.__unrendered__): <FacultyMenu
+    match={
+      Object {
+        "params": Object {
+          "faculty": "feup",
+        },
+      }
+    }
+    resetProjects={[Function]}
+    setFaculty={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <MenuLink
+          link="/faculties/feup/projects"
+          title="Social Impact Projects"
+        />,
+        <MenuLink
+          link="/faculties/feup/videos"
+          title="Promotional Videos"
+        />,
+        <MenuLink
+          link="/faculties/feup/prospects"
+          title="Future Plans"
+        />,
+      ],
+      "style": Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "justifyContent": "space-around",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "link": "/faculties/feup/projects",
+          "title": "Social Impact Projects",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "link": "/faculties/feup/videos",
+          "title": "Promotional Videos",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "link": "/faculties/feup/prospects",
+          "title": "Future Plans",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <MenuLink
+            link="/faculties/feup/projects"
+            title="Social Impact Projects"
+          />,
+          <MenuLink
+            link="/faculties/feup/videos"
+            title="Promotional Videos"
+          />,
+          <MenuLink
+            link="/faculties/feup/prospects"
+            title="Future Plans"
+          />,
+        ],
+        "style": Object {
+          "display": "flex",
+          "flexDirection": "row",
+          "justifyContent": "space-around",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "link": "/faculties/feup/projects",
+            "title": "Social Impact Projects",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "link": "/faculties/feup/videos",
+            "title": "Promotional Videos",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "link": "/faculties/feup/prospects",
+            "title": "Future Plans",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+    },
+    "disableLifecycleMethods": true,
+  },
+}
+`;
+
+exports[`Faculty Menu screen tests calls componentDidUpdate without crashing 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <FacultyMenu
+    match={
+      Object {
+        "params": Object {
+          "faculty": "feup",
+        },
+      }
+    }
+    resetProjects={[Function]}
+    setFaculty={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <MenuLink
+          link="/faculties/feup/projects"
+          title="Social Impact Projects"
+        />,
+        <MenuLink
+          link="/faculties/feup/videos"
+          title="Promotional Videos"
+        />,
+        <MenuLink
+          link="/faculties/feup/prospects"
+          title="Future Plans"
+        />,
+      ],
+      "style": Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "justifyContent": "space-around",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "link": "/faculties/feup/projects",
+          "title": "Social Impact Projects",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "link": "/faculties/feup/videos",
+          "title": "Promotional Videos",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "link": "/faculties/feup/prospects",
+          "title": "Future Plans",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <MenuLink
+            link="/faculties/feup/projects"
+            title="Social Impact Projects"
+          />,
+          <MenuLink
+            link="/faculties/feup/videos"
+            title="Promotional Videos"
+          />,
+          <MenuLink
+            link="/faculties/feup/prospects"
+            title="Future Plans"
+          />,
+        ],
+        "style": Object {
+          "display": "flex",
+          "flexDirection": "row",
+          "justifyContent": "space-around",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "link": "/faculties/feup/projects",
+            "title": "Social Impact Projects",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "link": "/faculties/feup/videos",
+            "title": "Promotional Videos",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "link": "/faculties/feup/prospects",
+            "title": "Future Plans",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+    },
+    "disableLifecycleMethods": true,
+  },
+}
+`;
+
+exports[`Faculty Menu screen tests renders faculty menu screen 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Connect(FacultyMenu)
+    match={
+      Object {
+        "params": Object {
+          "faculty": "feup",
+        },
+      }
+    }
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -205,6 +587,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
+      "match": Object {
+        "params": Object {
+          "faculty": "feup",
+        },
+      },
       "resetProjects": [Function],
       "setFaculty": [Function],
     },
@@ -218,6 +605,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
+        "match": Object {
+          "params": Object {
+            "faculty": "feup",
+          },
+        },
         "resetProjects": [Function],
         "setFaculty": [Function],
       },

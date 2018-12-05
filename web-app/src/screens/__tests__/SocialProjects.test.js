@@ -94,4 +94,26 @@ describe('Social Projects Screen tests', () => {
         const wrapper = setup(projects);
         wrapper.dive().instance().componentDidMount();
     });
+    /*
+    *   Test commented untill changes to each Notification call is made
+    *   (solved in another branch)
+    */
+    // it('calls componentDidUpdate without crashing', () => {
+    //     const projects = [];
+
+    //     const prevProps = {
+    //         faculty: 'feup',
+    //         currProjEN: {
+    //             id: '69',
+    //             content: 'mockup project'
+    //         }
+    //     };
+
+    //     const prevState = {
+    //         query: 'mockup query'
+    //     };
+
+    //     const wrapper = setup(projects);
+    //     wrapper.dive().instance().componentDidUpdate(prevProps, prevState);
+    // }); 
 });

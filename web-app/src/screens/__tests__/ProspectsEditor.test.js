@@ -46,12 +46,28 @@ describe('Prospects Editor Screen tests', () => {
 	
 	it('calls componentDidMount without crashing', () => {
         const wrapper = setup();
-        wrapper.dive().instance().componentDidMount();
-	});  
+		wrapper.dive().instance().componentDidMount();
+		expect(wrapper.dive()).toMatchSnapshot();
+	});
+	
+	
+	it('calls componentDidUpdate without crashing', () => {
+		const wrapper = setup();
+		
+		const prevProps = {
+			faculty: 'feup',
+			contentEN: 'Test EN content',
+			contentPT: 'Conteudo de teste PT'
+		};
+
+		wrapper.dive().instance().componentDidUpdate(prevProps);
+		expect(wrapper.dive()).toMatchSnapshot();
+	});
 	
 	it('calls updateProspects without crashing', () => {
         const wrapper = setup();
-        wrapper.dive().instance().updateProspects();
+		wrapper.dive().instance().updateProspects();
+		expect(wrapper.dive()).toMatchSnapshot();
 	});
 	
 	it('calls handleInputChange without crashing', () => {
@@ -63,11 +79,13 @@ describe('Prospects Editor Screen tests', () => {
 			}
 		};
         wrapper.dive().instance().handleInputChange(fakeEvent);
+		expect(wrapper.dive()).toMatchSnapshot();
 	});
 	
 	it('calls onSubmit without crashing', () => {
 		const wrapper = setup();
-        wrapper.dive().instance().onSubmit();
+		wrapper.dive().instance().onSubmit();
+		expect(wrapper.dive()).toMatchSnapshot();
     });
 
 });
