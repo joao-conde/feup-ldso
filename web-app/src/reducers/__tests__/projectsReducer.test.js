@@ -13,6 +13,7 @@ import {
     GET_PROJECTS_PT_SUCCESS,
     GET_PROJECT_BY_ID_SUCCESS,
     EDIT_PROJECT_SUCCESS,
+    ADD_PROJECT_SUCCESS,
     DELETE_PROJECT_SUCCESS
 } from '../../actions/projectsActions';
 
@@ -293,6 +294,57 @@ describe('Projects reducer', () => {
         };
 
         expect(reducer(previousState, editProjectSuccessAction)).toEqual(expectedState);
+    });
+
+
+    it('should handle ADD_PROJECT_SUCCESS', () => {
+
+        const projectEN = {
+            id: '5bfabd66c7701a1504d35d7c',
+            title: '[EN] English project',
+            short_description: 'Add Test project',
+            images: [
+                'https://dummyimage.com/600x400/000/fff',
+                'https://dummyimage.com/600x400/000/fff'
+            ],
+            language: 'en'
+        };
+
+        const projectPT = {
+            id: '5bfabd66c7701a1504d35d7c',
+            title: '[PT] Projeto Portugues',
+            short_description: 'Adicionar projeto de teste.',
+            images: [
+                'https://dummyimage.com/600x400/000/fff',
+                'https://dummyimage.com/600x400/000/fff'
+            ],
+            language: 'pt'
+        };
+
+        const previousState = {
+            loadingAction: true,
+            projectsEN: [],
+            projectsPT: [],
+            currProjEN: null,
+            currProjPT: null,
+        };
+
+        const expectedState = {
+            loadingAction: false,
+            projectsEN: [projectEN],
+            projectsPT: [projectPT],
+            currProjEN: projectEN,
+            currProjPT: projectPT
+        };
+
+        const addProjectSuccessAction = {
+            type: ADD_PROJECT_SUCCESS,
+            payload:{
+                data:[projectEN, projectPT]
+            }
+        };
+
+        expect(reducer(previousState, addProjectSuccessAction)).toEqual(expectedState);
     });
 
 

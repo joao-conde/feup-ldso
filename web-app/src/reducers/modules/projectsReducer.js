@@ -83,7 +83,7 @@ export default function reducer(state = initialState, action) {
             error: 'Error while fetching projects data'
         };
     case ADD_PROJECT_FAIL:
-        NotificationManager.error('Failed to add info');
+        if(!global.__TEST__) NotificationManager.error('Failed to add info');
         /* falls through */
     case EDIT_PROJECT_FAIL:
     case DELETE_PROJECT_FAIL:
@@ -101,7 +101,8 @@ const editProject = (state, editedProject) => {
     const editedIdx = state.projectsEN.findIndex(
         el => state.currProjEN.id === el.id
     );
-
+    
+    if(!global.__TEST__) NotificationManager.success('Successfully edited project!');
     if (editedProject.language === 'en') {
         let prevProps = [...state.projectsEN];
         prevProps[editedIdx] = editedProject;
@@ -126,7 +127,7 @@ const editProject = (state, editedProject) => {
 };
 
 const addProjects = (state, newProjects) => {
-    NotificationManager.success('Successfully added new project!');
+    if(!global.__TEST__) NotificationManager.success('Successfully added new project!');
     return { ...state,
         loadingAction: false,
         projectsEN: [newProjects[0], ...state.projectsEN],
@@ -138,7 +139,7 @@ const addProjects = (state, newProjects) => {
 
 const deleteProject = (state) => {
     let enIdx = state.projectsEN.findIndex((el) => el.id === state.currProjEN.id);
-
+    
     if (enIdx >= 0) {
         let newProjectsEN = [...state.projectsEN];
         newProjectsEN.splice( enIdx, 1 );

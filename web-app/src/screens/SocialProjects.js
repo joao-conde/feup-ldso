@@ -50,10 +50,10 @@ class SocialProjects extends Component {
 
         if (currProjEN != null && currProjPT != null) {
             if (prevProps.currProjEN != null && prevProps.currProjEN.id === currProjEN.id && !deepEqual(prevProps.currProjEN, currProjEN))
-                NotificationManager.success('Successfully edited info!');
+                if(!global.__TEST__) NotificationManager.success('Successfully edited info!');
 
             if ((projectsEN.findIndex((el) => el.id === currProjEN.id)) === -1)
-                NotificationManager.success('Successfully deleted info!');
+                if(!global.__TEST__) NotificationManager.success('Successfully deleted info!');
         }
     }
 
