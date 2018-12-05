@@ -1,5 +1,5 @@
 import React from 'react';
-import GenericProject from '../src/components/GenericProject';
+import GenericProject from '../GenericProject';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 

@@ -1,5 +1,5 @@
 import expect from 'expect';
-import reducer from '../src/reducers/modules/prospectsReducer';
+import reducer from '../modules/prospectsReducer';
 
 import{
     GET_PROSPECTS_EN,
@@ -11,7 +11,7 @@ import{
     EDIT_PROSPECTS,
     EDIT_PROSPECTS_SUCCESS,
     EDIT_PROSPECTS_FAIL
-} from '../src/actions/prospectsActions';
+} from '../../actions/prospectsActions';
 
 
 describe('Prospects reducer', () => {

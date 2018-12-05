@@ -1,5 +1,5 @@
 import expect from 'expect';
-import reducer from '../src/reducers/modules/projectsReducer';
+import reducer from '../modules/projectsReducer';
 
 import {
     GET_PROJECTS_EN,
@@ -14,7 +14,7 @@ import {
     GET_PROJECT_BY_ID_SUCCESS,
     EDIT_PROJECT_SUCCESS,
     DELETE_PROJECT_SUCCESS
-} from '../src/actions/projectsActions';
+} from '../../actions/projectsActions';
 
 
 describe('Projects reducer', () => {

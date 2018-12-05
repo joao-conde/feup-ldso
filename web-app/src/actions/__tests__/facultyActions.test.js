@@ -3,7 +3,7 @@ import {
     setFaculty,
     //types
     SET_FACULTY
-} from '../src/actions/facultyActions';
+} from '../facultyActions';
 
 
 describe('Faculty actions', () => {

@@ -61,6 +61,6 @@
     },
     "verbose": true,
     "collectCoverage": true,
-    "setupTestFrameworkScriptFile": "<rootDir>/__tests__/App.test.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/src/App.test.js"
   }
 }

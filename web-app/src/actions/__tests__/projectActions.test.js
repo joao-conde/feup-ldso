@@ -14,7 +14,7 @@ import {
     EDIT_PROJECT,
     DELETE_PROJECT,
     RESET_PROJECTS
-} from '../src/actions/projectsActions';
+} from '../projectsActions';
 
 
 describe('Project actions', () => {

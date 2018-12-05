@@ -6,7 +6,7 @@ import {
     GET_VIDEOS_EN,
     GET_VIDEOS_PT,
     EDIT_VIDEO
-} from '../src/actions/videosActions';
+} from '../videosActions';
 
 
 describe('Video actions', () => {

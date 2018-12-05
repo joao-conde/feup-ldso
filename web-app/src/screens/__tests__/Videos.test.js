@@ -1,5 +1,5 @@
 import React from 'react';
-import Videos from '../src/screens/Videos';
+import Videos from '../Videos';
 import Enzyme, { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import Adapter from 'enzyme-adapter-react-16';
