@@ -188,7 +188,7 @@ exports[`App snapshot renders without crashing 1`] = `
 </div>
 `;
 
-exports[`renders loading screen 1`] = `
+exports[`Social Projects Screen tests renders loading screen 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <SocialProjects

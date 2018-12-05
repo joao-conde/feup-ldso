@@ -56,7 +56,7 @@ function setup(projects) {
         editProject: jest.fn(),
         addProject: jest.fn(),
         deleteProject: jest.fn(),
-        setFaculty: jest.fn(),
+        setFaculty: jest.fn()
     };
 
     const wrapper = shallow(<SocialProjects {...props} />,
@@ -68,11 +68,30 @@ function setup(projects) {
     return wrapper;
 }
 
-it('renders loading screen', () => {
+describe('Social Projects Screen tests', () => {
 
-    const projects = [];
+    it('renders loading screen', () => {
+        const projects = [];
+        const wrapper = setup(projects);
+        expect(wrapper.dive()).toMatchSnapshot();
+    });
+    
+    it('calls updateQuery without crashing', () => {
+        const projects = [];
+        const wrapper = setup(projects);
+        expect(wrapper.dive().instance().state.query).toBe('');
+        wrapper.dive().instance().updateQuery('projectName');
+    });  
 
-    const wrapper = setup(projects);
+    it('calls updateFaculty without crashing', () => {
+        const projects = [];
+        const wrapper = setup(projects);
+        wrapper.dive().instance().updateFaculty();
+    });  
 
-    expect(wrapper.dive()).toMatchSnapshot();
+    it('calls componentDidMount without crashing', () => {
+        const projects = [];
+        const wrapper = setup(projects);
+        wrapper.dive().instance().componentDidMount();
+    });
 });
