@@ -12,7 +12,7 @@ export class FacultyResearchCenterController {
   @get('/faculties/{language}/{name}/research-centers', {
     responses: {
       '200': {
-        description: 'Array of Research Centers from a Faculty',
+        description: 'Research Centers from a Faculty',
         content: {
           'application/json': {
             schema: {type: 'array', items: {'x-ts-type': ResearchCenter}},
@@ -34,7 +34,7 @@ export class FacultyResearchCenterController {
   @get('/faculties/{language}/{name}/research-centers-short', {
     responses: {
       '200': {
-        description: 'Array of Research Centers from a Faculty (short version)',
+        description: 'Research Centers from a Faculty (short version)',
         content: {
           'application/json': {
             schema: {type: 'array', items: {'x-ts-type': ResearchCenter}},

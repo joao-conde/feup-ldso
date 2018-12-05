@@ -2,6 +2,7 @@ import {repository} from '@loopback/repository';
 import {SocialProjectRepository} from '../repositories';
 import {del, get, patch, post, param, requestBody} from '@loopback/rest';
 import {SocialProject, NewSocialProject} from '../models';
+import {authenticate} from '@loopback/authentication';
 
 export class FacultySocialProjectController {
   constructor(
@@ -31,6 +32,7 @@ export class FacultySocialProjectController {
     });
   }
 
+  @authenticate('JWTStrategy')
   @patch('/faculties/{language}/{name}/social-projects', {
     responses: {
       '200': {
@@ -38,7 +40,7 @@ export class FacultySocialProjectController {
       },
     },
   })
-  async patch(
+  async patchSocialProject(
     @param.path.string('language') language: string,
     @param.path.string('name') name: string,
     @requestBody() socialProject: Partial<SocialProject>,
@@ -70,6 +72,7 @@ export class FacultySocialProjectController {
     });
   }
 
+  @authenticate('JWTStrategy')
   @post('/faculties/{name}/social-projects', {
     responses: {
       '200': {
@@ -86,6 +89,7 @@ export class FacultySocialProjectController {
     @param.path.string('name') name: string,
     @requestBody() socialProject: NewSocialProject,
   ): Promise<SocialProject[]> {
+    //New project, english version
     let newProjectEN = new SocialProject({
       title: socialProject.titleEN,
       short_description: socialProject.descriptionEN,
@@ -97,6 +101,7 @@ export class FacultySocialProjectController {
       language: 'en',
     });
 
+    //New project, portuguese version
     let newProjectPT = new SocialProject({
       title: socialProject.titlePT,
       short_description: socialProject.descriptionPT,
@@ -114,6 +119,7 @@ export class FacultySocialProjectController {
     ];
   }
 
+  @authenticate('JWTStrategy')
   @del('/faculties/social-projects', {
     responses: {
       '204': {
