@@ -47,6 +47,6 @@ services:
       - mongo
     volumes:
       - ./server/resources:/home
-    command: bash -c "mongoimport --host mongo --db up --collection Faculty --file /home/faculties_seed.json --jsonArray --drop && mongoimport --host mongo --db up --collection SocialProject --file /home/projects_seed.json --jsonArray --drop --maintainInsertionOrder && mongoimport --host mongo --db up --collection Statistics --file /home/statistics_seed.json --jsonArray --drop && mongoimport --host mongo --db up --collection ResearchCenter --file /home/research_centers_seed.json --jsonArray --drop"
+    command: bash -c "mongoimport --host mongo --db up --collection User --file /home/users_seed.json --drop --jsonArray && mongoimport --host mongo --db up --collection Faculty --file /home/faculties_seed.json --jsonArray --drop && mongoimport --host mongo --db up --collection SocialProject --file /home/projects_seed.json --jsonArray --drop --maintainInsertionOrder && mongoimport --host mongo --db up --collection Statistics --file /home/statistics_seed.json --jsonArray --drop && mongoimport --host mongo --db up --collection ResearchCenter --file /home/research_centers_seed.json --jsonArray --drop"
     depends_on:
       - mongo

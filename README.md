@@ -63,7 +63,13 @@ docker-compose up --build server
 ```
 
 ### Running tests
-On the `server` directory, run `npm run test`.
+On the `server` directory, first guarantee that a properly seeded database is up (start the mongo and/or mongo-seed containers). After that, run:
+```
+npm install
+npm run test
+npm run test:coverage
+npm run test:coverage-report
+```
 
 
 ## Deployment
