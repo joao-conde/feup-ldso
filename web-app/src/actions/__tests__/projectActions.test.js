@@ -13,7 +13,9 @@ import {
     ADD_PROJECT,
     EDIT_PROJECT,
     DELETE_PROJECT,
-    RESET_PROJECTS
+    RESET_PROJECTS,
+    SEARCH_PROJECTS,
+    searchProjects
 } from '../projectsActions';
 
 
@@ -49,7 +51,7 @@ describe('Project actions', () => {
     it('should create an action to get projects with a query specified', () => {
 		
         const expectedActionEN = {
-            type: GET_PROJECTS_EN,
+            type: SEARCH_PROJECTS,
             payload: {
                 request: {
                     type: 'GET',
@@ -57,19 +59,8 @@ describe('Project actions', () => {
                 }
             }
         };
-
-        const expectedActionPT = {
-            type: GET_PROJECTS_PT,
-            payload: {
-                request: {
-                    type: 'GET',
-                    url: '/faculties/pt/feup/social-projects-short?q=projectNamePT'
-                }	
-            }
-        };
 		
-        expect(getProjects('feup', 'en', 'projectNameEN')).toEqual(expectedActionEN);
-        expect(getProjects('feup', 'pt', 'projectNamePT')).toEqual(expectedActionPT);
+        expect(searchProjects('feup', 'projectNameEN')).toEqual(expectedActionEN);
     });
 
 

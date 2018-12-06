@@ -28,7 +28,8 @@ describe('Projects reducer', () => {
             projectsEN: [],
             projectsPT: [],
             currProjEN: null,
-            currProjPT: null
+            currProjPT: null,
+            idsMap: {}
         };
 
         expect(reducer(undefined, {})).toEqual(initialState);
@@ -128,7 +129,8 @@ describe('Projects reducer', () => {
             projectsEN: [],
             projectsPT: [],
             currProjEN: null,
-            currProjPT: null
+            currProjPT: null,
+            idsMap: {}
         };
 
         expect(reducer({}, resetProjectsAction)).toEqual(expectedState);
@@ -158,10 +160,20 @@ describe('Projects reducer', () => {
 
         const expectedState = {
             loading: false,
-            projectsEN: payloadProjectsEN
+            projectsEN: payloadProjectsEN,
+            projectsPT: [],
+            idsMap: {
+                [payloadProjectsEN[0].id]: null
+            }
         };
 
-        expect(reducer({}, getProjectsEnSuccessAction)).toEqual(expectedState);
+        const initialState = {
+            projectsEN: [],
+            projectsPT: [],
+            idsMap: {}
+        };
+
+        expect(reducer(initialState, getProjectsEnSuccessAction)).toEqual(expectedState);
     });
 
     it('should handle GET_PROJECTS_PT_SUCCESS', () => {
@@ -187,10 +199,18 @@ describe('Projects reducer', () => {
 
         const expectedState = {
             loading: false,
-            projectsPT: payloadProjectsPT
+            projectsPT: payloadProjectsPT,
+            projectsEN: [],
+            idsMap: {}
         };
 
-        expect(reducer({}, getProjectsPtSuccessAction)).toEqual(expectedState);
+        const initialState = {
+            projectsEN: [],
+            projectsPT: [],
+            idsMap: {}
+        };
+
+        expect(reducer(initialState, getProjectsPtSuccessAction)).toEqual(expectedState);
     });
 
 
@@ -327,6 +347,7 @@ describe('Projects reducer', () => {
             projectsPT: [],
             currProjEN: null,
             currProjPT: null,
+            idsMap: {}
         };
 
         const expectedState = {
@@ -334,7 +355,10 @@ describe('Projects reducer', () => {
             projectsEN: [projectEN],
             projectsPT: [projectPT],
             currProjEN: projectEN,
-            currProjPT: projectPT
+            currProjPT: projectPT,
+            idsMap: {
+                [projectEN.id]: projectPT.id
+            }
         };
 
         const addProjectSuccessAction = {
@@ -365,12 +389,16 @@ describe('Projects reducer', () => {
             loadingAction: true,
             projectsEN: [project],
             currProjEN: project,
+            idsMap: {
+                [project.id]: 'some_value'
+            }
         };
 
         const expectedState = {
             loadingAction: false,
             projectsEN: [],
-            currProjEN: null
+            currProjEN: null,
+            idsMap: {}
         };
 
         const deleteProjectSuccessAction = {

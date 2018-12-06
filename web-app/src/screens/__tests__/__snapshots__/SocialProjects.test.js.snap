@@ -235,6 +235,7 @@ ShallowWrapper {
     }
     projectsEN={Array []}
     projectsPT={Array []}
+    searchProjects={[Function]}
     setFaculty={[Function]}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -735,6 +736,7 @@ ShallowWrapper {
     }
     projectsEN={Array []}
     projectsPT={Array []}
+    searchProjects={[Function]}
     setFaculty={[Function]}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -985,6 +987,7 @@ ShallowWrapper {
     }
     projectsEN={Array []}
     projectsPT={Array []}
+    searchProjects={[Function]}
     setFaculty={[Function]}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -1235,6 +1238,7 @@ ShallowWrapper {
     }
     projectsEN={Array []}
     projectsPT={Array []}
+    searchProjects={[Function]}
     setFaculty={[Function]}
   />,
   Symbol(enzyme.__renderer__): Object {

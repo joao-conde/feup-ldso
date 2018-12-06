@@ -20,6 +20,9 @@ function setup(projects) {
             loadingAction: false,
             projectsEN: projects,
             projectsPT: projects,
+            mapIds: {
+                "idEn": "idPt"
+            },
             currProjEN: {
                 'title': '[EN] Social project at FAUP',
                 'short_description': 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam neque. Aliquam erat volutpat. Suspendisse sagittis ultrices augue. Pellentesque ipsum.',
@@ -106,6 +109,9 @@ describe('Social Projects Screen tests', () => {
             currProjEN: {
                 id: '69',
                 content: 'mockup project'
+            },
+            mapIds: {
+                "idEN": "idPT"
             }
         };
 
