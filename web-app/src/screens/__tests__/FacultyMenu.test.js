@@ -10,41 +10,41 @@ const middlewares = []; // you can mock any middlewares here if necessary
 const mockStore = configureStore(middlewares);
 
 function setup(){
-	const initialState = {};
+    const initialState = {};
 
-	const props = {
-		match: {
-			params: {
-				faculty: 'feup'
-			}
-		}
-	};
+    const props = {
+        match: {
+            params: {
+                faculty: 'feup'
+            }
+        }
+    };
 
-	const wrapper = shallow(<FacultyMenu {...props}/>, {
-		context: { store: mockStore(initialState) },
-		disableLifecycleMethods: true
-	});
+    const wrapper = shallow(<FacultyMenu {...props}/>, {
+        context: { store: mockStore(initialState) },
+        disableLifecycleMethods: true
+    });
 
-	return wrapper;
+    return wrapper;
 }
 
 
 describe('Faculty Menu screen tests', () => {
 
-	it('renders faculty menu screen', () => {
-		const wrapper = setup();
-		expect(wrapper).toMatchSnapshot();
-	});
+    it('renders faculty menu screen', () => {
+        const wrapper = setup();
+        expect(wrapper).toMatchSnapshot();
+    });
 
-	it('calls componentDidMount without crashing', () => {
-		const wrapper = setup();
-		wrapper.dive().instance().componentDidMount();
-		expect(wrapper.dive()).toMatchSnapshot();
-	});
+    it('calls componentDidMount without crashing', () => {
+        const wrapper = setup();
+        wrapper.dive().instance().componentDidMount();
+        expect(wrapper.dive()).toMatchSnapshot();
+    });
 
-	it('calls componentDidUpdate without crashing', () => {
-		const wrapper = setup();
-		wrapper.dive().instance().componentDidUpdate();
-		expect(wrapper.dive()).toMatchSnapshot();
-	});
+    it('calls componentDidUpdate without crashing', () => {
+        const wrapper = setup();
+        wrapper.dive().instance().componentDidUpdate();
+        expect(wrapper.dive()).toMatchSnapshot();
+    });
 });

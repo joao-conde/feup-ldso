@@ -10,30 +10,30 @@ const middlewares = []; // you can mock any middlewares here if necessary
 const mockStore = configureStore(middlewares);
 
 function setup(){
-	const initialState = {
-		faculty: {
-			name: 'feup'
-		},
-		prospects: {
-			loading: false,
-			contentEN: 'mockContentEN',
-			contentPT: 'mockContentPT',
-			banner: 'mockBannerImagePath'
-		}
-	};
+    const initialState = {
+        faculty: {
+            name: 'feup'
+        },
+        prospects: {
+            loading: false,
+            contentEN: 'mockContentEN',
+            contentPT: 'mockContentPT',
+            banner: 'mockBannerImagePath'
+        }
+    };
 
-	const props = {
-		match: {
-			params:{
-				faculty: 'feup'
-			}
-		}
-	};
+    const props = {
+        match: {
+            params:{
+                faculty: 'feup'
+            }
+        }
+    };
 
-	const wrapper = shallow(<ProspectsEditor {...props}/>, {
-		context: { store: mockStore(initialState) }
-	});
-	return wrapper;
+    const wrapper = shallow(<ProspectsEditor {...props}/>, {
+        context: { store: mockStore(initialState) }
+    });
+    return wrapper;
 }
 
 
@@ -42,50 +42,50 @@ describe('Prospects Editor Screen tests', () => {
     it('renders loading screen', () => {
         const wrapper = setup();
         expect(wrapper.dive()).toMatchSnapshot();
-	});
+    });
 	
-	it('calls componentDidMount without crashing', () => {
+    it('calls componentDidMount without crashing', () => {
         const wrapper = setup();
-		wrapper.dive().instance().componentDidMount();
-		expect(wrapper.dive()).toMatchSnapshot();
-	});
+        wrapper.dive().instance().componentDidMount();
+        expect(wrapper.dive()).toMatchSnapshot();
+    });
 	
 	
-	it('calls componentDidUpdate without crashing', () => {
-		const wrapper = setup();
+    it('calls componentDidUpdate without crashing', () => {
+        const wrapper = setup();
 		
-		const prevProps = {
-			faculty: 'feup',
-			contentEN: 'Test EN content',
-			contentPT: 'Conteudo de teste PT'
-		};
+        const prevProps = {
+            faculty: 'feup',
+            contentEN: 'Test EN content',
+            contentPT: 'Conteudo de teste PT'
+        };
 
-		wrapper.dive().instance().componentDidUpdate(prevProps);
-		expect(wrapper.dive()).toMatchSnapshot();
-	});
+        wrapper.dive().instance().componentDidUpdate(prevProps);
+        expect(wrapper.dive()).toMatchSnapshot();
+    });
 	
-	it('calls updateProspects without crashing', () => {
+    it('calls updateProspects without crashing', () => {
         const wrapper = setup();
-		wrapper.dive().instance().updateProspects();
-		expect(wrapper.dive()).toMatchSnapshot();
-	});
+        wrapper.dive().instance().updateProspects();
+        expect(wrapper.dive()).toMatchSnapshot();
+    });
 	
-	it('calls handleInputChange without crashing', () => {
-		const wrapper = setup();
-		const fakeEvent = {
-			target:{
-				name: 'contentEN',
-				value: 'mockup content english data'
-			}
-		};
+    it('calls handleInputChange without crashing', () => {
+        const wrapper = setup();
+        const fakeEvent = {
+            target:{
+                name: 'contentEN',
+                value: 'mockup content english data'
+            }
+        };
         wrapper.dive().instance().handleInputChange(fakeEvent);
-		expect(wrapper.dive()).toMatchSnapshot();
-	});
+        expect(wrapper.dive()).toMatchSnapshot();
+    });
 	
-	it('calls onSubmit without crashing', () => {
-		const wrapper = setup();
-		wrapper.dive().instance().onSubmit();
-		expect(wrapper.dive()).toMatchSnapshot();
+    it('calls onSubmit without crashing', () => {
+        const wrapper = setup();
+        wrapper.dive().instance().onSubmit();
+        expect(wrapper.dive()).toMatchSnapshot();
     });
 
 });
