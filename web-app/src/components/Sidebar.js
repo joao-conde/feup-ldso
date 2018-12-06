@@ -39,12 +39,12 @@ class Sidebar extends Component {
                         </NavLink>
                         {
                             projectsEN.map((proj, idx) => (
-                                <div className="iconContainer">
-                                    <div key={idx} className="imgParent">
+                                <div key={idx} className="iconContainer">
+                                    <div className="imgParent">
                                         <img src={proj.images[0]} alt="Project icon" className={`imgBtn  ${projectsEN[idx].id === idProjEN ? faculty : ''}`}
                                             onClick={() => this.click(idx)} />
                                     </div>
-                                    <div key={idx} className="iconLabel">{proj.title}</div>
+                                    <div className="iconLabel">{proj.title}</div>
                                 </div>
                             ))
                         }
