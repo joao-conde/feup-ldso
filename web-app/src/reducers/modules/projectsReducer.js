@@ -52,19 +52,12 @@ export default function reducer(state = initialState, action) {
     case RESET_PROJECTS:
         return initialState;
 
-    case GET_PROJECTS_EN_SUCCESS:
-
-    console.log(state.projectsPT);
-        return { ...state,
-            loading: false,
-            projectsEN: action.payload.data
-        };
-    case GET_PROJECTS_PT_SUCCESS:
-    console.log(state.projectsEN);
-        return { ...state,
-            loading: false,
-            projectsPT: action.payload.data
-        };
+    case GET_PROJECTS_EN_SUCCESS: {
+        return getAndMapEn(state, action.payload.data);
+    }
+    case GET_PROJECTS_PT_SUCCESS: {
+        return getAndMapPt(state, action.payload.data);
+    }
     case SEARCH_PROJECTS_SUCCESS: {
 
     }
@@ -172,4 +165,38 @@ const deleteProject = (state) => {
             currProjPT: null
         };
     }
+};
+
+
+const getAndMapEn = (state, enProjects) => {
+    const { projectsPT } = state;
+    let newMap = {};
+
+    if (projectsPT.length !== 0)
+        for (let proj in enProjects)
+            newMap[enProjects[proj].id] = projectsPT[proj].id;
+    else
+        for (let proj of enProjects)
+            newMap[proj.id] = null;
+    
+    return { ...state,
+        loading: false,
+        projectsEN: enProjects,
+        idsMap: newMap
+    };
+};
+
+const getAndMapPt = (state, ptProjects) => {
+    const { idsMap , projectsEN } = state;
+    let newMap = { ...idsMap };
+
+    if (projectsEN.length !== 0)
+        for (let proj in ptProjects)
+            newMap[projectsEN[proj].id] = ptProjects[proj].id;
+    
+    return { ...state,
+        loading: false,
+        projectsPT: ptProjects,
+        idsMap: newMap
+    };
 };
