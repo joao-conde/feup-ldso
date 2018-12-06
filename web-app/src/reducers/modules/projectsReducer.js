@@ -106,8 +106,7 @@ const editProject = (state, editedProject) => {
     const editedIdx = state.projectsEN.findIndex(
         el => state.currProjEN.id === el.id
     );
-    
-    if(!global.__TEST__) NotificationManager.success('Successfully edited project!');
+
     if (editedProject.language === 'en') {
         let prevProps = [...state.projectsEN];
         prevProps[editedIdx] = editedProject;
@@ -132,20 +131,21 @@ const editProject = (state, editedProject) => {
 };
 
 const addProjects = (state, newProjects) => {
-    if(!global.__TEST__) NotificationManager.success('Successfully added new project!');
+    if  (!global.__TEST__) NotificationManager.success('Successfully added new project!');
     return { ...state,
         loadingAction: false,
         projectsEN: [newProjects[0], ...state.projectsEN],
         projectsPT: [newProjects[1], ...state.projectsPT],
         currProjEN: newProjects[0],
-        currProjPT: newProjects[1]
+        currProjPT: newProjects[1],
+        idsMap: { ...state.idsMap, [newProjects[0].id]: newProjects[1].id }
     };
 };
 
 const deleteProject = (state) => {
     let newMap = { ...state.idsMap };
     let enIdx = state.projectsEN.findIndex((el) => el.id === state.currProjEN.id);
-    
+
     if (enIdx >= 0) {
         let newProjectsEN = [...state.projectsEN];
         newProjectsEN.splice( enIdx, 1 );

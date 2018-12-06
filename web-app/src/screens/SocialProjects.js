@@ -3,24 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { NotificationManager } from 'react-notifications';
 import Route from 'react-router-dom/Route';
+import { throttle } from 'throttle-debounce';
+import { deepEqual } from '../utils';
 import { setFaculty } from '../actions/facultyActions';
 import { getProjects, getProjectDetails, addProject, editProject, deleteProject, searchProjects } from '../actions/projectsActions';
 import Sidebar from '../components/Sidebar';
 import GenericProject from '../components/GenericProject';
-
-var assert = require('assert');
-
-const deepEqual = (a, b) => {
-    try {
-        assert.deepEqual(a, b);
-    } catch (error) {
-        if (error.name === 'AssertionError') {
-            return false;
-        }
-        throw error;
-    }
-    return true;
-};
 
 class SocialProjects extends Component {
     constructor(props) {
@@ -47,11 +35,12 @@ class SocialProjects extends Component {
             searchProjects(faculty, query);
 
         if (Object.keys(prevProps.mapIds).length > Object.keys(mapIds).length)
-            if(!global.__TEST__) NotificationManager.success('Successfully deleted info!');
+            if (!global.__TEST__) NotificationManager.success('Successfully deleted project!');
 
         if (currProjEN != null && currProjPT != null) {
-            if (prevProps.currProjEN != null && prevProps.currProjEN.id === currProjEN.id && !deepEqual(prevProps.currProjEN, currProjEN))
-                if(!global.__TEST__) NotificationManager.success('Successfully edited info!');
+            if ((prevProps.currProjEN != null && prevProps.currProjEN.id === currProjEN.id && !deepEqual(prevProps.currProjEN, currProjEN)) ||
+                (prevProps.currProjPT != null && prevProps.currProjPT.id === currProjPT.id && !deepEqual(prevProps.currProjPT, currProjPT)))
+                if (!global.__TEST__) throttle(500, NotificationManager.success('Successfully edited project!'));
         }
     }
 
@@ -74,11 +63,11 @@ class SocialProjects extends Component {
 
         return (
             <div style={contentStyle}>
-                <Sidebar loading={loading} faculty={faculty} projectsEN={projectsEN} projectsPT={projectsPT} idProjEN={currProjEN != null? currProjEN.id : null} action={getProjectDetails} search={this.updateQuery} query={this.state.query}/>
-                <Route exact path='/faculties/:faculty/projects' render={() => 
+                <Sidebar loading={loading} faculty={faculty} projectsEN={projectsEN} projectsPT={projectsPT} idProjEN={currProjEN != null ? currProjEN.id : null} action={getProjectDetails} search={this.updateQuery} query={this.state.query} />
+                <Route exact path='/faculties/:faculty/projects' render={() =>
                     <GenericProject add={false} loading={loading} loadingAction={loadingAction} faculty={faculty} projEN={currProjEN} projPT={currProjPT} mainAction={editProject} delAction={deleteProject} />
                 } />
-                <Route exact path='/faculties/:faculty/projects/new' render={() => 
+                <Route exact path='/faculties/:faculty/projects/new' render={() =>
                     <GenericProject add={true} loading={loading} loadingAction={loadingAction} faculty={faculty} projEN={{}} projPT={{}} mainAction={addProject} delAction={null} />
                 } />
             </div>
