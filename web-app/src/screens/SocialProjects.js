@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { NotificationManager } from 'react-notifications';
 import Route from 'react-router-dom/Route';
 import { setFaculty } from '../actions/facultyActions';
-import { getProjects, getProjectDetails, addProject, editProject, deleteProject } from '../actions/projectsActions';
+import { getProjects, getProjectDetails, addProject, editProject, deleteProject, searchProjects } from '../actions/projectsActions';
 import Sidebar from '../components/Sidebar';
 import GenericProject from '../components/GenericProject';
 
@@ -37,16 +37,14 @@ class SocialProjects extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        const { faculty, currProjEN, currProjPT, projectsEN, getProjects } = this.props;
+        const { faculty, currProjEN, currProjPT, projectsEN, searchProjects } = this.props;
         const { query } = this.state;
 
         if (prevProps.faculty !== faculty)
             this.updateFaculty();
 
-        if (prevState.query !== query) {
-            getProjects(faculty, 'en', query);
-            getProjects(faculty, 'pt', query);
-        }
+        if (prevState.query !== query)
+            searchProjects(faculty, query);
 
         if (currProjEN != null && currProjPT != null) {
             if (prevProps.currProjEN != null && prevProps.currProjEN.id === currProjEN.id && !deepEqual(prevProps.currProjEN, currProjEN))
@@ -59,11 +57,10 @@ class SocialProjects extends Component {
 
     updateFaculty() {
         const { match, faculty, getProjects, setFaculty } = this.props;
-        const { query } = this.state;
 
         setFaculty(match.params.faculty);
-        getProjects(faculty, 'pt', query);
-        getProjects(faculty, 'en', query);
+        getProjects(faculty, 'pt');
+        getProjects(faculty, 'en');
     }
 
     updateQuery(query) {
@@ -108,7 +105,8 @@ SocialProjects.propTypes = {
     getProjectDetails: PropTypes.func,
     addProject: PropTypes.func,
     editProject: PropTypes.func,
-    deleteProject: PropTypes.func
+    deleteProject: PropTypes.func,
+    searchProjects: PropTypes.func
 };
 
 const mapStateToProps = ({ faculty, socialProjects }) => ({
@@ -127,7 +125,8 @@ const mapDispatchToProps = {
     getProjectDetails,
     addProject,
     editProject,
-    deleteProject
+    deleteProject,
+    searchProjects
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SocialProjects);

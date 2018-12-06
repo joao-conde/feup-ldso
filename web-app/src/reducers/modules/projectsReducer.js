@@ -19,11 +19,15 @@ import {
     EDIT_PROJECT_SUCCESS,
     DELETE_PROJECT_SUCCESS,
     RESET_PROJECTS,
+    SEARCH_PROJECTS,
+    SEARCH_PROJECTS_SUCCESS,
+    SEARCH_PROJECTS_FAIL,
 } from '../../actions/projectsActions';
 
 const initialState = {
     loading: false,
     loadingAction: false,
+    idsMap: [],
     projectsEN: [],
     projectsPT: [],
     currProjEN: null,
@@ -35,6 +39,7 @@ export default function reducer(state = initialState, action) {
     case GET_PROJECTS_EN:
     case GET_PROJECTS_PT:
     case GET_PROJECT_BY_ID:
+    case SEARCH_PROJECTS:
         return { ...state,
             loading: true
         };
@@ -48,15 +53,21 @@ export default function reducer(state = initialState, action) {
         return initialState;
 
     case GET_PROJECTS_EN_SUCCESS:
+
+    console.log(state.projectsPT);
         return { ...state,
             loading: false,
             projectsEN: action.payload.data
         };
     case GET_PROJECTS_PT_SUCCESS:
+    console.log(state.projectsEN);
         return { ...state,
             loading: false,
             projectsPT: action.payload.data
         };
+    case SEARCH_PROJECTS_SUCCESS: {
+
+    }
     case GET_PROJECT_BY_ID_SUCCESS: {
         const projectByID = action.payload.data[0];
         return { ...state,
@@ -78,12 +89,13 @@ export default function reducer(state = initialState, action) {
     case GET_PROJECTS_EN_FAIL:
     case GET_PROJECTS_PT_FAIL:
     case GET_PROJECT_BY_ID_FAIL:
+    case SEARCH_PROJECTS_FAIL:
         return { ...state,
             loading: false,
             error: 'Error while fetching projects data'
         };
     case ADD_PROJECT_FAIL:
-        if(!global.__TEST__) NotificationManager.error('Failed to add info');
+        if(!global.__TEST__) NotificationManager.error('Failed to create project');
         /* falls through */
     case EDIT_PROJECT_FAIL:
     case DELETE_PROJECT_FAIL:
