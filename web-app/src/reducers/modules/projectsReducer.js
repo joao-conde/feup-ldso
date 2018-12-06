@@ -35,7 +35,6 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-    console.log(action);
     switch (action.type) {
     case GET_PROJECTS_EN:
     case GET_PROJECTS_PT:

@@ -50,7 +50,7 @@ export function searchProjects(faculty, query) {
                 url: `/faculties/en/${faculty}/social-projects-short?q=${query}`
             }
         }
-    }
+    };
 }
 
 export function getProjectDetails(faculty, language, id) {
