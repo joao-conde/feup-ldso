@@ -44,7 +44,7 @@ class Sidebar extends Component {
                                         <img src={proj.images[0]} alt="Project icon" className={`imgBtn  ${projectsEN[idx].id === idProjEN ? faculty : ''}`}
                                             onClick={() => this.click(idx)} />
                                     </div>
-                                    <div className="iconLabel">{proj.title}</div>
+                                    <div key={idx} className="iconLabel">{proj.title}</div>
                                 </div>
                             ))
                         }

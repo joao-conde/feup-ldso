@@ -22,7 +22,7 @@ function setup(projects) {
             projectsEN: projects,
             projectsPT: projects,
             idsMap: {
-                "idEn": "idPt"
+                'idEn': 'idPt'
             },
             currProjEN: {
                 'title': '[EN] Social project at FAUP',
