@@ -223,7 +223,7 @@ class GenericProject extends Component {
                             <Col className="center-text">
                                 <Button className={`${loadingAction ? 'm-progress' : ''} mainActionBtn`}
                                     onClick={this.onSubmit}>
-                                    {add ? 'Add' : 'Edit'} Project
+                                    {add ? 'Create' : 'Save'} Project
                                 </Button>
                             </Col>
                         </Row>

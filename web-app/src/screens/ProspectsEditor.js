@@ -138,7 +138,7 @@ class ProspectsEditor extends Component {
                                 <Col className="center-text">
                                     <Button className={`${loadingAction ? 'm-progress' : ''} mainActionBtn editProspectsBtn`}
                                         onClick={this.onSubmit}>
-                                        Edit Future Plans
+                                        Save Future Plans
                                     </Button>
                                 </Col>
                             </Row>
