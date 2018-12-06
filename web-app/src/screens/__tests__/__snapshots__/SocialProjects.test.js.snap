@@ -226,6 +226,11 @@ ShallowWrapper {
     getProjects={[Function]}
     loading={false}
     loadingAction={false}
+    mapIds={
+      Object {
+        "idEn": "idPt",
+      }
+    }
     match={
       Object {
         "params": Object {
@@ -477,6 +482,11 @@ ShallowWrapper {
     getProjects={[Function]}
     loading={false}
     loadingAction={false}
+    mapIds={
+      Object {
+        "idEn": "idPt",
+      }
+    }
     match={
       Object {
         "params": Object {
@@ -486,6 +496,7 @@ ShallowWrapper {
     }
     projectsEN={Array []}
     projectsPT={Array []}
+    searchProjects={[Function]}
     setFaculty={[Function]}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -727,6 +738,11 @@ ShallowWrapper {
     getProjects={[Function]}
     loading={false}
     loadingAction={false}
+    mapIds={
+      Object {
+        "idEn": "idPt",
+      }
+    }
     match={
       Object {
         "params": Object {
@@ -978,6 +994,11 @@ ShallowWrapper {
     getProjects={[Function]}
     loading={false}
     loadingAction={false}
+    mapIds={
+      Object {
+        "idEn": "idPt",
+      }
+    }
     match={
       Object {
         "params": Object {
@@ -1229,6 +1250,11 @@ ShallowWrapper {
     getProjects={[Function]}
     loading={false}
     loadingAction={false}
+    mapIds={
+      Object {
+        "idEn": "idPt",
+      }
+    }
     match={
       Object {
         "params": Object {

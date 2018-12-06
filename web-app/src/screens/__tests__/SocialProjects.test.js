@@ -3,6 +3,7 @@ import SocialProjects from '../SocialProjects';
 import Enzyme, { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import Adapter from 'enzyme-adapter-react-16';
+import { object } from 'prop-types';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -20,7 +21,7 @@ function setup(projects) {
             loadingAction: false,
             projectsEN: projects,
             projectsPT: projects,
-            mapIds: {
+            idsMap: {
                 "idEn": "idPt"
             },
             currProjEN: {
@@ -110,9 +111,7 @@ describe('Social Projects Screen tests', () => {
                 id: '69',
                 content: 'mockup project'
             },
-            mapIds: {
-                "idEN": "idPT"
-            }
+            mapIds: {}
         };
 
         const prevState = {
