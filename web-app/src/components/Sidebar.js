@@ -17,9 +17,8 @@ class Sidebar extends Component {
 
     click(idx) {
         const { faculty, projectsEN, projectsPT, idProjEN, action } = this.props;
-        console.log(projectsEN[idx]); console.log(projectsPT[idx]); console.log(idProjEN);
-        if (projectsEN[idx] != null && projectsPT[idx] != null && projectsEN[idx].id !== idProjEN) {
-            console.log("SRSLY WTF");
+
+        if (projectsEN[idx] != null && projectsPT[idx] != null && projectsEN[idx].id !== idProjEN) {    
             action(faculty, 'en', projectsEN[idx].id);
             action(faculty, 'pt', projectsPT[idx].id);
         }

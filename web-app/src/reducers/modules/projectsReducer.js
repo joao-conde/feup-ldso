@@ -35,6 +35,7 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
+    console.log(action);
     switch (action.type) {
     case GET_PROJECTS_EN:
     case GET_PROJECTS_PT:
@@ -59,7 +60,7 @@ export default function reducer(state = initialState, action) {
         return getAndMapPt(state, action.payload.data);
     }
     case SEARCH_PROJECTS_SUCCESS: {
-
+        return search(state, action.payload.data);
     }
     case GET_PROJECT_BY_ID_SUCCESS: {
         const projectByID = action.payload.data[0];
@@ -198,5 +199,19 @@ const getAndMapPt = (state, ptProjects) => {
         loading: false,
         projectsPT: ptProjects,
         idsMap: newMap
+    };
+};
+
+const search = (state, enProjects) => {
+    const { idsMap } = state;
+    let ptProjects = [];
+
+    for (let proj of enProjects)
+        ptProjects.push({id: idsMap[proj.id]});
+
+    return { ...state,
+        loading: false,
+        projectsEN: enProjects,
+        projectsPT: ptProjects
     };
 };
