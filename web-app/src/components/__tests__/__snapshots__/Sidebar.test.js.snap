@@ -733,7 +733,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "0",
               "nodeType": "host",
               "props": Object {
                 "children": "[EN] Social project at FAUP",
@@ -804,7 +804,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "1",
               "nodeType": "host",
               "props": Object {
                 "children": "[EN] Social project at FAUP",
@@ -1051,7 +1051,7 @@ ShallowWrapper {
               },
               Object {
                 "instance": null,
-                "key": undefined,
+                "key": "0",
                 "nodeType": "host",
                 "props": Object {
                   "children": "[EN] Social project at FAUP",
@@ -1122,7 +1122,7 @@ ShallowWrapper {
               },
               Object {
                 "instance": null,
-                "key": undefined,
+                "key": "1",
                 "nodeType": "host",
                 "props": Object {
                   "children": "[EN] Social project at FAUP",
