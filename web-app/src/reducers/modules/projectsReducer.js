@@ -27,7 +27,7 @@ import {
 const initialState = {
     loading: false,
     loadingAction: false,
-    idsMap: [],
+    idsMap: {},
     projectsEN: [],
     projectsPT: [],
     currProjEN: null,
@@ -143,16 +143,20 @@ const addProjects = (state, newProjects) => {
 };
 
 const deleteProject = (state) => {
+    let newMap = { ...state.idsMap };
     let enIdx = state.projectsEN.findIndex((el) => el.id === state.currProjEN.id);
     
     if (enIdx >= 0) {
         let newProjectsEN = [...state.projectsEN];
         newProjectsEN.splice( enIdx, 1 );
 
+        delete newMap[state.currProjEN.id];
+
         return { ...state,
             loadingAction: false,
             projectsEN: newProjectsEN,
-            currProjEN: null
+            currProjEN: null,
+            idsMap: newMap
         };
     } else {
         let ptIdx = state.projectsPT.findIndex((el) => el.id === state.currProjPT.id);
@@ -166,7 +170,6 @@ const deleteProject = (state) => {
         };
     }
 };
-
 
 const getAndMapEn = (state, enProjects) => {
     const { projectsPT } = state;

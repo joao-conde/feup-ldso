@@ -37,7 +37,7 @@ class SocialProjects extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        const { faculty, currProjEN, currProjPT, projectsEN, searchProjects } = this.props;
+        const { faculty, currProjEN, currProjPT, searchProjects, mapIds } = this.props;
         const { query } = this.state;
 
         if (prevProps.faculty !== faculty)
@@ -46,12 +46,12 @@ class SocialProjects extends Component {
         if (prevState.query !== query)
             searchProjects(faculty, query);
 
+        if (Object.keys(prevProps.mapIds).length > Object.keys(mapIds).length)
+            if(!global.__TEST__) NotificationManager.success('Successfully deleted info!');
+
         if (currProjEN != null && currProjPT != null) {
             if (prevProps.currProjEN != null && prevProps.currProjEN.id === currProjEN.id && !deepEqual(prevProps.currProjEN, currProjEN))
                 if(!global.__TEST__) NotificationManager.success('Successfully edited info!');
-
-            if ((projectsEN.findIndex((el) => el.id === currProjEN.id)) === -1)
-                if(!global.__TEST__) NotificationManager.success('Successfully deleted info!');
         }
     }
 
@@ -100,6 +100,7 @@ SocialProjects.propTypes = {
     projectsPT: PropTypes.array,
     currProjEN: PropTypes.object,
     currProjPT: PropTypes.object,
+    mapIds: PropTypes.object,
     setFaculty: PropTypes.func,
     getProjects: PropTypes.func,
     getProjectDetails: PropTypes.func,
@@ -116,7 +117,8 @@ const mapStateToProps = ({ faculty, socialProjects }) => ({
     projectsEN: socialProjects.projectsEN,
     projectsPT: socialProjects.projectsPT,
     currProjEN: socialProjects.currProjEN,
-    currProjPT: socialProjects.currProjPT
+    currProjPT: socialProjects.currProjPT,
+    mapIds: socialProjects.idsMap
 });
 
 const mapDispatchToProps = {
