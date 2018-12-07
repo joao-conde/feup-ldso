@@ -440,8 +440,8 @@
         "language": "pt" 
     },
     {
-        "nr_bsc": 13,
-        "bsc_students": 2221,
+        "nr_bsc": 0,
+        "bsc_students": 0,
         "nr_msc": 28,
         "msc_students": 961,
         "nr_phd": 8,
@@ -462,8 +462,8 @@
         "language": "en" 
     },
     {
-        "nr_bsc": 13,
-        "bsc_students": 2221,
+        "nr_bsc": 0,
+        "bsc_students": 0,
         "nr_msc": 28,
         "msc_students": 961,
         "nr_phd": 8,

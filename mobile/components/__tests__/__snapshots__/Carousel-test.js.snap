@@ -63,7 +63,7 @@ exports[`Rendering  renders carousel with content received 1`] = `
                 "top": 0,
               },
               Object {
-                "backgroundColor": "#8c2d19",
+                "backgroundColor": "#9f2d20",
               },
               Object {
                 "transform": Array [
@@ -103,7 +103,7 @@ exports[`Rendering  renders carousel with content received 1`] = `
                 "top": 0,
               },
               Object {
-                "backgroundColor": "#8c2d19",
+                "backgroundColor": "#9f2d20",
               },
               Object {
                 "transform": Array [
@@ -143,7 +143,7 @@ exports[`Rendering  renders carousel with content received 1`] = `
               "fontSize": 52.5,
             },
             Object {
-              "color": "#8c2d19",
+              "color": "#9f2d20",
             },
           ]
         }
@@ -154,7 +154,7 @@ exports[`Rendering  renders carousel with content received 1`] = `
   <Component
     style={
       Object {
-        "left": 705,
+        "left": 727.5,
         "position": "absolute",
         "top": 533.5,
         "zIndex": 2,
@@ -173,7 +173,7 @@ exports[`Rendering  renders carousel with content received 1`] = `
               "fontSize": 52.5,
             },
             Object {
-              "color": "#8c2d19",
+              "color": "#9f2d20",
             },
           ]
         }

@@ -16,7 +16,9 @@
   },
   "jest": {
     "preset": "jest-expo",
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "transformIgnorePatterns": [
       "node_modules/(?!native-base-shoutem-theme|expo-react-native-adapter|react-native|expo|@expo|react-navigation-stack|react-navigation|native-base|babel-runtime|enzyme)"
     ],
@@ -33,9 +35,11 @@
     "axios": "^0.18.0",
     "babel-core": "",
     "babel-eslint": "^8.0.1",
+    "chai": "^4.2.0",
     "eslint": "^5.8.0",
     "eslint-plugin-react-native": "^3.5.0",
     "expo": "^30.0.1",
+    "git": "^0.1.5",
     "native-base": "^2.8.1",
     "prop-types": "^15.6.2",
     "react": "16.3.1",
@@ -44,6 +48,7 @@
     "react-native-drawer": "^2.5.1",
     "react-native-responsive-screen": "^1.1.10",
     "react-native-sidebar": "^0.3.0",
+    "react-native-svg-uri": "https://github.com/luisnmartins/react-native-svg-uri.git",
     "react-native-typography": "^1.4.0",
     "react-navigation": "^2.16.0",
     "react-redux": "^5.0.7",

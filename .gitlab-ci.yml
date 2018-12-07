@@ -30,6 +30,7 @@ lint_mobile:
   stage: lint
   before_script:
     - cd mobile
+    - apk add --no-cache git
     - yarn
   script:
     - yarn run lint
@@ -57,6 +58,7 @@ test_mobile:
   stage: test
   before_script:
   - cd mobile
+  - apk add --no-cache git
   - printenv >> .env
   - yarn
   script:
@@ -126,6 +128,7 @@ deploy_mobile:
   stage: deploy
   before_script:
     - cd mobile
+    - apk add --no-cache git
     - printenv >> .env
     - yarn
   script:

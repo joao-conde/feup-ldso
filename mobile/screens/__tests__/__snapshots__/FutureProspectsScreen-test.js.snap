@@ -37,7 +37,7 @@ exports[`renders screen with future prospect content 1`] = `
           "padding": 10,
         },
         Object {
-          "borderColor": "#8c2d19",
+          "borderColor": "#9f2d20",
         },
       ]
     }
