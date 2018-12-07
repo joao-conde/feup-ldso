@@ -27,6 +27,11 @@ import {
 const initialState = {
     loading: false,
     loadingAction: false,
+    /**
+     * Mapping between a project in english and its correspondent in Portuguese.
+     * As an object, the key is the id of the english project and the value is the
+     *  id of the Portuguese object.
+     */
     idsMap: {},
     projectsEN: [],
     projectsPT: [],
