@@ -48,7 +48,7 @@
     "react-native-drawer": "^2.5.1",
     "react-native-responsive-screen": "^1.1.10",
     "react-native-sidebar": "^0.3.0",
-    "react-native-svg-uri": "git+ssh://git@github.com/luisnmartins/react-native-svg-uri.git#master",
+    "react-native-svg-uri": "https://github.com/luisnmartins/react-native-svg-uri/archive/V1.2.4.tar.gz",
     "react-native-typography": "^1.4.0",
     "react-navigation": "^2.16.0",
     "react-redux": "^5.0.7",
