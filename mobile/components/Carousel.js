@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
         zIndex: 2,
         position: 'absolute',
         top: hp('40%'),
-        left: wp('94%'),
+        left: wp('97%'),
     },
     rightArrowIcon: {
         fontSize: wp('7%')

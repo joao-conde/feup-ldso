@@ -1,0 +1,814 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering renders loading screen 1`] = `
+<Styled(Container)
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <Styled(Content)
+    contentContainerStyle={
+      Object {
+        "flexDirection": "column",
+        "height": 1254,
+        "justifyContent": "center",
+        "padding": 0,
+      }
+    }
+  >
+    <Styled(Text)
+      style={
+        Object {
+          "padding": 53.5,
+          "textAlign": "justify",
+        }
+      }
+    >
+      Loading...
+    </Styled(Text)>
+  </Styled(Content)>
+</Styled(Container)>
+`;
+
+exports[`Rendering renders screen with 2 facts 1`] = `
+<ScrollView
+  onMomentumScrollBegin={null}
+  onScrollEndDrag={[Function]}
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <Styled(Content)
+    contentContainerStyle={
+      Object {
+        "flexDirection": "column",
+        "height": 1254,
+        "justifyContent": "center",
+        "padding": 0,
+      }
+    }
+  >
+    <Styled(ViewNB)
+      style={
+        Object {
+          "flex": 3,
+          "flexDirection": "row",
+          "paddingBottom": 40,
+          "paddingTop": 40,
+        }
+      }
+    >
+      <Styled(ViewNB)
+        style={
+          Object {
+            "flex": 3,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <Styled(ViewNB)
+          style={
+            Object {
+              "flex": 3,
+              "flexDirection": "column",
+              "justifyContent": "space-around",
+            }
+          }
+        >
+          <IconButton
+            action={[Function]}
+            icon="videos"
+            label="Videos"
+            name="feup"
+          />
+          <IconButton
+            action={[Function]}
+            icon="socialProjects"
+            label="Social Projects"
+            name="feup"
+          />
+        </Styled(ViewNB)>
+        <Styled(ViewNB)
+          style={
+            Array [
+              Object {
+                "flex": 3,
+                "flexDirection": "column",
+                "justifyContent": "space-around",
+              },
+              Object {
+                "flex": 2,
+                "paddingBottom": "25%",
+                "paddingTop": "17%",
+              },
+              Object {
+                "alignItems": "flex-start",
+              },
+            ]
+          }
+        >
+          <IconButton
+            action={[Function]}
+            icon="research"
+            label="Research Centres"
+            name="feup"
+          />
+        </Styled(ViewNB)>
+        <Styled(ViewNB)
+          style={
+            Object {
+              "flex": 3,
+              "flexDirection": "column",
+              "justifyContent": "space-around",
+            }
+          }
+        >
+          <IconButton
+            action={[Function]}
+            icon="future"
+            label="Future"
+            name="feup"
+          />
+          <IconButton
+            action={[Function]}
+            icon="location"
+            label="Location"
+            name="feup"
+          />
+        </Styled(ViewNB)>
+      </Styled(ViewNB)>
+      <Styled(ViewNB)
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "flex": 3,
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "marginRight": 15,
+          }
+        }
+      >
+        <Image
+          source={1}
+          style={
+            Object {
+              "flex": 1,
+              "resizeMode": "cover",
+            }
+          }
+        />
+      </Styled(ViewNB)>
+    </Styled(ViewNB)>
+    <Styled(ViewNB)
+      style={
+        Object {
+          "backgroundColor": "#1c1c1c",
+          "flex": 2,
+          "flexDirection": "column",
+        }
+      }
+    >
+      <Styled(ViewNB)
+        style={
+          Object {
+            "flex": 15,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <StatisticsNumbers
+          course={
+            Array [
+              13,
+              "Bachelors
+",
+            ]
+          }
+          students={
+            Array [
+              2221,
+              "Students",
+            ]
+          }
+        />
+        <StatisticsNumbers
+          course={
+            Array [
+              28,
+              "Masters
+",
+            ]
+          }
+          students={
+            Array [
+              961,
+              "Students",
+            ]
+          }
+        />
+        <StatisticsNumbers
+          course={
+            Array [
+              8,
+              "PhD
+",
+            ]
+          }
+          students={
+            Array [
+              280,
+              "Students",
+            ]
+          }
+        />
+        <StatisticsNumbers
+          course={
+            Array [
+              125,
+              "Open and continuing training courses
+",
+            ]
+          }
+          students={
+            Array [
+              111,
+              "Students",
+            ]
+          }
+        />
+      </Styled(ViewNB)>
+      <Styled(ViewNB)
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <TouchableOpacity
+          activeOpacity={0.2}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "justifyContent": "flex-end",
+            }
+          }
+        >
+          <Styled(Icon)
+            name="chevron-down"
+            style={
+              Object {
+                "color": "white",
+              }
+            }
+            type="FontAwesome"
+          />
+        </TouchableOpacity>
+      </Styled(ViewNB)>
+    </Styled(ViewNB)>
+  </Styled(Content)>
+  <Styled(Content)
+    contentContainerStyle={
+      Object {
+        "flexDirection": "column",
+        "height": 1254,
+        "justifyContent": "center",
+        "padding": 0,
+      }
+    }
+  >
+    <Styled(ViewNB)
+      style={
+        Object {
+          "flex": 9,
+          "flexDirection": "column",
+        }
+      }
+    >
+      <Styled(ViewNB)
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <TouchableOpacity
+          activeOpacity={0.2}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+            }
+          }
+        >
+          <Styled(Icon)
+            name="chevron-up"
+            type="FontAwesome"
+          />
+        </TouchableOpacity>
+      </Styled(ViewNB)>
+      <Styled(ViewNB)
+        style={
+          Object {
+            "backgroundColor": "white",
+            "flex": 15,
+            "flexDirection": "row",
+            "flexWrap": "nowrap",
+            "justifyContent": "space-evenly",
+            "padding": 40,
+            "paddingTop": 0,
+          }
+        }
+      >
+        <StatisticsNumbers
+          icon="flask"
+          iconsNmb={18}
+          percentage={90}
+          text="Teachers and Reseachers
+
+"
+        />
+        <StatisticsNumbers
+          icon="globe"
+          iconsNmb={18}
+          percentage={6}
+          text="Foreign students in mobility programs
+
+"
+        />
+        <StatisticsNumbers
+          icon="book"
+          iconsNmb={18}
+          percentage={18}
+          text="Foreign students enrolled to obtain a degree
+"
+        />
+      </Styled(ViewNB)>
+    </Styled(ViewNB)>
+    <Styled(ViewNB)
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#1c1c1c",
+          "flex": 8,
+          "flexDirection": "row",
+          "justifyContent": "space-evenly",
+        }
+      }
+    >
+      <Styled(ViewNB)
+        key="0"
+        style={
+          Object {
+            "backgroundColor": "#d9d9d9",
+            "flex": 1,
+            "flexDirection": "column",
+            "padding": "2%",
+          }
+        }
+      >
+        <Fact
+          info="240 protocolos estágio com empresas"
+          key="0"
+          name="feup"
+        />
+      </Styled(ViewNB)>
+      <Styled(ViewNB)
+        key="1"
+        style={
+          Object {
+            "backgroundColor": "#d9d9d9",
+            "flex": 1,
+            "flexDirection": "column",
+            "padding": "2%",
+          }
+        }
+      >
+        <Fact
+          info="30 contratos projetos prestação de serviços"
+          key="0"
+          name="feup"
+        />
+      </Styled(ViewNB)>
+    </Styled(ViewNB)>
+  </Styled(Content)>
+</ScrollView>
+`;
+
+exports[`Rendering renders screen with many facts 1`] = `
+<ScrollView
+  onMomentumScrollBegin={null}
+  onScrollEndDrag={[Function]}
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <Styled(Content)
+    contentContainerStyle={
+      Object {
+        "flexDirection": "column",
+        "height": 1254,
+        "justifyContent": "center",
+        "padding": 0,
+      }
+    }
+  >
+    <Styled(ViewNB)
+      style={
+        Object {
+          "flex": 3,
+          "flexDirection": "row",
+          "paddingBottom": 40,
+          "paddingTop": 40,
+        }
+      }
+    >
+      <Styled(ViewNB)
+        style={
+          Object {
+            "flex": 3,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <Styled(ViewNB)
+          style={
+            Object {
+              "flex": 3,
+              "flexDirection": "column",
+              "justifyContent": "space-around",
+            }
+          }
+        >
+          <IconButton
+            action={[Function]}
+            icon="videos"
+            label="Videos"
+            name="feup"
+          />
+          <IconButton
+            action={[Function]}
+            icon="socialProjects"
+            label="Social Projects"
+            name="feup"
+          />
+        </Styled(ViewNB)>
+        <Styled(ViewNB)
+          style={
+            Array [
+              Object {
+                "flex": 3,
+                "flexDirection": "column",
+                "justifyContent": "space-around",
+              },
+              Object {
+                "flex": 2,
+                "paddingBottom": "25%",
+                "paddingTop": "17%",
+              },
+              Object {
+                "alignItems": "flex-start",
+              },
+            ]
+          }
+        >
+          <IconButton
+            action={[Function]}
+            icon="research"
+            label="Research Centres"
+            name="feup"
+          />
+        </Styled(ViewNB)>
+        <Styled(ViewNB)
+          style={
+            Object {
+              "flex": 3,
+              "flexDirection": "column",
+              "justifyContent": "space-around",
+            }
+          }
+        >
+          <IconButton
+            action={[Function]}
+            icon="future"
+            label="Future"
+            name="feup"
+          />
+          <IconButton
+            action={[Function]}
+            icon="location"
+            label="Location"
+            name="feup"
+          />
+        </Styled(ViewNB)>
+      </Styled(ViewNB)>
+      <Styled(ViewNB)
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "flex": 3,
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "marginRight": 15,
+          }
+        }
+      >
+        <Image
+          source={1}
+          style={
+            Object {
+              "flex": 1,
+              "resizeMode": "cover",
+            }
+          }
+        />
+      </Styled(ViewNB)>
+    </Styled(ViewNB)>
+    <Styled(ViewNB)
+      style={
+        Object {
+          "backgroundColor": "#1c1c1c",
+          "flex": 2,
+          "flexDirection": "column",
+        }
+      }
+    >
+      <Styled(ViewNB)
+        style={
+          Object {
+            "flex": 15,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <StatisticsNumbers
+          course={
+            Array [
+              13,
+              "Bachelors
+",
+            ]
+          }
+          students={
+            Array [
+              2221,
+              "Students",
+            ]
+          }
+        />
+        <StatisticsNumbers
+          course={
+            Array [
+              28,
+              "Masters
+",
+            ]
+          }
+          students={
+            Array [
+              961,
+              "Students",
+            ]
+          }
+        />
+        <StatisticsNumbers
+          course={
+            Array [
+              8,
+              "PhD
+",
+            ]
+          }
+          students={
+            Array [
+              280,
+              "Students",
+            ]
+          }
+        />
+        <StatisticsNumbers
+          course={
+            Array [
+              125,
+              "Open and continuing training courses
+",
+            ]
+          }
+          students={
+            Array [
+              111,
+              "Students",
+            ]
+          }
+        />
+      </Styled(ViewNB)>
+      <Styled(ViewNB)
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <TouchableOpacity
+          activeOpacity={0.2}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "justifyContent": "flex-end",
+            }
+          }
+        >
+          <Styled(Icon)
+            name="chevron-down"
+            style={
+              Object {
+                "color": "white",
+              }
+            }
+            type="FontAwesome"
+          />
+        </TouchableOpacity>
+      </Styled(ViewNB)>
+    </Styled(ViewNB)>
+  </Styled(Content)>
+  <Styled(Content)
+    contentContainerStyle={
+      Object {
+        "flexDirection": "column",
+        "height": 1254,
+        "justifyContent": "center",
+        "padding": 0,
+      }
+    }
+  >
+    <Styled(ViewNB)
+      style={
+        Object {
+          "flex": 9,
+          "flexDirection": "column",
+        }
+      }
+    >
+      <Styled(ViewNB)
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <TouchableOpacity
+          activeOpacity={0.2}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "justifyContent": "flex-start",
+            }
+          }
+        >
+          <Styled(Icon)
+            name="chevron-up"
+            type="FontAwesome"
+          />
+        </TouchableOpacity>
+      </Styled(ViewNB)>
+      <Styled(ViewNB)
+        style={
+          Object {
+            "backgroundColor": "white",
+            "flex": 15,
+            "flexDirection": "row",
+            "flexWrap": "nowrap",
+            "justifyContent": "space-evenly",
+            "padding": 40,
+            "paddingTop": 0,
+          }
+        }
+      >
+        <StatisticsNumbers
+          icon="flask"
+          iconsNmb={18}
+          percentage={90}
+          text="Teachers and Reseachers
+
+"
+        />
+        <StatisticsNumbers
+          icon="globe"
+          iconsNmb={18}
+          percentage={6}
+          text="Foreign students in mobility programs
+
+"
+        />
+        <StatisticsNumbers
+          icon="book"
+          iconsNmb={18}
+          percentage={18}
+          text="Foreign students enrolled to obtain a degree
+"
+        />
+      </Styled(ViewNB)>
+    </Styled(ViewNB)>
+    <Styled(ViewNB)
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#1c1c1c",
+          "flex": 8,
+          "flexDirection": "row",
+          "justifyContent": "space-evenly",
+        }
+      }
+    >
+      <Styled(ViewNB)
+        key="0"
+        style={
+          Object {
+            "backgroundColor": "#d9d9d9",
+            "flex": 1,
+            "flexDirection": "column",
+            "padding": "2%",
+          }
+        }
+      >
+        <Fact
+          info="240 protocolos estágio com empresas"
+          key="0"
+          name="feup"
+        />
+        <Fact
+          info="30 contratos projetos prestação de serviços"
+          key="1"
+          name="feup"
+        />
+      </Styled(ViewNB)>
+      <Styled(ViewNB)
+        key="2"
+        style={
+          Object {
+            "backgroundColor": "#d9d9d9",
+            "flex": 1,
+            "flexDirection": "column",
+            "padding": "2%",
+          }
+        }
+      >
+        <Fact
+          info="17 protocolos com escolas de ensino básico e secundário"
+          key="0"
+          name="feup"
+        />
+        <Fact
+          info="30 trabalhos de tradução e revisão jurídica"
+          key="1"
+          name="feup"
+        />
+      </Styled(ViewNB)>
+      <Styled(ViewNB)
+        key="4"
+        style={
+          Object {
+            "backgroundColor": "#d9d9d9",
+            "flex": 1,
+            "flexDirection": "column",
+            "padding": "2%",
+          }
+        }
+      >
+        <Fact
+          info="8 campanhas de angariação de bens"
+          key="0"
+          name="feup"
+        />
+      </Styled(ViewNB)>
+    </Styled(ViewNB)>
+  </Styled(Content)>
+</ScrollView>
+`;

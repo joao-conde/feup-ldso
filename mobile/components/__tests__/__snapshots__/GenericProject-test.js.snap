@@ -55,7 +55,7 @@ exports[`renders screen with geric project content 1`] = `
                 "borderWidth": 5,
               },
               Object {
-                "borderColor": "#8c2d19",
+                "borderColor": "#9f2d20",
               },
             ]
           }
@@ -144,7 +144,7 @@ exports[`renders screen with geric project content 1`] = `
                   "borderWidth": 5,
                 },
                 Object {
-                  "borderColor": "#8c2d19",
+                  "borderColor": "#9f2d20",
                 },
               ]
             }
@@ -259,7 +259,7 @@ exports[`renders screen with geric project content 1`] = `
                 "borderWidth": 5,
               },
               Object {
-                "borderColor": "#8c2d19",
+                "borderColor": "#9f2d20",
               },
             ]
           }

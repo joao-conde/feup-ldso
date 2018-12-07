@@ -1,8 +1,12 @@
 import React from 'react';
-import {View, Card, Icon, Button, Text} from 'native-base';
+import {View, Card, Button, Text} from 'native-base';
+import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import facultyStyles from '../../constants/SpecificStyles';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import SvgUri from 'react-native-svg-uri';
+import {homepageIcons} from '../../constants/homepage/homepageIcons';
+
 
 class IconButton extends React.Component {
 
@@ -20,7 +24,7 @@ class IconButton extends React.Component {
             <Card style={styles.card} transparent>
                 <View style={styles.btnView}>
                     <Button style={[styles.linkBtn, facultyStyles[name].mainMenuBtn]} onPress={action()}>
-                        <Icon style={styles.icon} type="FontAwesome" name={icon} />
+                        <SvgUri width={hp('6.5%')} height={hp('6.5%')} fill={StyleSheet.flatten(facultyStyles[name].mainMenuBtn).borderColor} fillAll={true} style={styles.icon} source={homepageIcons[icon].uri} />
                     </Button>
                 </View>
                 <View style={[styles.subtitle]}>
@@ -45,41 +49,45 @@ const styles = {
     card: {
         flex:1,
         justifyContent: 'space-around',
-        alignItems: 'center'
+        alignItems: 'center',
+        flexDirection: 'column'
     },
 
     btnView: {
-        flexDirection: 'column',
+        flex:100,
+        justifyContent: 'space-around'
     },
 
     subtitle: {
-        alignItems: 'center'
+        flex:32,
+        justifyContent: 'center',
+        flexDirection: 'row',
+        
     },
 
 
     labelText: {
-        fontSize: hp('2.5%')
+        fontSize: hp('2.5%'),
+        textAlign: 'center',
+        flexWrap: 'wrap'
     },
 
     icon: {
-        fontSize: hp('6%'),
         transform: [{
             rotate: '315deg'
         }],
-        color: 'white'
     },
 
     linkBtn: {
-        height: hp('14%'),
-        width: hp('14%'),
+        height: hp('13.5%'),
+        width: hp('13.5%'),
         justifyContent: 'center',
-        borderWidth: 1.2,
-        borderRadius: 6,
-        backgroundColor: 'white',
+        borderWidth: 2.2,
+        borderRadius: 17,
         transform: [{
             rotate: '45deg'
         }],
-        elevation: 23
+        elevation: 10
   
     }
 };
