@@ -13,13 +13,15 @@ import {
     ADD_PROJECT,
     EDIT_PROJECT,
     DELETE_PROJECT,
-    RESET_PROJECTS
-} from '../src/actions/projectsActions';
+    RESET_PROJECTS,
+    SEARCH_PROJECTS,
+    searchProjects
+} from '../projectsActions';
 
 
 describe('Project actions', () => {
 
-    it('should create an action to get projects', () => {
+    it('should create an action to get projects with no query specified', () => {
 		
         const expectedActionEN = {
             type: GET_PROJECTS_EN,
@@ -43,6 +45,22 @@ describe('Project actions', () => {
 		
         expect(getProjects('feup', 'en')).toEqual(expectedActionEN);
         expect(getProjects('feup', 'pt')).toEqual(expectedActionPT);
+    });
+
+
+    it('should create an action to get projects with a query specified', () => {
+		
+        const expectedActionEN = {
+            type: SEARCH_PROJECTS,
+            payload: {
+                request: {
+                    type: 'GET',
+                    url: '/faculties/en/feup/social-projects-short?q=projectNameEN'
+                }
+            }
+        };
+		
+        expect(searchProjects('feup', 'projectNameEN')).toEqual(expectedActionEN);
     });
 
 

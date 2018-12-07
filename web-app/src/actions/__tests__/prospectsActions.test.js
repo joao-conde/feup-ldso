@@ -6,7 +6,7 @@ import {
     GET_PROSPECTS_EN,
     GET_PROSPECTS_PT,
     EDIT_PROSPECTS
-} from '../src/actions/prospectsActions';
+} from '../prospectsActions';
 
 
 describe('Prospects actions', () => {

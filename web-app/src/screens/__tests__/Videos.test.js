@@ -1,5 +1,5 @@
 import React from 'react';
-import Videos from '../src/screens/Videos';
+import Videos from '../Videos';
 import Enzyme, { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import Adapter from 'enzyme-adapter-react-16';
@@ -43,11 +43,33 @@ function setup(videos) {
     return wrapper;
 }
 
-it('renders loading screen', () => {
 
-    const videos = [];
+describe('Videos Screen tests', () => {
 
-    const wrapper = setup(videos);
+    it('renders loading screen', () => {
+        const videos = [];
+        const wrapper = setup(videos);
+        expect(wrapper.dive()).toMatchSnapshot();
+    });
 
-    expect(wrapper.dive()).toMatchSnapshot();
+    it('calls componentDidMount without crashing', () => {
+        const projects = [];
+        const wrapper = setup(projects);
+        wrapper.dive().instance().componentDidMount();
+        expect(wrapper.dive()).toMatchSnapshot();
+    });
+
+    it('calls componentDidUpdate without crashing', () => {
+        const projects = [];
+        const wrapper = setup(projects);
+
+        const prevProps = {
+            faculty: 'feup'
+        };
+
+        wrapper.dive().instance().componentDidUpdate(prevProps);
+        expect(wrapper.dive()).toMatchSnapshot();
+    });
+    
 });
+    

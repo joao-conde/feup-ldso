@@ -5,7 +5,7 @@ import {
     //types
     GET_STATS,
     EDIT_STATS
-} from '../src/actions/statsActions';
+} from '../statsActions';
 
 
 describe('Stats actions', () => {

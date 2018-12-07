@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Input, Col, Row, Button } from 'reactstrap';
+import { NotificationManager } from 'react-notifications';
+import { throttle } from 'throttle-debounce';
 import PropTypes from 'prop-types';
 import { setFaculty } from '../actions/facultyActions';
 import { getProspects, editProspects } from '../actions/prospectsActions';
@@ -31,14 +33,19 @@ class ProspectsEditor extends Component {
         if (prevProps.faculty !== faculty)
             this.updateProspects();
 
-        if (contentEN !== null && contentPT !== null) {
-            if (contentEN !== prevProps.contentEN || contentPT !== prevProps.contentPT) {
+        if (contentEN !== '' && contentPT !== '' &&  banner !== '') {
+            if (contentEN !== prevProps.contentEN || contentPT !== prevProps.contentPT || banner !== prevProps.banner) {
                 this.setState({
                     contentEN: contentEN,
                     contentPT: contentPT,
                     banner: banner
                 });
             }
+
+            if ((prevProps.contentEN !== '' && prevProps.contentEN !== contentEN) ||
+                (prevProps.contentPT !== '' && prevProps.contentPT !== contentPT) ||
+                (prevProps.banner !== '' && prevProps.banner !== banner))
+                if (!global.__TEST__) throttle(0, NotificationManager.success('Successfully edited future plans!'));
         }
     }
 
@@ -138,7 +145,7 @@ class ProspectsEditor extends Component {
                                 <Col className="center-text">
                                     <Button className={`${loadingAction ? 'm-progress' : ''} mainActionBtn editProspectsBtn`}
                                         onClick={this.onSubmit}>
-                                        Edit Future Plans
+                                        Save Future Plans
                                     </Button>
                                 </Col>
                             </Row>

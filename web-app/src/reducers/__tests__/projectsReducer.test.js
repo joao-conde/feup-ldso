@@ -1,5 +1,5 @@
 import expect from 'expect';
-import reducer from '../src/reducers/modules/projectsReducer';
+import reducer from '../modules/projectsReducer';
 
 import {
     GET_PROJECTS_EN,
@@ -13,8 +13,9 @@ import {
     GET_PROJECTS_PT_SUCCESS,
     GET_PROJECT_BY_ID_SUCCESS,
     EDIT_PROJECT_SUCCESS,
+    ADD_PROJECT_SUCCESS,
     DELETE_PROJECT_SUCCESS
-} from '../src/actions/projectsActions';
+} from '../../actions/projectsActions';
 
 
 describe('Projects reducer', () => {
@@ -27,7 +28,8 @@ describe('Projects reducer', () => {
             projectsEN: [],
             projectsPT: [],
             currProjEN: null,
-            currProjPT: null
+            currProjPT: null,
+            idsMap: {}
         };
 
         expect(reducer(undefined, {})).toEqual(initialState);
@@ -127,7 +129,8 @@ describe('Projects reducer', () => {
             projectsEN: [],
             projectsPT: [],
             currProjEN: null,
-            currProjPT: null
+            currProjPT: null,
+            idsMap: {}
         };
 
         expect(reducer({}, resetProjectsAction)).toEqual(expectedState);
@@ -157,10 +160,20 @@ describe('Projects reducer', () => {
 
         const expectedState = {
             loading: false,
-            projectsEN: payloadProjectsEN
+            projectsEN: payloadProjectsEN,
+            projectsPT: [],
+            idsMap: {
+                [payloadProjectsEN[0].id]: null
+            }
         };
 
-        expect(reducer({}, getProjectsEnSuccessAction)).toEqual(expectedState);
+        const initialState = {
+            projectsEN: [],
+            projectsPT: [],
+            idsMap: {}
+        };
+
+        expect(reducer(initialState, getProjectsEnSuccessAction)).toEqual(expectedState);
     });
 
     it('should handle GET_PROJECTS_PT_SUCCESS', () => {
@@ -186,10 +199,18 @@ describe('Projects reducer', () => {
 
         const expectedState = {
             loading: false,
-            projectsPT: payloadProjectsPT
+            projectsPT: payloadProjectsPT,
+            projectsEN: [],
+            idsMap: {}
         };
 
-        expect(reducer({}, getProjectsPtSuccessAction)).toEqual(expectedState);
+        const initialState = {
+            projectsEN: [],
+            projectsPT: [],
+            idsMap: {}
+        };
+
+        expect(reducer(initialState, getProjectsPtSuccessAction)).toEqual(expectedState);
     });
 
 
@@ -296,6 +317,61 @@ describe('Projects reducer', () => {
     });
 
 
+    it('should handle ADD_PROJECT_SUCCESS', () => {
+
+        const projectEN = {
+            id: '5bfabd66c7701a1504d35d7c',
+            title: '[EN] English project',
+            short_description: 'Add Test project',
+            images: [
+                'https://dummyimage.com/600x400/000/fff',
+                'https://dummyimage.com/600x400/000/fff'
+            ],
+            language: 'en'
+        };
+
+        const projectPT = {
+            id: '5bfabd66c7701a1504d35d7c',
+            title: '[PT] Projeto Portugues',
+            short_description: 'Adicionar projeto de teste.',
+            images: [
+                'https://dummyimage.com/600x400/000/fff',
+                'https://dummyimage.com/600x400/000/fff'
+            ],
+            language: 'pt'
+        };
+
+        const previousState = {
+            loadingAction: true,
+            projectsEN: [],
+            projectsPT: [],
+            currProjEN: null,
+            currProjPT: null,
+            idsMap: {}
+        };
+
+        const expectedState = {
+            loadingAction: false,
+            projectsEN: [projectEN],
+            projectsPT: [projectPT],
+            currProjEN: projectEN,
+            currProjPT: projectPT,
+            idsMap: {
+                [projectEN.id]: projectPT.id
+            }
+        };
+
+        const addProjectSuccessAction = {
+            type: ADD_PROJECT_SUCCESS,
+            payload:{
+                data:[projectEN, projectPT]
+            }
+        };
+
+        expect(reducer(previousState, addProjectSuccessAction)).toEqual(expectedState);
+    });
+
+
     it('should handle DELETE_PROJECT_SUCCESS', () => {
 
         const project = {
@@ -313,12 +389,16 @@ describe('Projects reducer', () => {
             loadingAction: true,
             projectsEN: [project],
             currProjEN: project,
+            idsMap: {
+                [project.id]: 'some_value'
+            }
         };
 
         const expectedState = {
             loadingAction: false,
             projectsEN: [],
-            currProjEN: null
+            currProjEN: null,
+            idsMap: {}
         };
 
         const deleteProjectSuccessAction = {

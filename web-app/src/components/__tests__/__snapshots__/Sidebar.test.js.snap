@@ -215,6 +215,7 @@ ShallowWrapper {
       "children": <div
         className="sidebar"
       >
+        <SearchBar />
         <NavLink
           activeClassName="active"
           aria-current="page"
@@ -237,6 +238,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <SearchBar />,
           <NavLink
             activeClassName="active"
             aria-current="page"
@@ -255,6 +257,18 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "query": undefined,
+            "search": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -300,6 +314,7 @@ ShallowWrapper {
         "children": <div
           className="sidebar"
         >
+          <SearchBar />
           <NavLink
             activeClassName="active"
             aria-current="page"
@@ -322,6 +337,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
+            <SearchBar />,
             <NavLink
               activeClassName="active"
               aria-current="page"
@@ -340,6 +356,18 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "query": undefined,
+              "search": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           Object {
             "instance": null,
             "key": undefined,
@@ -485,6 +513,7 @@ ShallowWrapper {
       "children": <div
         className="sidebar"
       >
+        <SearchBar />
         <NavLink
           activeClassName="active"
           aria-current="page"
@@ -498,24 +527,42 @@ ShallowWrapper {
           />
         </NavLink>
         <div
-          className="imgParent"
+          className="iconContainer"
         >
-          <img
-            alt="Project icon"
-            className="imgBtn  "
-            onClick={[Function]}
-            src="https://picsum.photos/200/300/?random"
-          />
+          <div
+            className="imgParent"
+          >
+            <img
+              alt="Project icon"
+              className="imgBtn  "
+              onClick={[Function]}
+              src="https://picsum.photos/200/300/?random"
+            />
+          </div>
+          <div
+            className="iconLabel"
+          >
+            [EN] Social project at FAUP
+          </div>
         </div>
         <div
-          className="imgParent"
+          className="iconContainer"
         >
-          <img
-            alt="Project icon"
-            className="imgBtn  "
-            onClick={[Function]}
-            src="https://picsum.photos/200/300/?random"
-          />
+          <div
+            className="imgParent"
+          >
+            <img
+              alt="Project icon"
+              className="imgBtn  "
+              onClick={[Function]}
+              src="https://picsum.photos/200/300/?random"
+            />
+          </div>
+          <div
+            className="iconLabel"
+          >
+            [EN] Social project at FAUP
+          </div>
         </div>
       </div>,
       "className": "sidebarParent",
@@ -527,6 +574,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <SearchBar />,
           <NavLink
             activeClassName="active"
             aria-current="page"
@@ -541,24 +589,42 @@ ShallowWrapper {
           </NavLink>,
           Array [
             <div
-              className="imgParent"
+              className="iconContainer"
             >
-              <img
-                alt="Project icon"
-                className="imgBtn  "
-                onClick={[Function]}
-                src="https://picsum.photos/200/300/?random"
-              />
+              <div
+                className="imgParent"
+              >
+                <img
+                  alt="Project icon"
+                  className="imgBtn  "
+                  onClick={[Function]}
+                  src="https://picsum.photos/200/300/?random"
+                />
+              </div>
+              <div
+                className="iconLabel"
+              >
+                [EN] Social project at FAUP
+              </div>
             </div>,
             <div
-              className="imgParent"
+              className="iconContainer"
             >
-              <img
-                alt="Project icon"
-                className="imgBtn  "
-                onClick={[Function]}
-                src="https://picsum.photos/200/300/?random"
-              />
+              <div
+                className="imgParent"
+              >
+                <img
+                  alt="Project icon"
+                  className="imgBtn  "
+                  onClick={[Function]}
+                  src="https://picsum.photos/200/300/?random"
+                />
+              </div>
+              <div
+                className="iconLabel"
+              >
+                [EN] Social project at FAUP
+              </div>
             </div>,
           ],
         ],
@@ -566,6 +632,18 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "query": undefined,
+            "search": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -602,29 +680,70 @@ ShallowWrapper {
           "key": "0",
           "nodeType": "host",
           "props": Object {
-            "children": <img
-              alt="Project icon"
-              className="imgBtn  "
-              onClick={[Function]}
-              src="https://picsum.photos/200/300/?random"
-            />,
-            "className": "imgParent",
+            "children": Array [
+              <div
+                className="imgParent"
+              >
+                <img
+                  alt="Project icon"
+                  className="imgBtn  "
+                  onClick={[Function]}
+                  src="https://picsum.photos/200/300/?random"
+                />
+              </div>,
+              <div
+                className="iconLabel"
+              >
+                [EN] Social project at FAUP
+              </div>,
+            ],
+            "className": "iconContainer",
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "alt": "Project icon",
-              "className": "imgBtn  ",
-              "onClick": [Function],
-              "src": "https://picsum.photos/200/300/?random",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <img
+                  alt="Project icon"
+                  className="imgBtn  "
+                  onClick={[Function]}
+                  src="https://picsum.photos/200/300/?random"
+                />,
+                "className": "imgParent",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "Project icon",
+                  "className": "imgBtn  ",
+                  "onClick": [Function],
+                  "src": "https://picsum.photos/200/300/?random",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              "type": "div",
             },
-            "ref": null,
-            "rendered": null,
-            "type": "img",
-          },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "[EN] Social project at FAUP",
+                "className": "iconLabel",
+              },
+              "ref": null,
+              "rendered": "[EN] Social project at FAUP",
+              "type": "div",
+            },
+          ],
           "type": "div",
         },
         Object {
@@ -632,29 +751,70 @@ ShallowWrapper {
           "key": "1",
           "nodeType": "host",
           "props": Object {
-            "children": <img
-              alt="Project icon"
-              className="imgBtn  "
-              onClick={[Function]}
-              src="https://picsum.photos/200/300/?random"
-            />,
-            "className": "imgParent",
+            "children": Array [
+              <div
+                className="imgParent"
+              >
+                <img
+                  alt="Project icon"
+                  className="imgBtn  "
+                  onClick={[Function]}
+                  src="https://picsum.photos/200/300/?random"
+                />
+              </div>,
+              <div
+                className="iconLabel"
+              >
+                [EN] Social project at FAUP
+              </div>,
+            ],
+            "className": "iconContainer",
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "alt": "Project icon",
-              "className": "imgBtn  ",
-              "onClick": [Function],
-              "src": "https://picsum.photos/200/300/?random",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <img
+                  alt="Project icon"
+                  className="imgBtn  "
+                  onClick={[Function]}
+                  src="https://picsum.photos/200/300/?random"
+                />,
+                "className": "imgParent",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "Project icon",
+                  "className": "imgBtn  ",
+                  "onClick": [Function],
+                  "src": "https://picsum.photos/200/300/?random",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              "type": "div",
             },
-            "ref": null,
-            "rendered": null,
-            "type": "img",
-          },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "[EN] Social project at FAUP",
+                "className": "iconLabel",
+              },
+              "ref": null,
+              "rendered": "[EN] Social project at FAUP",
+              "type": "div",
+            },
+          ],
           "type": "div",
         },
       ],
@@ -671,6 +831,7 @@ ShallowWrapper {
         "children": <div
           className="sidebar"
         >
+          <SearchBar />
           <NavLink
             activeClassName="active"
             aria-current="page"
@@ -684,24 +845,42 @@ ShallowWrapper {
             />
           </NavLink>
           <div
-            className="imgParent"
+            className="iconContainer"
           >
-            <img
-              alt="Project icon"
-              className="imgBtn  "
-              onClick={[Function]}
-              src="https://picsum.photos/200/300/?random"
-            />
+            <div
+              className="imgParent"
+            >
+              <img
+                alt="Project icon"
+                className="imgBtn  "
+                onClick={[Function]}
+                src="https://picsum.photos/200/300/?random"
+              />
+            </div>
+            <div
+              className="iconLabel"
+            >
+              [EN] Social project at FAUP
+            </div>
           </div>
           <div
-            className="imgParent"
+            className="iconContainer"
           >
-            <img
-              alt="Project icon"
-              className="imgBtn  "
-              onClick={[Function]}
-              src="https://picsum.photos/200/300/?random"
-            />
+            <div
+              className="imgParent"
+            >
+              <img
+                alt="Project icon"
+                className="imgBtn  "
+                onClick={[Function]}
+                src="https://picsum.photos/200/300/?random"
+              />
+            </div>
+            <div
+              className="iconLabel"
+            >
+              [EN] Social project at FAUP
+            </div>
           </div>
         </div>,
         "className": "sidebarParent",
@@ -713,6 +892,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
+            <SearchBar />,
             <NavLink
               activeClassName="active"
               aria-current="page"
@@ -727,24 +907,42 @@ ShallowWrapper {
             </NavLink>,
             Array [
               <div
-                className="imgParent"
+                className="iconContainer"
               >
-                <img
-                  alt="Project icon"
-                  className="imgBtn  "
-                  onClick={[Function]}
-                  src="https://picsum.photos/200/300/?random"
-                />
+                <div
+                  className="imgParent"
+                >
+                  <img
+                    alt="Project icon"
+                    className="imgBtn  "
+                    onClick={[Function]}
+                    src="https://picsum.photos/200/300/?random"
+                  />
+                </div>
+                <div
+                  className="iconLabel"
+                >
+                  [EN] Social project at FAUP
+                </div>
               </div>,
               <div
-                className="imgParent"
+                className="iconContainer"
               >
-                <img
-                  alt="Project icon"
-                  className="imgBtn  "
-                  onClick={[Function]}
-                  src="https://picsum.photos/200/300/?random"
-                />
+                <div
+                  className="imgParent"
+                >
+                  <img
+                    alt="Project icon"
+                    className="imgBtn  "
+                    onClick={[Function]}
+                    src="https://picsum.photos/200/300/?random"
+                  />
+                </div>
+                <div
+                  className="iconLabel"
+                >
+                  [EN] Social project at FAUP
+                </div>
               </div>,
             ],
           ],
@@ -752,6 +950,18 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "query": undefined,
+              "search": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           Object {
             "instance": null,
             "key": undefined,
@@ -788,29 +998,70 @@ ShallowWrapper {
             "key": "0",
             "nodeType": "host",
             "props": Object {
-              "children": <img
-                alt="Project icon"
-                className="imgBtn  "
-                onClick={[Function]}
-                src="https://picsum.photos/200/300/?random"
-              />,
-              "className": "imgParent",
+              "children": Array [
+                <div
+                  className="imgParent"
+                >
+                  <img
+                    alt="Project icon"
+                    className="imgBtn  "
+                    onClick={[Function]}
+                    src="https://picsum.photos/200/300/?random"
+                  />
+                </div>,
+                <div
+                  className="iconLabel"
+                >
+                  [EN] Social project at FAUP
+                </div>,
+              ],
+              "className": "iconContainer",
             },
             "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "alt": "Project icon",
-                "className": "imgBtn  ",
-                "onClick": [Function],
-                "src": "https://picsum.photos/200/300/?random",
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <img
+                    alt="Project icon"
+                    className="imgBtn  "
+                    onClick={[Function]}
+                    src="https://picsum.photos/200/300/?random"
+                  />,
+                  "className": "imgParent",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "Project icon",
+                    "className": "imgBtn  ",
+                    "onClick": [Function],
+                    "src": "https://picsum.photos/200/300/?random",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                "type": "div",
               },
-              "ref": null,
-              "rendered": null,
-              "type": "img",
-            },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "[EN] Social project at FAUP",
+                  "className": "iconLabel",
+                },
+                "ref": null,
+                "rendered": "[EN] Social project at FAUP",
+                "type": "div",
+              },
+            ],
             "type": "div",
           },
           Object {
@@ -818,29 +1069,70 @@ ShallowWrapper {
             "key": "1",
             "nodeType": "host",
             "props": Object {
-              "children": <img
-                alt="Project icon"
-                className="imgBtn  "
-                onClick={[Function]}
-                src="https://picsum.photos/200/300/?random"
-              />,
-              "className": "imgParent",
+              "children": Array [
+                <div
+                  className="imgParent"
+                >
+                  <img
+                    alt="Project icon"
+                    className="imgBtn  "
+                    onClick={[Function]}
+                    src="https://picsum.photos/200/300/?random"
+                  />
+                </div>,
+                <div
+                  className="iconLabel"
+                >
+                  [EN] Social project at FAUP
+                </div>,
+              ],
+              "className": "iconContainer",
             },
             "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "alt": "Project icon",
-                "className": "imgBtn  ",
-                "onClick": [Function],
-                "src": "https://picsum.photos/200/300/?random",
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <img
+                    alt="Project icon"
+                    className="imgBtn  "
+                    onClick={[Function]}
+                    src="https://picsum.photos/200/300/?random"
+                  />,
+                  "className": "imgParent",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "Project icon",
+                    "className": "imgBtn  ",
+                    "onClick": [Function],
+                    "src": "https://picsum.photos/200/300/?random",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                "type": "div",
               },
-              "ref": null,
-              "rendered": null,
-              "type": "img",
-            },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "[EN] Social project at FAUP",
+                  "className": "iconLabel",
+                },
+                "ref": null,
+                "rendered": "[EN] Social project at FAUP",
+                "type": "div",
+              },
+            ],
             "type": "div",
           },
         ],

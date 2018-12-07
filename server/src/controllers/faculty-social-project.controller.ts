@@ -29,6 +29,7 @@ export class FacultySocialProjectController {
   ): Promise<SocialProject[]> {
     return await this.socialRepo.find({
       where: {language: language, faculty: name, id: id},
+      order: ['id DESC'],
     });
   }
 
@@ -65,11 +66,23 @@ export class FacultySocialProjectController {
   async findFacultyProjectsShort(
     @param.path.string('name') name: string,
     @param.path.string('language') language: string,
+    @param.query.string('q') searchQuery?: string,
   ): Promise<SocialProject[]> {
-    return await this.socialRepo.find({
-      where: {language: language, faculty: name},
-      fields: {id: true, title: true, short_description: true, images: true},
-    });
+    return await this.socialRepo
+      .find({
+        where: {language: language, faculty: name},
+        fields: {id: true, title: true, short_description: true, images: true},
+        order: ['id DESC'],
+      })
+      .then(projects => {
+        if (!searchQuery) return projects;
+        let pattern = new RegExp('.*' + searchQuery + '.*', 'i');
+        return projects.filter(
+          project =>
+            pattern.test(project.title || '') ||
+            pattern.test(project.short_description || ''),
+        );
+      });
   }
 
   @authenticate('JWTStrategy')

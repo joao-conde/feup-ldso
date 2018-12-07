@@ -1,5 +1,5 @@
 import React from 'react';
-import SocialProjects from '../src/screens/SocialProjects';
+import SocialProjects from '../SocialProjects';
 import Enzyme, { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import Adapter from 'enzyme-adapter-react-16';
@@ -20,6 +20,9 @@ function setup(projects) {
             loadingAction: false,
             projectsEN: projects,
             projectsPT: projects,
+            idsMap: {
+                'idEn': 'idPt'
+            },
             currProjEN: {
                 'title': '[EN] Social project at FAUP',
                 'short_description': 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam neque. Aliquam erat volutpat. Suspendisse sagittis ultrices augue. Pellentesque ipsum.',
@@ -56,7 +59,7 @@ function setup(projects) {
         editProject: jest.fn(),
         addProject: jest.fn(),
         deleteProject: jest.fn(),
-        setFaculty: jest.fn(),
+        setFaculty: jest.fn()
     };
 
     const wrapper = shallow(<SocialProjects {...props} />,
@@ -68,11 +71,54 @@ function setup(projects) {
     return wrapper;
 }
 
-it('renders loading screen', () => {
+describe('Social Projects Screen tests', () => {
 
-    const projects = [];
+    it('renders loading screen', () => {
+        const projects = [];
+        const wrapper = setup(projects);
+        expect(wrapper.dive()).toMatchSnapshot();
+    });
+    
+    it('calls updateQuery without crashing', () => {
+        const projects = [];
+        const wrapper = setup(projects);
+        expect(wrapper.dive().instance().state.query).toBe('');
+        wrapper.dive().instance().updateQuery('projectName');
+        expect(wrapper.dive()).toMatchSnapshot();
+    });  
 
-    const wrapper = setup(projects);
+    it('calls updateFaculty without crashing', () => {
+        const projects = [];
+        const wrapper = setup(projects);
+        wrapper.dive().instance().updateFaculty();
+        expect(wrapper.dive()).toMatchSnapshot();
+    });  
 
-    expect(wrapper.dive()).toMatchSnapshot();
+    it('calls componentDidMount without crashing', () => {
+        const projects = [];
+        const wrapper = setup(projects);
+        wrapper.dive().instance().componentDidMount();
+        expect(wrapper.dive()).toMatchSnapshot();
+    });
+
+    it('calls componentDidUpdate without crashing', () => {
+        const projects = [];
+
+        const prevProps = {
+            faculty: 'feup',
+            currProjEN: {
+                id: '69',
+                content: 'mockup project'
+            },
+            mapIds: {}
+        };
+
+        const prevState = {
+            query: 'mockup query'
+        };
+
+        const wrapper = setup(projects);
+        wrapper.dive().instance().componentDidUpdate(prevProps, prevState);
+        expect(wrapper.dive()).toMatchSnapshot();
+    }); 
 });

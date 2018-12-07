@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from '../src/components/Sidebar';
+import Sidebar from '../Sidebar';
 import Enzyme, { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import Adapter from 'enzyme-adapter-react-16';

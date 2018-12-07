@@ -1,5 +1,5 @@
 import expect from 'expect';
-import reducer from '../src/reducers/modules/videosReducer';
+import reducer from '../modules/videosReducer';
 
 import {
     GET_VIDEOS_EN,
@@ -11,7 +11,7 @@ import {
     EDIT_VIDEO,
     EDIT_VIDEO_SUCCESS,
     EDIT_VIDEO_FAIL
-} from '../src/actions/videosActions';
+} from '../../actions/videosActions';
 
 
 describe('Videos reducer', () => {

@@ -1,9 +1,9 @@
 import expect from 'expect';
-import reducer from '../src/reducers/modules/facultyReducer';
+import reducer from '../modules/facultyReducer';
 
 import {
     SET_FACULTY
-} from '../src/actions/facultyActions';
+} from '../../actions/facultyActions';
 
 
 describe('Faculty reducer', () => {
