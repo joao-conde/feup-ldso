@@ -5,7 +5,7 @@ import MenuScreen from '../screens/MenuScreen';
 import FacultyScreen from '../screens/FacultyScreen';
 import VideosScreen from '../screens/VideosScreen';
 import FutureProspectsScreen from '../screens/FutureProspectsScreen';
-import LocalizationScreen from '../screens/LocalizationScreen';
+import LocationScreen from '../screens/LocationScreen';
 import LanguageBtn from '../components/LanguageBtn';
 import { facultyStyles, invertedMode } from '../constants/SpecificStyles';
 import HeaderTitle from './components/HeaderTitle';
@@ -32,8 +32,8 @@ export default createStackNavigator(
         FutureProspects: {
             screen: FutureProspectsScreen
         },
-        Localization: {
-            screen: LocalizationScreen
+        Location: {
+            screen: LocationScreen
         }
     },
     {

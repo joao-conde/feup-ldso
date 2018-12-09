@@ -1,4 +1,4 @@
-import { setFaculty, clearFaculty, getStats, getSocialProjects, getSocialProjectDetails, getFutureProspects, getLocalization, getVideos } from '../modules/facultyReducer';
+import { setFaculty, clearFaculty, getStats, getSocialProjects, getSocialProjectDetails, getFutureProspects, getVideos } from '../modules/facultyReducer';
 import reducer from '../modules/facultyReducer';
 
 describe('Testing faculty actions', () => {
@@ -27,10 +27,6 @@ describe('Testing faculty actions', () => {
         expect(getFutureProspects('en', 'feup')).toMatchSnapshot();
     });
 
-    it('creates a GET_LOCALIZATION Action', () => {
-        expect(getLocalization('feup')).toMatchSnapshot();
-    });
-
     it('creates a GET_VIDEOS Action', () => {
         expect(getVideos('feup')).toMatchSnapshot();
     });
@@ -57,7 +53,6 @@ describe('Testing if faculty reducer', () => {
             socialProjects: [],
             currSocialProjectId: -1,
             futureProspects: {},
-            localization: {},
             videos: []
         };
 
