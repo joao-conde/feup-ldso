@@ -47,6 +47,8 @@ export class FacultySocialProjectController {
     @requestBody() socialProject: Partial<SocialProject>,
     @param.query.string('id') id?: string,
   ): Promise<SocialProject> {
+    socialProject.active =
+      !socialProject.end_date || new Date(socialProject.end_date) < new Date();
     await this.socialRepo.updateById(id, socialProject);
     return this.socialRepo.findById(id);
   }
@@ -112,6 +114,8 @@ export class FacultySocialProjectController {
       end_date: socialProject.endDate,
       faculty: name,
       language: 'en',
+      active:
+        !socialProject.endDate || new Date(socialProject.endDate) > new Date(),
     });
 
     //New project, portuguese version
@@ -124,6 +128,8 @@ export class FacultySocialProjectController {
       end_date: socialProject.endDate,
       faculty: name,
       language: 'pt',
+      active:
+        !socialProject.endDate || new Date(socialProject.endDate) > new Date(),
     });
 
     return [

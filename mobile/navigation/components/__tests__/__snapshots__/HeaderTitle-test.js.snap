@@ -5,8 +5,8 @@ exports[`renders logo 1`] = `
   source={1}
   style={
     Object {
-      "height": 30,
-      "width": 47,
+      "height": 45,
+      "width": 45,
     }
   }
 />

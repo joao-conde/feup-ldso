@@ -41,7 +41,7 @@ function setup(loading = false) {
     const wrapper = shallow(<GenericProject {...props} />,
         {
             context: { store: mockStore(initialState) },
-            disableLifecycleMethods: true
+            disableLifecycleMethods: false
         });
 
     return wrapper;

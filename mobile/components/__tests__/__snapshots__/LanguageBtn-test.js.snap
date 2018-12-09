@@ -1,39 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders with black text 1`] = `
-<Styled(Button)
-  dark={true}
-  light={false}
+<TouchableOpacity
+  activeOpacity={0.2}
   onPress={[Function]}
-  transparent={true}
 >
   <Styled(Text)
     style={
-      Object {
-        "fontWeight": "bold",
-      }
+      Array [
+        Object {
+          "fontWeight": "bold",
+          "marginRight": 12.5,
+        },
+        Object {
+          "color": "black",
+        },
+      ]
     }
   >
-    en
+    EN
   </Styled(Text)>
-</Styled(Button)>
+</TouchableOpacity>
 `;
 
 exports[`renders with white text 1`] = `
-<Styled(Button)
-  dark={false}
-  light={true}
+<TouchableOpacity
+  activeOpacity={0.2}
   onPress={[Function]}
-  transparent={true}
 >
   <Styled(Text)
     style={
-      Object {
-        "fontWeight": "bold",
-      }
+      Array [
+        Object {
+          "fontWeight": "bold",
+          "marginRight": 12.5,
+        },
+        Object {
+          "color": "white",
+        },
+      ]
     }
   >
-    en
+    EN
   </Styled(Text)>
-</Styled(Button)>
+</TouchableOpacity>
 `;

@@ -30,7 +30,7 @@ function setup(loading = false) {
     const wrapper = shallow(<VideosScreen />,
         {
             context: { store: mockStore(initialState) },
-            disableLifecycleMethods: true
+            disableLifecycleMethods: false
         });
 
     return wrapper;

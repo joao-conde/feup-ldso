@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { WebView, StyleSheet, Dimensions } from 'react-native';
-import { View, Text } from 'native-base';
+import { View } from 'native-base';
 import { connect } from 'react-redux';
+import ActivityIndicatorView from '../components/ActivityIndicatorView';
 import { getVideos } from '../reducers/modules/facultyReducer';
 import Carousel from '../components/Carousel';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
@@ -18,15 +19,8 @@ class VideosScreen extends React.Component {
     render() {
         const { videos, loading, name } = this.props;
 
-        if (loading || typeof videos[0] == 'undefined') {
-            return (
-                <View>
-                    <Text>
-                        Loading...
-                    </Text>
-                </View>
-            );
-        }
+        if (loading || typeof videos[0] == 'undefined')
+            return ( <ActivityIndicatorView></ActivityIndicatorView> );
 
         var webViews = [];
         let i=0;

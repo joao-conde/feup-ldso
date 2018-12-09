@@ -41,6 +41,12 @@ export class SocialProject extends Entity {
   end_date?: string;
 
   @property({
+    type: 'boolean',
+    description: 'Project active status',
+  })
+  active?: boolean;
+
+  @property({
     type: 'array',
     itemType: 'string',
     description: 'Project associated images',
