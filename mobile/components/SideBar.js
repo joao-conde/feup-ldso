@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
 
     button: {
         margin: 10,
+        flex: 1
     },
 
     title: {
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         width: 75,
         height: 75,
-        alignItems: 'center',
+        alignSelf: 'center',
         borderRadius: 16
     }
 });

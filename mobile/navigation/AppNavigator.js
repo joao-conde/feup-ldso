@@ -43,9 +43,7 @@ export default createStackNavigator(
             const inverted = invertedMode[faculty] || false;
 
             return ({
-                headerRight: (
-                    <LanguageBtn invertedMode={ invertedMode[faculty] }/>
-                ),
+                headerRight: <LanguageBtn invertedMode={ inverted }/>,
                 headerTitle: <HeaderTitle faculty={ faculty } invertedMode={ inverted }/>,
                 headerStyle: faculty == undefined ? {} : facultyStyles[faculty].header,
                 headerTitleStyle: faculty == undefined ? {} : facultyStyles[faculty].headerTitle,

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import { StyleSheet, Image, Dimensions, ScrollView, TouchableOpacity} from 'react-native';
-import { Container, Content, Text, View, Icon } from 'native-base';
+import { Content, View, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import ActivityIndicatorView from '../components/ActivityIndicatorView';
 import { getStats, setFaculty } from '../reducers/modules/facultyReducer';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Statistics from '../components/FacultyScreen/StatsNumbers';
@@ -62,6 +63,7 @@ class FacultyScreen extends Component {
 
     render() {
         const { name, loading, stats, language } = this.props;
+
         function renderFacts() {
             let facts=[];
             if(stats['other_facts'].length == 3 || stats['other_facts'].length == 2) {
@@ -91,19 +93,9 @@ class FacultyScreen extends Component {
             return factsDisplay;
         }
 
+        if (loading || typeof facultyStyles[name] == 'undefined') 
+            return ( <ActivityIndicatorView></ActivityIndicatorView> );
 
-
-        if (loading || typeof facultyStyles[name] == 'undefined') {
-            return (
-                <Container style={styles.container}>
-                    <Content contentContainerStyle={styles.content}>
-                        <Text style={styles.text}>
-                            {language == 'en' ? 'Loading...' : 'Carregando...'}
-                        </Text>
-                    </Content>
-                </Container>
-            );
-        }
         return (
             <ScrollView style={styles.container} ref={(scroller) => {this.scroller = scroller;}} onMomentumScrollBegin={null} onScrollEndDrag={this.onScroll}>
                 <Content contentContainerStyle={styles.content}>
@@ -129,7 +121,7 @@ class FacultyScreen extends Component {
                         <View style={styles.statistics}>
                             {stats['nr_bsc'] != 0 && <Statistics course={[ stats['nr_bsc'], language == 'en' ? 'Bachelors\n' : 'Licenciaturas\n' ]} students={[stats['bsc_students'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>}
                             {stats['nr_msc'] != 0 && <Statistics course={[ stats['nr_msc'], language == 'en' ? 'Masters\n' : 'Mestrados\n' ]} students={[stats['msc_students'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>}
-                            {stats['nr_phd'] != 0 && <Statistics course={[ stats['nr_phd'], language == 'en' ? 'PhD\n' : 'Doutoramentos\n' ]} students={[stats['phd_students'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>}
+                            {stats['nr_phd'] != 0 && <Statistics course={[ stats['nr_phd'], language == 'en' ? 'PhDs\n' : 'Doutoramentos\n' ]} students={[stats['phd_students'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>}
                             {stats['nr_training_course'] != 0 && <Statistics course={[ stats['nr_training_course'], language == 'en' ? 'Open and continuing training courses\n' : 'Cursos livres e de formação contínua\n' ]} students={[stats['training_course_graduate'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>}
                         </View>
                         <View style={styles.goArrowView}>
@@ -148,8 +140,8 @@ class FacultyScreen extends Component {
                         </View>
                         <View style={styles.statsIcons}>
                             <StatsIcons icon="flask" iconsNmb={18} percentage={stats['research_perc']*100} text={language == 'en' ? 'Teachers and Reseachers\n\n' : 'Docentes e investigadores\n\n'}></StatsIcons>
-                            <StatsIcons icon="globe" iconsNmb={18} percentage={stats['foreign_student_perc']*100} text={language == 'en' ? 'Foreign students in mobility programs\n\n' : 'Estudantes internacionais em mobilidade\n\n'}></StatsIcons>
-                            <StatsIcons icon="book" iconsNmb={18} percentage={stats['training_programs_perc']*100} text={language == 'en' ? 'Foreign students enrolled to obtain a degree\n' : 'Estudantes internacionais inscritos para obtenção de grau\n'}></StatsIcons>
+                            <StatsIcons icon="globe" iconsNmb={18} percentage={stats['foreign_student_perc']*100} text={language == 'en' ? 'Students in mobility programmes\n(in & out)\n' : 'Estudantes em mobilidade\n(in & out)\n'}></StatsIcons>
+                            <StatsIcons icon="book" iconsNmb={18} percentage={stats['training_programs_perc']*100} text={language == 'en' ? 'International students enrolled to obtain a degree\n' : 'Estudantes internacionais inscritos para obtenção de grau\n'}></StatsIcons>
                         </View>
                     </View>
                     {stats['other_facts'].length>0 && <View style={styles.factsView}>
@@ -229,13 +221,13 @@ const styles = StyleSheet.create({
         flex: 3,
         flexWrap: 'wrap',
         flexDirection: 'row',
-        marginRight: wp('2%'),
-        backgroundColor:'transparent'
+        marginRight: wp('2%')
     },
 
     image: {
-        flex: 1,
-        resizeMode: 'cover'
+        width:'100%',
+        height:'100%',
+        resizeMode: 'contain'
 
     },
 

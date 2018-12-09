@@ -1,38 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Rendering renders loading screen 1`] = `
-<Styled(Container)
-  style={
-    Object {
-      "backgroundColor": "white",
-      "flex": 1,
-      "flexDirection": "column",
-    }
-  }
->
-  <Styled(Content)
-    contentContainerStyle={
-      Object {
-        "flexDirection": "column",
-        "height": 1254,
-        "justifyContent": "center",
-        "padding": 0,
-      }
-    }
-  >
-    <Styled(Text)
-      style={
-        Object {
-          "padding": 53.5,
-          "textAlign": "justify",
-        }
-      }
-    >
-      Loading...
-    </Styled(Text)>
-  </Styled(Content)>
-</Styled(Container)>
-`;
+exports[`Rendering renders loading screen 1`] = `<ActivityIndicatorView />`;
 
 exports[`Rendering renders screen with 2 facts 1`] = `
 <ScrollView
@@ -149,7 +117,6 @@ exports[`Rendering renders screen with 2 facts 1`] = `
       <Styled(ViewNB)
         style={
           Object {
-            "backgroundColor": "transparent",
             "flex": 3,
             "flexDirection": "row",
             "flexWrap": "wrap",
@@ -161,8 +128,9 @@ exports[`Rendering renders screen with 2 facts 1`] = `
           source={1}
           style={
             Object {
-              "flex": 1,
-              "resizeMode": "cover",
+              "height": "100%",
+              "resizeMode": "contain",
+              "width": "100%",
             }
           }
         />
@@ -220,7 +188,7 @@ exports[`Rendering renders screen with 2 facts 1`] = `
           course={
             Array [
               8,
-              "PhD
+              "PhDs
 ",
             ]
           }
@@ -347,15 +315,15 @@ exports[`Rendering renders screen with 2 facts 1`] = `
           icon="globe"
           iconsNmb={18}
           percentage={6}
-          text="Foreign students in mobility programs
-
+          text="Students in mobility programmes
+(in & out)
 "
         />
         <StatisticsNumbers
           icon="book"
           iconsNmb={18}
           percentage={18}
-          text="Foreign students enrolled to obtain a degree
+          text="International students enrolled to obtain a degree
 "
         />
       </Styled(ViewNB)>
@@ -525,7 +493,6 @@ exports[`Rendering renders screen with many facts 1`] = `
       <Styled(ViewNB)
         style={
           Object {
-            "backgroundColor": "transparent",
             "flex": 3,
             "flexDirection": "row",
             "flexWrap": "wrap",
@@ -537,8 +504,9 @@ exports[`Rendering renders screen with many facts 1`] = `
           source={1}
           style={
             Object {
-              "flex": 1,
-              "resizeMode": "cover",
+              "height": "100%",
+              "resizeMode": "contain",
+              "width": "100%",
             }
           }
         />
@@ -596,7 +564,7 @@ exports[`Rendering renders screen with many facts 1`] = `
           course={
             Array [
               8,
-              "PhD
+              "PhDs
 ",
             ]
           }
@@ -723,15 +691,15 @@ exports[`Rendering renders screen with many facts 1`] = `
           icon="globe"
           iconsNmb={18}
           percentage={6}
-          text="Foreign students in mobility programs
-
+          text="Students in mobility programmes
+(in & out)
 "
         />
         <StatisticsNumbers
           icon="book"
           iconsNmb={18}
           percentage={18}
-          text="Foreign students enrolled to obtain a degree
+          text="International students enrolled to obtain a degree
 "
         />
       </Styled(ViewNB)>

@@ -17,11 +17,33 @@ Object {
 }
 `;
 
+exports[`Testing faculty actions creates a GET_RESEARCH_CENTRE_BY_ID Action 1`] = `
+Object {
+  "payload": Object {
+    "request": Object {
+      "url": "/faculties/en/feup/research-centers?id=undefined",
+    },
+  },
+  "type": "mobile/faculty/GET_RESEARCH_CENTRE_BY_ID",
+}
+`;
+
+exports[`Testing faculty actions creates a GET_RESEARCH_CENTRES Action 1`] = `
+Object {
+  "payload": Object {
+    "request": Object {
+      "url": "/faculties/undefined/undefined/research-centers-short",
+    },
+  },
+  "type": "mobile/faculty/GET_RESEARCH_CENTRES",
+}
+`;
+
 exports[`Testing faculty actions creates a GET_SOCIAL_PROJECT_BY_ID Action 1`] = `
 Object {
   "payload": Object {
     "request": Object {
-      "url": "/faculties/en/feup/social-projects?filter?id=id",
+      "url": "/faculties/en/feup/social-projects?id=id",
     },
   },
   "type": "mobile/faculty/GET_SOCIAL_PROJECT_BY_ID",

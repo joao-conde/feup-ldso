@@ -12,6 +12,8 @@ const mockStore = configureStore(middlewares);
 
 function setup(loading = false) {
 
+    const mockFunction = jest.fn();
+
     const initialState = { 
         faculty: {
             name: 'feup',
@@ -23,26 +25,28 @@ function setup(loading = false) {
         },
         language: {
             selection: 'en'
-        }
+        },
+        getFutureProspects: mockFunction
     };
 
     const wrapper = shallow(<FutureProspectsScreen />,
         {
             context: { store: mockStore(initialState) },
-            disableLifecycleMethods: true
+            disableLifecycleMethods: false
         });
 
-    return wrapper;
+    return { wrapper, mockFunction, initialState };
 }
 
 it('renders loading screen', () => {
-    const wrapper = setup(true);
+    const { wrapper } = setup(true);
 
     expect(wrapper.dive()).toMatchSnapshot();
 });
     
 it('renders screen with future prospect content', () => {
-    const wrapper = setup();
+    const { wrapper } = setup();
 
     expect(wrapper.dive()).toMatchSnapshot();
 });
+

@@ -1,4 +1,4 @@
-import { setFaculty, clearFaculty, getStats, getSocialProjects, getSocialProjectDetails, getFutureProspects, getVideos } from '../modules/facultyReducer';
+import { setFaculty, clearFaculty, getStats, getSocialProjects, getSocialProjectDetails, getFutureProspects, getVideos, getResearchCentres, getResearchCentreDetails } from '../modules/facultyReducer';
 import reducer from '../modules/facultyReducer';
 
 describe('Testing faculty actions', () => {
@@ -21,6 +21,14 @@ describe('Testing faculty actions', () => {
 
     it('creates a GET_SOCIAL_PROJECT_BY_ID Action', () => {
         expect(getSocialProjectDetails('en', 'feup', 'id')).toMatchSnapshot();
+    });
+
+    it('creates a GET_RESEARCH_CENTRES Action', () => {
+        expect(getResearchCentres()).toMatchSnapshot();
+    });
+
+    it('creates a GET_RESEARCH_CENTRE_BY_ID Action', () => {
+        expect(getResearchCentreDetails('en', 'feup')).toMatchSnapshot();
     });
 
     it('creates a GET_FUTURE_PROSPECTS Action', () => {

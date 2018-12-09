@@ -9,7 +9,8 @@
             "https://dummyimage.com/600x400/000/fff"
         ],        
         "faculty": "faup",
-        "language": "en"
+        "language": "en",
+        "active": true
     },
     {
         "title": "[EN] Social project at FAUP",
@@ -21,7 +22,8 @@
             "https://dummyimage.com/600x400/000/fff"
         ],  
         "faculty": "faup",
-        "language": "en"
+        "language": "en",
+        "active": true
     },
     {
         "title": "[EN] Third project",
@@ -33,7 +35,8 @@
             "https://dummyimage.com/600x400/000/fff"
         ],  
         "faculty": "faup",
-        "language": "en"
+        "language": "en",
+        "active": true
     },
     {
         "title": "[PT] Sed in convallis nulla",
@@ -45,7 +48,8 @@
             "https://dummyimage.com/600x400/000/fff"
         ],  
         "faculty": "faup",
-        "language": "pt"
+        "language": "pt",
+        "active": true
     },
     {
         "title": "[PT] Projeto social na FAUP",
@@ -57,7 +61,8 @@
             "https://dummyimage.com/600x400/000/fff"
         ],  
         "faculty": "faup",
-        "language": "pt"
+        "language": "pt",
+        "active": true
     },
     {
         "title": "[PT] Terceiro projeto",
@@ -69,7 +74,8 @@
             "https://dummyimage.com/600x400/000/fff"
         ],  
         "faculty": "faup",
-        "language": "pt"
+        "language": "pt",
+        "active": true
     },
     {
         "title": "[EN] Sed in convallis nulla",
@@ -81,7 +87,8 @@
             "https://dummyimage.com/600x400/000/fff"
         ],  
         "faculty": "fbaup",
-        "language": "en"
+        "language": "en",
+        "active": true
     },
     {
         "title": "[EN] Social project at FBAUP",
@@ -93,7 +100,8 @@
             "https://dummyimage.com/600x400/000/fff"
         ],  
         "faculty": "fbaup",
-        "language": "en"       
+        "language": "en",
+        "active": true       
     },
     {
         "title": "[EN] Third project",
@@ -105,7 +113,8 @@
             "https://dummyimage.com/600x400/000/fff"
         ],  
         "faculty": "fbaup",
-        "language": "en"       
+        "language": "en",
+        "active": true       
     },
     {
         "title": "[PT] Sed in convallis nulla",
@@ -117,7 +126,8 @@
             "https://dummyimage.com/600x400/000/fff"
         ],  
         "faculty": "fbaup",
-        "language": "pt"       
+        "language": "pt",
+        "active": true       
     },
     {
         "title": "[PT] Projeto social na FBAUP",
@@ -130,7 +140,8 @@
             "https://dummyimage.com/600x400/000/fff"
         ],  
         "faculty": "fbaup",
-        "language": "pt"
+        "language": "pt",
+        "active": false
     },
     {
         "title": "[PT] Terceiro projeto",
@@ -143,6 +154,7 @@
             "https://dummyimage.com/600x400/000/fff"
         ],  
         "faculty": "fbaup",
-        "language": "pt"        
+        "language": "pt",
+        "active": false        
     }
 ]
