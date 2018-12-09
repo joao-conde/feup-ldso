@@ -17,17 +17,6 @@ Object {
 }
 `;
 
-exports[`Testing faculty actions creates a GET_LOCALIZATION Action 1`] = `
-Object {
-  "payload": Object {
-    "request": Object {
-      "url": "/feup",
-    },
-  },
-  "type": "mobile/faculty/GET_LOCALIZATION",
-}
-`;
-
 exports[`Testing faculty actions creates a GET_SOCIAL_PROJECT_BY_ID Action 1`] = `
 Object {
   "payload": Object {
@@ -91,7 +80,6 @@ Object {
   "currSocialProject": null,
   "futureProspects": Object {},
   "loading": false,
-  "localization": null,
   "name": "",
   "researchCentres": Array [],
   "socialProjects": Array [],

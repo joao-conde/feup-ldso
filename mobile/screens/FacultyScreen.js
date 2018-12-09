@@ -118,7 +118,7 @@ class FacultyScreen extends Component {
                             </View>
                             <View style={styles.linksCol}>
                                 <IconButton name={name} icon="future" label={language == 'en' ? 'Future' : 'Futuro'} action={() => this.navigateFunction('FutureProspects', name)}></IconButton>
-                                <IconButton name={name} icon="location" label={language == 'en' ? 'Location' : 'Localização'} action={() => this.navigateFunction('Localization', name)}></IconButton>
+                                <IconButton name={name} icon="location" label={language == 'en' ? 'Location' : 'Localização'} action={() => this.navigateFunction('Location', name)}></IconButton>
                             </View>
                         </View>
                         <View style={styles.imageView}>

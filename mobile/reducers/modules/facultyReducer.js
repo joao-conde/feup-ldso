@@ -26,10 +26,6 @@ const GET_RESEARCH_CENTRE_BY_ID_FAIL = 'mobile/faculty/GET_RESEARCH_CENTRE_BY_ID
 const GET_FUTURE_PROSPECTS = 'mobile/faculty/GET_FUTURE_PROSPECTS';
 const GET_FUTURE_PROSPECTS_SUCCESS = 'mobile/faculty/GET_FUTURE_PROSPECTS_SUCCESS';
 const GET_FUTURE_PROSPECTS_FAIL = 'mobile/faculty/GET_FUTURE_PROSPECTS_FAIL';
-// Get Faculty Localization
-const GET_LOCALIZATION = 'mobile/faculty/GET_LOCALIZATION';
-const GET_LOCALIZATION_SUCCESS = 'mobile/faculty/GET_LOCALIZATION_SUCCESS';
-const GET_LOCALIZATION_FAIL = 'mobile/faculty/GET_LOCALIZATION_FAIL';
 // Get Faculty Videos
 const GET_VIDEOS = 'mobile/faculty/GET_VIDEOS';
 const GET_VIDEOS_SUCCESS = 'mobile/faculty/GET_VIDEOS_SUCCESS';
@@ -44,7 +40,6 @@ const initialState = {
     researchCentres: [],
     currResearchCentre: null,
     futureProspects: {},
-    localization: null,
     videos: []
 };
 
@@ -63,7 +58,6 @@ export default function reducer(state = initialState, action) {
     case GET_RESEARCH_CENTRES:
     case GET_RESEARCH_CENTRE_BY_ID:
     case GET_FUTURE_PROSPECTS:
-    case GET_LOCALIZATION:
     case GET_VIDEOS:
         return { ...state,
             loading: true
@@ -99,11 +93,6 @@ export default function reducer(state = initialState, action) {
             loading: false,
             futureProspects: action.payload.data.future_prospects
         };
-    case GET_LOCALIZATION_SUCCESS:
-        return { ...state,
-            loading: false,
-            localization: action.payload.data
-        };
     case GET_VIDEOS_SUCCESS:
         return { ...state,
             loading: false,
@@ -116,7 +105,6 @@ export default function reducer(state = initialState, action) {
     case GET_RESEARCH_CENTRES_FAIL:
     case GET_RESEARCH_CENTRE_BY_ID_FAIL:
     case GET_FUTURE_PROSPECTS_FAIL:
-    case GET_LOCALIZATION_FAIL:
     case GET_VIDEOS_FAIL:
         return {
             ...state,
@@ -202,17 +190,6 @@ export function getFutureProspects(language, faculty) {
         payload: {
             request: {
                 url: `/faculties/${language}/${faculty}/future`
-            }
-        }
-    };
-}
-
-export function getLocalization(faculty) {
-    return {
-        type: GET_LOCALIZATION,
-        payload: {
-            request: {
-                url: `/${faculty}`
             }
         }
     };
