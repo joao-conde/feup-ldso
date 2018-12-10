@@ -4,8 +4,7 @@ exports[`Rendering renders loading screen 1`] = `<ActivityIndicatorView />`;
 
 exports[`Rendering renders screen with 2 facts 1`] = `
 <ScrollView
-  onMomentumScrollBegin={null}
-  onScrollEndDrag={[Function]}
+  scrollEnabled={false}
   style={
     Object {
       "backgroundColor": "white",
@@ -380,8 +379,7 @@ exports[`Rendering renders screen with 2 facts 1`] = `
 
 exports[`Rendering renders screen with many facts 1`] = `
 <ScrollView
-  onMomentumScrollBegin={null}
-  onScrollEndDrag={[Function]}
+  scrollEnabled={false}
   style={
     Object {
       "backgroundColor": "white",

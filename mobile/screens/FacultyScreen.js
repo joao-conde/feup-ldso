@@ -31,17 +31,6 @@ class FacultyScreen extends Component {
         this.scroller.scrollTo({x: 0, y: 0});
     };
 
-    onScroll = (event) => {
-        let currentOffset = event.nativeEvent.contentOffset.y;
-        let direction = currentOffset > this.offset ? 'down' : 'up';
-        this.offset = currentOffset;
-
-        if(direction == 'down')
-            this.scrollToSecondPage();
-        else
-            this.scrollToFirstPage();
-    };
-
 
     componentDidMount() {
         const faculty = this.props.navigation.getParam('name');
@@ -97,7 +86,7 @@ class FacultyScreen extends Component {
             return ( <ActivityIndicatorView></ActivityIndicatorView> );
 
         return (
-            <ScrollView style={styles.container} ref={(scroller) => {this.scroller = scroller;}} onMomentumScrollBegin={null} onScrollEndDrag={this.onScroll}>
+            <ScrollView style={styles.container} ref={(scroller) => {this.scroller = scroller;}} scrollEnabled={false}>
                 <Content contentContainerStyle={styles.content}>
                     <View style={styles.menu}>
                         <View style={styles.links}>

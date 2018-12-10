@@ -3,32 +3,32 @@
 const SET_FACULTY = 'mobile/faculty/SET_FACULTY';
 const CLEAR_FACULTY = 'mobile/faculty/CLEAR_FACULTY';
 // Get Faculty Introduction
-const GET_STATS = 'mobile/faculty/GET_STATS';
-const GET_STATS_SUCCESS = 'mobile/faculty/GET_STATS_SUCCESS';
-const GET_STATS_FAIL = 'mobile/faculty/GET_STATS_FAIL';
+export const GET_STATS = 'mobile/faculty/GET_STATS';
+export const GET_STATS_SUCCESS = 'mobile/faculty/GET_STATS_SUCCESS';
+export const GET_STATS_FAIL = 'mobile/faculty/GET_STATS_FAIL';
 // Get Faculty Social Projects
 const GET_SOCIAL_PROJECTS = 'mobile/faculty/GET_SOCIAL_PROJECTS';
-const GET_SOCIAL_PROJECTS_SUCCESS = 'mobile/faculty/GET_SOCIAL_PROJECTS_SUCCESS';
+export const GET_SOCIAL_PROJECTS_SUCCESS = 'mobile/faculty/GET_SOCIAL_PROJECTS_SUCCESS';
 const GET_SOCIAL_PROJECTS_FAIL = 'mobile/faculty/GET_SOCIAL_PROJECTS_FAIL';
 // Get Faculty Social Project by ID
 const GET_SOCIAL_PROJECT_BY_ID = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID';
-const GET_SOCIAL_PROJECT_BY_ID_SUCCESS = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID_SUCCESS';
+export const GET_SOCIAL_PROJECT_BY_ID_SUCCESS = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID_SUCCESS';
 const GET_SOCIAL_PROJECT_BY_ID_FAIL = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID_FAIL';
 // Get Research Centres
 const GET_RESEARCH_CENTRES = 'mobile/faculty/GET_RESEARCH_CENTRES';
-const GET_RESEARCH_CENTRES_SUCCESS = 'mobile/faculty/GET_RESEARCH_CENTRES_SUCCESS';
+export const GET_RESEARCH_CENTRES_SUCCESS = 'mobile/faculty/GET_RESEARCH_CENTRES_SUCCESS';
 const GET_RESEARCH_CENTRES_FAIL = 'mobile/faculty/GET_RESEARCH_CENTRES_FAIL';
 // Get Research Centre by ID
 const GET_RESEARCH_CENTRE_BY_ID = 'mobile/faculty/GET_RESEARCH_CENTRE_BY_ID';
-const GET_RESEARCH_CENTRE_BY_ID_SUCCESS = 'mobile/faculty/GET_RESEARCH_CENTRE_BY_ID_SUCCESS';
+export const GET_RESEARCH_CENTRE_BY_ID_SUCCESS = 'mobile/faculty/GET_RESEARCH_CENTRE_BY_ID_SUCCESS';
 const GET_RESEARCH_CENTRE_BY_ID_FAIL = 'mobile/faculty/GET_RESEARCH_CENTRE_BY_ID_FAIL';
 // Get Faculty Future Prospects
 const GET_FUTURE_PROSPECTS = 'mobile/faculty/GET_FUTURE_PROSPECTS';
-const GET_FUTURE_PROSPECTS_SUCCESS = 'mobile/faculty/GET_FUTURE_PROSPECTS_SUCCESS';
+export const GET_FUTURE_PROSPECTS_SUCCESS = 'mobile/faculty/GET_FUTURE_PROSPECTS_SUCCESS';
 const GET_FUTURE_PROSPECTS_FAIL = 'mobile/faculty/GET_FUTURE_PROSPECTS_FAIL';
 // Get Faculty Videos
 const GET_VIDEOS = 'mobile/faculty/GET_VIDEOS';
-const GET_VIDEOS_SUCCESS = 'mobile/faculty/GET_VIDEOS_SUCCESS';
+export const GET_VIDEOS_SUCCESS = 'mobile/faculty/GET_VIDEOS_SUCCESS';
 const GET_VIDEOS_FAIL = 'mobile/faculty/GET_VIDEOS_FAIL';
 
 const initialState = {
