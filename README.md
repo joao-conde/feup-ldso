@@ -47,8 +47,10 @@ On the `mobile` directory:
 ## _Web App_ Development Environment Setup
 On the root directory, run docker:
 ```
-docker-compose up --build web-app
+REACT_APP_ENDPOINT=<api_url> docker-compose up --build web-app
 ```
+* ```api_url``` could be the production API url -- http://impactup.westeurope.cloudapp.azure.com:80/api -- or any other endpoint of a running server.
+
 ### _Web App_ Running the Tests
 Inside web-app folder, run this commands:
 ```
@@ -63,7 +65,7 @@ docker-compose up --build server
 ```
 
 ### Running tests
-On the `server` directory, first guarantee that a properly seeded database is up (start the mongo and/or mongo-seed containers). After that, run:
+On the `server` directory, run:
 ```
 npm install
 npm run test

@@ -12,7 +12,9 @@ services:
       - /user/src/app/node_modules
     container_name: web-app
     ports:
-      - '4200:4200'
+      - '4200:3000'
+    environment:
+      - REACT_APP_ENDPOINT
 
   server:
     image: server
