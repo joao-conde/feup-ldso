@@ -1,12 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders loading screen 1`] = `
-<Styled(ViewNB)>
-  <Styled(Text)>
-    Loading...
-  </Styled(Text)>
-</Styled(ViewNB)>
-`;
+exports[`renders loading screen 1`] = `<ActivityIndicatorView />`;
 
 exports[`renders screen with video content 1`] = `
 <Styled(ViewNB)

@@ -1,15 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders loading screen 1`] = `
-<Component>
-  <ActivityIndicator
-    animating={true}
-    color="#999999"
-    hidesWhenStopped={true}
-    size="small"
-  />
-</Component>
-`;
+exports[`renders loading screen 1`] = `<ActivityIndicatorView />`;
 
 exports[`renders screen with future prospect content 1`] = `
 <Component
@@ -37,7 +28,7 @@ exports[`renders screen with future prospect content 1`] = `
           "padding": 10,
         },
         Object {
-          "borderColor": "#8c2d19",
+          "borderColor": "#9f2d20",
         },
       ]
     }
@@ -163,7 +154,7 @@ exports[`renders screen with future prospect content 1`] = `
               "fontSize": 20,
               "fontWeight": "400",
               "letterSpacing": -0.32,
-              "lineHeight": 24,
+              "lineHeight": 30,
               "marginLeft": 25,
               "marginRight": 15,
               "marginVertical": 20,
@@ -192,7 +183,7 @@ exports[`renders screen with future prospect content 1`] = `
               "fontSize": 20,
               "fontWeight": "400",
               "letterSpacing": -0.32,
-              "lineHeight": 24,
+              "lineHeight": 30,
               "marginLeft": 25,
               "marginRight": 15,
               "marginVertical": 20,

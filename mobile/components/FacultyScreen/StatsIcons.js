@@ -25,7 +25,7 @@ class StatisticsNumbers extends React.Component {
                 colored++;
             } else {
                 icons.push(
-                    <Icon key={i} style={styles.backgroundIcon} type="FontAwesome" name={icon}/>
+                    <Icon key={i} style={styles.backgroundIcon} className="black" type="FontAwesome" name={icon}/>
                 );
             }
         }    
@@ -78,28 +78,30 @@ const styles = {
     },
 
     backgroundIcon: {
-        fontSize: hp('9%'),
-        padding: hp('0.5%'),
+        fontSize: wp('5%'),
+        padding: wp('0.1%'),
         color: '#cccccc'
     },
 
     icon: {
-        fontSize: hp('9%'),
-        padding: hp('0.5%'),
+        fontSize: wp('5%'),
+        padding: wp('0.1%'),
         color: '#1c1c1c'
+    },
+
+    percentageContent: {
+        paddingTop: hp('23.5%'),
+        marginBottom: hp('3%'),
+        flex:1,
+        flexDirection: 'row'
     },
 
     percentage: {
         fontFamily: 'Quicksand_regular',
         fontSize: hp('5%'),
         color: 'black',
+        flexDirection: 'row'
     },
-
-    percentageContent: {
-        paddingTop: hp('23.5%'),
-        marginBottom: hp('5%'),
-    },
-
     
     description: {
         justifyContent: 'center',

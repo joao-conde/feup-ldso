@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { material } from 'react-native-typography';
-import { ActivityIndicator, ScrollView, View, StyleSheet, Image, Text } from 'react-native';
+import { ScrollView, View, StyleSheet, Image, Text } from 'react-native';
+import ActivityIndicatorView from '../components/ActivityIndicatorView';
 import { H1 } from 'native-base';
 import { connect } from 'react-redux';
 import { getFutureProspects } from '../reducers/modules/facultyReducer';
@@ -25,13 +26,8 @@ class FutureProspectsScreen extends React.Component {
     render() {
         const { loading, prospects, language, name } = this.props;
 
-        if (loading || !prospects.content) {
-            return (
-                <View>
-                    <ActivityIndicator></ActivityIndicator>
-                </View>
-            );
-        }
+        if (loading || !prospects.content)
+            return ( <ActivityIndicatorView></ActivityIndicatorView> );
 
         const content = String(prospects.content);
 
@@ -170,6 +166,7 @@ const styles = StyleSheet.create({
         marginRight: 15,
         fontFamily: 'OpenSans_regular',
         fontSize: 20,
+        lineHeight: 30
     }
 });
 

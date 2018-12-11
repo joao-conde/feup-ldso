@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Input, Col, Row, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
+import Loading from '../components/Loading';
 import { setFaculty } from '../actions/facultyActions';
 import { getProspects, editProspects } from '../actions/prospectsActions';
 
@@ -31,8 +32,8 @@ class ProspectsEditor extends Component {
         if (prevProps.faculty !== faculty)
             this.updateProspects();
 
-        if (contentEN !== null && contentPT !== null) {
-            if (contentEN !== prevProps.contentEN || contentPT !== prevProps.contentPT) {
+        if (contentEN !== '' && contentPT !== '' &&  banner !== '') {
+            if (contentEN !== prevProps.contentEN || contentPT !== prevProps.contentPT || banner !== prevProps.banner) {
                 this.setState({
                     contentEN: contentEN,
                     contentPT: contentPT,
@@ -81,7 +82,7 @@ class ProspectsEditor extends Component {
         const { loading, loadingAction } = this.props;
 
         if (loading) {
-            return <div>Loading...</div>;
+            return <Loading></Loading>;
         } else {
             return (
                 <div>
@@ -138,7 +139,7 @@ class ProspectsEditor extends Component {
                                 <Col className="center-text">
                                     <Button className={`${loadingAction ? 'm-progress' : ''} mainActionBtn editProspectsBtn`}
                                         onClick={this.onSubmit}>
-                                        Edit Future Plans
+                                        Save Future Plans
                                     </Button>
                                 </Col>
                             </Row>

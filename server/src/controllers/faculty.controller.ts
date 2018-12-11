@@ -6,6 +6,7 @@ import {
   patch,
   requestBody,
 } from '@loopback/rest';
+import {authenticate} from '@loopback/authentication';
 import {Faculty} from '../models';
 import {FacultyRepository} from '../repositories';
 
@@ -31,7 +32,7 @@ export class FacultyController {
   @get('/faculties/{language}/{name}/future', {
     responses: {
       '200': {
-        description: 'Faculty introduction',
+        description: "Faculty's future prospects",
         content: {'application/json': {'x-ts-type': Faculty}},
       },
     },
@@ -40,6 +41,7 @@ export class FacultyController {
     @param.path.string('language') language: string,
     @param.path.string('name') name: string,
   ): Promise<Faculty> {
+    //Retrieve ID
     let result = await this.facultyRepository.findOne({
       where: {name: name, language: language},
       fields: {id: true},
@@ -47,6 +49,7 @@ export class FacultyController {
 
     if (!result) return new Faculty();
 
+    //Fetch by ID
     return await this.facultyRepository.findById(result.id, {
       fields: {future_prospects: true},
     });
@@ -55,7 +58,7 @@ export class FacultyController {
   @get('/faculties/{language}/{name}/videos', {
     responses: {
       '200': {
-        description: 'Faculty introduction',
+        description: 'Faculty promotional videos',
         content: {'application/json': {'x-ts-type': Faculty}},
       },
     },
@@ -64,6 +67,7 @@ export class FacultyController {
     @param.path.string('language') language: string,
     @param.path.string('name') name: string,
   ): Promise<Faculty> {
+    //Retrieve ID
     let result = await this.facultyRepository.findOne({
       where: {name: name, language: language},
       fields: {id: true},
@@ -71,15 +75,17 @@ export class FacultyController {
 
     if (!result) return new Faculty();
 
+    //Fetch by ID
     return await this.facultyRepository.findById(result.id, {
       fields: {videos: true},
     });
   }
 
+  @authenticate('JWTStrategy')
   @patch('/faculties/{language}/{name}/future-prospects', {
     responses: {
       '200': {
-        description: 'Faculty future prospects PATCH success',
+        description: 'Faculty future prospects after successfully patched',
       },
     },
   })
@@ -98,14 +104,15 @@ export class FacultyController {
 
     await this.facultyRepository.updateById(id, faculty);
     return this.facultyRepository.findById(id, {
-      fields: {future_prospects: true},
+      fields: {language: true, future_prospects: true},
     });
   }
 
+  @authenticate('JWTStrategy')
   @patch('/faculties/{language}/{name}/videos', {
     responses: {
       '200': {
-        description: 'Faculty videos PATCH success',
+        description: 'Faculty videos after successfully patched',
       },
     },
   })
@@ -124,7 +131,7 @@ export class FacultyController {
 
     await this.facultyRepository.updateById(id, faculty);
     return this.facultyRepository.findById(id, {
-      fields: {videos: true},
+      fields: {language: true, videos: true},
     });
   }
 }

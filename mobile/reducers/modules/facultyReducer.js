@@ -3,36 +3,32 @@
 const SET_FACULTY = 'mobile/faculty/SET_FACULTY';
 const CLEAR_FACULTY = 'mobile/faculty/CLEAR_FACULTY';
 // Get Faculty Introduction
-const GET_STATS = 'mobile/faculty/GET_STATS';
-const GET_STATS_SUCCESS = 'mobile/faculty/GET_STATS_SUCCESS';
-const GET_STATS_FAIL = 'mobile/faculty/GET_STATS_FAIL';
+export const GET_STATS = 'mobile/faculty/GET_STATS';
+export const GET_STATS_SUCCESS = 'mobile/faculty/GET_STATS_SUCCESS';
+export const GET_STATS_FAIL = 'mobile/faculty/GET_STATS_FAIL';
 // Get Faculty Social Projects
 const GET_SOCIAL_PROJECTS = 'mobile/faculty/GET_SOCIAL_PROJECTS';
-const GET_SOCIAL_PROJECTS_SUCCESS = 'mobile/faculty/GET_SOCIAL_PROJECTS_SUCCESS';
+export const GET_SOCIAL_PROJECTS_SUCCESS = 'mobile/faculty/GET_SOCIAL_PROJECTS_SUCCESS';
 const GET_SOCIAL_PROJECTS_FAIL = 'mobile/faculty/GET_SOCIAL_PROJECTS_FAIL';
 // Get Faculty Social Project by ID
 const GET_SOCIAL_PROJECT_BY_ID = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID';
-const GET_SOCIAL_PROJECT_BY_ID_SUCCESS = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID_SUCCESS';
+export const GET_SOCIAL_PROJECT_BY_ID_SUCCESS = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID_SUCCESS';
 const GET_SOCIAL_PROJECT_BY_ID_FAIL = 'mobile/faculty/GET_SOCIAL_PROJECT_BY_ID_FAIL';
 // Get Research Centres
 const GET_RESEARCH_CENTRES = 'mobile/faculty/GET_RESEARCH_CENTRES';
-const GET_RESEARCH_CENTRES_SUCCESS = 'mobile/faculty/GET_RESEARCH_CENTRES_SUCCESS';
+export const GET_RESEARCH_CENTRES_SUCCESS = 'mobile/faculty/GET_RESEARCH_CENTRES_SUCCESS';
 const GET_RESEARCH_CENTRES_FAIL = 'mobile/faculty/GET_RESEARCH_CENTRES_FAIL';
 // Get Research Centre by ID
 const GET_RESEARCH_CENTRE_BY_ID = 'mobile/faculty/GET_RESEARCH_CENTRE_BY_ID';
-const GET_RESEARCH_CENTRE_BY_ID_SUCCESS = 'mobile/faculty/GET_RESEARCH_CENTRE_BY_ID_SUCCESS';
+export const GET_RESEARCH_CENTRE_BY_ID_SUCCESS = 'mobile/faculty/GET_RESEARCH_CENTRE_BY_ID_SUCCESS';
 const GET_RESEARCH_CENTRE_BY_ID_FAIL = 'mobile/faculty/GET_RESEARCH_CENTRE_BY_ID_FAIL';
 // Get Faculty Future Prospects
 const GET_FUTURE_PROSPECTS = 'mobile/faculty/GET_FUTURE_PROSPECTS';
-const GET_FUTURE_PROSPECTS_SUCCESS = 'mobile/faculty/GET_FUTURE_PROSPECTS_SUCCESS';
+export const GET_FUTURE_PROSPECTS_SUCCESS = 'mobile/faculty/GET_FUTURE_PROSPECTS_SUCCESS';
 const GET_FUTURE_PROSPECTS_FAIL = 'mobile/faculty/GET_FUTURE_PROSPECTS_FAIL';
-// Get Faculty Localization
-const GET_LOCALIZATION = 'mobile/faculty/GET_LOCALIZATION';
-const GET_LOCALIZATION_SUCCESS = 'mobile/faculty/GET_LOCALIZATION_SUCCESS';
-const GET_LOCALIZATION_FAIL = 'mobile/faculty/GET_LOCALIZATION_FAIL';
 // Get Faculty Videos
 const GET_VIDEOS = 'mobile/faculty/GET_VIDEOS';
-const GET_VIDEOS_SUCCESS = 'mobile/faculty/GET_VIDEOS_SUCCESS';
+export const GET_VIDEOS_SUCCESS = 'mobile/faculty/GET_VIDEOS_SUCCESS';
 const GET_VIDEOS_FAIL = 'mobile/faculty/GET_VIDEOS_FAIL';
 
 const initialState = {
@@ -44,7 +40,6 @@ const initialState = {
     researchCentres: [],
     currResearchCentre: null,
     futureProspects: {},
-    localization: null,
     videos: []
 };
 
@@ -63,7 +58,6 @@ export default function reducer(state = initialState, action) {
     case GET_RESEARCH_CENTRES:
     case GET_RESEARCH_CENTRE_BY_ID:
     case GET_FUTURE_PROSPECTS:
-    case GET_LOCALIZATION:
     case GET_VIDEOS:
         return { ...state,
             loading: true
@@ -99,11 +93,6 @@ export default function reducer(state = initialState, action) {
             loading: false,
             futureProspects: action.payload.data.future_prospects
         };
-    case GET_LOCALIZATION_SUCCESS:
-        return { ...state,
-            loading: false,
-            localization: action.payload.data
-        };
     case GET_VIDEOS_SUCCESS:
         return { ...state,
             loading: false,
@@ -116,7 +105,6 @@ export default function reducer(state = initialState, action) {
     case GET_RESEARCH_CENTRES_FAIL:
     case GET_RESEARCH_CENTRE_BY_ID_FAIL:
     case GET_FUTURE_PROSPECTS_FAIL:
-    case GET_LOCALIZATION_FAIL:
     case GET_VIDEOS_FAIL:
         return {
             ...state,
@@ -168,7 +156,7 @@ export function getSocialProjectDetails(language, faculty, id) {
         type: GET_SOCIAL_PROJECT_BY_ID,
         payload: {
             request: {
-                url: `/faculties/${language}/${faculty}/social-projects?filter?id=${id}`
+                url: `/faculties/${language}/${faculty}/social-projects?id=${id}`
             }
         }
     };
@@ -202,17 +190,6 @@ export function getFutureProspects(language, faculty) {
         payload: {
             request: {
                 url: `/faculties/${language}/${faculty}/future`
-            }
-        }
-    };
-}
-
-export function getLocalization(faculty) {
-    return {
-        type: GET_LOCALIZATION,
-        payload: {
-            request: {
-                url: `/${faculty}`
             }
         }
     };

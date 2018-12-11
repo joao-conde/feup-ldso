@@ -1,19 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders loading screen 1`] = `
-<Component>
-  <ActivityIndicator
-    animating={true}
-    color="#999999"
-    hidesWhenStopped={true}
-    size="small"
-  />
-</Component>
-`;
+exports[`renders loading screen 1`] = `<ActivityIndicatorView />`;
 
 exports[`renders screen with geric project content 1`] = `
 <Component>
-  <Component
+  <ImageBackground
+    source={1}
     style={
       Object {
         "height": 1334,
@@ -55,7 +47,7 @@ exports[`renders screen with geric project content 1`] = `
                 "borderWidth": 5,
               },
               Object {
-                "borderColor": "#8c2d19",
+                "borderColor": "#9f2d20",
               },
             ]
           }
@@ -78,6 +70,13 @@ exports[`renders screen with geric project content 1`] = `
             }
           }
         >
+          <Component
+            style={
+              Object {
+                "alignSelf": "flex-end",
+              }
+            }
+          />
           <Text
             accessible={true}
             allowFontScaling={true}
@@ -110,7 +109,7 @@ exports[`renders screen with geric project content 1`] = `
                 "fontSize": 20,
                 "fontWeight": "400",
                 "letterSpacing": -0.32,
-                "lineHeight": 24,
+                "lineHeight": 30,
               }
             }
           >
@@ -144,7 +143,7 @@ exports[`renders screen with geric project content 1`] = `
                   "borderWidth": 5,
                 },
                 Object {
-                  "borderColor": "#8c2d19",
+                  "borderColor": "#9f2d20",
                 },
               ]
             }
@@ -164,17 +163,22 @@ exports[`renders screen with geric project content 1`] = `
         activeOpacity={0.2}
       >
         <Styled(Icon)
-          name="caret-down"
+          name="chevron-down"
           type="FontAwesome"
         />
       </TouchableOpacity>
     </Component>
-  </Component>
+  </ImageBackground>
   <Component
     style={
-      Object {
-        "height": 1334,
-      }
+      Array [
+        Object {
+          "height": 1334,
+        },
+        Object {
+          "backgroundColor": "#1c1c1c",
+        },
+      ]
     }
   >
     <Component
@@ -190,7 +194,12 @@ exports[`renders screen with geric project content 1`] = `
         activeOpacity={0.2}
       >
         <Styled(Icon)
-          name="caret-up"
+          name="chevron-up"
+          style={
+            Object {
+              "color": "white",
+            }
+          }
           type="FontAwesome"
         />
       </TouchableOpacity>
@@ -206,6 +215,7 @@ exports[`renders screen with geric project content 1`] = `
       <Component
         style={
           Object {
+            "alignItems": "center",
             "flex": 1,
             "marginHorizontal": 15,
             "marginVertical": 10,
@@ -217,15 +227,23 @@ exports[`renders screen with geric project content 1`] = `
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "rgba(0,0,0,0.87)",
-              "fontFamily": "OpenSans_regular",
-              "fontSize": 20,
-              "fontWeight": "400",
-              "letterSpacing": -0.32,
-              "lineHeight": 24,
-            }
+            Array [
+              Object {
+                "maxWidth": 500,
+              },
+              Object {
+                "backgroundColor": "transparent",
+                "color": "rgba(0,0,0,0.87)",
+                "fontFamily": "OpenSans_regular",
+                "fontSize": 20,
+                "fontWeight": "400",
+                "letterSpacing": -0.32,
+                "lineHeight": 30,
+              },
+              Object {
+                "color": "white",
+              },
+            ]
           }
         >
           [EN] Aliquam sit amet varius lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed tortor justo, ornare a vulputate in, mattis id mi. Donec varius, dui venenatis pharetra ultricies, ligula nulla ornare ex, quis mattis libero quam a tellus. Quisque quis est id nulla ornare semper at a nisi. Integer tincidunt egestas ornare. Nullam congue tellus arcu, eu ultricies mi pellentesque eget. Pellentesque massa sapien, suscipit sit amet lacus vel, faucibus faucibus elit. Cras in metus viverra, luctus magna ac, tristique leo. Aenean ultrices dui eget velit cursus, vitae suscipit purus varius. Aliquam erat volutpat. In porta metus et velit aliquet porta.
@@ -259,7 +277,7 @@ exports[`renders screen with geric project content 1`] = `
                 "borderWidth": 5,
               },
               Object {
-                "borderColor": "#8c2d19",
+                "borderColor": "#9f2d20",
               },
             ]
           }

@@ -1,0 +1,242 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering Render component 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "center",
+      "padding": 7.5,
+      "paddingBottom": 6.5,
+    }
+  }
+>
+  <Component
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "flexWrap": "wrap",
+          "justifyContent": "center",
+        },
+        Object {
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Styled(Icon)
+      key="0"
+      name="flask"
+      style={
+        Object {
+          "color": "#1c1c1c",
+          "fontSize": 37.5,
+          "padding": 1,
+        }
+      }
+      type="FontAwesome"
+    />
+    <Styled(Icon)
+      key="1"
+      name="flask"
+      style={
+        Object {
+          "color": "#1c1c1c",
+          "fontSize": 37.5,
+          "padding": 1,
+        }
+      }
+      type="FontAwesome"
+    />
+    <Styled(Icon)
+      key="2"
+      name="flask"
+      style={
+        Object {
+          "color": "#1c1c1c",
+          "fontSize": 37.5,
+          "padding": 1,
+        }
+      }
+      type="FontAwesome"
+    />
+    <Styled(Icon)
+      key="3"
+      name="flask"
+      style={
+        Object {
+          "color": "#1c1c1c",
+          "fontSize": 37.5,
+          "padding": 1,
+        }
+      }
+      type="FontAwesome"
+    />
+    <Styled(Icon)
+      key="4"
+      name="flask"
+      style={
+        Object {
+          "color": "#1c1c1c",
+          "fontSize": 37.5,
+          "padding": 1,
+        }
+      }
+      type="FontAwesome"
+    />
+    <Styled(Icon)
+      key="5"
+      name="flask"
+      style={
+        Object {
+          "color": "#1c1c1c",
+          "fontSize": 37.5,
+          "padding": 1,
+        }
+      }
+      type="FontAwesome"
+    />
+    <Styled(Icon)
+      className="black"
+      key="6"
+      name="flask"
+      style={
+        Object {
+          "color": "#cccccc",
+          "fontSize": 37.5,
+          "padding": 1,
+        }
+      }
+      type="FontAwesome"
+    />
+    <Styled(Icon)
+      className="black"
+      key="7"
+      name="flask"
+      style={
+        Object {
+          "color": "#cccccc",
+          "fontSize": 37.5,
+          "padding": 1,
+        }
+      }
+      type="FontAwesome"
+    />
+    <Styled(Icon)
+      className="black"
+      key="8"
+      name="flask"
+      style={
+        Object {
+          "color": "#cccccc",
+          "fontSize": 37.5,
+          "padding": 1,
+        }
+      }
+      type="FontAwesome"
+    />
+    <Styled(Icon)
+      className="black"
+      key="9"
+      name="flask"
+      style={
+        Object {
+          "color": "#cccccc",
+          "fontSize": 37.5,
+          "padding": 1,
+        }
+      }
+      type="FontAwesome"
+    />
+    <Styled(Icon)
+      className="black"
+      key="10"
+      name="flask"
+      style={
+        Object {
+          "color": "#cccccc",
+          "fontSize": 37.5,
+          "padding": 1,
+        }
+      }
+      type="FontAwesome"
+    />
+    <Styled(Icon)
+      className="black"
+      key="11"
+      name="flask"
+      style={
+        Object {
+          "color": "#cccccc",
+          "fontSize": 37.5,
+          "padding": 1,
+        }
+      }
+      type="FontAwesome"
+    />
+  </Component>
+  <Component
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "flexWrap": "wrap",
+          "justifyContent": "center",
+        },
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "marginBottom": 40,
+          "paddingTop": 313.5,
+        },
+      ]
+    }
+  >
+    <Styled(Text)
+      style={
+        Object {
+          "color": "black",
+          "flexDirection": "row",
+          "fontFamily": "Quicksand_regular",
+          "fontSize": 66.5,
+        }
+      }
+    >
+      50
+      %
+    </Styled(Text)>
+  </Component>
+  <Component
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Styled(Text)
+      style={
+        Object {
+          "alignItems": "center",
+          "fontFamily": "Quicksand_regular",
+          "fontSize": 12,
+          "justifyContent": "center",
+          "textAlign": "center",
+        }
+      }
+    >
+      Teachers and Researchers
+    </Styled(Text)>
+  </Component>
+</View>
+`;

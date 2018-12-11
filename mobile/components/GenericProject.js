@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { material } from 'react-native-typography';
-import { View, Text, StyleSheet, Image, ActivityIndicator, TouchableOpacity, Dimensions } from 'react-native';
-import { Icon } from 'native-base';
+import { ImageBackground, View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
+import ActivityIndicatorView from './ActivityIndicatorView';
+import { Icon, Badge } from 'native-base';
 import { connect } from 'react-redux';
 import { facultyStyles } from '../constants/SpecificStyles';
 
@@ -17,29 +18,34 @@ class GenericProject extends React.Component {
     componentDidUpdate(prevProps) {
         const { language, faculty, id } = this.props;
 
-        if (prevProps.language != language || prevProps.id != id)
+        if (prevProps.language != language || prevProps.id != id) 
             this.props.getOne(language, faculty, id);
     }
 
     render() {
-        const { project, loading, faculty, navActionDown, navActionUp } = this.props;
+        const { project, loading, faculty, language, navActionDown, navActionUp } = this.props;
 
-        if (loading || !project) {
-            return (
-                <View>
-                    <ActivityIndicator></ActivityIndicator>
-                </View>
-            );
-        }
+        if (loading || !project)
+            return ( <ActivityIndicatorView></ActivityIndicatorView> );
+
         return (
             <View>
-                <View style={styles.fullScreen}>
+                <ImageBackground source={require('../assets/images/background.png')} style={styles.fullScreen}>
                     <View style={styles.container}>
                         <View style={styles.topLeftChild}>
                             <Image source={{uri: project.images[0]}} style={[styles.topLeftImage, styles.icon, facultyStyles[faculty].icon]} />
                         </View>
                         <View style={styles.topRightChild}>
                             <View style={styles.topRightHeader}>
+                                <View style={styles.statusButtonContainer}>
+                                    { project.hasOwnProperty('active') &&
+                                    <Badge style={[styles.statusButton, project.active ? styles.activeButton : styles.inactiveButton]}> 
+                                        <Text style={styles.statusButtonText}>
+                                            { language == 'en' ? project.active ? 'Active' : 'Inactive' : project.active ? 'Ativo' : 'Inativo '}
+                                        </Text> 
+                                    </Badge>
+                                    }
+                                </View>
                                 <Text style={styles.heading}>{project.title}</Text>
                                 <Text style={styles.body}>{project.short_description}</Text>
                             </View>
@@ -50,19 +56,19 @@ class GenericProject extends React.Component {
                     </View>
                     <View style={styles.topNavigation}>
                         <TouchableOpacity onPress={navActionDown}>
-                            <Icon type="FontAwesome" name="caret-down" />
+                            <Icon type="FontAwesome" name="chevron-down"/>
                         </TouchableOpacity>
                     </View>
-                </View>
-                <View style={styles.fullScreen}>
+                </ImageBackground>
+                <View style={[styles.fullScreen, styles.darkBackground]}>
                     <View style={styles.bottomNavigation}>
                         <TouchableOpacity onPress={navActionUp}>
-                            <Icon type="FontAwesome" name="caret-up" />
+                            <Icon type="FontAwesome" name="chevron-up" style={styles.whiteArrow} />
                         </TouchableOpacity>
                     </View>
                     <View style={styles.container} >
                         <View style={styles.bottomLeftChild}>
-                            <Text style={styles.body}>{project.content}</Text>
+                            <Text style={[styles.mainText, styles.body, styles.whiteFont]}>{project.content}</Text>
                         </View>
                         <View style={styles.bottomRightChild}>
                             <Image source={{uri: project.images[1]}} style={[styles.bottomRightImage, styles.icon, facultyStyles[faculty].icon]} />
@@ -100,6 +106,23 @@ const styles = StyleSheet.create({
     },
 
     // Top View
+    statusButtonContainer: {
+        alignSelf: 'flex-end',
+    },
+    statusButton: {
+        marginTop: 10,
+        marginRight: 15,
+    },
+    statusButtonText: {
+        margin: 3,
+        color: 'white'
+    },
+    activeButton: {
+        backgroundColor: 'green'
+    },
+    inactiveButton: {
+        backgroundColor: 'red'
+    },
     topNavigation: {
         flex: 1,
         alignItems: 'center' 
@@ -135,6 +158,12 @@ const styles = StyleSheet.create({
     },
 
     //Bottom View
+    whiteArrow: {
+        color: 'white'
+    },
+    darkBackground: {
+        backgroundColor: '#1c1c1c'
+    },
     bottomNavigation: {
         marginTop: 10,
         flex: 1,
@@ -144,6 +173,7 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         marginHorizontal: 15,
         flex: 1,
+        alignItems: 'center'
     },
     bottomRightChild: {
         margin: 10, 
@@ -168,6 +198,13 @@ const styles = StyleSheet.create({
         ...material.subheadingObject,
         fontFamily: 'OpenSans_regular',
         fontSize: 20,
+        lineHeight: 30
+    },
+    whiteFont: {
+        color: 'white'
+    },
+    mainText: {
+        maxWidth: 500
     }
 });
 

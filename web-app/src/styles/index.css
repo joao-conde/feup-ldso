@@ -27,7 +27,6 @@
 
 body {
   background-color: var(--background-color);
-  padding: 20px;
   margin: 0;
   font-family: 'Titillium Web', sans-serif
 }

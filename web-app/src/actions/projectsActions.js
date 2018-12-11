@@ -6,6 +6,10 @@ export const GET_PROJECTS_EN_FAIL = 'web/projects/GET_PROJECTS_EN_FAIL';
 export const GET_PROJECTS_PT = 'web/projects/GET_PROJECTS_PT';
 export const GET_PROJECTS_PT_SUCCESS = 'web/projects/GET_PROJECTS_PT_SUCCESS';
 export const GET_PROJECTS_PT_FAIL = 'web/projects/GET_PROJECTS_PT_FAIL';
+// Search Projects
+export const SEARCH_PROJECTS = 'web/projects/SEARCH_PROJECTS';
+export const SEARCH_PROJECTS_SUCCESS = 'web/projects/SEARCH_PROJECTS_SUCCESS';
+export const SEARCH_PROJECTS_FAIL = 'web/projects/SEARCH_PROJECTS_FAIL';
 // Get Single Project
 export const GET_PROJECT_BY_ID = 'web/projects/GET_PROJECT_BY_ID';
 export const GET_PROJECT_BY_ID_SUCCESS = 'web/projects/GET_PROJECT_BY_ID_SUCCESS';
@@ -32,6 +36,18 @@ export function getProjects(faculty, language) {
             request: {
                 type: 'GET',
                 url: `/faculties/${language}/${faculty}/social-projects-short`
+            }
+        }
+    };
+}
+
+export function searchProjects(faculty, query) {
+    return {
+        type: SEARCH_PROJECTS,
+        payload: {
+            request: {
+                type: 'GET',
+                url: `/faculties/en/${faculty}/social-projects-short?q=${query}`
             }
         }
     };

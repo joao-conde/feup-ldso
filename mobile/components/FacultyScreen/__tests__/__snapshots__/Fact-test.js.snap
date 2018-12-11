@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering  renders fact with content received 1`] = `
+<ViewNB
+  style={
+    Array [
+      Object {},
+      Object {
+        "borderRadius": 18,
+        "borderStyle": "dotted",
+        "borderWidth": 3,
+        "flex": 1,
+        "margin": 5,
+      },
+      Object {
+        "borderColor": "#9f2d20",
+      },
+    ]
+  }
+>
+  <Styled(ViewNB)
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderRadius": 13,
+          "elevation": 15,
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "margin": 6,
+        },
+        Object {
+          "backgroundColor": "#9f2d20",
+        },
+      ]
+    }
+  >
+    <Styled(Text)
+      style={
+        Array [
+          Object {
+            "flex": 1,
+            "fontSize": 22.5,
+            "paddingRight": 15,
+            "textAlign": "right",
+          },
+          Object {
+            "color": "#ffffff",
+          },
+        ]
+      }
+    >
+      240
+    </Styled(Text)>
+    <Styled(Text)
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "flex": 2,
+            "fontSize": 10,
+            "paddingRight": 15,
+          },
+        ]
+      }
+    >
+      protocolos estágio com empresas
+    </Styled(Text)>
+  </Styled(ViewNB)>
+</ViewNB>
+`;

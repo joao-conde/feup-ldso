@@ -39,10 +39,10 @@ it('renders text correctly', () => {
     let wrapper = setup(true, 'en');
 
     let render = wrapper.dive();
-    expect(render.find('Styled(Text)').contains('en')).toEqual(true);
+    expect(render.find('Styled(Text)').contains('EN')).toEqual(true);
 
     wrapper = setup(true, 'pt');
 
     render = wrapper.dive();
-    expect(render.find('Styled(Text)').contains('pt')).toEqual(true);
+    expect(render.find('Styled(Text)').contains('PT')).toEqual(true);
 });

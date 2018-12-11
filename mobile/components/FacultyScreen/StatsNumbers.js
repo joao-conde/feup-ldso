@@ -3,6 +3,7 @@ import {View} from 'react-native';
 import {Text } from 'native-base';
 import PropTypes from 'prop-types';
 import Dash from 'react-native-dash';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 class StatisticsNumbers extends React.Component {
 
@@ -40,13 +41,13 @@ export default StatisticsNumbers ;
 
 const styles = {
     main: {
-        padding:20,
+        padding:hp('4%'),
         flex: 1,
         flexDirection: 'column'
     },
 
     section: {
-        padding: 3,
+        padding:hp('0.3%'),
         flex:1,
         alignItems: 'center',
         justifyContent: 'center'
@@ -54,21 +55,22 @@ const styles = {
 
     dash: {
         width:1,
-        height:50,
+        height:hp('4.8%'),
         flexDirection:'column'
     },
 
     numbers: {
         fontFamily: 'Quicksand_regular',
-        fontSize: 30,
+        fontSize: wp('2.5%'),
         color: 'white',
-        paddingBottom: 5
+        paddingBottom:hp('1%')
     },
 
     text: {
         color: 'white',
         textAlign: 'center',
-        fontFamily: 'Quicksand_bold',
-        fontSize: 25
+        fontFamily: 'OpenSans_regular',
+        fontSize: wp('1.67%'),
+        lineHeight: wp('1.75%'),
     }
 };

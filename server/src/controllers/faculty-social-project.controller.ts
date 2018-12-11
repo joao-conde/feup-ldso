@@ -2,6 +2,7 @@ import {repository} from '@loopback/repository';
 import {SocialProjectRepository} from '../repositories';
 import {del, get, patch, post, param, requestBody} from '@loopback/rest';
 import {SocialProject, NewSocialProject} from '../models';
+import {authenticate} from '@loopback/authentication';
 
 export class FacultySocialProjectController {
   constructor(
@@ -28,9 +29,11 @@ export class FacultySocialProjectController {
   ): Promise<SocialProject[]> {
     return await this.socialRepo.find({
       where: {language: language, faculty: name, id: id},
+      order: ['id DESC'],
     });
   }
 
+  @authenticate('JWTStrategy')
   @patch('/faculties/{language}/{name}/social-projects', {
     responses: {
       '200': {
@@ -38,12 +41,14 @@ export class FacultySocialProjectController {
       },
     },
   })
-  async patch(
+  async patchSocialProject(
     @param.path.string('language') language: string,
     @param.path.string('name') name: string,
     @requestBody() socialProject: Partial<SocialProject>,
     @param.query.string('id') id?: string,
   ): Promise<SocialProject> {
+    socialProject.active =
+      !socialProject.end_date || new Date(socialProject.end_date) < new Date();
     await this.socialRepo.updateById(id, socialProject);
     return this.socialRepo.findById(id);
   }
@@ -63,13 +68,26 @@ export class FacultySocialProjectController {
   async findFacultyProjectsShort(
     @param.path.string('name') name: string,
     @param.path.string('language') language: string,
+    @param.query.string('q') searchQuery?: string,
   ): Promise<SocialProject[]> {
-    return await this.socialRepo.find({
-      where: {language: language, faculty: name},
-      fields: {id: true, title: true, short_description: true, images: true},
-    });
+    return await this.socialRepo
+      .find({
+        where: {language: language, faculty: name},
+        fields: {id: true, title: true, short_description: true, images: true},
+        order: ['id DESC'],
+      })
+      .then(projects => {
+        if (!searchQuery) return projects;
+        let pattern = new RegExp('.*' + searchQuery + '.*', 'i');
+        return projects.filter(
+          project =>
+            pattern.test(project.title || '') ||
+            pattern.test(project.short_description || ''),
+        );
+      });
   }
 
+  @authenticate('JWTStrategy')
   @post('/faculties/{name}/social-projects', {
     responses: {
       '200': {
@@ -86,6 +104,7 @@ export class FacultySocialProjectController {
     @param.path.string('name') name: string,
     @requestBody() socialProject: NewSocialProject,
   ): Promise<SocialProject[]> {
+    //New project, english version
     let newProjectEN = new SocialProject({
       title: socialProject.titleEN,
       short_description: socialProject.descriptionEN,
@@ -95,8 +114,11 @@ export class FacultySocialProjectController {
       end_date: socialProject.endDate,
       faculty: name,
       language: 'en',
+      active:
+        !socialProject.endDate || new Date(socialProject.endDate) > new Date(),
     });
 
+    //New project, portuguese version
     let newProjectPT = new SocialProject({
       title: socialProject.titlePT,
       short_description: socialProject.descriptionPT,
@@ -106,6 +128,8 @@ export class FacultySocialProjectController {
       end_date: socialProject.endDate,
       faculty: name,
       language: 'pt',
+      active:
+        !socialProject.endDate || new Date(socialProject.endDate) > new Date(),
     });
 
     return [
@@ -114,6 +138,7 @@ export class FacultySocialProjectController {
     ];
   }
 
+  @authenticate('JWTStrategy')
   @del('/faculties/social-projects', {
     responses: {
       '204': {

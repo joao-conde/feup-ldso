@@ -2,12 +2,11 @@
 <html lang="en">
 
 <head>
-  <title>REST API server</title>
+  <title>UP Social Impact API</title>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" type="image/x-icon" href="//v4.loopback.io/favicon.ico">
 
   <style>
     h3 {
@@ -54,13 +53,23 @@
   </style>
 </head>
 
+<script>
+  function redirectToOpenAPI() {
+    window.location = window.location.href.replace('#', '') + 'openapi.json';
+  }
+
+  function redirectToExplorer() {
+    window.location = 'http://explorer.loopback.io/?url=' + window.location.href.replace('#', '') + 'openapi.json';
+  }
+</script>
+
 <body>
   <div class="info">
-    <h1>server</h1>
+    <h1>UP Social Impact Server API Specification</h1>
     <p>Version 1.0.0</p>
 
-    <h3>OpenAPI spec: <a href="/openapi.json">/openapi.json</a></h4>
-    <h3>API Explorer: <a href="/explorer">/explorer</a></h4>
+    <h3>OpenAPI spec: <a href="#" onclick="redirectToOpenAPI()">/openapi.json</a></h4>
+    <h3>API Explorer: <a href="#" onclick="redirectToExplorer()">/explorer</a></h4>
   </div>
 
   <footer class="power">

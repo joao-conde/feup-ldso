@@ -19,11 +19,20 @@ import {
     EDIT_PROJECT_SUCCESS,
     DELETE_PROJECT_SUCCESS,
     RESET_PROJECTS,
+    SEARCH_PROJECTS,
+    SEARCH_PROJECTS_SUCCESS,
+    SEARCH_PROJECTS_FAIL,
 } from '../../actions/projectsActions';
 
 const initialState = {
     loading: false,
     loadingAction: false,
+    /**
+     * Mapping between a project in english and its correspondent in Portuguese.
+     * As an object, the key is the id of the english project and the value is the
+     *  id of the Portuguese object.
+     */
+    idsMap: {},
     projectsEN: [],
     projectsPT: [],
     currProjEN: null,
@@ -35,6 +44,7 @@ export default function reducer(state = initialState, action) {
     case GET_PROJECTS_EN:
     case GET_PROJECTS_PT:
     case GET_PROJECT_BY_ID:
+    case SEARCH_PROJECTS:
         return { ...state,
             loading: true
         };
@@ -47,16 +57,15 @@ export default function reducer(state = initialState, action) {
     case RESET_PROJECTS:
         return initialState;
 
-    case GET_PROJECTS_EN_SUCCESS:
-        return { ...state,
-            loading: false,
-            projectsEN: action.payload.data
-        };
-    case GET_PROJECTS_PT_SUCCESS:
-        return { ...state,
-            loading: false,
-            projectsPT: action.payload.data
-        };
+    case GET_PROJECTS_EN_SUCCESS: {
+        return getAndMapEn(state, action.payload.data);
+    }
+    case GET_PROJECTS_PT_SUCCESS: {
+        return getAndMapPt(state, action.payload.data);
+    }
+    case SEARCH_PROJECTS_SUCCESS: {
+        return search(state, action.payload.data);
+    }
     case GET_PROJECT_BY_ID_SUCCESS: {
         const projectByID = action.payload.data[0];
         return { ...state,
@@ -78,15 +87,16 @@ export default function reducer(state = initialState, action) {
     case GET_PROJECTS_EN_FAIL:
     case GET_PROJECTS_PT_FAIL:
     case GET_PROJECT_BY_ID_FAIL:
+    case SEARCH_PROJECTS_FAIL:
+        if(!global.__TEST__) NotificationManager.error('Failed to fetch projects data.');
         return { ...state,
             loading: false,
             error: 'Error while fetching projects data'
         };
     case ADD_PROJECT_FAIL:
-        NotificationManager.error('Failed to add info');
-        /* falls through */
     case EDIT_PROJECT_FAIL:
     case DELETE_PROJECT_FAIL:
+        if(!global.__TEST__) NotificationManager.error('Failed to execute action.');
         return { ...state,
             loadingAction: false,
             error: 'Error while executing action on project'
@@ -103,6 +113,8 @@ const editProject = (state, editedProject) => {
     );
 
     if (editedProject.language === 'en') {
+        if (!global.__TEST__) NotificationManager.success('Successfully edited project!');
+
         let prevProps = [...state.projectsEN];
         prevProps[editedIdx] = editedProject;
 
@@ -126,27 +138,32 @@ const editProject = (state, editedProject) => {
 };
 
 const addProjects = (state, newProjects) => {
-    NotificationManager.success('Successfully added new project!');
+    if  (!global.__TEST__) NotificationManager.success('Successfully added new project!');
     return { ...state,
         loadingAction: false,
         projectsEN: [newProjects[0], ...state.projectsEN],
         projectsPT: [newProjects[1], ...state.projectsPT],
         currProjEN: newProjects[0],
-        currProjPT: newProjects[1]
+        currProjPT: newProjects[1],
+        idsMap: { ...state.idsMap, [newProjects[0].id]: newProjects[1].id }
     };
 };
 
 const deleteProject = (state) => {
-    let enIdx = state.projectsEN.findIndex((el) => el.id === state.currProjEN.id);
+    let newMap = { ...state.idsMap };
+    let enIdx = state.currProjEN === null? -1 : state.projectsEN.findIndex((el) => el.id === state.currProjEN.id);
 
     if (enIdx >= 0) {
         let newProjectsEN = [...state.projectsEN];
         newProjectsEN.splice( enIdx, 1 );
 
+        delete newMap[state.currProjEN.id];
+
         return { ...state,
             loadingAction: false,
             projectsEN: newProjectsEN,
-            currProjEN: null
+            currProjEN: null,
+            idsMap: newMap
         };
     } else {
         let ptIdx = state.projectsPT.findIndex((el) => el.id === state.currProjPT.id);
@@ -159,4 +176,51 @@ const deleteProject = (state) => {
             currProjPT: null
         };
     }
+};
+
+const getAndMapEn = (state, enProjects) => {
+    const { projectsPT } = state;
+    let newMap = {};
+
+    if (projectsPT.length !== 0)
+        for (let proj in enProjects)
+            newMap[enProjects[proj].id] = projectsPT[proj].id;
+    else
+        for (let proj of enProjects)
+            newMap[proj.id] = null;
+    
+    return { ...state,
+        loading: false,
+        projectsEN: enProjects,
+        idsMap: newMap
+    };
+};
+
+const getAndMapPt = (state, ptProjects) => {
+    const { idsMap , projectsEN } = state;
+    let newMap = { ...idsMap };
+
+    if (projectsEN.length !== 0)
+        for (let proj in ptProjects)
+            newMap[projectsEN[proj].id] = ptProjects[proj].id;
+    
+    return { ...state,
+        loading: false,
+        projectsPT: ptProjects,
+        idsMap: newMap
+    };
+};
+
+const search = (state, enProjects) => {
+    const { idsMap } = state;
+    let ptProjects = [];
+
+    for (let proj of enProjects)
+        ptProjects.push({id: idsMap[proj.id]});
+
+    return { ...state,
+        loading: false,
+        projectsEN: enProjects,
+        projectsPT: ptProjects
+    };
 };

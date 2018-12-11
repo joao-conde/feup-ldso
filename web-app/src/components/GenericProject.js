@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Input, Col, Row, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import withRouter from 'react-router-dom/withRouter';
 import PropTypes from 'prop-types';
+import Loading from '../components/Loading';
 
 import '../styles/GenericProject.css';
 
-class GenericProject extends Component {
+export class GenericProject extends Component {
     constructor(props) {
         super(props);
 
@@ -31,7 +32,7 @@ class GenericProject extends Component {
     componentDidUpdate(prevProps) {
         const { projEN, projPT, loadingAction } = this.props;
 
-        if (projEN != null && projPT != null && (prevProps.projEN != projEN || prevProps.projPT != projPT)) {
+        if (projEN != null && projPT != null && (prevProps.projEN !== projEN || prevProps.projPT !== projPT)) {
             this.setState({
                 titleEN: projEN.title,
                 titlePT: projPT.title,
@@ -39,7 +40,7 @@ class GenericProject extends Component {
                 contentPT: projPT.content,
                 descriptionEN: projEN.short_description,
                 descriptionPT: projPT.short_description,
-                images: projEN.images != undefined? projEN.images.reduce((acc, val) => `${acc}\n${val}`) : '',
+                images: projEN.images !== undefined? projEN.images.reduce((acc, val) => `${acc}\n${val}`) : '',
                 startDate: projEN.start_date,
                 endDate: projEN.end_date
             });
@@ -105,7 +106,7 @@ class GenericProject extends Component {
         const deleteHtml = delAction != null ? <Button outline color="danger" onClick={this.toggle}>Delete</Button> : '';
 
         if (loading) {
-            return <div>Loading...</div>;
+            return <Loading></Loading>;
         } else if (projEN == null || projPT == null) {
             return <div></div>;
         } else {
@@ -135,7 +136,7 @@ class GenericProject extends Component {
                         </Row>
                         <Row className="row-style">
                             <Col xs="6" className="center-text">
-                                <Input name="titleEN"
+                                <Input name="titleEN" className="titleENClass"
                                     value={this.state.titleEN}
                                     onChange={this.handleInputChange} />
                             </Col>
@@ -221,9 +222,9 @@ class GenericProject extends Component {
                         </Row>
                         <Row>
                             <Col className="center-text">
-                                <Button className={`${loadingAction ? 'm-progress' : ''} mainActionBtn`}
+                                <Button id="buttonOnSubmit" className={`${loadingAction ? 'm-progress' : ''} mainActionBtn`}
                                     onClick={this.onSubmit}>
-                                    {add ? 'Add' : 'Edit'} Project
+                                    {add ? 'Create' : 'Save'} Project
                                 </Button>
                             </Col>
                         </Row>

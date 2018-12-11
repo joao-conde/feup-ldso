@@ -23,12 +23,14 @@
     "tslint": "lb-tslint",
     "tslint:fix": "npm run tslint -- --fix",
     "pretest": "npm run clean && npm run build",
-    "test": "lb-mocha --allow-console-logs \"dist/test\"",
+    "test": "lb-mocha --allow-console-logs \"dist/test\" --exit",
     "posttest": "npm run lint",
     "test:dev": "lb-mocha --allow-console-logs dist/test/**/*.js && npm run posttest",
     "prestart": "npm run build",
     "start": "node .",
-    "prepublishOnly": "npm run test"
+    "prepublishOnly": "npm run test",
+    "test:coverage": "nyc --reporter=lcov lb-mocha --allow-console-logs \"dist/test\" --exit",
+    "test:coverage-report": "nyc report"
   },
   "repository": {
     "type": "git"
@@ -44,6 +46,7 @@
     "src"
   ],
   "dependencies": {
+    "@loopback/authentication": "^1.0.6",
     "@loopback/boot": "^1.0.1",
     "@loopback/context": "^1.0.0",
     "@loopback/core": "^1.0.0",
@@ -51,11 +54,23 @@
     "@loopback/repository": "^1.0.1",
     "@loopback/rest": "^1.0.1",
     "@loopback/service-proxy": "^1.0.0",
-    "loopback-connector-mongodb": "^3.9.1"
+    "bcrypt-nodejs": "0.0.3",
+    "jsonwebtoken": "^8.4.0",
+    "loopback-connector-mongodb": "^3.9.1",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "@loopback/build": "^1.0.0",
     "@loopback/testlab": "^1.0.0",
-    "@types/node": "^10.11.2"
+    "@types/node": "^10.11.2",
+    "nyc": "^13.1.0",
+    "@types/bcrypt-nodejs": "0.0.30",
+    "@types/passport": "^0.4.7",
+    "@types/passport-http": "^0.3.6",
+    "@types/passport-jwt": "^3.0.1",
+    "@types/passport-local": "^1.0.33"
   }
 }
