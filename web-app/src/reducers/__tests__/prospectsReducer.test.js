@@ -153,6 +153,7 @@ describe('Prospects reducer', () => {
             type: EDIT_PROSPECTS_SUCCESS,
             payload:{
                 data: {
+                    language: 'en',
                     future_prospects: editedProspectEN
                 }
             }
@@ -162,6 +163,7 @@ describe('Prospects reducer', () => {
             type: EDIT_PROSPECTS_SUCCESS,
             payload:{
                 data: {
+                    language: 'pt',
                     future_prospects: editedProspectPT
                 }
             }

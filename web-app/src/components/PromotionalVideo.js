@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Input, Button, Col, Row } from 'reactstrap';
-import withRouter from 'react-router-dom/withRouter';
 import PropTypes from 'prop-types';
 
 import '../styles/GenericProject.css';
@@ -94,7 +93,7 @@ class PromotionalVideo extends Component {
                     </Row>
                     <Row>
                         <Col className="center-text">
-                            <Button className={`${loadingAction ? 'm-progress' : ''} mainActionBtn`} onClick={this.onSubmit}>
+                            <Button id="buttonOnSubmit" className={`${loadingAction ? 'm-progress' : ''} mainActionBtn`} onClick={this.onSubmit}>
                                 Edit Videos
                             </Button>
                         </Col>
@@ -113,4 +112,4 @@ PromotionalVideo.propTypes = {
     mainAction: PropTypes.func
 };
 
-export default withRouter(PromotionalVideo);
+export default PromotionalVideo;

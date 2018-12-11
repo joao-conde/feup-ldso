@@ -3,11 +3,16 @@ import React, { Component } from 'react';
 class Home extends Component {
     render() {
         return (
-            <div>
-                <h1>Redirect to App login or another admin page</h1>
+            <div style={container}>
+                <h1>Choose a faculty to start editing!</h1>
             </div>
         );
     }
 }
+
+const container = {
+    marginTop: '8em',
+    textAlign: 'center'
+};
 
 export default Home;

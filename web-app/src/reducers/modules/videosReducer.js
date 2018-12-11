@@ -1,3 +1,4 @@
+import { NotificationManager } from 'react-notifications';
 import {
     GET_VIDEOS_EN,
     GET_VIDEOS_EN_SUCCESS,
@@ -38,6 +39,7 @@ export default function reducer(state = initialState, action) {
 
     case GET_VIDEOS_EN_FAIL:
     case GET_VIDEOS_PT_FAIL:
+        if(!global.__TEST__) NotificationManager.error('Failed to fetch videos data.');
         return { ...state,
             loading: false,
             error: 'Error while fetching videos data'
@@ -48,9 +50,10 @@ export default function reducer(state = initialState, action) {
             loadingAction: true
         };
     case EDIT_VIDEO_SUCCESS: {
-        return editVideo(state, action.payload.data.videos);
+        return editVideos(state, action.payload.data.language, action.payload.data.videos);
     }
     case EDIT_VIDEO_FAIL:
+        if(!global.__TEST__) NotificationManager.error('Failed to edit videos.');
         return { ...state,
             loadingAction: false,
             error: 'Error while executing action on videos'
@@ -61,19 +64,19 @@ export default function reducer(state = initialState, action) {
     }
 }
 
-const editVideo = (state, editedVideo) => {
-    if (editedVideo.language === 'en') {
+const editVideos = (state, language, videos) => {
+    if (language === 'en') {
+        if  (!global.__TEST__) NotificationManager.success('Successfully edited videos!');
         return {
             ...state,
             loadingAction: false,
-            videosEN: editedVideo.videos
+            videosEN: videos.videos
         };
     } else {
         return {
             ...state,
             loadingAction: false,
-            videosPT: editedVideo.videos
+            videosPT: videos.videos
         };
     }
-
 };

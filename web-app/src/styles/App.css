@@ -1,6 +1,34 @@
 .intro {
+  margin: 0 auto;
+  position: relative;
   text-align: center;
   padding-bottom: 1em;
+}
+
+@media (min-width: 576px) {
+  .intro {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .intro {
+    max-width: 720px;
+  }
+}@media (min-width: 992px) {
+  .intro {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .intro {
+    max-width: 1140px;
+  }
+}
+
+.logoutBtn {
+  top: 0;
+  right: 0;
+  position: absolute;
 }
 
 .container.fadeup {

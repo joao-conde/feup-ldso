@@ -88,15 +88,15 @@ export default function reducer(state = initialState, action) {
     case GET_PROJECTS_PT_FAIL:
     case GET_PROJECT_BY_ID_FAIL:
     case SEARCH_PROJECTS_FAIL:
+        if(!global.__TEST__) NotificationManager.error('Failed to fetch projects data.');
         return { ...state,
             loading: false,
             error: 'Error while fetching projects data'
         };
     case ADD_PROJECT_FAIL:
-        if(!global.__TEST__) NotificationManager.error('Failed to create project');
-        /* falls through */
     case EDIT_PROJECT_FAIL:
     case DELETE_PROJECT_FAIL:
+        if(!global.__TEST__) NotificationManager.error('Failed to execute action.');
         return { ...state,
             loadingAction: false,
             error: 'Error while executing action on project'
@@ -113,6 +113,8 @@ const editProject = (state, editedProject) => {
     );
 
     if (editedProject.language === 'en') {
+        if (!global.__TEST__) NotificationManager.success('Successfully edited project!');
+
         let prevProps = [...state.projectsEN];
         prevProps[editedIdx] = editedProject;
 
@@ -149,7 +151,7 @@ const addProjects = (state, newProjects) => {
 
 const deleteProject = (state) => {
     let newMap = { ...state.idsMap };
-    let enIdx = state.projectsEN.findIndex((el) => el.id === state.currProjEN.id);
+    let enIdx = state.currProjEN === null? -1 : state.projectsEN.findIndex((el) => el.id === state.currProjEN.id);
 
     if (enIdx >= 0) {
         let newProjectsEN = [...state.projectsEN];

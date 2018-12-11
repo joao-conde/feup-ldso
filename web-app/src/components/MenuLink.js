@@ -30,7 +30,8 @@ const linkTextStyle = {
 
 const title = {
     fontSize: '2rem',
-    fontWeight: 700
+    fontWeight: 700,
+    color: 'rgb(33, 37, 41)'
 };
 
 MenuLink.propTypes = {

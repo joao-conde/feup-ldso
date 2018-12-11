@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { NotificationContainer } from 'react-notifications';
-import MainContainer from './components/MainContainer';
-import logo from './assets/images/impactup.png';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import rootReducer from './reducers/reducer';
 import requestMiddleware from './reducers/middleware';
+import AppContainer from './screens/AppContainer';
+import Login from './screens/Login';
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -20,14 +22,15 @@ class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <div>
-                    <div className="intro">
-                        <img src={logo} alt="application logo" width="140"/>
-                        {/* TODO: Add button for Sign Out here later */}
+                <Router>
+                    <div>
+                        <Switch>
+                            <Route path="/login" component={Login} />
+                            <Route path="/" component={AppContainer} />
+                        </Switch>
+                        <NotificationContainer />
                     </div>
-                    <MainContainer />
-                    <NotificationContainer />
-                </div>
+                </Router>
             </Provider>
         );
     }

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Input, Col, Row, Button } from 'reactstrap';
-import { NotificationManager } from 'react-notifications';
-import { throttle } from 'throttle-debounce';
 import PropTypes from 'prop-types';
+import Loading from '../components/Loading';
 import { setFaculty } from '../actions/facultyActions';
 import { getProspects, editProspects } from '../actions/prospectsActions';
 
@@ -41,11 +40,6 @@ class ProspectsEditor extends Component {
                     banner: banner
                 });
             }
-
-            if ((prevProps.contentEN !== '' && prevProps.contentEN !== contentEN) ||
-                (prevProps.contentPT !== '' && prevProps.contentPT !== contentPT) ||
-                (prevProps.banner !== '' && prevProps.banner !== banner))
-                if (!global.__TEST__) throttle(0, NotificationManager.success('Successfully edited future plans!'));
         }
     }
 
@@ -88,7 +82,7 @@ class ProspectsEditor extends Component {
         const { loading, loadingAction } = this.props;
 
         if (loading) {
-            return <div>Loading...</div>;
+            return <Loading></Loading>;
         } else {
             return (
                 <div>

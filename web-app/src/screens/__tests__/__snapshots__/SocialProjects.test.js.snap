@@ -3,181 +3,80 @@
 exports[`App snapshot renders without crashing 1`] = `
 <div>
   <div
-    className="intro"
+    className="loginContainer"
   >
-    <img
-      alt="application logo"
-      src="test-file-stub"
-      width="140"
+    <div
+      className="cssTool"
     />
-  </div>
-  <div>
     <div
-      className="navigator"
+      className="login"
     >
-      <h6
-        className="fadeup"
+      <div
+        className="logo"
       >
-        <a
-          aria-current={null}
-          href="/faculties/fadeup"
-          onClick={[Function]}
-        >
-          FADEUP
-        </a>
-      </h6>
-      <h6
-        className="faup"
-      >
-        <a
-          aria-current={null}
-          href="/faculties/faup"
-          onClick={[Function]}
-        >
-          FAUP
-        </a>
-      </h6>
-      <h6
-        className="fbaup"
-      >
-        <a
-          aria-current={null}
-          href="/faculties/fbaup"
-          onClick={[Function]}
-        >
-          FBAUP
-        </a>
-      </h6>
-      <h6
-        className="fcnaup"
-      >
-        <a
-          aria-current={null}
-          href="/faculties/fcnaup"
-          onClick={[Function]}
-        >
-          FCNAUP
-        </a>
-      </h6>
-      <h6
-        className="fcup"
-      >
-        <a
-          aria-current={null}
-          href="/faculties/fcup"
-          onClick={[Function]}
-        >
-          FCUP
-        </a>
-      </h6>
-      <h6
-        className="fdup"
-      >
-        <a
-          aria-current={null}
-          href="/faculties/fdup"
-          onClick={[Function]}
-        >
-          FDUP
-        </a>
-      </h6>
-      <h6
-        className="fep"
-      >
-        <a
-          aria-current={null}
-          href="/faculties/fep"
-          onClick={[Function]}
-        >
-          FEP
-        </a>
-      </h6>
-      <h6
-        className="feup"
-      >
-        <a
-          aria-current={null}
-          href="/faculties/feup"
-          onClick={[Function]}
-        >
-          FEUP
-        </a>
-      </h6>
-      <h6
-        className="ffup"
-      >
-        <a
-          aria-current={null}
-          href="/faculties/ffup"
-          onClick={[Function]}
-        >
-          FFUP
-        </a>
-      </h6>
-      <h6
-        className="flup"
-      >
-        <a
-          aria-current={null}
-          href="/faculties/flup"
-          onClick={[Function]}
-        >
-          FLUP
-        </a>
-      </h6>
-      <h6
-        className="fmdup"
-      >
-        <a
-          aria-current={null}
-          href="/faculties/fmdup"
-          onClick={[Function]}
-        >
-          FMDUP
-        </a>
-      </h6>
-      <h6
-        className="fmup"
-      >
-        <a
-          aria-current={null}
-          href="/faculties/fmup"
-          onClick={[Function]}
-        >
-          FMUP
-        </a>
-      </h6>
-      <h6
-        className="fpceup"
-      >
-        <a
-          aria-current={null}
-          href="/faculties/fpceup"
-          onClick={[Function]}
-        >
-          FPCEUP
-        </a>
-      </h6>
-      <h6
-        className="icbas"
-      >
-        <a
-          aria-current={null}
-          href="/faculties/icbas"
-          onClick={[Function]}
-        >
-          ICBAS
-        </a>
-      </h6>
-    </div>
-    <div
-      className="container null"
-    >
-      <div>
-        <h1>
-          Redirect to App login or another admin page
-        </h1>
+        <img
+          alt="application logo"
+          src="test-file-stub"
+          width="140"
+        />
       </div>
+      <form
+        className="form"
+      >
+        <div
+          className="col"
+        >
+          <div
+            className="position-relative form-group"
+          >
+            <label
+              className=""
+              htmlFor="username"
+            >
+              Username
+            </label>
+            <input
+              className="form-control"
+              id="username"
+              name="username"
+              onChange={[Function]}
+              placeholder="Enter Username"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="col"
+        >
+          <div
+            className="position-relative form-group"
+          >
+            <label
+              className=""
+              htmlFor="username"
+            >
+              Password
+            </label>
+            <input
+              className="form-control"
+              name="password"
+              onChange={[Function]}
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+          </div>
+          <button
+            aria-label={null}
+            className="loginBtn  btn btn-success"
+            onClick={[Function]}
+            type="button"
+          >
+            Log in
+          </button>
+        </div>
+      </form>
     </div>
   </div>
   <div
@@ -257,7 +156,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Sidebar
+        <withRouter(Sidebar)
           action={[Function]}
           faculty="faup"
           loading={false}
@@ -287,7 +186,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
           "action": [Function],
           "faculty": "faup",
@@ -338,7 +237,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Sidebar
+          <withRouter(Sidebar)
             action={[Function]}
             faculty="faup"
             loading={false}
@@ -368,7 +267,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "action": [Function],
             "faculty": "faup",
@@ -513,7 +412,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Sidebar
+        <withRouter(Sidebar)
           action={[Function]}
           faculty="faup"
           loading={false}
@@ -543,7 +442,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
           "action": [Function],
           "faculty": "faup",
@@ -594,7 +493,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Sidebar
+          <withRouter(Sidebar)
             action={[Function]}
             faculty="faup"
             loading={false}
@@ -624,7 +523,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "action": [Function],
             "faculty": "faup",
@@ -769,7 +668,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Sidebar
+        <withRouter(Sidebar)
           action={[Function]}
           faculty="faup"
           loading={false}
@@ -799,7 +698,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
           "action": [Function],
           "faculty": "faup",
@@ -850,7 +749,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Sidebar
+          <withRouter(Sidebar)
             action={[Function]}
             faculty="faup"
             loading={false}
@@ -880,7 +779,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "action": [Function],
             "faculty": "faup",
@@ -1025,7 +924,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Sidebar
+        <withRouter(Sidebar)
           action={[Function]}
           faculty="faup"
           loading={false}
@@ -1055,7 +954,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
           "action": [Function],
           "faculty": "faup",
@@ -1106,7 +1005,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Sidebar
+          <withRouter(Sidebar)
             action={[Function]}
             faculty="faup"
             loading={false}
@@ -1136,7 +1035,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "action": [Function],
             "faculty": "faup",
@@ -1281,7 +1180,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Sidebar
+        <withRouter(Sidebar)
           action={[Function]}
           faculty="faup"
           loading={false}
@@ -1311,7 +1210,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
           "action": [Function],
           "faculty": "faup",
@@ -1362,7 +1261,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Sidebar
+          <withRouter(Sidebar)
             action={[Function]}
             faculty="faup"
             loading={false}
@@ -1392,7 +1291,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "action": [Function],
             "faculty": "faup",
