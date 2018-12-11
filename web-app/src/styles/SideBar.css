@@ -16,6 +16,11 @@
     box-sizing: content-box;
 }
 
+.iconContainer {
+    position: relative;
+    margin-top: 0.5em;
+}
+
 .addBtnLink {
     margin: 0 auto;
 }
@@ -37,7 +42,7 @@
     overflow: hidden;
     border-radius: 50%;
     margin: 0 auto;
-    margin-top: 1em;
+    margin-bottom: 2em;
 }
 
 .imgBtn {
@@ -59,45 +64,88 @@
     background-color: unset !important;
 }
 
+.iconLabel {
+    z-index: 1000;
+    position: absolute;
+    width: 100%;
+    top: 60%;
+    background-color: var(--primary-color-light);
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid var(--secondary-color-dark);
+}
+
 .imgBtn.fadeup {
     border: 8px solid var(--fadeup-color);
 }
+
 .imgBtn.faup {
     border: 8px solid var(--faup-color);
 }
+
 .imgBtn.fbaup {
     border: 8px solid var(--fbaup-color);
 }
+
 .imgBtn.fcnaup {
     border: 8px solid var(--fcnaup-color);
 }
+
 .imgBtn.fcup {
     border: 8px solid var(--fcup-color);
 }
+
 .imgBtn.fdup {
     border: 8px solid var(--fdup-color);
 }
+
 .imgBtn.fep {
     border: 8px solid var(--fep-color);
 }
+
 .imgBtn.feup {
     border: 8px solid var(--feup-color);
 }
+
 .imgBtn.ffup {
     border: 8px solid var(--fdup-color);
 }
+
 .imgBtn.flup {
     border: 8px solid var(--fep-color);
 }
+
 .imgBtn.fmdup {
     border: 8px solid var(--feup-color);
 }
+
 .imgBtn.fmup {
     border: 8px solid var(--fdup-color);
 }
+
 .imgBtn.fpceup {
     border: 8px solid var(--fep-color);
 }
+
 .imgBtn.icbas {
     border: 8px solid var(--feup-color);
+}
+
+/* Search Bar */
+.searchBar {
+    position: relative;
+    margin-top: 0.2em;
+    margin-left: 0.2em;
+}
+
+.searchBar input {
+    text-indent: 25px;
+    border-radius: 30px !important;
+}
+
+.searchBar .search-icon {
+    position: absolute;
+    top: 9px;
+    left: 25px;
+    font-size: 20px;
 }

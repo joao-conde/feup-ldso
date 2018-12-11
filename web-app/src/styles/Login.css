@@ -1,0 +1,29 @@
+.loginContainer {
+  height: 100vh;
+  background-image: linear-gradient(var(--secondary-color-light), var(--secondary-color-dark));
+  /* background-color: #9e8c5e; */
+}
+
+.cssTool {
+  height: 8em;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.login {
+  opacity: 1;
+  width: 350px;
+  margin: 0 auto !important;
+  margin-top: 600px;
+  background-color: var(--primary-color) !important;
+  padding: 2em !important;
+  border-radius: 0.5em !important;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
+}
+
+.loginBtn {
+  width: 100%;
+}

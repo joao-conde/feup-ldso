@@ -29,7 +29,16 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         },
         mainMenuBtn: {
             borderColor: '#c6db00',
+            backgroundColor: '#ffffff'
+        },
+        factBorder: {
+            borderColor: '#c6db00',
+        },
+        factBackground: {
             backgroundColor: '#c6db00',
+        },
+        factText: {
+            color: '#ffffff'
         },
         carouselBar: {
             backgroundColor: '#c6db00'
@@ -46,20 +55,29 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             backgroundColor: '#ffffff',
         },
         icon: {
-            borderColor: '#b2b3b5'
+            borderColor: '#000000'
         },
         mainMenuBtn: {
-            borderColor: '#b2b3b5',
-            backgroundColor: '#b2b3b5',
+            borderColor: '#ffffff',
+            backgroundColor: '#000000'
+        },
+        factBorder: {
+            borderColor: '#000000',
+        },
+        factBackground: {
+            backgroundColor: '#ffffff',
+        },
+        factText: {
+            color: '#000000'
         },
         carouselBar: {
-            backgroundColor: '#b2b3b5'
+            backgroundColor: '#ffffff'
         },
         videoArrow: {
-            color: '#b2b3b5'
+            color: '#ffffff'
         },
         bannerBorder: {
-            borderColor: '#b2b3b5'
+            borderColor: '#000000'
         }
     },
     fbaup: {
@@ -71,7 +89,16 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         },
         mainMenuBtn: {
             borderColor: '#b2b3b5',
+            backgroundColor: '#ffffff'
+        },
+        factBorder: {
+            borderColor: '#b2b3b5',
+        },
+        factBackground: {
             backgroundColor: '#b2b3b5',
+        },
+        factText: {
+            color: '#ffffff'
         },
         carouselBar: {
             backgroundColor: '#b2b3b5'
@@ -91,14 +118,23 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#ffd600'
         },
         mainMenuBtn: {
-            borderColor: '#ffd600',
+            borderColor: '#00af8a',
+            backgroundColor: '#ffd600'
+        },
+        factBorder: {
+            borderColor: '#00af8a',
+        },
+        factBackground: {
             backgroundColor: '#ffd600',
+        },
+        factText: {
+            color: '#00af8a'
         },
         carouselBar: {
             backgroundColor: '#ffd600'
         },
         videoArrow: {
-            color: '#ffd600'
+            color: '#00af8a'
         },
         bannerBorder: {
             borderColor: '#ffd600'
@@ -106,23 +142,32 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
     },
     fcup: {
         header: {
-            backgroundColor: '#92bfeb',
+            backgroundColor: '#93bfeb',
         },
         icon: {
-            borderColor: '#92bfeb'
+            borderColor: '#93bfeb'
         },
         mainMenuBtn: {
-            borderColor: '#92bfeb',
-            backgroundColor: '#92bfeb',
+            borderColor: '#93bfeb',
+            backgroundColor: '#ffffff'
+        },
+        factBorder: {
+            borderColor: '#93bfeb',
+        },
+        factBackground: {
+            backgroundColor: '#93bfeb',
+        },
+        factText: {
+            color: '#ffffff'
         },
         carouselBar: {
-            backgroundColor: '#92bfeb'
+            backgroundColor: '#93bfeb'
         },
         videoArrow: {
-            color: '#92bfeb'
+            color: '#93bfeb'
         },
         bannerBorder: {
-            borderColor: '#92bfeb'
+            borderColor: '#93bfeb'
         }
     },
     fdup: {
@@ -134,7 +179,16 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         },
         mainMenuBtn: {
             borderColor: '#f42a41',
+            backgroundColor: '#ffffff'
+        },
+        factBorder: {
+            borderColor: '#f42a41',
+        },
+        factBackground: {
             backgroundColor: '#f42a41',
+        },
+        factText: {
+            color: '#ffffff'
         },
         carouselBar: {
             backgroundColor: '#f42a41'
@@ -154,8 +208,17 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
             borderColor: '#f42a41'
         },
         mainMenuBtn: {
-            borderColor: '#f42a41',
+            borderColor: '#ffffff',
             backgroundColor: '#f42a41'
+        },
+        factBorder: {
+            borderColor: '#f42a41',
+        },
+        factBackground: {
+            backgroundColor: '#f42a41',
+        },
+        factText: {
+            color: '#ffffff'
         },
         carouselBar: {
             backgroundColor: '#f42a41'
@@ -169,23 +232,32 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
     },
     feup: {
         header: {
-            backgroundColor: '#8c2d19',
+            backgroundColor: '#9f2d20',
         },
         icon: {
-            borderColor: '#8c2d19'
+            borderColor: '#9f2d20'
         },
         mainMenuBtn: {
-            borderColor: '#8c2d19',
-            backgroundColor: '#8c2d19'
+            borderColor: '#9f2d20',
+            backgroundColor: '#ffffff'
+        },
+        factBorder: {
+            borderColor: '#9f2d20',
+        },
+        factBackground: {
+            backgroundColor: '#9f2d20',
+        },
+        factText: {
+            color: '#ffffff'
         },
         carouselBar: {
-            backgroundColor: '#8c2d19'
+            backgroundColor: '#9f2d20'
         },
         videoArrow: {
-            color: '#8c2d19'
+            color: '#9f2d20'
         },
         bannerBorder: {
-            borderColor: '#8c2d19'
+            borderColor: '#9f2d20'
         }
     },
     ffup: {
@@ -197,7 +269,16 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         },
         mainMenuBtn: {
             borderColor: '#6e20a0',
+            backgroundColor: '#ffffff'
+        },
+        factBorder: {
+            borderColor: '#6e20a0',
+        },
+        factBackground: {
             backgroundColor: '#6e20a0',
+        },
+        factText: {
+            color: '#ffffff'
         },
         carouselBar: {
             backgroundColor: '#6e20a0'
@@ -218,7 +299,16 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         },
         mainMenuBtn: {
             borderColor: '#0019a8',
+            backgroundColor: '#ffffff'
+        },
+        factBorder: {
+            borderColor: '#0019a8',
+        },
+        factBackground: {
             backgroundColor: '#0019a8',
+        },
+        factText: {
+            color: '#ffffff'
         },
         carouselBar: {
             backgroundColor: '#0019a8'
@@ -239,10 +329,19 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         },
         mainMenuBtn: {
             borderColor: '#ff5c00',
-            backgroundColor: '#ff5c00',
+            backgroundColor: '#ffd600'
+        },
+        factBorder: {
+            borderColor: '#ff5c00',
+        },
+        factBackground: {
+            backgroundColor: '#ffd600',
+        },
+        factText: {
+            color: '#ff5c00'
         },
         carouselBar: {
-            backgroundColor: '#ff5c00'
+            backgroundColor: '#ffd600'
         },
         videoArrow: {
             color: '#ff5c00'
@@ -253,24 +352,32 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
     },
     fmup: {
         header: {
-            backgroundColor: '#f4ce15',
+            backgroundColor: '#ffd600',
         },
         icon: {
-            borderColor: '#f4ce15',
-            backgroundColor: '#f4ce15',
+            borderColor: '#ffd600',
         },
         mainMenuBtn: {
-            borderColor: '#f4ce15',
-            backgroundColor: '#f4ce15',
+            borderColor: '#ffd600',
+            backgroundColor: '#ffffff'
+        },
+        factBorder: {
+            borderColor: '#ffd600',
+        },
+        factBackground: {
+            backgroundColor: '#ffd600',
+        },
+        factText: {
+            color: '#ffffff'
         },
         carouselBar: {
-            backgroundColor: '#f4ce15'
+            backgroundColor: '#ffd600'
         },
         videoArrow: {
-            color: '#f4ce15'
+            color: '#ffd600'
         },
         bannerBorder: {
-            borderColor: '#f4ce15'
+            borderColor: '#ffd600'
         }
     },
     fpceup: {
@@ -282,7 +389,16 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
         },
         mainMenuBtn: {
             borderColor: '#ff5c00',
+            backgroundColor: '#ffffff'
+        },
+        factBorder: {
+            borderColor: '#ff5c00',
+        },
+        factBackground: {
             backgroundColor: '#ff5c00',
+        },
+        factText: {
+            color: '#ffffff'
         },
         carouselBar: {
             backgroundColor: '#ff5c00'
@@ -296,20 +412,29 @@ export const facultyStyles = NestedStyleSheet(StyleSheet, {
     },
     icbas: {
         header: {
-            backgroundColor: '#ffd600',
+            backgroundColor: '#93bfeb',
         },
         icon: {
-            borderColor: '#ffd600'
+            borderColor: '#93bfeb'
         },
         mainMenuBtn: {
-            borderColor: '#ffd600',
+            borderColor: '#93bfeb',
             backgroundColor: '#ffd600'
+        },
+        factBorder: {
+            borderColor: '#93bfeb',
+        },
+        factBackground: {
+            backgroundColor: '#ffd600',
+        },
+        factText: {
+            color: '#93bfeb'
         },
         carouselBar: {
             backgroundColor: '#ffd600'
         },
         videoArrow: {
-            color: '#ffd600'
+            color: '#93bfeb'
         },
         bannerBorder: {
             borderColor: '#ffd600'

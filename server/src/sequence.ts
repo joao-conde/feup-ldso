@@ -1,14 +1,15 @@
-import {inject} from '@loopback/context';
 import {
+  RestBindings,
+  SequenceHandler,
   FindRoute,
-  InvokeMethod,
   ParseParams,
+  InvokeMethod,
+  Send,
   Reject,
   RequestContext,
-  RestBindings,
-  Send,
-  SequenceHandler,
 } from '@loopback/rest';
+import {inject} from '@loopback/context';
+import {AuthenticationBindings, AuthenticateFn} from '@loopback/authentication';
 
 const SequenceActions = RestBindings.SequenceActions;
 
@@ -17,19 +18,25 @@ export class MySequence implements SequenceHandler {
     @inject(SequenceActions.FIND_ROUTE) protected findRoute: FindRoute,
     @inject(SequenceActions.PARSE_PARAMS) protected parseParams: ParseParams,
     @inject(SequenceActions.INVOKE_METHOD) protected invoke: InvokeMethod,
-    @inject(SequenceActions.SEND) public send: Send,
-    @inject(SequenceActions.REJECT) public reject: Reject,
+    @inject(SequenceActions.SEND) protected send: Send,
+    @inject(SequenceActions.REJECT) protected reject: Reject,
+    @inject(AuthenticationBindings.AUTH_ACTION)
+    protected authenticateRequest: AuthenticateFn,
   ) {}
 
   async handle(context: RequestContext) {
     try {
       const {request, response} = context;
       const route = this.findRoute(request);
+
+      //Authenticate request, if necessary
+      await this.authenticateRequest(request);
+
       const args = await this.parseParams(request, route);
       const result = await this.invoke(route, args);
       this.send(response, result);
-    } catch (err) {
-      this.reject(context, err);
+    } catch (error) {
+      this.reject(context, error);
     }
   }
 }

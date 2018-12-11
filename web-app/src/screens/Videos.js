@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Loading from '../components/Loading';
 import { setFaculty } from '../actions/facultyActions';
 import { getVideos, editVideo } from '../actions/videosActions';
 import PromotionalVideo from '../components/PromotionalVideo';
@@ -29,11 +30,17 @@ class Videos extends Component {
     render() {
         const { loading, loadingAction, faculty, videosEN, videosPT, editVideo } = this.props;
 
-        return (
-            <div style={contentStyle}>
-                <PromotionalVideo loading={loading} loadingAction={loadingAction} faculty={faculty} videosEN={videosEN} videosPT={videosPT} mainAction={editVideo}/>
-            </div>
-        );
+        if (loading) {
+            return (
+                <Loading></Loading>
+            );
+        } else {
+            return (
+                <div style={contentStyle}>
+                    <PromotionalVideo loadingAction={loadingAction} faculty={faculty} videosEN={videosEN} videosPT={videosPT} mainAction={editVideo}/>
+                </div>
+            );
+        }
     }
 }
 

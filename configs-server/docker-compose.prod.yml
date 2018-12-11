@@ -40,6 +40,7 @@ services:
   mongo:
     image: mongo:4.0.1
     container_name: mongo
+    restart: unless-stopped
     expose:
       - "27017"
 

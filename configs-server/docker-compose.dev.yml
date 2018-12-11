@@ -46,6 +46,7 @@ services:
   mongo-dev:
     image: mongo:4.0.1
     container_name: mongo-dev
+    restart: unless-stopped
     expose:
       - "27017"
     networks:

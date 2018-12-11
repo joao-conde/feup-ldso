@@ -17,14 +17,25 @@ Object {
 }
 `;
 
-exports[`Testing faculty actions creates a GET_LOCALIZATION Action 1`] = `
+exports[`Testing faculty actions creates a GET_RESEARCH_CENTRE_BY_ID Action 1`] = `
 Object {
   "payload": Object {
     "request": Object {
-      "url": "/feup",
+      "url": "/faculties/en/feup/research-centers?id=undefined",
     },
   },
-  "type": "mobile/faculty/GET_LOCALIZATION",
+  "type": "mobile/faculty/GET_RESEARCH_CENTRE_BY_ID",
+}
+`;
+
+exports[`Testing faculty actions creates a GET_RESEARCH_CENTRES Action 1`] = `
+Object {
+  "payload": Object {
+    "request": Object {
+      "url": "/faculties/undefined/undefined/research-centers-short",
+    },
+  },
+  "type": "mobile/faculty/GET_RESEARCH_CENTRES",
 }
 `;
 
@@ -32,7 +43,7 @@ exports[`Testing faculty actions creates a GET_SOCIAL_PROJECT_BY_ID Action 1`] =
 Object {
   "payload": Object {
     "request": Object {
-      "url": "/faculties/en/feup/social-projects?filter?id=id",
+      "url": "/faculties/en/feup/social-projects?id=id",
     },
   },
   "type": "mobile/faculty/GET_SOCIAL_PROJECT_BY_ID",
@@ -91,11 +102,83 @@ Object {
   "currSocialProject": null,
   "futureProspects": Object {},
   "loading": false,
-  "localization": null,
   "name": "",
   "researchCentres": Array [],
   "socialProjects": Array [],
   "stats": Object {},
   "videos": Array [],
+}
+`;
+
+exports[`Testing if faculty reducer fails 1`] = `
+Object {
+  "error": "Error while fetching faculty data",
+  "loading": false,
+}
+`;
+
+exports[`Testing if faculty reducer gets future prospects successfully 1`] = `
+Object {
+  "futureProspects": "this is a message from the future",
+  "loading": false,
+}
+`;
+
+exports[`Testing if faculty reducer gets projects by id successfully 1`] = `
+Object {
+  "currSocialProject": "This is the best project",
+  "loading": false,
+}
+`;
+
+exports[`Testing if faculty reducer gets projects successfully 1`] = `
+Object {
+  "loading": false,
+  "socialProjects": Array [
+    "This is the best project",
+    "This is another project",
+  ],
+}
+`;
+
+exports[`Testing if faculty reducer gets research centres by id successfully 1`] = `
+Object {
+  "currResearchCentre": "This research center is the best place to work according to some magazines",
+  "loading": false,
+}
+`;
+
+exports[`Testing if faculty reducer gets research centres successfully 1`] = `
+Object {
+  "loading": false,
+  "researchCentres": Array [
+    "This research center is the best place to work according to some magazines",
+    "This is another research centres",
+  ],
+}
+`;
+
+exports[`Testing if faculty reducer gets statistics successfully 1`] = `
+Object {
+  "loading": false,
+  "stats": "50%",
+}
+`;
+
+exports[`Testing if faculty reducer gets videos successfully 1`] = `
+Object {
+  "loading": false,
+  "videos": Array [
+    "video1",
+    "video2",
+  ],
+}
+`;
+
+exports[`Testing if faculty reducer receives a not valid case 1`] = `Object {}`;
+
+exports[`Testing if faculty reducer tries to get statistics 1`] = `
+Object {
+  "loading": true,
 }
 `;

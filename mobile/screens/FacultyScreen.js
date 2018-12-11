@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import { StyleSheet, Image, Dimensions, ScrollView, TouchableOpacity} from 'react-native';
-import { Container, Content, Text, View, Icon } from 'native-base';
+import { Content, View, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import ActivityIndicatorView from '../components/ActivityIndicatorView';
 import { getStats, setFaculty } from '../reducers/modules/facultyReducer';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Statistics from '../components/FacultyScreen/StatsNumbers';
 import IconButton from '../components/FacultyScreen/IconButton';
 import StatsIcons from '../components/FacultyScreen/StatsIcons';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import { HexGrid, Layout, Hexagon, HexText, HexPath, Hex } from '../components/FacultyScreen/Hexagon/index';
-
-
-let scrollYPos = 0;
+import facultyStyles from '../constants/SpecificStyles';
+import {facultyImages} from '../constants/homepage/facultyImages';
+import { Fact } from '../components/FacultyScreen/Fact';
 
 class FacultyScreen extends Component {
 
@@ -24,9 +24,13 @@ class FacultyScreen extends Component {
     }
 
     scrollToSecondPage = () => {
-        scrollYPos = this.state.screenHeight * 1;
-        this.scroller.scrollTo({x: 0, y: scrollYPos});
+        this.scroller.scrollTo({x: 0, y: this.state.screenHeight});
     };
+
+    scrollToFirstPage = () => {
+        this.scroller.scrollTo({x: 0, y: 0});
+    };
+
 
     componentDidMount() {
         const faculty = this.props.navigation.getParam('name');
@@ -48,80 +52,90 @@ class FacultyScreen extends Component {
 
     render() {
         const { name, loading, stats, language } = this.props;
-        if (loading) {
-            return (
-                <Container style={styles.container}>
-                    <Content contentContainerStyle={styles.content}>
-                        <Text style={styles.text}>
-                            {language == 'en' ? 'Loading...' : 'Carregando...'}
-                        </Text>
-                    </Content>
-                </Container>
-            );
+
+        function renderFacts() {
+            let facts=[];
+            if(stats['other_facts'].length == 3 || stats['other_facts'].length == 2) {
+
+                for(let i=0; i<stats['other_facts'].length; i++) {
+                    facts.push(<View style={styles.factsColumn} key={i}>
+                        {renderInnerFacts([stats['other_facts'][i]])}
+                    </View>);
+                }
+            } else {
+
+                for(let i=0; i<stats['other_facts'].length; i+=2) {
+                    facts.push(<View style={styles.factsColumn} key={i}>
+                        {i<stats['other_facts'].length-1 ? renderInnerFacts([stats['other_facts'][i], stats['other_facts'][i+1]]): renderInnerFacts([stats['other_facts'][i]])}
+                    </View>);
+
+                }
+            }
+            return facts;
         }
+
+        function renderInnerFacts(facts) {
+            let factsDisplay=[];
+            for(let i=0; i<facts.length; i++) {
+                factsDisplay.push(<Fact name={name} info={facts[i]} key={i}/>);
+            }
+            return factsDisplay;
+        }
+
+        if (loading || typeof facultyStyles[name] == 'undefined') 
+            return ( <ActivityIndicatorView></ActivityIndicatorView> );
+
         return (
-            <ScrollView style={styles.container} ref={(scroller) => {this.scroller = scroller;}}>
+            <ScrollView style={styles.container} ref={(scroller) => {this.scroller = scroller;}} scrollEnabled={false}>
                 <Content contentContainerStyle={styles.content}>
                     <View style={styles.menu}>
                         <View style={styles.links}>
                             <View style={styles.linksCol}>
-                                <IconButton name={name} icon="film" label={language == 'en' ? 'Videos' : 'Vídeos'} action={() => this.navigateFunction('Videos', name)}></IconButton>
-                                <IconButton name={name} icon="globe" label={language == 'en' ? 'Social Projects' : 'Projetos Sociais'} action={() => this.navigateFunction('SocialProjects', name)}></IconButton>
+                                <IconButton name={name} icon="videos" label={language == 'en' ? 'Videos' : 'Vídeos'} action={() => this.navigateFunction('Videos', name)}></IconButton>
+                                <IconButton name={name} icon="socialProjects" label={language == 'en' ? 'Social Projects' : 'Projetos Sociais'} action={() => this.navigateFunction('SocialProjects', name)}></IconButton>
                             </View>
-                            <View style={[styles.linksCol, styles.search]}>
-                                <IconButton name={name} icon="search" label={language == 'en' ? 'Research' : 'Investigação'} action={() => this.navigateFunction('ResearchCentres', name)}></IconButton>
+                            <View style={[styles.linksCol, styles.search, styles.start]}>
+                                <IconButton name={name} icon="research" label={language == 'en' ? 'Research Centres' : 'Centros de Investigação'} action={() => this.navigateFunction('ResearchCentres', name)}></IconButton>
                             </View>
                             <View style={styles.linksCol}>
-                                <IconButton name={name} icon="paper-plane" label={language == 'en' ? 'Future' : 'Futuro'} action={() => this.navigateFunction('FutureProspects', name)}></IconButton>
-                                <IconButton name={name} icon="map-marker" label={language == 'en' ? 'Location' : 'Localização'} action={() => this.navigateFunction('Localization', name)}></IconButton>
+                                <IconButton name={name} icon="future" label={language == 'en' ? 'Future' : 'Futuro'} action={() => this.navigateFunction('FutureProspects', name)}></IconButton>
+                                <IconButton name={name} icon="location" label={language == 'en' ? 'Location' : 'Localização'} action={() => this.navigateFunction('Location', name)}></IconButton>
                             </View>
                         </View>
                         <View style={styles.imageView}>
-                            <Image style={styles.image} source={{uri: 'https://static.globalnoticias.pt/jn/image.aspx?brand=JN&type=generate&guid=151d9c4c-8a02-466b-95fe-1ae900791412&w=744&h=495&t=20180406133500'}}/>
+                            <Image style={styles.image} source={facultyImages[name].uri}/>
                         </View>
                     </View>
                     <View style={styles.firstPageBottom}>
                         <View style={styles.statistics}>
-                            <Statistics course={[ stats['nr_bsc'], language == 'en' ? 'Bachelors' : 'Licenciaturas' ]} students={[stats['bsc_students'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>
-                            <Statistics course={[ stats['nr_msc'], language == 'en' ? 'Masters' : 'Mestrados' ]} students={[stats['msc_students'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>
+                            {stats['nr_bsc'] != 0 && <Statistics course={[ stats['nr_bsc'], language == 'en' ? 'Bachelors\n' : 'Licenciaturas\n' ]} students={[stats['bsc_students'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>}
+                            {stats['nr_msc'] != 0 && <Statistics course={[ stats['nr_msc'], language == 'en' ? 'Masters\n' : 'Mestrados\n' ]} students={[stats['msc_students'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>}
+                            {stats['nr_phd'] != 0 && <Statistics course={[ stats['nr_phd'], language == 'en' ? 'PhDs\n' : 'Doutoramentos\n' ]} students={[stats['phd_students'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>}
+                            {stats['nr_training_course'] != 0 && <Statistics course={[ stats['nr_training_course'], language == 'en' ? 'Open and continuing training courses\n' : 'Cursos livres e de formação contínua\n' ]} students={[stats['training_course_graduate'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>}
+                        </View>
+                        <View style={styles.goArrowView}>
                             <TouchableOpacity style={styles.goDownArrow} onPress={this.scrollToSecondPage}>
                                 <Icon style={styles.goDownArrowIcon} type="FontAwesome" name="chevron-down" />
                             </TouchableOpacity>
-                            <Statistics course={[ stats['nr_phd'], language == 'en' ? 'PhD' : 'Doutoramentos' ]} students={[stats['phd_students'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>
-                            <Statistics course={[ stats['nr_training_course'], language == 'en' ? 'Open and continuing training courses' : 'Cursos livres e de formação contínua' ]} students={[stats['training_course_graduate'], language == 'en' ? 'Students' : 'Estudantes']}></Statistics>
                         </View>
                     </View>
                 </Content>
                 <Content contentContainerStyle={styles.content}>
-                    <View style={styles.statsIcons}>
-                        <StatsIcons icon="flask" iconsNmb={10} percentage={stats['research_perc']*100} text={language == 'en' ? 'Teachers and Reseachers' : 'Docentes e investigadores'}></StatsIcons>
-                        <StatsIcons icon="globe" iconsNmb={10} percentage={stats['foreign_student_perc']*100} text={language == 'en' ? 'Foreign students in mobility program' : 'Estudantes internacionais em mobilidade'}></StatsIcons>
-                        <StatsIcons icon="book" iconsNmb={10} percentage={stats['training_programs_perc']*100} text={language == 'en' ? 'Foreign students enrolled to obtain a degree' : 'Estudantes internacionais inscritos para obtenção de grau'}></StatsIcons>
+                    <View style={styles.stats}>
+                        <View style={styles.goArrowView}>
+                            <TouchableOpacity style={styles.goUpArrow} onPress={this.scrollToFirstPage}>
+                                <Icon type="FontAwesome" name="chevron-up" />
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.statsIcons}>
+                            <StatsIcons icon="flask" iconsNmb={18} percentage={stats['research_perc']*100} text={language == 'en' ? 'Teachers and Reseachers\n\n' : 'Docentes e investigadores\n\n'}></StatsIcons>
+                            <StatsIcons icon="globe" iconsNmb={18} percentage={stats['foreign_student_perc']*100} text={language == 'en' ? 'Students in mobility programmes\n(in & out)\n' : 'Estudantes em mobilidade\n(in & out)\n'}></StatsIcons>
+                            <StatsIcons icon="book" iconsNmb={18} percentage={stats['training_programs_perc']*100} text={language == 'en' ? 'International students enrolled to obtain a degree\n' : 'Estudantes internacionais inscritos para obtenção de grau\n'}></StatsIcons>
+                        </View>
                     </View>
-                    <View style={styles.hexagonsView}>
-                        <HexGrid width={hp('100%')} height={hp('70%')} viewBox="-32 -42 95 95">
-                            <Layout size={{ x: 15, y: 15 }} flat={true} spacing={1.1} origin={{ x: 0, y: 0 }} >
-                                <Hexagon q={0} r={0} s={0} fill="#fff"/>
-                                <HexText fontSize={wp('0.2%')}>Estágios</HexText>
-                                <Hexagon q={0} r={-1} s={1} fill="#fff">
-                                    <HexText fontSize={wp('0.2%')}>Projetos</HexText>
-                                </Hexagon>
-                                <Hexagon q={1} r={-1} s={0} fill="#fff">
-                                    <HexText fontSize={wp('0.2%')}>Ensino</HexText>
-                                </Hexagon>
-                                <Hexagon q={2} r={-2} s={0} fill="#fff">
-                                    <HexText fontSize={wp('0.2%')}>Tradução</HexText>
-                                </Hexagon>
-                                <Hexagon q={-1} r={0} s={1} fill="#fff">
-                                    <HexText fontSize={wp('0.2%')}>Campanhas</HexText>
-                                </Hexagon>
-                                <Hexagon q={-2} r={0} s={1} fill="#fff">
-                                    <HexText fontSize={wp('0.2%')}>Solidariedade</HexText>
-                                </Hexagon>
-                                <HexPath start={new Hex(0, 0, 0)} end={new Hex(-2, 0, 1)} />
-                            </Layout>
-                        </HexGrid>
-                    </View>
+                    {stats['other_facts'].length>0 && <View style={styles.factsView}>
+                        {renderFacts()}
+                    </View>}
                 </Content>
             </ScrollView>
         );
@@ -148,26 +162,34 @@ const styles = StyleSheet.create({
 
     content: {
         flexDirection: 'column',
-        height: Dimensions.get('window').height-hp('10.6%'),
+        height: Dimensions.get('window').height - 80,
         justifyContent: 'center',
         padding:0
     },
 
     menu: {
-        flex:2,
+        flex:3,
         flexDirection: 'row',
+        paddingTop: hp('3%'),
+        paddingBottom: hp('3%')
     },
 
     firstPageBottom: {
-        flex:1,
+        flex:2,
         flexDirection: 'column',
         backgroundColor: '#1c1c1c'
     },
 
     statistics: {
-        flex: 5,
+        flex: 15,
         flexDirection: 'row',
         justifyContent: 'space-between'
+    },
+
+    goArrowView: {
+        flex:1,
+        flexDirection: 'row',
+        justifyContent: 'center'
     },
 
     goDownArrow: {
@@ -175,21 +197,27 @@ const styles = StyleSheet.create({
         justifyContent:'flex-end'
     },
 
+    goUpArrow: {
+        alignItems: 'center',
+        justifyContent:'flex-start'
+    },
+
     goDownArrowIcon: {
         color: 'white',
     },
 
-    image: {
-        flex: 1,
-        margin: hp('2%'),
-        marginRight: hp('3%'),
-        resizeMode: 'contain',
-        alignSelf: 'stretch'
-
-    },
-
     imageView: {
         flex: 3,
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        marginRight: wp('2%')
+    },
+
+    image: {
+        width:'100%',
+        height:'100%',
+        resizeMode: 'contain'
+
     },
 
     text: {
@@ -201,39 +229,55 @@ const styles = StyleSheet.create({
         flex: 3,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingTop: hp('2%')
     },
 
     linksCol: {
-        flex:1,
+        flex:3,
         flexDirection: 'column',
         justifyContent: 'space-around',
-        alignItems: 'stretch'
     },
 
     search: { 
-        paddingTop: '20%',
-        paddingBottom:'30%'
+        flex:2,
+        paddingTop: '17%',
+        paddingBottom:'25%'
+        
+    },
+
+    start: {
+        alignItems: 'flex-start'
+    },
+
+    stats: {
+        flex:9,
+        flexDirection: 'column'
     },
 
     statsIcons: {
-        flex:9,
+        flex:15,
         flexDirection: 'row',
         flexWrap: 'nowrap',
         justifyContent: 'space-evenly',
         backgroundColor: 'white',
-        padding: hp('3%')
+        padding: hp('3%'),
+        paddingTop: hp('0%')
     },
 
-    hexagonsView: {
-        flex:11,
+    factsView: {
+        flex:8,
         backgroundColor: '#1c1c1c',
+        justifyContent: 'space-evenly',
         alignItems: 'center',
-        paddingTop: hp('5%')
+        flexDirection: 'row'
     },
-    hexagon: {
-        color: '#7be3f6'
-    }
+
+    factsColumn: {
+        flex:1,
+        backgroundColor: '#d9d9d9',
+        flexDirection: 'column',
+        padding: '2%'
+    },
+
     
 
 });

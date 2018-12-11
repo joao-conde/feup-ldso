@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering Render component 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "flexDirection": "column",
+      "padding": 53.5,
+    }
+  }
+>
+  <Component
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+        "padding": 4,
+      }
+    }
+  >
+    <Styled(Text)
+      style={
+        Object {
+          "color": "white",
+          "fontFamily": "Quicksand_regular",
+          "fontSize": 19,
+          "paddingBottom": 13.5,
+        }
+      }
+    >
+      10
+    </Styled(Text)>
+    <Styled(Text)
+      style={
+        Object {
+          "color": "white",
+          "fontFamily": "OpenSans_regular",
+          "fontSize": 12.5,
+          "lineHeight": 13,
+          "textAlign": "center",
+        }
+      }
+    >
+      Masters
+    </Styled(Text)>
+  </Component>
+  <Component
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+        "padding": 4,
+      }
+    }
+  >
+    <_class
+      dashColor="white"
+      dashGap={5}
+      style={
+        Object {
+          "flexDirection": "column",
+          "height": 64,
+          "width": 1,
+        }
+      }
+    />
+  </Component>
+  <Component
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+        "padding": 4,
+      }
+    }
+  >
+    <Styled(Text)
+      style={
+        Object {
+          "color": "white",
+          "fontFamily": "Quicksand_regular",
+          "fontSize": 19,
+          "paddingBottom": 13.5,
+        }
+      }
+    >
+      500
+    </Styled(Text)>
+    <Styled(Text)
+      style={
+        Object {
+          "color": "white",
+          "fontFamily": "OpenSans_regular",
+          "fontSize": 12.5,
+          "lineHeight": 13,
+          "textAlign": "center",
+        }
+      }
+    >
+      Students
+    </Styled(Text)>
+  </Component>
+</View>
+`;

@@ -1,0 +1,313 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders in other language 1`] = `
+<Component
+  style={
+    Object {
+      "flex": 1,
+      "flexDirection": "row",
+    }
+  }
+>
+  <Component
+    style={
+      Object {
+        "flex": 7.5,
+      }
+    }
+  >
+    <Image
+      source={1}
+      style={
+        Object {
+          "flex": 1,
+          "resizeMode": "cover",
+          "width": 750,
+        }
+      }
+    />
+  </Component>
+  <Component
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 2.5,
+        "marginLeft": 37.5,
+        "marginTop": 26.5,
+      }
+    }
+  >
+    <Component
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderRadius": 26.5,
+            "elevation": 8,
+            "height": 560.5,
+            "justifyContent": "center",
+            "width": 127.5,
+          },
+          Object {
+            "backgroundColor": "#9f2d20",
+          },
+        ]
+      }
+    >
+      <Component
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flex": 2,
+              "justifyContent": "center",
+            },
+            Object {
+              "backgroundColor": "#9f2d20",
+            },
+          ]
+        }
+      >
+        <Image
+          source={
+            Object {
+              "uri": "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://goo.gl/maps/Dn8UfgUFN4G2",
+            }
+          }
+          style={
+            Object {
+              "flex": 1,
+              "resizeMode": "contain",
+              "width": 90,
+            }
+          }
+        />
+      </Component>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "fontFamily": "OpenSans_regular",
+              "fontSize": 28,
+              "justifyContent": "center",
+              "paddingBottom": 26.5,
+              "paddingLeft": 15,
+              "paddingRight": 11.5,
+              "textAlign": "center",
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+      >
+        Inicie o leitor de códigos QR e espere que a câmara o detete automaticamente
+      </Text>
+    </Component>
+  </Component>
+  <Component
+    style={
+      Array [
+        Object {
+          "borderRadius": 13.5,
+          "elevation": 8,
+          "left": 15,
+          "position": "absolute",
+          "top": 26.5,
+        },
+        Object {
+          "backgroundColor": "#9f2d20",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "fontFamily": "Quicksand_regular",
+            "fontSize": 40,
+            "justifyContent": "center",
+            "paddingBottom": 13.5,
+            "paddingLeft": 9.5,
+            "paddingRight": 9.5,
+            "paddingTop": 13.5,
+            "textAlign": "center",
+          },
+          Object {
+            "color": "#ffffff",
+          },
+        ]
+      }
+    >
+      Venha conhecer a 
+      FEUP
+    </Text>
+  </Component>
+</Component>
+`;
+
+exports[`renders screen placeholder content 1`] = `
+<Component
+  style={
+    Object {
+      "flex": 1,
+      "flexDirection": "row",
+    }
+  }
+>
+  <Component
+    style={
+      Object {
+        "flex": 7.5,
+      }
+    }
+  >
+    <Image
+      source={1}
+      style={
+        Object {
+          "flex": 1,
+          "resizeMode": "cover",
+          "width": 750,
+        }
+      }
+    />
+  </Component>
+  <Component
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 2.5,
+        "marginLeft": 37.5,
+        "marginTop": 26.5,
+      }
+    }
+  >
+    <Component
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderRadius": 26.5,
+            "elevation": 8,
+            "height": 560.5,
+            "justifyContent": "center",
+            "width": 127.5,
+          },
+          Object {
+            "backgroundColor": "#9f2d20",
+          },
+        ]
+      }
+    >
+      <Component
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flex": 2,
+              "justifyContent": "center",
+            },
+            Object {
+              "backgroundColor": "#9f2d20",
+            },
+          ]
+        }
+      >
+        <Image
+          source={
+            Object {
+              "uri": "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://goo.gl/maps/Dn8UfgUFN4G2",
+            }
+          }
+          style={
+            Object {
+              "flex": 1,
+              "resizeMode": "contain",
+              "width": 90,
+            }
+          }
+        />
+      </Component>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "fontFamily": "OpenSans_regular",
+              "fontSize": 28,
+              "justifyContent": "center",
+              "paddingBottom": 26.5,
+              "paddingLeft": 15,
+              "paddingRight": 11.5,
+              "textAlign": "center",
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+      >
+        Scan me with a QR code reader and wait for the camera to detect automatically
+      </Text>
+    </Component>
+  </Component>
+  <Component
+    style={
+      Array [
+        Object {
+          "borderRadius": 13.5,
+          "elevation": 8,
+          "left": 15,
+          "position": "absolute",
+          "top": 26.5,
+        },
+        Object {
+          "backgroundColor": "#9f2d20",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "fontFamily": "Quicksand_regular",
+            "fontSize": 40,
+            "justifyContent": "center",
+            "paddingBottom": 13.5,
+            "paddingLeft": 9.5,
+            "paddingRight": 9.5,
+            "paddingTop": 13.5,
+            "textAlign": "center",
+          },
+          Object {
+            "color": "#ffffff",
+          },
+        ]
+      }
+    >
+      Get to know 
+      FEUP
+    </Text>
+  </Component>
+</Component>
+`;
