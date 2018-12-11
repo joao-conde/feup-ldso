@@ -13,16 +13,16 @@ const requestMiddleware = () => next => action => {
             requestPromise = axios.get(`${endpoint}${request.url}`);
             break;
         case 'POST':
-            requestPromise = axios.post(`${endpoint}${request.url}`, request.data);
+            requestPromise = axios.post(`${endpoint}${request.url}`, request.data, authConfig());
             break;
         case 'PATCH':
-            requestPromise = axios.patch(`${endpoint}${request.url}`, request.data);
+            requestPromise = axios.patch(`${endpoint}${request.url}`, request.data, authConfig());
             break;
         case 'PUT':
-            requestPromise = axios.put(`${endpoint}${request.url}`, request.data);
+            requestPromise = axios.put(`${endpoint}${request.url}`, request.data, authConfig());
             break;
         case 'DELETE':
-            requestPromise = axios.delete(`${endpoint}${request.url}`);
+            requestPromise = axios.delete(`${endpoint}${request.url}`, authConfig());
             break;
         default:
             return next({
@@ -41,9 +41,20 @@ const requestHandler = (request, next, type) => {
                 data: response.data
             }
         }))
-        .catch(() => next({
-            type: type + '_FAIL'
+        .catch((err) => next({
+            type: type + '_FAIL',
+            payload: {
+                error: err.request
+            }
         }));
+};
+
+const authConfig = () => {
+    return {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('iupToken')}`
+        }
+    };
 };
 
 export default requestMiddleware;

@@ -1,3 +1,4 @@
+import { NotificationManager } from 'react-notifications';
 import{
     GET_PROSPECTS_EN,
     GET_PROSPECTS_EN_SUCCESS,
@@ -10,7 +11,6 @@ import{
     EDIT_PROSPECTS_FAIL
 } from '../../actions/prospectsActions';
 
-
 const initialState = {
     loading: false,
     loadingAction: false,
@@ -19,9 +19,8 @@ const initialState = {
     banner: ''
 };
 
-
-export default function reducer(state = initialState, action){
-    switch(action.type){
+export default function reducer(state = initialState, action) {
+    switch(action.type) {
     case GET_PROSPECTS_EN:
     case GET_PROSPECTS_PT:
         return{ ...state,
@@ -38,16 +37,14 @@ export default function reducer(state = initialState, action){
             contentEN: action.payload.data.future_prospects.content,
             banner: action.payload.data.future_prospects.banner
         };
-
     case GET_PROSPECTS_PT_SUCCESS:
         return{ ...state,
             loading: false,
             contentPT: action.payload.data.future_prospects.content,
             banner: action.payload.data.future_prospects.banner
         };
-
     case EDIT_PROSPECTS_SUCCESS: {
-        return editProspects(state, action.payload.data.future_prospects);
+        return editProspects(state, action.payload.data.language, action.payload.data.future_prospects);
     }
 
     case GET_PROSPECTS_EN_FAIL:
@@ -58,6 +55,7 @@ export default function reducer(state = initialState, action){
         };
 
     case EDIT_PROSPECTS_FAIL:
+        if(!global.__TEST__) NotificationManager.error('Failed to edit future plans.');
         return { ...state,
             loadingAction: false,
             error: 'Error while executing action on prospect'
@@ -66,11 +64,11 @@ export default function reducer(state = initialState, action){
     default:
         return state;
     }
-
 }
 
-const editProspects = (state, editedProspect) => {
-    if (editedProspect.language === 'en') {
+const editProspects = (state, language, editedProspect) => {
+    if (language === 'en') {
+        if (!global.__TEST__) NotificationManager.success('Successfully edited future plans!');
         return {
             ...state,
             loadingAction: false,

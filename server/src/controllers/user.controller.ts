@@ -3,7 +3,7 @@ import {post, requestBody} from '@loopback/rest';
 import {User} from '../models';
 import {UserRepository} from '../repositories';
 import {sign} from 'jsonwebtoken';
-import {compare} from 'bcrypt-nodejs';
+import {compareSync} from 'bcrypt-nodejs';
 
 export class UserController {
   constructor(
@@ -47,12 +47,10 @@ export class UserController {
       ret = Object.assign({}, {token: null, error: 'User not found'});
     else {
       //Check if passwords match
-      compare(user.password, u.password, function(err, res) {
-        if (!res) {
-          ret = Object.assign({}, {token: null, error: 'Password incorrect'});
-          return ret;
-        }
-      });
+      if (!compareSync(user.password, u.password)) {
+        ret = Object.assign({}, {token: null, error: 'Password incorrect'});
+        return ret;
+      }
 
       //If user credentials are OK, generate signed token with private shared key
       const payload = {
@@ -63,6 +61,9 @@ export class UserController {
         process.env.SECRET_KEY === undefined
           ? 'banana_split'
           : process.env.SECRET_KEY,
+        {
+          expiresIn: '2h',
+        },
       );
       ret = Object.assign({}, {token: token, error: ''});
     }

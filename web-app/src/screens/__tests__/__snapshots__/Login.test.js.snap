@@ -87,26 +87,10 @@ exports[`App snapshot renders without crashing 1`] = `
 </div>
 `;
 
-exports[`Videos Screen tests calls componentDidMount without crashing 1`] = `
+exports[`Login screen  renders login screen 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Videos
-    editVideo={[Function]}
-    faculty="faup"
-    getVideos={[Function]}
-    loading={false}
-    loadingAction={false}
-    match={
-      Object {
-        "params": Object {
-          "faculty": "faup",
-        },
-      }
-    }
-    setFaculty={[Function]}
-    videosEN={Object {}}
-    videosPT={Object {}}
-  />,
+  Symbol(enzyme.__unrendered__): <Connect(Login) />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -118,73 +102,29 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
-      "children": <PromotionalVideo
-        faculty="faup"
-        loadingAction={false}
-        mainAction={[Function]}
-        videosEN={Object {}}
-        videosPT={Object {}}
-      />,
-      "style": Object {
-        "display": "flex",
-        "flexDirection": "row",
-      },
+      "authenticated": false,
+      "loading": false,
+      "login": [Function],
     },
     "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "faculty": "faup",
-        "loadingAction": false,
-        "mainAction": [Function],
-        "videosEN": Object {},
-        "videosPT": Object {},
-      },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
-    "type": "div",
+    "rendered": null,
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
-        "children": <PromotionalVideo
-          faculty="faup"
-          loadingAction={false}
-          mainAction={[Function]}
-          videosEN={Object {}}
-          videosPT={Object {}}
-        />,
-        "style": Object {
-          "display": "flex",
-          "flexDirection": "row",
-        },
+        "authenticated": false,
+        "loading": false,
+        "login": [Function],
       },
       "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "faculty": "faup",
-          "loadingAction": false,
-          "mainAction": [Function],
-          "videosEN": Object {},
-          "videosPT": Object {},
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      "type": "div",
+      "rendered": null,
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -218,26 +158,10 @@ ShallowWrapper {
 }
 `;
 
-exports[`Videos Screen tests calls componentDidUpdate without crashing 1`] = `
+exports[`Login screen  successfully handles submit 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Videos
-    editVideo={[Function]}
-    faculty="faup"
-    getVideos={[Function]}
-    loading={false}
-    loadingAction={false}
-    match={
-      Object {
-        "params": Object {
-          "faculty": "faup",
-        },
-      }
-    }
-    setFaculty={[Function]}
-    videosEN={Object {}}
-    videosPT={Object {}}
-  />,
+  Symbol(enzyme.__unrendered__): <Connect(Login) />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -249,73 +173,29 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
-      "children": <PromotionalVideo
-        faculty="faup"
-        loadingAction={false}
-        mainAction={[Function]}
-        videosEN={Object {}}
-        videosPT={Object {}}
-      />,
-      "style": Object {
-        "display": "flex",
-        "flexDirection": "row",
-      },
+      "authenticated": false,
+      "loading": false,
+      "login": [Function],
     },
     "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "faculty": "faup",
-        "loadingAction": false,
-        "mainAction": [Function],
-        "videosEN": Object {},
-        "videosPT": Object {},
-      },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
-    "type": "div",
+    "rendered": null,
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
-        "children": <PromotionalVideo
-          faculty="faup"
-          loadingAction={false}
-          mainAction={[Function]}
-          videosEN={Object {}}
-          videosPT={Object {}}
-        />,
-        "style": Object {
-          "display": "flex",
-          "flexDirection": "row",
-        },
+        "authenticated": false,
+        "loading": false,
+        "login": [Function],
       },
       "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "faculty": "faup",
-          "loadingAction": false,
-          "mainAction": [Function],
-          "videosEN": Object {},
-          "videosPT": Object {},
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      "type": "div",
+      "rendered": null,
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -349,26 +229,10 @@ ShallowWrapper {
 }
 `;
 
-exports[`Videos Screen tests renders loading screen 1`] = `
+exports[`Login screen  successfully handles submit 2`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Videos
-    editVideo={[Function]}
-    faculty="faup"
-    getVideos={[Function]}
-    loading={false}
-    loadingAction={false}
-    match={
-      Object {
-        "params": Object {
-          "faculty": "faup",
-        },
-      }
-    }
-    setFaculty={[Function]}
-    videosEN={Object {}}
-    videosPT={Object {}}
-  />,
+  Symbol(enzyme.__unrendered__): <Connect(Login) />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -380,73 +244,29 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
-      "children": <PromotionalVideo
-        faculty="faup"
-        loadingAction={false}
-        mainAction={[Function]}
-        videosEN={Object {}}
-        videosPT={Object {}}
-      />,
-      "style": Object {
-        "display": "flex",
-        "flexDirection": "row",
-      },
+      "authenticated": false,
+      "loading": false,
+      "login": [Function],
     },
     "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "faculty": "faup",
-        "loadingAction": false,
-        "mainAction": [Function],
-        "videosEN": Object {},
-        "videosPT": Object {},
-      },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
-    "type": "div",
+    "rendered": null,
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
-        "children": <PromotionalVideo
-          faculty="faup"
-          loadingAction={false}
-          mainAction={[Function]}
-          videosEN={Object {}}
-          videosPT={Object {}}
-        />,
-        "style": Object {
-          "display": "flex",
-          "flexDirection": "row",
-        },
+        "authenticated": false,
+        "loading": false,
+        "login": [Function],
       },
       "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "faculty": "faup",
-          "loadingAction": false,
-          "mainAction": [Function],
-          "videosEN": Object {},
-          "videosPT": Object {},
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      "type": "div",
+      "rendered": null,
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

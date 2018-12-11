@@ -104,7 +104,7 @@ export class FacultyController {
 
     await this.facultyRepository.updateById(id, faculty);
     return this.facultyRepository.findById(id, {
-      fields: {future_prospects: true},
+      fields: {language: true, future_prospects: true},
     });
   }
 
@@ -131,7 +131,7 @@ export class FacultyController {
 
     await this.facultyRepository.updateById(id, faculty);
     return this.facultyRepository.findById(id, {
-      fields: {videos: true},
+      fields: {language: true, videos: true},
     });
   }
 }

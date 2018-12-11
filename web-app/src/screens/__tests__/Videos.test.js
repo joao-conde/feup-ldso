@@ -47,20 +47,20 @@ function setup(videos) {
 describe('Videos Screen tests', () => {
 
     it('renders loading screen', () => {
-        const videos = [];
+        const videos = {};
         const wrapper = setup(videos);
         expect(wrapper.dive()).toMatchSnapshot();
     });
 
     it('calls componentDidMount without crashing', () => {
-        const projects = [];
+        const projects = {};
         const wrapper = setup(projects);
         wrapper.dive().instance().componentDidMount();
         expect(wrapper.dive()).toMatchSnapshot();
     });
 
     it('calls componentDidUpdate without crashing', () => {
-        const projects = [];
+        const projects = {};
         const wrapper = setup(projects);
 
         const prevProps = {
@@ -70,6 +70,5 @@ describe('Videos Screen tests', () => {
         wrapper.dive().instance().componentDidUpdate(prevProps);
         expect(wrapper.dive()).toMatchSnapshot();
     });
-    
+
 });
-    

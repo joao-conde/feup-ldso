@@ -110,6 +110,7 @@ describe('FacultyController', () => {
 
     it('updates the videos of a specific faculty (faup, english)', async () => {
       const newModel = {
+        language: 'en',
         videos: ['video1', 'video2', 'video3'],
       };
 
@@ -120,8 +121,12 @@ describe('FacultyController', () => {
         })
         .returns({id: 1});
 
-      updateById.withArgs(1, newModel);
-      findById.withArgs(1, {fields: {videos: true}}).returns(newModel);
+      updateById.withArgs(1, {
+        videos: ['video1', 'video2'],
+      });
+      findById
+        .withArgs(1, {fields: {language: true, videos: true}})
+        .returns(newModel);
 
       let result = await controller.patchVideos('en', 'faup', {
         videos: ['video1', 'video2'],
@@ -149,6 +154,7 @@ describe('FacultyController', () => {
 
     it('updates the future prospects of a specific faculty (faup, english)', async () => {
       const newModel = {
+        language: 'en',
         future_prospects: {
           content: 'New content',
           banner: 'banner.jpg',
@@ -164,7 +170,7 @@ describe('FacultyController', () => {
 
       updateById.withArgs(1, newModel);
       findById
-        .withArgs(1, {fields: {future_prospects: true}})
+        .withArgs(1, {fields: {language: true, future_prospects: true}})
         .returns(newModel);
 
       let result = await controller.patchFutureProspects('en', 'faup', {

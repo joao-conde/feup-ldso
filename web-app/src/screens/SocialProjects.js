@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { NotificationManager } from 'react-notifications';
 import Route from 'react-router-dom/Route';
-import { throttle } from 'throttle-debounce';
-import { deepEqual } from '../utils';
 import { setFaculty } from '../actions/facultyActions';
 import { getProjects, getProjectDetails, addProject, editProject, deleteProject, searchProjects } from '../actions/projectsActions';
 import Sidebar from '../components/Sidebar';
@@ -25,7 +23,7 @@ class SocialProjects extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        const { faculty, currProjEN, currProjPT, searchProjects, mapIds } = this.props;
+        const { faculty, searchProjects, mapIds } = this.props;
         const { query } = this.state;
 
         if (prevProps.faculty !== faculty)
@@ -36,12 +34,6 @@ class SocialProjects extends Component {
 
         if (Object.keys(prevProps.mapIds).length > Object.keys(mapIds).length)
             if (!global.__TEST__) NotificationManager.success('Successfully deleted project!');
-
-        if (currProjEN != null && currProjPT != null) {
-            if ((prevProps.currProjEN != null && prevProps.currProjEN.id === currProjEN.id && !deepEqual(prevProps.currProjEN, currProjEN)) ||
-                (prevProps.currProjPT != null && prevProps.currProjPT.id === currProjPT.id && !deepEqual(prevProps.currProjPT, currProjPT)))
-                if (!global.__TEST__) throttle(500, NotificationManager.success('Successfully edited project!'));
-        }
     }
 
     updateFaculty() {
