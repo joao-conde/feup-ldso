@@ -17,7 +17,6 @@
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "flexbox-react": "^4.4.0",
-    "nightmare": "^3.0.1",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-debounce-input": "^3.2.0",
