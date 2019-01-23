@@ -1,4 +1,4 @@
-# T3G1
+# Software Development Laboratory
 
 ## Social Impact Exhibit - 14 Faculties
 
@@ -9,14 +9,14 @@ Although there are somewhat similar apps (_e.g._ [Study UK Exhibitions](https://
 
 
 ### Team
--   André Miguel Ferreira da Cruz - __Scrum Master__
--   António Cunha Seco Fernandes de Almeida
--   Edgar Filipe Amorim Gomes Carneiro - __SPO__
--   João Dias Conde Azevedo
--   João Nuno Fonseca Seixas
--   João Paulo Madureira Damas
--   Luís Noites Martins
--   Mariana Lopes da Silva
+-   André Miguel Ferreira da Cruz [(@AndreFCruz)](https://github.com/AndreFCruz) - __Scrum Master__
+-   António Cunha Seco Fernandes de Almeida [(@antonioalmeida)](https://github.com/antonioalmeida)
+-   Edgar Filipe Amorim Gomes Carneiro [(@EdgarACarneiro)](https://github.com/EdgarACarneiro) - __SPO__
+-   João Dias Conde Azevedo [(@joao-conde)](https://github.com/joao-conde)
+-   João Nuno Fonseca Seixas [(@j-seixas)](https://github.com/j-seixas)
+-   João Paulo Madureira Damas [(@cyrilico)](https://github.com/cyrilico)
+-   Luís Noites Martins [(@luisnmartins)](https://github.com/luisnmartins)
+-   Mariana Lopes da Silva [(@marianasilva14)](https://github.com/marianasilva14)
 
 ## _Mobile App_ Development Environment Setup
 
